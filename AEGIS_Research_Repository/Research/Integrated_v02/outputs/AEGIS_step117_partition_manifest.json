@@ -1,0 +1,21 @@
+{
+  "models_retrained": false,
+  "original_training_code_executed": false,
+  "partition_certified": false,
+  "partition_checks": {
+    "Chronological partition independently certified": false,
+    "Embargo referenced": true,
+    "Order-date filtering referenced": true,
+    "Reserved test isolation independently certified": false,
+    "Training boundary referenced": true,
+    "Training matrix loaded": true,
+    "Validation boundary referenced": true
+  },
+  "predictions_generated": false,
+  "reserved_test_isolation_certified": false,
+  "source_notebook": "Version 2 Validation.ipynb",
+  "source_sha256": "715163eb49631dd60cc5f92e85961dcf877e1bd6929de4544dfc76ba5d8b3ef8",
+  "step": 117,
+  "training_features": 18,
+  "training_records": 6243
+}

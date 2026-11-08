@@ -1,0 +1,14 @@
+{
+  "candidate_supplier_histories": 80,
+  "counterfactual_validity_certified": false,
+  "creation_like_references": 2,
+  "dataset_partition_certified": false,
+  "feature_references_found": 91,
+  "historical_feature_provenance_certified": false,
+  "models_retrained": false,
+  "new_predictions_generated": false,
+  "original_features_modified": false,
+  "original_formula_certified": false,
+  "source_code_executed": false,
+  "step": 109
+}

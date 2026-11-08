@@ -1,0 +1,21 @@
+{
+  "corrected_feature_function": "clean_supplier_history_111",
+  "corrected_model_validated": false,
+  "corrected_window": "receipt_date >= decision_date - 90 days and receipt_date < decision_date",
+  "dataset_partition_certified": false,
+  "ml_sourcing_deployment_authorized": false,
+  "models_retrained": false,
+  "original_data_modified": false,
+  "original_feature_status": "POINT_IN_TIME_LEAKAGE_IDENTIFIED",
+  "original_generator_sha256": "fc5cadd745b00ab4b45700c5d11140c455a9db3feb440ed768a7c49f72beeb6c",
+  "original_history_label": "precomputed_eventual_late_receipt_flag",
+  "original_history_timestamp": "order_creation_date",
+  "predictions_generated": false,
+  "procurement_policies_modified": false,
+  "same_day_receipts": "excluded_without_intraday_timestamps",
+  "smoothing": {
+    "prior_late": 2,
+    "prior_total": 10
+  },
+  "step": 111
+}

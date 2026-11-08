@@ -1,0 +1,24 @@
+{
+  "additional_metadata_columns": [
+    "baseline_congestion",
+    "baseline_utilization",
+    "purchase_order_id"
+  ],
+  "candidate_records": 40000,
+  "changed_features": [
+    "capacity_utilization_at_order"
+  ],
+  "counterfactual_validity_certified": false,
+  "deterministic_comparison_passed": true,
+  "matrix_structural_compatibility": true,
+  "ml_sourcing_integration_authorized": false,
+  "model_features": 18,
+  "models_retrained": false,
+  "predictions_generated": false,
+  "provenance_certified": false,
+  "row_alignment_verified": true,
+  "scenario_source_columns": 21,
+  "source_matrices_modified": false,
+  "step": 101,
+  "unexpected_feature_changes": []
+}

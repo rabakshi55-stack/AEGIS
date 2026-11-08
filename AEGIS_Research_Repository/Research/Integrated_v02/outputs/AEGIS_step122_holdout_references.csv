@@ -1,0 +1,10 @@
+Cell,Line,Direct_Test_Data_Access,Possible_Test_Label_Use,Possible_Evaluation_Use,Source
+3,38,False,False,False,test_v02 = data[
+3,47,False,False,False,"(""Testing"", test_v02)"
+3,77,True,False,False,"test_v02[""purchase_order_id""]"
+3,89,False,False,False,len(test_v02)
+3,106,True,False,False,"test_v02[""actual_receipt_date""].max()"
+4,71,False,False,False,"(""Testing"", test_v02)"
+4,98,True,False,False,test_values = set(test_v02[col])
+4,104,False,False,False,"""| Unseen testing:"", len(test_values - train_values)"
+4,126,False,False,False,"(""Testing"", test_v02)"

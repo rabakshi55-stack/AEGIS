@@ -1,0 +1,9 @@
+Scenario_ID,Profile,Component,First_Date,Current_Orders,Feasible_Assignments,Minimum_Current_Shortage,Baseline_Cost,Decision_Stratum,Total_Orders,Decision_Dates,Required_Units
+normal__r01__CMP-004,normal,CMP-004,2027-01-02,2,3,0,80576.75,Multiple-choice,16,8,4917
+normal__r01__CMP-025,normal,CMP-025,2027-01-01,2,1,0,79451.25,Single-choice,16,12,5364
+scarcity_surge__r01__CMP-006,scarcity_surge,CMP-006,2027-01-01,2,4,0,16779.0,Multiple-choice,16,10,2112
+scarcity_surge__r02__CMP-015,scarcity_surge,CMP-015,2027-01-01,3,1,0,281521.3,Single-choice,16,9,7614
+capacity_crunch__r01__CMP-027,capacity_crunch,CMP-027,2027-01-02,1,2,0,99272.24999999999,Multiple-choice,16,9,10875
+capacity_crunch__r02__CMP-030,capacity_crunch,CMP-030,2027-01-02,3,1,0,103496.38,Single-choice,16,10,2659
+combined_shock__r02__CMP-011,combined_shock,CMP-011,2027-01-02,4,3,0,167343.0,Multiple-choice,16,8,8171
+combined_shock__r01__CMP-023,combined_shock,CMP-023,2027-01-01,2,1,0,14407.56,Single-choice,16,9,3119

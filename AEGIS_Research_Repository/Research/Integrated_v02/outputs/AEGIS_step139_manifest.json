@@ -1,0 +1,17 @@
+{
+  "capacity_ledger_rows": 120,
+  "copilot_recommendation_gate_enabled": true,
+  "decision_dates": 4,
+  "final_supplier_recommendation_certified": false,
+  "ledger_sha256": "93f6f6a94e993239fef5fffef6c4c01c3acf4c0f83464acbe3a827dc14bb7572",
+  "models_retrained": false,
+  "operational_feature_formula_certified": false,
+  "optimization_rerun": false,
+  "original_capacity_reconciled": true,
+  "policy_count": 6,
+  "reserved_test_accessed": false,
+  "same_day_external_first_assumption": true,
+  "sensitivity_sha256": "61231f2d42fcf423cbefeb941c742da74316470e6e5d4e2c3509b5d564bc15c3",
+  "step": 139,
+  "supplier_component_pairs": 5
+}

@@ -1,0 +1,206 @@
+{
+  "decision_at": "2026-11-07T09:00:00+05:30",
+  "currency": "USD",
+  "orders": [
+    {
+      "order_id": "O1",
+      "item_id": "A",
+      "plant_id": "PL",
+      "units": 3,
+      "required_by": "2026-11-09"
+    },
+    {
+      "order_id": "O2",
+      "item_id": "B",
+      "plant_id": "PL",
+      "units": 3,
+      "required_by": "2026-11-09"
+    }
+  ],
+  "resources": [
+    {
+      "resource_id": "A-S1",
+      "kind": "SUPPLIER_ITEM_DAY",
+      "owner_id": "S1|A",
+      "available_units": 5,
+      "already_committed_units": 0,
+      "date": "2026-11-08",
+      "recorded_at": "2026-11-07T09:00:00+05:30",
+      "valid_until": "2026-11-08T20:00:00+05:30"
+    },
+    {
+      "resource_id": "B-S1",
+      "kind": "SUPPLIER_ITEM_DAY",
+      "owner_id": "S1|B",
+      "available_units": 5,
+      "already_committed_units": 0,
+      "date": "2026-11-08",
+      "recorded_at": "2026-11-07T09:00:00+05:30",
+      "valid_until": "2026-11-08T20:00:00+05:30"
+    },
+    {
+      "resource_id": "A-S2",
+      "kind": "SUPPLIER_ITEM_DAY",
+      "owner_id": "S2|A",
+      "available_units": 5,
+      "already_committed_units": 0,
+      "date": "2026-11-08",
+      "recorded_at": "2026-11-07T09:00:00+05:30",
+      "valid_until": "2026-11-08T20:00:00+05:30"
+    },
+    {
+      "resource_id": "B-S2",
+      "kind": "SUPPLIER_ITEM_DAY",
+      "owner_id": "S2|B",
+      "available_units": 5,
+      "already_committed_units": 0,
+      "date": "2026-11-08",
+      "recorded_at": "2026-11-07T09:00:00+05:30",
+      "valid_until": "2026-11-08T20:00:00+05:30"
+    },
+    {
+      "resource_id": "ROUTE-S1",
+      "kind": "ROUTE_DAY",
+      "owner_id": "R1",
+      "available_units": 8,
+      "already_committed_units": 0,
+      "date": "2026-11-08",
+      "recorded_at": "2026-11-07T09:00:00+05:30",
+      "valid_until": "2026-11-08T20:00:00+05:30"
+    },
+    {
+      "resource_id": "ROUTE-S2",
+      "kind": "ROUTE_DAY",
+      "owner_id": "R2",
+      "available_units": 8,
+      "already_committed_units": 0,
+      "date": "2026-11-08",
+      "recorded_at": "2026-11-07T09:00:00+05:30",
+      "valid_until": "2026-11-08T20:00:00+05:30"
+    },
+    {
+      "resource_id": "SHARED-S1",
+      "kind": "SHARED_COMPONENT_POOL_DAY",
+      "owner_id": "production-line-1",
+      "available_units": 6,
+      "already_committed_units": 2,
+      "date": "2026-11-08",
+      "recorded_at": "2026-11-07T09:00:00+05:30",
+      "valid_until": "2026-11-08T20:00:00+05:30"
+    }
+  ],
+  "options": [
+    {
+      "option_id": "O1-S1",
+      "order_id": "O1",
+      "item_id": "A",
+      "plant_id": "PL",
+      "supplier_id": "S1",
+      "route_id": "R1",
+      "ship_date": "2026-11-08",
+      "arrival_date": "2026-11-09",
+      "eligible": true,
+      "route_eligible": true,
+      "currency": "USD",
+      "quote_recorded_at": "2026-11-07T09:00:00+05:30",
+      "quote_valid_until": "2026-11-08T20:00:00+05:30",
+      "cost_cents": 300,
+      "resource_requirements": [
+        {
+          "resource_id": "A-S1",
+          "units_per_order_unit": 1
+        },
+        {
+          "resource_id": "ROUTE-S1",
+          "units_per_order_unit": 1
+        },
+        {
+          "resource_id": "SHARED-S1",
+          "units_per_order_unit": 1
+        }
+      ]
+    },
+    {
+      "option_id": "O1-S2",
+      "order_id": "O1",
+      "item_id": "A",
+      "plant_id": "PL",
+      "supplier_id": "S2",
+      "route_id": "R2",
+      "ship_date": "2026-11-08",
+      "arrival_date": "2026-11-09",
+      "eligible": true,
+      "route_eligible": true,
+      "currency": "USD",
+      "quote_recorded_at": "2026-11-07T09:00:00+05:30",
+      "quote_valid_until": "2026-11-08T20:00:00+05:30",
+      "cost_cents": 500,
+      "resource_requirements": [
+        {
+          "resource_id": "A-S2",
+          "units_per_order_unit": 1
+        },
+        {
+          "resource_id": "ROUTE-S2",
+          "units_per_order_unit": 1
+        }
+      ]
+    },
+    {
+      "option_id": "O2-S1",
+      "order_id": "O2",
+      "item_id": "B",
+      "plant_id": "PL",
+      "supplier_id": "S1",
+      "route_id": "R1",
+      "ship_date": "2026-11-08",
+      "arrival_date": "2026-11-09",
+      "eligible": true,
+      "route_eligible": true,
+      "currency": "USD",
+      "quote_recorded_at": "2026-11-07T09:00:00+05:30",
+      "quote_valid_until": "2026-11-08T20:00:00+05:30",
+      "cost_cents": 300,
+      "resource_requirements": [
+        {
+          "resource_id": "B-S1",
+          "units_per_order_unit": 1
+        },
+        {
+          "resource_id": "ROUTE-S1",
+          "units_per_order_unit": 1
+        },
+        {
+          "resource_id": "SHARED-S1",
+          "units_per_order_unit": 1
+        }
+      ]
+    },
+    {
+      "option_id": "O2-S2",
+      "order_id": "O2",
+      "item_id": "B",
+      "plant_id": "PL",
+      "supplier_id": "S2",
+      "route_id": "R2",
+      "ship_date": "2026-11-08",
+      "arrival_date": "2026-11-09",
+      "eligible": true,
+      "route_eligible": true,
+      "currency": "USD",
+      "quote_recorded_at": "2026-11-07T09:00:00+05:30",
+      "quote_valid_until": "2026-11-08T20:00:00+05:30",
+      "cost_cents": 500,
+      "resource_requirements": [
+        {
+          "resource_id": "B-S2",
+          "units_per_order_unit": 1
+        },
+        {
+          "resource_id": "ROUTE-S2",
+          "units_per_order_unit": 1
+        }
+      ]
+    }
+  ]
+}

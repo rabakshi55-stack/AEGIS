@@ -1,0 +1,15 @@
+{
+  "candidate_metadata_reconciled": true,
+  "capacity_certified": false,
+  "chronological_capacity_certified": false,
+  "counterfactual_validity_certified": false,
+  "fully_constrained_milp_executed": false,
+  "models_retrained": false,
+  "moq_certified": false,
+  "orders": 16,
+  "original_sourcing_modified": false,
+  "reserved_test_accessed": false,
+  "step": 125,
+  "supplier_component_catalog_matched": true,
+  "supplier_options": 80
+}

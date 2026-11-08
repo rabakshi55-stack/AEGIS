@@ -1,0 +1,31 @@
+Category,Line,Source_Text
+Alert_Calls,71,"def published_alert(region,today):"
+Alert_Calls,136,"alert,level=published_alert(supplier_region[sid],today)"
+Historical_Demand,103,"history=last28[(pl,comp)]"
+Historical_Demand,105,forecast=(sum(history)+14*baseline)/(len(history)+14)
+Inventory_State,85,"stock={(pl,c):int(rng.integers(2500,6001)) for pl,c in combos}"
+Inventory_State,86,initial_stock=stock.copy()
+Inventory_State,89,onorder=defaultdict(int)
+Inventory_State,114,"inventory_position=stock[(pl,comp)]+onorder[(pl,comp)]"
+Inventory_State,115,"required=max(0,target-inventory_position)"
+Inventory_State,143,"urgent=int(stock[(pl,comp)] < forecast*max(7,shortest_lead/2))"
+Inventory_State,171,"'inventory_on_hand_at_order':stock[(pl,comp)],"
+Inventory_State,172,"'inventory_on_order_at_order':onorder[(pl,comp)],"
+Inventory_State,174,"'inventory_position_at_order':inventory_position,"
+Inventory_State,178,'replenishment_policy':'weekly_demand_inventory_position_v02'
+Inventory_State,182,"onorder[(pl,comp)]+=units"
+Inventory_State,189,stock[key]+=qty
+Inventory_State,190,onorder[key]-=qty
+Inventory_State,197,"used=min(stock[key],required)"
+Inventory_State,198,stock[key]-=used
+Inventory_State,222,assert current_stock==stock
+Inventory_State,223,assert all(onorder[key]>=0 for key in combos)
+Inventory_State,234,'inventory_position_at_order'}
+Capacity_Utilization,142,"utilization=capped(.48+load+.10*(today.year==2026)+float(rng.normal(0,.09)),.05,1.60)"
+Logistics_Congestion,138,congestion=capped(.27+.14*math.sin(day_of_year*math.pi*2/365.25)
+Order_Creation,159,order={
+Receipt_Queue,88,by_arrival=defaultdict(list) # actual_date -> list of created orders
+Receipt_Queue,181,by_arrival[received].append(order)
+Receipt_Queue,186,"for order in by_arrival.get(today,[]):"
+Supplier_History_Update,192,"historical[order['supplier_id']].append((today,order['late_receipt_flag']))"
+Alert_Publication_Date,73,if date.fromisoformat(e.alert_published_date)<=today<=date.fromisoformat(e.alert_published_date)+timedelta(days=10))

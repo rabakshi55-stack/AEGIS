@@ -1,0 +1,13 @@
+Policy,Date,Orders Received,Orders Served,Unserved Units,Landed Cost ($),Remaining Capacity
+Cost-Only,2025-07-07,4,4,0,439456.25,16097
+Cost-Only,2025-07-14,4,4,0,512750.5,12172
+Cost-Only,2025-07-21,4,4,0,561378.5,8297
+Cost-Only,2025-07-28,4,4,0,381144.5,5797
+Historical-Risk,2025-07-07,4,4,0,461040.5,16097
+Historical-Risk,2025-07-14,4,4,0,529688.0,12172
+Historical-Risk,2025-07-21,4,4,0,535310.25,8297
+Historical-Risk,2025-07-28,4,4,0,389239.25,5797
+ML-Risk,2025-07-07,4,4,0,439456.25,16097
+ML-Risk,2025-07-14,4,4,0,552494.0,12172
+ML-Risk,2025-07-21,4,4,0,535310.25,8297
+ML-Risk,2025-07-28,4,4,0,392904.5,5797

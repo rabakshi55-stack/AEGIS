@@ -1,0 +1,3 @@
+Feature,Changed_Rows,Changed_Pct,Mean_Change,Mean_Absolute_Change,Minimum_Change,Maximum_Change
+capacity_utilization_at_order,21000,52.5,-0.02125402943606374,0.0550364614142874,-0.17506631299734754,0.24137931034482768
+logistics_congestion_at_order,0,0.0,0.0,0.0,0.0,0.0

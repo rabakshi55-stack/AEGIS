@@ -1,0 +1,15 @@
+Date,Policy,Orders,Orders_Served,Unserved_Units,Procurement_Cost_USD,Remaining_Units,Feasible_First_Stage_Assignments,Mean_Hypothetical_Future_Shortage,Daily_Minimum_Current_Cost,Daily_Cost_Ceiling
+2027-01-03,Cost-Only,4,4,0,88029.76,8126,,,,
+2027-01-03,Refreshed-Stochastic,4,4,0,88592.52,8126,16.0,0.0,88029.76,88910.0676
+2027-01-08,Cost-Only,2,2,0,54918.5,7601,,,,
+2027-01-08,Refreshed-Stochastic,2,2,0,54918.5,7601,2.0,0.0,54918.5,55467.695
+2027-01-09,Cost-Only,1,1,0,58036.0,7051,,,,
+2027-01-09,Refreshed-Stochastic,1,1,0,57183.5,7051,1.0,0.0,57183.5,57755.345
+2027-01-10,Cost-Only,1,1,0,31764.0,6751,,,,
+2027-01-10,Refreshed-Stochastic,1,1,0,31842.0,6751,2.0,0.0,31764.0,32081.649999999998
+2027-01-16,Cost-Only,4,4,0,85174.98999999999,6024,,,,
+2027-01-16,Refreshed-Stochastic,4,4,0,85174.98999999999,6024,5.0,0.0,84587.98999999999,85433.87989999999
+2027-01-23,Cost-Only,1,1,0,23915.5,5849,,,,
+2027-01-23,Refreshed-Stochastic,1,1,0,18268.25,5849,1.0,0.0,18268.25,18450.942499999997
+2027-01-24,Cost-Only,3,3,0,123697.0,4674,,,,
+2027-01-24,Refreshed-Stochastic,3,3,0,122894.5,4674,1.0,0.0,122894.5,124123.455

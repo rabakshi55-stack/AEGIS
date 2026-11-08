@@ -1,0 +1,45 @@
+0088: by_arrival=defaultdict(list) # actual_date -> list of created orders
+0089: onorder=defaultdict(int)
+0090: monthly_booking=defaultdict(int) # (supplier, component, order_month) for capacity restriction
+0091: historical=defaultdict(list) # completed supplier orders by date
+0092: orders=[]; today_id=0
+0109:                                   + 1.30*float(x.promised_lead_days)
+0110:                                   - 50.0*float(supplier.loc[supplier.supplier_id==x.supplier_id,'contract_on_time_target'].iloc[0])))
+0111:             shortest_lead=min(int(o.promised_lead_days)+int(lane_ref[(o.supplier_id,pl)].transit_days) for o in possible)
+0112:             planning_horizon=shortest_lead+14
+0113:             target=int(math.ceil(forecast*planning_horizon))
+0114:             inventory_position=stock[(pl,comp)]+onorder[(pl,comp)]
+0115:             required=max(0,target-inventory_position)
+0116:             # Disclosed synthetic qualification-rotation policy: rotate the 5 approved
+0117:             # suppliers across weeks, to represent contractual diversification.
+0118:             # This is a baseline operating policy, NOT the proposed AEGIS optimizer.
+0119:             rotation=(i//7 + components.index(comp)) % len(ranked)
+0120:             suppliers_to_try=ranked[rotation:]+ranked[:rotation]
+0121:             for option in suppliers_to_try:
+0122:                 if required<=0:break
+0123:                 sid=option.supplier_id
+0124:                 cap_key=(sid,comp,curr_month)
+0125:                 capacity_available=max(0,int(option.monthly_capacity_units)-monthly_booking[cap_key])
+0126:                 # Prefer not to create order if the remaining quantity is smaller than MOQ.
+0127:                 moq=int(option.minimum_order_qty)
+0128:                 if capacity_available <moq:continue
+0129:                 units=int(math.ceil(required / 25)*25)
+0130:                 units=max(units,moq)
+0131:                 units=min(units,capacity_available)
+0132:                 if units <moq:continue
+0133:                 lane=lane_ref[(sid,pl)]
+0134:                 promised_lead=int(option.promised_lead_days)+int(lane.transit_days)
+0135:                 due=today+timedelta(days=promised_lead)
+0136:                 alert,level=published_alert(supplier_region[sid],today)
+0139:                      +float(rng.normal(0,.085))+.12*alert+(0.10 if today.year==2026 else 0),.01,1.)
+0140:                 # Supplier commitment load is observable at creation, not generated using future outcomes.
+0141:                 load=monthly_booking[cap_key]/int(option.monthly_capacity_units)
+0142:                 utilization=capped(.48+load+.10*(today.year==2026)+float(rng.normal(0,.09)),.05,1.60)
+0143:                 urgent=int(stock[(pl,comp)] < forecast*max(7,shortest_lead/2))
+0144:                 # Hidden outcome driver, NEVER part of order-time features.
+0145:                 shock=future_shock(supplier_region[sid],due)
+0181:                 by_arrival[received].append(order)
+0182:                 onorder[(pl,comp)]+=units
+0183:                 monthly_booking[cap_key]+=units
+0184:                 required=max(0,required-units)
+0185:     # process receipts observed today, after orders for the day are placed

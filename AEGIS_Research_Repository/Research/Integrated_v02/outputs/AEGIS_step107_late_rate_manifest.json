@@ -1,0 +1,14 @@
+{
+  "any_definition_fully_matches": false,
+  "counterfactual_validity_certified": false,
+  "historical_rate_provenance_certified": false,
+  "historical_supplier_candidates": 80,
+  "ml_sourcing_integration_authorized": false,
+  "models_retrained": false,
+  "original_features_modified": false,
+  "predictions_generated": false,
+  "rate_definitions_evaluated": 3,
+  "receipt_window_count_matches": 80,
+  "step": 107,
+  "total_rate_comparisons": 240
+}

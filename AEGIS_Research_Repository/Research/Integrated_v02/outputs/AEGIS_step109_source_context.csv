@@ -1,0 +1,1093 @@
+File,Cell,Line,Context
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\generate_v02.py,SCRIPT,168,"                    'quoted_unit_cost_usd':float(option.quoted_unit_cost_usd),
+                    'promised_lead_days':promised_lead,'promised_receipt_date':toiso(due),
+                    'urgent_order_flag':urgent,'regional_alert_available_at_order':alert,
+                    'regional_alert_level_at_order':level,'capacity_utilization_at_order':round(utilization,4),
+                    'logistics_congestion_at_order':round(congestion,4),
+                    'supplier_completed_orders_past_90d':hist_count,
+                    'supplier_late_rate_past_90d':hist_rate,
+                    'forecast_daily_requirements_at_order':round(forecast,3),
+                    'inventory_on_hand_at_order':stock[(pl,comp)],
+                    'inventory_on_order_at_order':onorder[(pl,comp)],
+                    'reorder_target_units_at_order':target,
+                    'inventory_position_at_order':inventory_position,"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\generate_v02.py,SCRIPT,169,"                    'promised_lead_days':promised_lead,'promised_receipt_date':toiso(due),
+                    'urgent_order_flag':urgent,'regional_alert_available_at_order':alert,
+                    'regional_alert_level_at_order':level,'capacity_utilization_at_order':round(utilization,4),
+                    'logistics_congestion_at_order':round(congestion,4),
+                    'supplier_completed_orders_past_90d':hist_count,
+                    'supplier_late_rate_past_90d':hist_rate,
+                    'forecast_daily_requirements_at_order':round(forecast,3),
+                    'inventory_on_hand_at_order':stock[(pl,comp)],
+                    'inventory_on_order_at_order':onorder[(pl,comp)],
+                    'reorder_target_units_at_order':target,
+                    'inventory_position_at_order':inventory_position,
+                    'actual_receipt_date':toiso(received),"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\verify_v02.py,SCRIPT,70,"        day=np.datetime64(o.order_date)
+        l=int(np.searchsorted(completed,day-np.timedelta64(90,'D'),'left'))
+        r=int(np.searchsorted(completed,day,'left'))
+        expected_n=r-l
+        expected_rate=round((int(prefix[r]-prefix[l])+2)/(expected_n+10),4)
+        if expected_n!=o.supplier_completed_orders_past_90d or abs(expected_rate-o.supplier_late_rate_past_90d)>1e-8:
+            mismatches+=1
+assert mismatches==0, f'Historical point-in-time mismatches: {mismatches}'
+print('PASS: Independent point-in-time supplier history reconstruction for all orders')
+
+# Receipts: inventory ledger must equal realized PO arrivals (not order-month quantities).
+received=orders.loc[orders.actual_receipt_date<=pd.Timestamp('2026-06-30')].copy()"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_4,27,"    ""urgent_order_flag"",
+    ""regional_alert_available_at_order"",
+    ""regional_alert_level_at_order"",
+    ""capacity_utilization_at_order"",
+    ""logistics_congestion_at_order"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d"",
+    ""forecast_daily_requirements_at_order"",
+    ""inventory_on_hand_at_order"",
+    ""inventory_on_order_at_order"",
+    ""reorder_target_units_at_order"",
+    ""inventory_position_at_order"""
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_4,28,"    ""regional_alert_available_at_order"",
+    ""regional_alert_level_at_order"",
+    ""capacity_utilization_at_order"",
+    ""logistics_congestion_at_order"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d"",
+    ""forecast_daily_requirements_at_order"",
+    ""inventory_on_hand_at_order"",
+    ""inventory_on_order_at_order"",
+    ""reorder_target_units_at_order"",
+    ""inventory_position_at_order""
+]"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_18,28,"]].merge(
+    batch[[
+        ""purchase_order_id"",
+        ""order_date"",
+        ""supplier_id"",
+        ""supplier_completed_orders_past_90d"",
+        ""supplier_late_rate_past_90d""
+    ]],
+    on=""purchase_order_id"",
+    how=""left"",
+    validate=""many_to_one"",
+    suffixes=(""_candidate"", ""_original"")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_18,29,"    batch[[
+        ""purchase_order_id"",
+        ""order_date"",
+        ""supplier_id"",
+        ""supplier_completed_orders_past_90d"",
+        ""supplier_late_rate_past_90d""
+    ]],
+    on=""purchase_order_id"",
+    how=""left"",
+    validate=""many_to_one"",
+    suffixes=(""_candidate"", ""_original"")
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_18,86,"    risk_candidates[""supplier_id_original""]
+].copy()
+
+count_mismatches = (
+    original_choices[""candidate_history_count""] !=
+    original_choices[""supplier_completed_orders_past_90d""]
+).sum()
+
+rate_mismatches = (
+    original_choices[""candidate_history_late_rate""] !=
+    original_choices[""supplier_late_rate_past_90d""]
+).sum()"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_18,91,"    original_choices[""supplier_completed_orders_past_90d""]
+).sum()
+
+rate_mismatches = (
+    original_choices[""candidate_history_late_rate""] !=
+    original_choices[""supplier_late_rate_past_90d""]
+).sum()
+
+print(""\n2. ORIGINAL SUPPLIER RECONCILIATION"")
+print(""Original supplier records:"", len(original_choices))
+print(""Historical count mismatches:"", count_mismatches)
+print(""Historical late-rate mismatches:"", rate_mismatches)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_18,106,"assert rate_mismatches == 0
+
+# 5. Compare candidate risk against original supplier
+risk_candidates[""historical_risk_difference""] = (
+    risk_candidates[""candidate_history_late_rate""] -
+    risk_candidates[""supplier_late_rate_past_90d""]
+)
+
+print(""\n3. ALTERNATIVE RISK COMPARISON"")
+
+print(
+    ""Combinations with lower historical risk:"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_24,80,"    ""candidate_alert"":
+        ""regional_alert_available_at_order"",
+    ""candidate_alert_level"":
+        ""regional_alert_level_at_order"",
+    ""candidate_history_count"":
+        ""supplier_completed_orders_past_90d"",
+    ""candidate_history_late_rate"":
+        ""supplier_late_rate_past_90d""
+})
+
+uncertain_features = [
+    ""capacity_utilization_at_order"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_24,82,"    ""candidate_alert_level"":
+        ""regional_alert_level_at_order"",
+    ""candidate_history_count"":
+        ""supplier_completed_orders_past_90d"",
+    ""candidate_history_late_rate"":
+        ""supplier_late_rate_past_90d""
+})
+
+uncertain_features = [
+    ""capacity_utilization_at_order"",
+    ""logistics_congestion_at_order""
+]"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_92,21,"    ""quoted_unit_cost_usd"",
+    ""promised_lead_days"",
+    ""urgent_order_flag"",
+    ""regional_alert_available_at_order"",
+    ""regional_alert_level_at_order"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d"",
+    ""forecast_daily_requirements_at_order"",
+    ""inventory_on_hand_at_order"",
+    ""inventory_on_order_at_order"",
+    ""reorder_target_units_at_order"",
+    ""inventory_position_at_order"""
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_92,22,"    ""promised_lead_days"",
+    ""urgent_order_flag"",
+    ""regional_alert_available_at_order"",
+    ""regional_alert_level_at_order"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d"",
+    ""forecast_daily_requirements_at_order"",
+    ""inventory_on_hand_at_order"",
+    ""inventory_on_order_at_order"",
+    ""reorder_target_units_at_order"",
+    ""inventory_position_at_order""
+}"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_94,440,"# ============================================================
+# 8. DOCUMENT ALL 18 FEATURE PROVENANCE REQUIREMENTS
+# ============================================================
+
+historical_features_101 = {
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+}
+
+inventory_features_101 = {
+    ""forecast_daily_requirements_at_order"",
+    ""inventory_on_hand_at_order"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_94,441,"# 8. DOCUMENT ALL 18 FEATURE PROVENANCE REQUIREMENTS
+# ============================================================
+
+historical_features_101 = {
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+}
+
+inventory_features_101 = {
+    ""forecast_daily_requirements_at_order"",
+    ""inventory_on_hand_at_order"",
+    ""inventory_on_order_at_order"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_95,117,"# 4. Check supplier-specific historical signals
+
+supplier_features_102 = [
+    ""quoted_unit_cost_usd"",
+    ""promised_lead_days"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]
+
+supplier_rows_102 = []
+
+for feature in supplier_features_102:"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_95,118,"
+supplier_features_102 = [
+    ""quoted_unit_cost_usd"",
+    ""promised_lead_days"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]
+
+supplier_rows_102 = []
+
+for feature in supplier_features_102:
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_96,47,"print(""Draws per candidate:"", 500)
+
+# 3. Audit supplier historical statistics
+
+history_features_103 = [
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]
+
+for feature in history_features_103:
+    assert feature in pair_103.columns
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_96,48,"
+# 3. Audit supplier historical statistics
+
+history_features_103 = [
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]
+
+for feature in history_features_103:
+    assert feature in pair_103.columns
+
+counts_103 = pd.to_numeric("
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_96,55,"
+for feature in history_features_103:
+    assert feature in pair_103.columns
+
+counts_103 = pd.to_numeric(
+    pair_103[""supplier_completed_orders_past_90d""],
+    errors=""coerce""
+)
+
+rates_103 = pd.to_numeric(
+    pair_103[""supplier_late_rate_past_90d""],
+    errors=""coerce"""
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_96,60,"    pair_103[""supplier_completed_orders_past_90d""],
+    errors=""coerce""
+)
+
+rates_103 = pd.to_numeric(
+    pair_103[""supplier_late_rate_past_90d""],
+    errors=""coerce""
+)
+
+assert counts_103.notna().all()
+assert rates_103.notna().all()
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_96,79,"supplier_summary_103 = (
+    pair_103.groupby(""supplier_id"")
+    .agg(
+        Candidate_Orders=(""purchase_order_id"", ""nunique""),
+        Minimum_Past_Orders=(
+            ""supplier_completed_orders_past_90d"", ""min""
+        ),
+        Maximum_Past_Orders=(
+            ""supplier_completed_orders_past_90d"", ""max""
+        ),
+        Minimum_Late_Rate=(
+            ""supplier_late_rate_past_90d"", ""min"""
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_96,82,"        Candidate_Orders=(""purchase_order_id"", ""nunique""),
+        Minimum_Past_Orders=(
+            ""supplier_completed_orders_past_90d"", ""min""
+        ),
+        Maximum_Past_Orders=(
+            ""supplier_completed_orders_past_90d"", ""max""
+        ),
+        Minimum_Late_Rate=(
+            ""supplier_late_rate_past_90d"", ""min""
+        ),
+        Maximum_Late_Rate=(
+            ""supplier_late_rate_past_90d"", ""max"""
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_96,85,"        ),
+        Maximum_Past_Orders=(
+            ""supplier_completed_orders_past_90d"", ""max""
+        ),
+        Minimum_Late_Rate=(
+            ""supplier_late_rate_past_90d"", ""min""
+        ),
+        Maximum_Late_Rate=(
+            ""supplier_late_rate_past_90d"", ""max""
+        )
+    )
+    .reset_index()"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_96,88,"        ),
+        Minimum_Late_Rate=(
+            ""supplier_late_rate_past_90d"", ""min""
+        ),
+        Maximum_Late_Rate=(
+            ""supplier_late_rate_past_90d"", ""max""
+        )
+    )
+    .reset_index()
+)
+
+print(""\n2. SUPPLIER HISTORY INTERNAL CONSISTENCY"")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_97,92,"patterns_104 = {
+    ""Candidate_Construction"":
+        r""scenario_features|X_dynamic"",
+
+    ""Supplier_History"":
+        r""supplier_completed_orders_past_90d|""
+        r""supplier_late_rate_past_90d"",
+
+    ""Operational_Features"":
+        r""capacity_utilization_at_order|""
+        r""logistics_congestion_at_order"",
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_97,93,"    ""Candidate_Construction"":
+        r""scenario_features|X_dynamic"",
+
+    ""Supplier_History"":
+        r""supplier_completed_orders_past_90d|""
+        r""supplier_late_rate_past_90d"",
+
+    ""Operational_Features"":
+        r""capacity_utilization_at_order|""
+        r""logistics_congestion_at_order"",
+
+    ""Baseline_State"":"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_97,165,"# Read-only inspection of source text.
+# Nothing in these cells is executed.
+
+focus_104 = re.compile(
+    r""scenario_features|X_dynamic|""
+    r""supplier_completed_orders_past_90d|""
+    r""supplier_late_rate_past_90d|""
+    r""capacity_utilization_at_order|""
+    r""logistics_congestion_at_order|""
+    r""baseline_utilization|baseline_congestion|""
+    r""rng|random|residual|draw_id|simulation_id|""
+    r""order_date|rolling\(|shift\("","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_97,166,"# Nothing in these cells is executed.
+
+focus_104 = re.compile(
+    r""scenario_features|X_dynamic|""
+    r""supplier_completed_orders_past_90d|""
+    r""supplier_late_rate_past_90d|""
+    r""capacity_utilization_at_order|""
+    r""logistics_congestion_at_order|""
+    r""baseline_utilization|baseline_congestion|""
+    r""rng|random|residual|draw_id|simulation_id|""
+    r""order_date|rolling\(|shift\("",
+    re.IGNORECASE"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_97,232,"earliest_generator_104 = min(
+    source_cells_104.keys()
+)
+
+history_pattern_104 = re.compile(
+    r""supplier_completed_orders_past_90d|""
+    r""supplier_late_rate_past_90d""
+)
+
+upstream_rows_104 = []
+
+for number in range(1, earliest_generator_104):"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_97,233,"    source_cells_104.keys()
+)
+
+history_pattern_104 = re.compile(
+    r""supplier_completed_orders_past_90d|""
+    r""supplier_late_rate_past_90d""
+)
+
+upstream_rows_104 = []
+
+for number in range(1, earliest_generator_104):
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_99,32,"    out_104,
+    ""AEGIS_step104_source_audit_manifest.json""
+).is_file()
+
+history_features_105 = [
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]
+
+candidate_keys_105 = [
+    ""purchase_order_id"",
+    ""supplier_id"""
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_99,33,"    ""AEGIS_step104_source_audit_manifest.json""
+).is_file()
+
+history_features_105 = [
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]
+
+candidate_keys_105 = [
+    ""purchase_order_id"",
+    ""supplier_id""
+]"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_99,206,"
+original_105 = globals().get(""all_orders"")
+
+comparison_105 = pd.DataFrame(
+    columns=candidate_keys_105 + [
+        ""supplier_completed_orders_past_90d_Matches"",
+        ""supplier_late_rate_past_90d_Matches""
+    ]
+)
+
+original_coverage_105 = 0
+original_mismatch_105 = None"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_99,207,"original_105 = globals().get(""all_orders"")
+
+comparison_105 = pd.DataFrame(
+    columns=candidate_keys_105 + [
+        ""supplier_completed_orders_past_90d_Matches"",
+        ""supplier_late_rate_past_90d_Matches""
+    ]
+)
+
+original_coverage_105 = 0
+original_mismatch_105 = None
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_99,344,"        ""History_Cell""
+    ].dropna().tolist()
+})
+
+pattern_105 = re.compile(
+    r""supplier_completed_orders_past_90d|""
+    r""supplier_late_rate_past_90d"",
+    re.IGNORECASE
+)
+
+matched_lines_105 = []
+context_lines_105 = []"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_99,345,"    ].dropna().tolist()
+})
+
+pattern_105 = re.compile(
+    r""supplier_completed_orders_past_90d|""
+    r""supplier_late_rate_past_90d"",
+    re.IGNORECASE
+)
+
+matched_lines_105 = []
+context_lines_105 = []
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_100,27,"    ""purchase_order_id"",
+    ""supplier_id"",
+    ""order_date"",
+    ""actual_receipt_date"",
+    ""late_receipt_flag"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]
+
+missing_106 = sorted(
+    set(required_106) - set(all_orders.columns)
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_100,28,"    ""supplier_id"",
+    ""order_date"",
+    ""actual_receipt_date"",
+    ""late_receipt_flag"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]
+
+missing_106 = sorted(
+    set(required_106) - set(all_orders.columns)
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_100,141,"
+candidate_106 = candidates_105[[
+    ""purchase_order_id"",
+    ""supplier_id"",
+    ""Order_Date"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]].copy()
+
+candidate_106[""purchase_order_id""] = (
+    candidate_106[""purchase_order_id""].astype(str)
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_100,142,"candidate_106 = candidates_105[[
+    ""purchase_order_id"",
+    ""supplier_id"",
+    ""Order_Date"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]].copy()
+
+candidate_106[""purchase_order_id""] = (
+    candidate_106[""purchase_order_id""].astype(str)
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_100,228,"            if count > 0 and valid_count == count
+            else np.nan
+        )
+
+        recorded_count = float(
+            candidate.supplier_completed_orders_past_90d
+        )
+
+        recorded_rate = float(
+            candidate.supplier_late_rate_past_90d
+        )
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_100,232,"        recorded_count = float(
+            candidate.supplier_completed_orders_past_90d
+        )
+
+        recorded_rate = float(
+            candidate.supplier_late_rate_past_90d
+        )
+
+        count_matches = bool(
+            np.isclose(
+                count,
+                recorded_count,"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_101,194,"
+candidate_107 = candidates_105[[
+    ""purchase_order_id"",
+    ""supplier_id"",
+    ""Order_Date"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]].copy()
+
+candidate_107[""purchase_order_id""] = (
+    candidate_107[""purchase_order_id""].astype(str)
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_101,195,"candidate_107 = candidates_105[[
+    ""purchase_order_id"",
+    ""supplier_id"",
+    ""Order_Date"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]].copy()
+
+candidate_107[""purchase_order_id""] = (
+    candidate_107[""purchase_order_id""].astype(str)
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_101,243,"    ]
+
+    count = int(len(eligible))
+
+    recorded_count = int(
+        candidate.supplier_completed_orders_past_90d
+    )
+
+    recorded_rate = float(
+        candidate.supplier_late_rate_past_90d
+    )
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_101,247,"    recorded_count = int(
+        candidate.supplier_completed_orders_past_90d
+    )
+
+    recorded_rate = float(
+        candidate.supplier_late_rate_past_90d
+    )
+
+    assert count == recorded_count, (
+        ""Step 106 receipt-window count failed ""
+        f""for {candidate.purchase_order_id}, ""
+        f""{candidate.supplier_id}"""
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_101,366,"# to an integer, allowing for four-decimal rounding.
+
+implied_107 = candidate_107.copy()
+
+implied_107[""Implied_Late_Orders""] = (
+    implied_107[""supplier_late_rate_past_90d""]
+    *
+    implied_107[""supplier_completed_orders_past_90d""]
+)
+
+implied_107[""Nearest_Integer""] = np.round(
+    implied_107[""Implied_Late_Orders""]"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_101,368,"implied_107 = candidate_107.copy()
+
+implied_107[""Implied_Late_Orders""] = (
+    implied_107[""supplier_late_rate_past_90d""]
+    *
+    implied_107[""supplier_completed_orders_past_90d""]
+)
+
+implied_107[""Nearest_Integer""] = np.round(
+    implied_107[""Implied_Late_Orders""]
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_101,382,"    -
+    implied_107[""Nearest_Integer""]
+).abs()
+
+implied_107[""Rounding_Tolerance""] = (
+    implied_107[""supplier_completed_orders_past_90d""]
+    * 0.00005
+    + 1e-8
+)
+
+implied_107[""Simple_Proportion_Compatible""] = (
+    implied_107[""Distance_From_Integer""]"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_101,416,"    implied_107.nlargest(
+        10, ""Distance_From_Integer""
+    )[[
+        ""purchase_order_id"",
+        ""supplier_id"",
+        ""supplier_completed_orders_past_90d"",
+        ""supplier_late_rate_past_90d"",
+        ""Implied_Late_Orders"",
+        ""Distance_From_Integer""
+    ]].round(5).to_string(index=False)
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_101,417,"        10, ""Distance_From_Integer""
+    )[[
+        ""purchase_order_id"",
+        ""supplier_id"",
+        ""supplier_completed_orders_past_90d"",
+        ""supplier_late_rate_past_90d"",
+        ""Implied_Late_Orders"",
+        ""Distance_From_Integer""
+    ]].round(5).to_string(index=False)
+)
+
+# ============================================================"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_102,48,"
+candidate_108 = candidates_105[[
+    ""purchase_order_id"",
+    ""supplier_id"",
+    ""Order_Date"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]].copy()
+
+candidate_108[""Order_Date""] = pd.to_datetime(
+    candidate_108[""Order_Date""]
+).dt.normalize()"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_102,49,"candidate_108 = candidates_105[[
+    ""purchase_order_id"",
+    ""supplier_id"",
+    ""Order_Date"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]].copy()
+
+candidate_108[""Order_Date""] = pd.to_datetime(
+    candidate_108[""Order_Date""]
+).dt.normalize()
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_102,66,"    .agg(
+        Candidate_Orders=(
+            ""purchase_order_id"", ""nunique""
+        ),
+        Distinct_Counts=(
+            ""supplier_completed_orders_past_90d"",
+            ""nunique""
+        ),
+        Distinct_Late_Rates=(
+            ""supplier_late_rate_past_90d"",
+            ""nunique""
+        ),"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_102,70,"        Distinct_Counts=(
+            ""supplier_completed_orders_past_90d"",
+            ""nunique""
+        ),
+        Distinct_Late_Rates=(
+            ""supplier_late_rate_past_90d"",
+            ""nunique""
+        ),
+        Minimum_Late_Rate=(
+            ""supplier_late_rate_past_90d"",
+            ""min""
+        ),"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_102,74,"        Distinct_Late_Rates=(
+            ""supplier_late_rate_past_90d"",
+            ""nunique""
+        ),
+        Minimum_Late_Rate=(
+            ""supplier_late_rate_past_90d"",
+            ""min""
+        ),
+        Maximum_Late_Rate=(
+            ""supplier_late_rate_past_90d"",
+            ""max""
+        )"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_102,78,"        Minimum_Late_Rate=(
+            ""supplier_late_rate_past_90d"",
+            ""min""
+        ),
+        Maximum_Late_Rate=(
+            ""supplier_late_rate_past_90d"",
+            ""max""
+        )
+    )
+)
+
+supplier_date_108[""Count_Varies""] = ("
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_102,182,"first_generator_108 = min(
+    int(n) for n in cell_numbers_104
+)
+
+feature_pattern_108 = re.compile(
+    r""supplier_late_rate_past_90d|""
+    r""supplier_completed_orders_past_90d"",
+    re.IGNORECASE
+)
+
+assignment_pattern_108 = re.compile(
+    r""\[\s*['\""]"""
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_102,183,"    int(n) for n in cell_numbers_104
+)
+
+feature_pattern_108 = re.compile(
+    r""supplier_late_rate_past_90d|""
+    r""supplier_completed_orders_past_90d"",
+    re.IGNORECASE
+)
+
+assignment_pattern_108 = re.compile(
+    r""\[\s*['\""]""
+    r""(supplier_late_rate_past_90d|"""
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_102,189,"    re.IGNORECASE
+)
+
+assignment_pattern_108 = re.compile(
+    r""\[\s*['\""]""
+    r""(supplier_late_rate_past_90d|""
+    r""supplier_completed_orders_past_90d)""
+    r""['\""]\s*\]\s*=|""
+    r""\b(supplier_late_rate_past_90d|""
+    r""supplier_completed_orders_past_90d)""
+    r""\s*="",
+    re.IGNORECASE"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_102,190,")
+
+assignment_pattern_108 = re.compile(
+    r""\[\s*['\""]""
+    r""(supplier_late_rate_past_90d|""
+    r""supplier_completed_orders_past_90d)""
+    r""['\""]\s*\]\s*=|""
+    r""\b(supplier_late_rate_past_90d|""
+    r""supplier_completed_orders_past_90d)""
+    r""\s*="",
+    re.IGNORECASE
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_102,192,"assignment_pattern_108 = re.compile(
+    r""\[\s*['\""]""
+    r""(supplier_late_rate_past_90d|""
+    r""supplier_completed_orders_past_90d)""
+    r""['\""]\s*\]\s*=|""
+    r""\b(supplier_late_rate_past_90d|""
+    r""supplier_completed_orders_past_90d)""
+    r""\s*="",
+    re.IGNORECASE
+)
+
+references_108 = []"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_102,193,"    r""\[\s*['\""]""
+    r""(supplier_late_rate_past_90d|""
+    r""supplier_completed_orders_past_90d)""
+    r""['\""]\s*\]\s*=|""
+    r""\b(supplier_late_rate_past_90d|""
+    r""supplier_completed_orders_past_90d)""
+    r""\s*="",
+    re.IGNORECASE
+)
+
+references_108 = []
+contexts_108 = []"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_103,119,"# ============================================================
+# 3. IDENTIFY HISTORICAL FEATURE REFERENCES
+# ============================================================
+
+feature_pattern_109 = re.compile(
+    r""supplier_late_rate_past_90d|""
+    r""supplier_completed_orders_past_90d"",
+    re.IGNORECASE
+)
+
+creation_pattern_109 = re.compile(
+    r""""""(?:\[\s*['""]supplier_(?:late_rate|completed_orders)_past_90d['""]\s*\]\s*=)|(?:['""]supplier_(?:late_rate|completed_orders)_past_90d['""]\s*:)"""""","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_103,120,"# 3. IDENTIFY HISTORICAL FEATURE REFERENCES
+# ============================================================
+
+feature_pattern_109 = re.compile(
+    r""supplier_late_rate_past_90d|""
+    r""supplier_completed_orders_past_90d"",
+    re.IGNORECASE
+)
+
+creation_pattern_109 = re.compile(
+    r""""""(?:\[\s*['""]supplier_(?:late_rate|completed_orders)_past_90d['""]\s*\]\s*=)|(?:['""]supplier_(?:late_rate|completed_orders)_past_90d['""]\s*:)"""""",
+    re.IGNORECASE"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_106,55,"
+candidate_data_112 = candidates_105[[
+    ""purchase_order_id"",
+    ""supplier_id"",
+    ""Order_Date"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]].copy()
+
+candidate_data_112[""Order_Date""] = pd.to_datetime(
+    candidate_data_112[""Order_Date""]
+).dt.normalize()"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_106,56,"candidate_data_112 = candidates_105[[
+    ""purchase_order_id"",
+    ""supplier_id"",
+    ""Order_Date"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]].copy()
+
+candidate_data_112[""Order_Date""] = pd.to_datetime(
+    candidate_data_112[""Order_Date""]
+).dt.normalize()
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_106,82,"        prior_late=2,
+        prior_total=10
+    )
+
+    original_count = int(
+        candidate.supplier_completed_orders_past_90d
+    )
+
+    original_rate = float(
+        candidate.supplier_late_rate_past_90d
+    )
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_106,86,"    original_count = int(
+        candidate.supplier_completed_orders_past_90d
+    )
+
+    original_rate = float(
+        candidate.supplier_late_rate_past_90d
+    )
+
+    clean_count = int(
+        result[""completed_orders""]
+    )
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_107,31,"    ""purchase_order_id"",
+    ""supplier_id"",
+    ""order_date"",
+    ""actual_receipt_date"",
+    ""late_receipt_flag"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]
+
+assert set(required_113).issubset(all_orders.columns)
+
+# Never modify the original source."
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_107,32,"    ""supplier_id"",
+    ""order_date"",
+    ""actual_receipt_date"",
+    ""late_receipt_flag"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]
+
+assert set(required_113).issubset(all_orders.columns)
+
+# Never modify the original source.
+data_113 = all_orders[required_113].copy().reset_index(drop=True)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_107,74,"assert late_113.isin([0, 1]).all()
+
+data_113[""late_receipt_flag""] = late_113.astype(int)
+
+for column in [
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]:
+    data_113[column] = pd.to_numeric(
+        data_113[column], errors=""coerce""
+    )
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_107,75,"
+data_113[""late_receipt_flag""] = late_113.astype(int)
+
+for column in [
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]:
+    data_113[column] = pd.to_numeric(
+        data_113[column], errors=""coerce""
+    )
+
+assert data_113["
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_107,83,"        data_113[column], errors=""coerce""
+    )
+
+assert data_113[
+    [
+        ""supplier_completed_orders_past_90d"",
+        ""supplier_late_rate_past_90d""
+    ]
+].notna().all().all()
+
+print(""\n1. FULL DATASET CONFIGURATION"")
+print(""Purchase orders:"", len(data_113))"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_107,84,"    )
+
+assert data_113[
+    [
+        ""supplier_completed_orders_past_90d"",
+        ""supplier_late_rate_past_90d""
+    ]
+].notna().all().all()
+
+print(""\n1. FULL DATASET CONFIGURATION"")
+print(""Purchase orders:"", len(data_113))
+print(""Suppliers:"", data_113[""supplier_id""].nunique())"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_107,202,"# ============================================================
+# 3. COMPARE ORIGINAL AND CORRECTED FEATURES
+# ============================================================
+
+data_113[""Original_Count""] = (
+    data_113[""supplier_completed_orders_past_90d""]
+)
+
+data_113[""Original_Rate""] = (
+    data_113[""supplier_late_rate_past_90d""]
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_107,206,"data_113[""Original_Count""] = (
+    data_113[""supplier_completed_orders_past_90d""]
+)
+
+data_113[""Original_Rate""] = (
+    data_113[""supplier_late_rate_past_90d""]
+)
+
+data_113[""Count_Difference""] = (
+    data_113[""Clean_Count""]
+    - data_113[""Original_Count""]
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_110,377,"print(""\n5. TRAINING FEATURE CONTRACT"")
+
+print(feature_summary_116.to_string(index=False))
+
+historical_features_116 = {
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+}
+
+assert historical_features_116.issubset(
+    set(training_features_100)
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_110,378,"
+print(feature_summary_116.to_string(index=False))
+
+historical_features_116 = {
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+}
+
+assert historical_features_116.issubset(
+    set(training_features_100)
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_113,100,"# ============================================================
+# 3. CLASSIFY SOURCE EVIDENCE
+# ============================================================
+
+history_features_119 = {
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+}
+
+operational_features_119 = {
+    ""capacity_utilization_at_order"",
+    ""logistics_congestion_at_order"""
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_113,101,"# 3. CLASSIFY SOURCE EVIDENCE
+# ============================================================
+
+history_features_119 = {
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+}
+
+operational_features_119 = {
+    ""capacity_utilization_at_order"",
+    ""logistics_congestion_at_order""
+}"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_114,173,"    ).between(0, 1)
+)
+
+checks_120[""Historical_Count_Nonnegative""] = (
+    numeric_120(
+        ""supplier_completed_orders_past_90d""
+    ) >= 0
+)
+
+checks_120[""Historical_Rate_Valid""] = (
+    numeric_120(
+        ""supplier_late_rate_past_90d"""
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_114,179,"    ) >= 0
+)
+
+checks_120[""Historical_Rate_Valid""] = (
+    numeric_120(
+        ""supplier_late_rate_past_90d""
+    ).between(0, 1)
+)
+
+for feature in [
+    ""forecast_daily_requirements_at_order"",
+    ""inventory_on_hand_at_order"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_122,192,"# ============================================================
+
+feature_columns_128 = [
+    ""capacity_utilization_at_order"",
+    ""logistics_congestion_at_order"",
+    ""supplier_late_rate_past_90d"",
+    ""promised_lead_days"",
+    ""quoted_unit_cost_usd""
+]
+
+assert set(feature_columns_128).issubset(
+    X_dynamic.columns"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_137,150,"# remain constant across simulated future draws.
+
+supplier_features_133 = [
+    ""quoted_unit_cost_usd"",
+    ""promised_lead_days"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]
+
+stability_rows_133 = []
+
+for feature in supplier_features_133:"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_137,151,"
+supplier_features_133 = [
+    ""quoted_unit_cost_usd"",
+    ""promised_lead_days"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]
+
+stability_rows_133 = []
+
+for feature in supplier_features_133:
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_140,156,"
+supplier_profile_136 = [
+    ""supplier_id"",
+    ""quoted_unit_cost_usd"",
+    ""promised_lead_days"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]
+
+assert set(supplier_profile_136).issubset(
+    features_136
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_140,157,"supplier_profile_136 = [
+    ""supplier_id"",
+    ""quoted_unit_cost_usd"",
+    ""promised_lead_days"",
+    ""supplier_completed_orders_past_90d"",
+    ""supplier_late_rate_past_90d""
+]
+
+assert set(supplier_profile_136).issubset(
+    features_136
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_166,283,"    ""Predicted_Late_Probability"",
+    ""quoted_unit_cost_usd"",
+    ""promised_lead_days"",
+    ""capacity_utilization_at_order"",
+    ""logistics_congestion_at_order"",
+    ""supplier_late_rate_past_90d""
+]
+
+available_checks_161 = [
+    col for col in candidate_consistency_cols_161
+    if col in data_161.columns
+]"

@@ -1,0 +1,19 @@
+{
+  "development_partition_gate": true,
+  "feature_missing_values": 0,
+  "feature_source_coverage": true,
+  "fitted_execution_lineage_certified": false,
+  "generator_features_found": 18,
+  "historical_timing_supported": true,
+  "ml_sourcing_integration_authorized": false,
+  "model_features": 18,
+  "model_structural_integrity": true,
+  "models_retrained": false,
+  "predictions_generated": false,
+  "remaining_feature_timing_certified": false,
+  "reserved_test_isolation_certified": false,
+  "source_modified": false,
+  "step": 119,
+  "training_records": 6243,
+  "validation_records": 1721
+}

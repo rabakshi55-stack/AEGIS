@@ -1,0 +1,4 @@
+Timing_Case,Records,Outside_Training_Range,Outside_Training_Range_Pct,Recomputed_Outside_Pct
+Early_Booking,48000,6298,13.120833333333334,13.120833333333334
+Current_Replay,48000,9387,19.55625,19.55625
+Late_Booking,48000,11646,24.2625,24.2625

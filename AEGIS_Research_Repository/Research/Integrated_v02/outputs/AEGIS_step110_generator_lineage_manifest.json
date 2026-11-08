@@ -1,0 +1,16 @@
+{
+  "dataset_partition_certified": false,
+  "generator_executed": false,
+  "generator_file": "generate_v02.py",
+  "generator_sha256": "fc5cadd745b00ab4b45700c5d11140c455a9db3feb440ed768a7c49f72beeb6c",
+  "hist_count_assignments": 1,
+  "hist_rate_assignments": 1,
+  "ml_sourcing_integration_authorized": false,
+  "models_retrained": false,
+  "original_features_modified": false,
+  "original_formula_certified": false,
+  "point_in_time_validity_certified": false,
+  "predictions_generated": false,
+  "source_lines": 274,
+  "step": 110
+}

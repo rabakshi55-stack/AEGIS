@@ -1,0 +1,6 @@
+supplier_id,Candidate_Orders,Minimum_Past_Orders,Maximum_Past_Orders,Minimum_Late_Rate,Maximum_Late_Rate
+SUP-014,16,39,44,0.1429,0.1538
+SUP-038,16,52,54,0.2742,0.3175
+SUP-042,16,17,23,0.2222,0.3103
+SUP-045,16,24,33,0.4186,0.4706
+SUP-048,16,16,24,0.2222,0.2424

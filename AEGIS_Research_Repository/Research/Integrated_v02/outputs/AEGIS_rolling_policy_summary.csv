@@ -1,0 +1,4 @@
+Policy,Served Orders,Unserved Units,Landed Cost ($),Historical Exposure,ML Exposure,Remaining Capacity
+Cost-Only,16,0,1894729.75,4227.25,3541.5925832914895,5797
+Historical-Risk,16,0,1915278.0,4162.0,3311.1294417896233,5797
+ML-Risk,16,0,1920165.0,4182.84,3013.82264245843,5797

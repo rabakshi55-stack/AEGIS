@@ -1,0 +1,53 @@
+Category,Line,Source_Text
+Historical_Window,7,"from datetime import date, timedelta"
+Historical_Window,73,if date.fromisoformat(e.alert_published_date)<=today<=date.fromisoformat(e.alert_published_date)+timedelta(days=10))
+Historical_Window,99,today=START+timedelta(days=i)
+Historical_Window,135,due=today+timedelta(days=promised_lead)
+Historical_Window,151,received=due+timedelta(days=drift)
+Historical_Window,154,"hist90=[flag for dt,flag in historical[sid]"
+Historical_Window,155,if today-timedelta(days=90)<=dt<today]
+Historical_Window,156,hist_count=len(hist90)
+Historical_Window,157,"hist_rate=round((sum(hist90)+2)/(hist_count+10),4)"
+Historical_Window,168,"'supplier_completed_orders_past_90d':hist_count,"
+Historical_Window,169,"'supplier_late_rate_past_90d':hist_rate,"
+Receipt_Timing,84,# All inventory is updated daily. Receipts are applied at actual receipt date.
+Receipt_Timing,91,historical=defaultdict(list) # completed supplier orders by date
+Receipt_Timing,93,"monthly=defaultdict(lambda:dict(receipts=0,requirements=0,consumed=0,unmet=0))"
+Receipt_Timing,109,+ 1.30*float(x.promised_lead_days)
+Receipt_Timing,111,"shortest_lead=min(int(o.promised_lead_days)+int(lane_ref[(o.supplier_id,pl)].transit_days) for o in possible)"
+Receipt_Timing,134,promised_lead=int(option.promised_lead_days)+int(lane.transit_days)
+Receipt_Timing,135,due=today+timedelta(days=promised_lead)
+Receipt_Timing,164,"'promised_lead_days':promised_lead,'promised_receipt_date':toiso(due),"
+Receipt_Timing,168,"'supplier_completed_orders_past_90d':hist_count,"
+Receipt_Timing,175,"'actual_receipt_date':toiso(received),"
+Receipt_Timing,177,"'days_late':max(0,drift),'late_receipt_flag':is_late,"
+Receipt_Timing,185,"# process receipts observed today, after orders for the day are placed"
+Receipt_Timing,191,"monthly[(curr_month,*key)]['receipts']+=qty"
+Receipt_Timing,192,"historical[order['supplier_id']].append((today,order['late_receipt_flag']))"
+Receipt_Timing,214,closing=opening+row['receipts']-row['consumed']
+Receipt_Timing,219,"opening_inventory_units=opening,receipts_units=row['receipts'],"
+Receipt_Timing,224,assert all(o['actual_receipt_date']>o['order_date'] for o in orders)
+Receipt_Timing,225,"assert all(o['days_late']==max(0,(date.fromisoformat(o['actual_receipt_date'])-"
+Receipt_Timing,226,date.fromisoformat(o['promised_receipt_date'])).days) for o in orders)
+Receipt_Timing,231,"post_order={'actual_receipt_date','actual_lead_days','days_late','late_receipt_flag'}"
+Receipt_Timing,242,av='Target or outcome; available ONLY on actual receipt' if col in post_order else 'Order-time feature; simulated available at order creation'
+Receipt_Timing,255,cnt=Counter(o['late_receipt_flag'] for o in orders)
+Receipt_Timing,259,"'orders':len(orders),'late_receipt_rate':round(cnt[1]/len(orders),5),"
+Receipt_Timing,265,"'total_receipts':sum(x['receipts_units'] for x in inv),"
+Risk_Generation,157,"hist_rate=round((sum(hist90)+2)/(hist_count+10),4)"
+Risk_Generation,169,"'supplier_late_rate_past_90d':hist_rate,"
+Random_Generation,3,"Needs pandas and numpy. Input seed_data assets are also synthetic, copied from v0.1."
+Random_Generation,14,SEED = 4202602
+Random_Generation,15,rng = np.random.default_rng(SEED)
+Random_Generation,16,"SRC, DEST = ROOT / 'seed_data', ROOT / 'data'"
+Random_Generation,82,"latent={r.supplier_id:float(rng.normal(0,0.23)) for r in supplier.itertuples(index=False)}"
+Random_Generation,85,"stock={(pl,c):int(rng.integers(2500,6001)) for pl,c in combos}"
+Random_Generation,139,"+float(rng.normal(0,.085))+.12*alert+(0.10 if today.year==2026 else 0),.01,1.)"
+Random_Generation,142,"utilization=capped(.48+load+.10*(today.year==2026)+float(rng.normal(0,.09)),.05,1.60)"
+Random_Generation,149,is_late=int(rng.random()<logistic(lp))
+Random_Generation,150,"drift=int(rng.poisson(2.4+2*(shock>=4)))+1 if is_late else -int(rng.choice([0,0,0,1,2]))"
+Random_Generation,257,"'version':'v0.2', 'dataset_type':'100% synthetic', 'seed':SEED,"
+Dataset_Partition,111,"shortest_lead=min(int(o.promised_lead_days)+int(lane_ref[(o.supplier_id,pl)].transit_days) for o in possible)"
+Dataset_Partition,112,planning_horizon=shortest_lead+14
+Dataset_Partition,143,"urgent=int(stock[(pl,comp)] < forecast*max(7,shortest_lead/2))"
+Dataset_Partition,273,"(ROOT/'validation_report_v02.json').write_text(json.dumps(report,indent=2),encoding='utf-8')"

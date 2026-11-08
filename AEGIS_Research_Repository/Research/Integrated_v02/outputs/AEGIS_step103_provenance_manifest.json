@@ -1,0 +1,14 @@
+{
+  "candidate_orders": 16,
+  "candidate_pairs": 80,
+  "simulations_per_pair": 500,
+  "history_numeric_integrity": true,
+  "order_dates_resolved": 16,
+  "conflicting_order_dates": 0,
+  "point_in_time_certified": false,
+  "draw_identity_certified": false,
+  "counterfactual_validity_certified": false,
+  "ml_sourcing_integration_authorized": false,
+  "models_retrained": false,
+  "predictions_generated": false
+}

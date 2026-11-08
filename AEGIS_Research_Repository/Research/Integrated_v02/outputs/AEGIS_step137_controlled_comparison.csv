@@ -1,0 +1,6 @@
+Policy,Supplier_Switch_Rate_Pct,Context_Changed_Rows,Original_Improvement_PP,Controlled_Improvement_PP,Context_Lock_Impact_PP,Controlled_Improvement_Positive
+AI_Plus_10pct,87.5,0,13.175591392426547,13.175591392426547,0.0,True
+AI_Plus_1pct,25.0,0,2.2942082185897053,2.2942082185897053,0.0,True
+AI_Plus_20pct,93.75,0,17.17022312842247,17.17022312842247,0.0,True
+AI_Plus_3pct,43.75,0,5.855866238376694,5.855866238376694,0.0,True
+AI_Plus_5pct,68.75,0,10.301253492792489,10.301253492792489,0.0,True

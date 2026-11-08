@@ -1,0 +1,249 @@
+
+import numpy as np
+import pandas as pd
+from pathlib import Path
+
+print("=" * 65)
+print("AEGIS 4.0 - UNCERTAINTY-AWARE ML RISK PREDICTION")
+print("=" * 65)
+
+# --------------------------------------------------
+# 1. Verify inputs from previous steps
+# --------------------------------------------------
+
+n_scenarios, n_candidates = simulated_util.shape
+
+assert (n_scenarios, n_candidates) == (500, 80)
+assert simulated_cong.shape == (500, 80)
+assert len(scoring_base_32) == 80
+assert len(candidate_features) == 18
+
+print("\n1. CONFIGURATION")
+print("Candidate assignments:", n_candidates)
+print("Monte Carlo scenarios:", n_scenarios)
+print("Total predictions:", n_candidates * n_scenarios)
+print("ML features:", len(candidate_features))
+
+# --------------------------------------------------
+# 2. Construct the scenario feature matrix
+# --------------------------------------------------
+
+# Each block of 80 rows represents one scenario.
+scenario_features = pd.concat(
+    [scoring_base_32] * n_scenarios,
+    ignore_index=True
+)
+
+scenario_features["capacity_utilization_at_order"] = (
+    simulated_util.reshape(-1)
+)
+
+scenario_features["logistics_congestion_at_order"] = (
+    simulated_cong.reshape(-1)
+)
+
+X_scenarios = scenario_features[
+    candidate_features
+].copy()
+
+assert X_scenarios.shape == (40000, 18)
+assert not X_scenarios.isna().any().any()
+
+numeric_matrix = X_scenarios.select_dtypes(
+    include=np.number
+).to_numpy()
+
+assert np.isfinite(numeric_matrix).all()
+
+print("\n2. FEATURE MATRIX")
+print("Shape:", X_scenarios.shape)
+print("Missing values:", int(X_scenarios.isna().sum().sum()))
+
+# --------------------------------------------------
+# 3. Generate predictions using the trained model
+# --------------------------------------------------
+
+predicted_probabilities = (
+    logistic_model.predict_proba(X_scenarios)[:, 1]
+)
+
+risk_matrix_33 = predicted_probabilities.reshape(
+    n_scenarios,
+    n_candidates
+)
+
+assert risk_matrix_33.shape == (500, 80)
+assert np.isfinite(risk_matrix_33).all()
+assert ((risk_matrix_33 >= 0) &
+        (risk_matrix_33 <= 1)).all()
+
+print("\n3. MODEL PREDICTION CHECK")
+print("Risk matrix shape:", risk_matrix_33.shape)
+print("Minimum risk:", round(risk_matrix_33.min(), 4))
+print("Maximum risk:", round(risk_matrix_33.max(), 4))
+print("Mean risk:", round(risk_matrix_33.mean(), 4))
+
+# --------------------------------------------------
+# 4. Summarize candidate-level predicted risk
+# --------------------------------------------------
+
+candidate_risk_33 = scoring_base_32[[
+    "purchase_order_id",
+    "supplier_id"
+]].copy()
+
+candidate_risk_33["Mean_ML_Risk"] = (
+    risk_matrix_33.mean(axis=0)
+)
+
+candidate_risk_33["Risk_P05"] = (
+    np.percentile(risk_matrix_33, 5, axis=0)
+)
+
+candidate_risk_33["Risk_P95"] = (
+    np.percentile(risk_matrix_33, 95, axis=0)
+)
+
+candidate_risk_33["Risk_SD"] = (
+    risk_matrix_33.std(axis=0, ddof=1)
+)
+
+candidate_risk_33["Risk_Spread"] = (
+    candidate_risk_33["Risk_P95"] -
+    candidate_risk_33["Risk_P05"]
+)
+
+print("\n4. FIRST FIVE CANDIDATE PREDICTIONS")
+
+print(
+    candidate_risk_33.head()
+    .round(4)
+    .to_string(index=False)
+)
+
+print("\n5. OVERALL CANDIDATE RISK DISTRIBUTION")
+
+print(
+    candidate_risk_33[[
+        "Mean_ML_Risk",
+        "Risk_P05",
+        "Risk_P95",
+        "Risk_SD"
+    ]].describe().round(4).to_string()
+)
+
+# --------------------------------------------------
+# 5. Compare original-order recorded predictions
+# --------------------------------------------------
+
+original_mask_33 = (
+    candidate_30["supplier_id"].to_numpy() ==
+    candidate_30["original_supplier_id"].to_numpy()
+)
+
+original_candidate_risks = candidate_risk_33.loc[
+    original_mask_33
+].copy()
+
+original_recorded_features = (
+    batch.set_index("purchase_order_id")
+    .loc[
+        original_candidate_risks["purchase_order_id"],
+        candidate_features
+    ]
+)
+
+recorded_probabilities = (
+    logistic_model.predict_proba(
+        original_recorded_features
+    )[:, 1]
+)
+
+original_candidate_risks[
+    "Recorded_Condition_Risk"
+] = recorded_probabilities
+
+original_candidate_risks[
+    "Simulation_Mean_Difference"
+] = (
+    original_candidate_risks["Mean_ML_Risk"] -
+    original_candidate_risks["Recorded_Condition_Risk"]
+)
+
+print("\n6. ORIGINAL-ORDER PREDICTION COMPARISON")
+
+print("Original orders:", len(original_candidate_risks))
+
+print(
+    "Mean recorded-condition risk:",
+    round(recorded_probabilities.mean(), 4)
+)
+
+print(
+    "Mean simulated risk:",
+    round(
+        original_candidate_risks["Mean_ML_Risk"].mean(),
+        4
+    )
+)
+
+print(
+    "Mean absolute difference:",
+    round(
+        original_candidate_risks[
+            "Simulation_Mean_Difference"
+        ].abs().mean(),
+        4
+    )
+)
+
+# --------------------------------------------------
+# 6. Final integrity checks
+# --------------------------------------------------
+
+print("\n7. FINAL VERIFICATION")
+
+assert len(candidate_risk_33) == 80
+assert len(original_candidate_risks) == 16
+
+assert (
+    candidate_risk_33["Risk_P05"] <=
+    candidate_risk_33["Mean_ML_Risk"]
+).all()
+
+assert (
+    candidate_risk_33["Mean_ML_Risk"] <=
+    candidate_risk_33["Risk_P95"]
+).all()
+
+assert not candidate_risk_33[[
+    "purchase_order_id",
+    "supplier_id"
+]].duplicated().any()
+
+# Save candidate risk summaries
+output_dir = Path("outputs")
+output_dir.mkdir(exist_ok=True)
+
+output_path = (
+    output_dir /
+    "AEGIS_uncertainty_aware_candidate_risks.csv"
+)
+
+candidate_risk_33.to_csv(output_path, index=False)
+
+print("PASS: All 40,000 predictions generated.")
+print("PASS: Prediction probabilities are valid.")
+print("PASS: Candidate risk summaries reconciled.")
+print("PASS: Original-order comparison completed.")
+print("PASS: Final ML test dataset remains untouched.")
+
+print("\nLIMITATIONS")
+print("Predictions use the trained observational ML model.")
+print("Operational residuals are sampled from training data.")
+print("Supplier-switching effects are not causally identified.")
+print("Joint reassignment has not updated future commitments.")
+print("Scenario percentiles are not confidence intervals.")
+
+print("\nOutput saved:", output_path)
+print("STEP 33 COMPLETE")

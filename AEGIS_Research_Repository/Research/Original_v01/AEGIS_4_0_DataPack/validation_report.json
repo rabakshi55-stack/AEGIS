@@ -1,0 +1,39 @@
+{
+  "dataset": "AEGIS 4.0 - industrial electronics resilience benchmark (SYNTHETIC)",
+  "seed": 4012026,
+  "start": "2024-01-01",
+  "end": "2026-06-30",
+  "table_row_counts": {
+    "suppliers.csv": 60,
+    "components.csv": 30,
+    "plants.csv": 4,
+    "warehouses.csv": 6,
+    "finished_products.csv": 12,
+    "bill_of_materials.csv": 75,
+    "supplier_component_options.csv": 150,
+    "transport_lanes.csv": 264,
+    "disruption_events.csv": 220,
+    "purchase_orders.csv": 26000,
+    "customer_demand_daily.csv": 65664,
+    "component_inventory_monthly.csv": 3600,
+    "data_dictionary.csv": 86
+  },
+  "delivery_label_distribution": {
+    "0": 18890,
+    "1": 7110
+  },
+  "late_receipt_rate_by_order_year": {
+    "2024": 0.2617,
+    "2025": 0.2546,
+    "2026": 0.342
+  },
+  "inventory_conservation_check": "PASS",
+  "unique_po_check": "PASS",
+  "catalog_join_check": "PASS",
+  "temporal_outcome_separation": "Outcome columns must not enter order-time ML features",
+  "recommended_split": {
+    "train": "order_date < 2025-07-01",
+    "validation": "2025-07-01 <= order_date < 2026-01-01",
+    "test": "order_date >= 2026-01-01"
+  }
+}

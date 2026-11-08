@@ -1,0 +1,15 @@
+Category,Line,Source_Expression
+Monthly_Booking,90,"monthly_booking=defaultdict(int) # (supplier, component, order_month) for capacity restriction"
+Monthly_Booking,125,"capacity_available=max(0,int(option.monthly_capacity_units)-monthly_booking[cap_key])"
+Monthly_Booking,141,load=monthly_booking[cap_key]/int(option.monthly_capacity_units)
+Monthly_Booking,183,monthly_booking[cap_key]+=units
+Supplier_Capacity,125,"capacity_available=max(0,int(option.monthly_capacity_units)-monthly_booking[cap_key])"
+Supplier_Capacity,141,load=monthly_booking[cap_key]/int(option.monthly_capacity_units)
+Regional_Alerts,71,"def published_alert(region,today):"
+Regional_Alerts,136,"alert,level=published_alert(supplier_region[sid],today)"
+Receipt_Updates,88,by_arrival=defaultdict(list) # actual_date -> list of created orders
+Receipt_Updates,181,by_arrival[received].append(order)
+Receipt_Updates,186,"for order in by_arrival.get(today,[]):"
+Historical_Receipts,91,historical=defaultdict(list) # completed supplier orders by date
+Historical_Receipts,154,"hist90=[flag for dt,flag in historical[sid]"
+Historical_Receipts,192,"historical[order['supplier_id']].append((today,order['late_receipt_flag']))"

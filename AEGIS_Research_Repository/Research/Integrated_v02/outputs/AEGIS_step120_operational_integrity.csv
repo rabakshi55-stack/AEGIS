@@ -1,0 +1,16 @@
+Check,Records,Violations,Passed
+Positive_Order_Quantity,7964,0,True
+Positive_Quoted_Unit_Cost,7964,0,True
+Positive_Promised_Lead,7964,0,True
+Urgent_Flag_Binary,7964,0,True
+Alert_Availability_Binary,7964,0,True
+Alert_Level_Nonnegative,7964,0,True
+Utilization_In_Generator_Range,7964,0,True
+Congestion_In_Unit_Interval,7964,0,True
+Historical_Count_Nonnegative,7964,0,True
+Historical_Rate_Valid,7964,0,True
+forecast_daily_requirements_at_order_Nonnegative,7964,0,True
+inventory_on_hand_at_order_Nonnegative,7964,0,True
+inventory_on_order_at_order_Nonnegative,7964,0,True
+reorder_target_units_at_order_Nonnegative,7964,0,True
+Inventory_Position_Identity,7964,0,True

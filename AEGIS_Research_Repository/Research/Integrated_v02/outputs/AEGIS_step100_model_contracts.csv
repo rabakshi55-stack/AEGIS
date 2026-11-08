@@ -1,0 +1,5 @@
+Model,Loaded,Pipeline,Fitted_Check,Input_Features,Feature_Names_Available,Matches_X_train,Steps,Suspect_Model_Features
+rf_model,True,True,CONFIRMED,18,True,True,"preprocessing, classifier",
+logistic_model,True,True,CONFIRMED,18,True,True,"preprocessing, classifier",
+xgb_model,True,True,CONFIRMED,18,True,True,"preprocessing, classifier",
+rf_simple,True,True,CONFIRMED,18,True,True,"preprocessing, classifier",

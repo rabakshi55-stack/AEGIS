@@ -1,0 +1,4 @@
+Policy,Landed Cost ($),Mean Late Orders,Mean Delayed Units,Oracle Expected Delayed Units,P95 Delayed Units,Additional Landed Cost ($)
+Cost-Only,1886966.75,4.249,3540.1375,3539.103420525113,6300.0,0.0
+Historical-Risk,1896552.75,4.4835,3802.2625,3812.9425509368043,6476.249999999999,9586.0
+ML-Risk,1900767.5,3.7985,3179.7,3185.6855702859575,5750.0,13800.75

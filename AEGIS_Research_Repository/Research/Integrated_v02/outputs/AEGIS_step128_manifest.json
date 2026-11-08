@@ -1,0 +1,18 @@
+{
+  "approval_constraint_passed": true,
+  "counterfactual_validity_certified": false,
+  "models_retrained": false,
+  "moq_constraint_passed": true,
+  "new_optimization_performed": false,
+  "pilot_orders": 16,
+  "policies": 6,
+  "production_authorized": false,
+  "recorded_capacity_passed": true,
+  "reserved_test_certified": false,
+  "route_reference_conflicts": 0,
+  "route_reference_coverage_complete": true,
+  "same_day_timing_certified": false,
+  "simulation_pairing_certified": false,
+  "step": 128,
+  "supplier_options": 80
+}

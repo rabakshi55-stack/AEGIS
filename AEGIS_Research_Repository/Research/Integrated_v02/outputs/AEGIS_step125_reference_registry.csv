@@ -1,0 +1,6 @@
+Reference_File,Available,Rows,Columns
+components.csv,True,30,"component_id, component_family, criticality, standard_unit_cost_usd, annual_holding_rate, safety_stock_days"
+plants.csv,True,4,"plant_id, plant_name, region, daily_capacity_finished_units"
+supplier_component_options.csv,True,150,"supplier_id, component_id, quoted_unit_cost_usd, promised_lead_days, minimum_order_qty, monthly_capacity_units, approved_for_sourcing"
+suppliers.csv,True,60,"supplier_id, supplier_name, region, contract_on_time_target, quality_acceptance_target, financial_risk_band, qualified_flag"
+transport_lanes.csv,True,264,"lane_id, origin_type, origin_id, destination_type, destination_id, transit_days, freight_cost_per_unit_usd, route_region"

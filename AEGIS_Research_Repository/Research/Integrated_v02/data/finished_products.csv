@@ -1,0 +1,13 @@
+sku_id,product_family,selling_price_usd,priority_tier
+SKU-001,Industrial controller,948.78,A
+SKU-002,Process sensor,2342.72,B
+SKU-003,Control interface,1715.56,C
+SKU-004,Industrial controller,1500.72,A
+SKU-005,Process sensor,816.46,B
+SKU-006,Control interface,1334.18,C
+SKU-007,Industrial controller,2183.12,A
+SKU-008,Process sensor,2389.21,B
+SKU-009,Control interface,817.27,C
+SKU-010,Industrial controller,1129.72,A
+SKU-011,Process sensor,1773.54,B
+SKU-012,Control interface,1776.18,C

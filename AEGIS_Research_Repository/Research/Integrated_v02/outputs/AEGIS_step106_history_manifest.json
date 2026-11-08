@@ -1,0 +1,17 @@
+{
+  "candidate_pairs": 80,
+  "comparison_definitions": [
+    "Receipt_Window",
+    "Order_Window_Completed"
+  ],
+  "counterfactual_validity_certified": false,
+  "feature_generator_provenance_certified": false,
+  "invalid_receipt_chronology": 0,
+  "ml_sourcing_authorized": false,
+  "models_retrained": false,
+  "monte_carlo_draw_pairing_certified": false,
+  "predictions_generated": false,
+  "receipt_window_numeric_agreement": false,
+  "source_records": 12544,
+  "step": 106
+}

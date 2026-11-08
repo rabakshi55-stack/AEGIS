@@ -1,0 +1,7 @@
+Policy,Maximum_Pre_Order_Load_Pct,Minimum_Pre_Order_Load_Pct,Minimum_Headroom_Units
+AI_Plus_10pct,48.54111405835544,0.0,4150.0
+AI_Plus_1pct,93.10344827586206,0.0,425.0
+AI_Plus_20pct,45.34998356884653,0.0,7000.0
+AI_Plus_3pct,89.92042440318302,0.0,75.0
+AI_Plus_5pct,79.3103448275862,0.0,1250.0
+Cost_Only,90.71618037135278,0.0,50.0

@@ -1,0 +1,5 @@
+plant_id,plant_name,region,daily_capacity_finished_units
+PLT-1,Fictional Assembly Plant 1,Midwest,697
+PLT-2,Fictional Assembly Plant 2,West,660
+PLT-3,Fictional Assembly Plant 3,Northeast,701
+PLT-4,Fictional Assembly Plant 4,Midwest,693

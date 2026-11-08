@@ -1,0 +1,10 @@
+Requirement,Status
+AI risk scores,AVAILABLE
+Order-component-plant mapping,RECONCILED
+Original decision dates,RECONCILED
+Supplier-component catalog,CATALOG_MATCHED
+Supplier capacity limits,SOURCE_LOGIC_REVIEW
+MOQ constraints,SOURCE_LOGIC_REVIEW
+Existing capacity commitments,NOT_RECONSTRUCTED
+Chronological capacity feasibility,NOT_CERTIFIED
+Counterfactual ML validity,NOT_CERTIFIED

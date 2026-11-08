@@ -1,0 +1,5 @@
+Profile,Scenarios,Required_Units,Offline_Shortage,Cost_Only_Shortage,Flex_Shortage,Net_Service_Improvement,Cost_Only_Expenditure,Flex_Expenditure
+capacity_crunch,56,407577,71788,88375,89675,-1300,41925713.46,41858678.31
+combined_shock,56,345174,34477,48751,47976,775,38162377.8,38257898.910000004
+normal,56,419210,0,0,0,0,48685888.13,48681626.57
+scarcity_surge,56,352301,0,797,545,252,40818846.71,40873000.64

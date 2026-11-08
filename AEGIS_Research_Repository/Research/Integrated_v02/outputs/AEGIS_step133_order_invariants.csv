@@ -1,0 +1,5 @@
+Feature,Orders_Checked,Orders_With_Different_Values,Consistent
+component_id,16,0,True
+plant_id,16,0,True
+order_quantity_units,16,0,True
+urgent_order_flag,16,0,True

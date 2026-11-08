@@ -1,0 +1,7 @@
+warehouse_id,region,primary_plant_id
+WH-1,Northeast,PLT-1
+WH-2,Southeast,PLT-2
+WH-3,Midwest,PLT-3
+WH-4,Southwest,PLT-4
+WH-5,West,PLT-1
+WH-6,Gulf,PLT-2

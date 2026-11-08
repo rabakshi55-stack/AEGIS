@@ -1,0 +1,4 @@
+Model,Loaded,Fitted,Input_Features,Training_Schema_Match,Exact_Fitting_Run_Certified
+rf_model,True,True,18,True,False
+logistic_model,True,True,18,True,False
+xgb_model,True,True,18,True,False

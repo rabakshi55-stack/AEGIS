@@ -1,0 +1,3 @@
+Feature,Records,Outside_Rows,Outside_Pct,Training_Min,Training_Max,Generated_Min,Generated_Max
+Capacity_Utilization,48000,9387,19.55625,0.2054,0.9852,0.21360722764218265,1.6
+Reconstructed_Congestion,48000,0,0.0,0.01,0.8152,0.01,0.6696703677214665

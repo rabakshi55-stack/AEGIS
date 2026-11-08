@@ -1,0 +1,5 @@
+Profile,Scenarios,Improved,Worsened,Unchanged,Net_Units_Recovered
+capacity_crunch,56,1,4,51,-1300
+combined_shock,56,12,4,40,775
+normal,56,0,0,56,0
+scarcity_surge,56,2,1,53,252

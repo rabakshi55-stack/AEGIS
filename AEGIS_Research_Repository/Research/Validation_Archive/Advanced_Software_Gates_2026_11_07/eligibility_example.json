@@ -1,0 +1,18 @@
+{
+  "business_action": "DISABLED",
+  "contract_independently_preregistered": false,
+  "eligible_count": 1,
+  "exclusion_counts": {
+    "FEATURE_RECORDED_AFTER_DECISION": 1
+  },
+  "feature_timestamps_independently_attested": false,
+  "future_predictive_accuracy_certified": false,
+  "ineligible_count": 1,
+  "input_snapshot_sha256": "48a29e1a23ee97e00175c16f5c7746bdcca23f315b6a7f240c13895a7707e859",
+  "interpretation": "Eligibility used only predeclared features and declared feature timestamps; no delivery outcome was read. All records must be present in the submitted opportunity population. The gate cannot attest source timestamps or completeness of source records.",
+  "no_label_joins_used": true,
+  "population_count": 2,
+  "product": "AEGIS",
+  "status": "ELIGIBILITY_SOFTWARE_AUDIT_UNATTESTED",
+  "study": "PREDECLARED_OUTCOME_INDEPENDENT_ELIGIBILITY_SOFTWARE_GATE"
+}

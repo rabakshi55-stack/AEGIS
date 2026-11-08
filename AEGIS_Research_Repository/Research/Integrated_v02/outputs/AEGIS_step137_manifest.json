@@ -1,0 +1,21 @@
+{
+  "allocations_modified": false,
+  "artifact_sha256": {
+    "AEGIS_step137_context_violations.csv": "27e7ddb1458268a2c603f84efecac0869beb849cb8518907fa05d07a52d95f89",
+    "AEGIS_step137_controlled_comparison.csv": "c905c77a1efdd8644346cec974e1e34327bca959144814004fb466a225f45948",
+    "AEGIS_step137_detailed_risk_changes.csv": "b5b6206ed1a94f8ce449cbbde9b5302d5fb83c4a729820f1e8630aef727f6271",
+    "AEGIS_step137_feature_changes.csv": "b52711943ac4de728b03dce83302c7fed12c9e8332d2a7150410fcbdd682780e"
+  },
+  "context_consistency_passed": true,
+  "context_differences_found": 0,
+  "controlled_predictions_generated": 40000,
+  "matched_comparisons": 40000,
+  "model": "Logistic_Regression",
+  "models_retrained": false,
+  "original_scenario_bank_modified": false,
+  "production_authorized": false,
+  "reserved_test_accessed": false,
+  "step": 137,
+  "supplier_response_mechanism_certified": false,
+  "supplier_switch_causal_validity_certified": false
+}

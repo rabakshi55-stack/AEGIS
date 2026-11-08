@@ -1,0 +1,20 @@
+{
+  "artifacts": {
+    "AEGIS_step140_capacity_states.csv": "6fbfcc2247d66553a48759395ecf1a3a04525246c401c79bb7101365928e8291",
+    "AEGIS_step140_generator_assignments.csv": "d7476f68d197ab382d4e6425720dbb4a2e76103bdc285d809859e278d7918659",
+    "AEGIS_step140_policy_state_summary.csv": "c3ec26a6ebde45b910dfa5b67db7365c02fec0664ad4eb3d4668b23fdd914140",
+    "AEGIS_step140_selected_supplier_states.csv": "fe2fc8029706b1dea18dbd3be1a755dc2a625c21df474b02ca47102eb1e82b63",
+    "AEGIS_step140_source_references.csv": "74ea7a7b6de7d5281aad66486bb97cc3f083929e2b49664eea2ddc55510c8236"
+  },
+  "capacity_states_reconciled": true,
+  "dynamic_optimization_executed": false,
+  "existing_allocations_modified": false,
+  "existing_models_retrained": false,
+  "ledger_records": 120,
+  "policy_consistent_ml_formula_certified": false,
+  "production_authorized": false,
+  "reserved_test_accessed": false,
+  "selected_allocations": 96,
+  "source_equation_coverage": true,
+  "step": 140
+}

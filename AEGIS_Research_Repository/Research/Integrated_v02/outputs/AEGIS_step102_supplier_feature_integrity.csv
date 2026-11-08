@@ -1,0 +1,5 @@
+Feature,Candidate_Pairs_With_Variation,Maximum_Distinct_Values
+quoted_unit_cost_usd,0,1
+promised_lead_days,0,1
+supplier_completed_orders_past_90d,0,1
+supplier_late_rate_past_90d,0,1

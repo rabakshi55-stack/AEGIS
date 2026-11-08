@@ -1,0 +1,256 @@
+{
+  "study": "AEGIS_EXPANDED_BENCHMARK_RESEARCH_ONLY",
+  "original_source_hashes": {
+    "orders_csv_sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+    "customers_csv_sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2",
+    "items_csv_sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279",
+    "sellers_csv_sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+  },
+  "seed": 20261107,
+  "feature_set": "extended_checkout_unattested",
+  "feature_names": [
+    "hour",
+    "weekday",
+    "month",
+    "day_of_month",
+    "week_of_year",
+    "promise_days",
+    "item_count",
+    "unique_sellers",
+    "quoted_price_sum",
+    "quoted_freight_sum",
+    "state_AC",
+    "state_AL",
+    "state_AP",
+    "state_AM",
+    "state_BA",
+    "state_CE",
+    "state_DF",
+    "state_ES",
+    "state_GO",
+    "state_MA",
+    "state_MT",
+    "state_MS",
+    "state_MG",
+    "state_PA",
+    "state_PB",
+    "state_PR",
+    "state_PE",
+    "state_PI",
+    "state_RJ",
+    "state_RN",
+    "state_RS",
+    "state_RO",
+    "state_RR",
+    "state_SC",
+    "state_SP",
+    "state_SE",
+    "state_TO",
+    "supplier_customer_same_state",
+    "seller_state_AC",
+    "seller_state_AL",
+    "seller_state_AP",
+    "seller_state_AM",
+    "seller_state_BA",
+    "seller_state_CE",
+    "seller_state_DF",
+    "seller_state_ES",
+    "seller_state_GO",
+    "seller_state_MA",
+    "seller_state_MT",
+    "seller_state_MS",
+    "seller_state_MG",
+    "seller_state_PA",
+    "seller_state_PB",
+    "seller_state_PR",
+    "seller_state_PE",
+    "seller_state_PI",
+    "seller_state_RJ",
+    "seller_state_RN",
+    "seller_state_RS",
+    "seller_state_RO",
+    "seller_state_RR",
+    "seller_state_SC",
+    "seller_state_SP",
+    "seller_state_SE",
+    "seller_state_TO"
+  ],
+  "selection": "January 2018 AP; AUC as tiebreak",
+  "train_rows": 43426,
+  "selection_rows": 7069,
+  "feature_availability_independently_verified": false,
+  "pristine_holdout": false,
+  "business_execution": "DISABLED",
+  "all_candidates_trained_on_same_rows": true,
+  "results": [
+    {
+      "algorithm": "linear_svm_c001",
+      "selection_ap": 0.137851,
+      "selection_auc": 0.690425,
+      "fit_eval_seconds": 0.45,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "linear_svm_c01",
+      "selection_ap": 0.137911,
+      "selection_auc": 0.690284,
+      "fit_eval_seconds": 0.99,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "linear_svm_balanced",
+      "selection_ap": 0.14534,
+      "selection_auc": 0.693405,
+      "fit_eval_seconds": 5.02,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "sgd_svm_hinge",
+      "selection_ap": 0.077888,
+      "selection_auc": 0.535209,
+      "fit_eval_seconds": 0.17,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "sgd_modified_huber",
+      "selection_ap": 0.112195,
+      "selection_auc": 0.642813,
+      "fit_eval_seconds": 0.3,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "ridge_classifier",
+      "selection_ap": 0.135498,
+      "selection_auc": 0.692235,
+      "fit_eval_seconds": 0.04,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "rbf_svm_c05",
+      "selection_ap": 0.066886,
+      "selection_auc": 0.525253,
+      "fit_eval_seconds": 47.85,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "rbf_svm_c2",
+      "selection_ap": 0.061788,
+      "selection_auc": 0.493961,
+      "fit_eval_seconds": 70.85,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "poly_svm_degree2",
+      "selection_ap": 0.046959,
+      "selection_auc": 0.428984,
+      "fit_eval_seconds": 19.95,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "sigmoid_svm",
+      "selection_ap": 0.064435,
+      "selection_auc": 0.490865,
+      "fit_eval_seconds": 13.15,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "knn_101",
+      "selection_ap": 0.098444,
+      "selection_auc": 0.599479,
+      "fit_eval_seconds": 1.02,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "knn_301",
+      "selection_ap": 0.086294,
+      "selection_auc": 0.607271,
+      "fit_eval_seconds": 1.3,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "nearest_centroid",
+      "selection_ap": 0.133381,
+      "selection_auc": 0.685939,
+      "fit_eval_seconds": 0.03,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "bernoulli_nb",
+      "selection_ap": 0.105875,
+      "selection_auc": 0.673622,
+      "fit_eval_seconds": 0.04,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "complement_nb",
+      "selection_ap": 0.100963,
+      "selection_auc": 0.665624,
+      "fit_eval_seconds": 0.02,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "rbf_fourier_logistic",
+      "selection_ap": 0.10697,
+      "selection_auc": 0.642318,
+      "fit_eval_seconds": 2.05,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "nystroem_rbf_logistic",
+      "selection_ap": 0.086792,
+      "selection_auc": 0.533276,
+      "fit_eval_seconds": 1.01,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "logistic_elasticnet",
+      "selection_ap": 0.145723,
+      "selection_auc": 0.690256,
+      "fit_eval_seconds": 2.83,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "logistic_l1",
+      "selection_ap": 0.145779,
+      "selection_auc": 0.692032,
+      "fit_eval_seconds": 1.61,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "mlp_small",
+      "selection_ap": 0.113746,
+      "selection_auc": 0.606671,
+      "fit_eval_seconds": 0.61,
+      "status": "OK",
+      "train_rows": 43426
+    },
+    {
+      "algorithm": "bagged_shallow_trees",
+      "selection_ap": 0.078013,
+      "selection_auc": 0.586219,
+      "fit_eval_seconds": 3.74,
+      "status": "OK",
+      "train_rows": 43426
+    }
+  ],
+  "seconds": 175.21
+}

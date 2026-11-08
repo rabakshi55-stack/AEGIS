@@ -1,0 +1,12 @@
+Verification,Passed
+Original Source Configuration,True
+Original Record Counts,True
+Training Order Dates,True
+Validation Order Dates,True
+Training Outcome Availability,True
+Validation Outcome Availability,True
+No Development ID Overlap,True
+Training Feature Matrix Match,True
+Validation Feature Matrix Match,True
+Training Label Match,True
+Validation Label Match,True

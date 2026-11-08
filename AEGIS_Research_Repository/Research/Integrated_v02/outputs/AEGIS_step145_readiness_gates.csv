@@ -1,0 +1,14 @@
+Gate,Status,Evidence,Next_Action
+Source and artifact integrity,VERIFIED,SHA256 source and output reconciliation,Preserve immutable source versions
+Capacity feasibility,RESEARCH_READY,Step 139 booking ledger and Step 127 reconciliation,Validate timing and actual supplier commitments
+Model input coverage,BLOCKED,19.5562% of capacity inputs exceed training bounds,Validate extrapolation or abstain outside supported domain
+Regional alert chronology,NOT_CERTIFIED,Supplier-date consistency only,Verify publication time before order decision
+Intraday order timing,NOT_CERTIFIED,Retrospective ordering sensitivity,Obtain timestamps or model feasible event sequences
+Independent ML evaluation,NOT_CERTIFIED,Earlier validation is not full execution-lineage proof,"Audit split, preprocessing, fitting and reserved holdout"
+Supplier-switch causal validity,NOT_CERTIFIED,Synthetic counterfactual risk predictions,Validate supplier response mechanisms and observed outcomes
+Long-horizon demand forecasts,NOT_CERTIFIED,Earlier forecast-horizon limitations,Validate multi-step forecasts before operational use
+Dynamic capacity optimization,NOT_IMPLEMENTED,Existing fixed-policy MILP comparisons only,Develop a separate cost-capacity research prototype
+Human approval workflow,DESIGN_SELECTED,Human approval required by project specification,Build explicit approve/reject workflow
+Governed continuous learning,RESEARCH_ONLY,No validated autonomous update pipeline,Design independent challenger evaluation
+Blockchain governance,RESEARCH_ONLY,Architecture investigation only,Compare local signed logs and permissioned ledger
+Decision Copilot currency,UPDATE_REQUIRED,Existing Copilot predates Step 144,Update answers after new evidence is accepted

@@ -1,0 +1,123 @@
+{
+  "source_order_count": 99441,
+  "unique_order_id_count": 99441,
+  "invalid_or_missing_purchase_timestamps": 0,
+  "purchases_outside_three_research_windows": 38521,
+  "observed_outcomes_outside_three_windows": 37444,
+  "all_source_orders": {
+    "all_purchases": 99441,
+    "calendar_purchase_candidates": 99441,
+    "recorded_promise_candidates": 99441,
+    "observed_delivery_outcome": 96470,
+    "unknown_or_unobserved_outcome": 2971,
+    "recorded_promise_missing_or_invalid": 0,
+    "strict_historical_candidates": 96282,
+    "excluded_observed_due_to_chronology_or_invalid_promise": 188,
+    "labels_delivered_after_phase_cutoff": 13,
+    "selected_frozen_rule": 58911,
+    "late_calendar_day_among_observed": 6534,
+    "late_calendar_day_among_selected": 3872,
+    "selected_share_of_all_purchases": 0.592422,
+    "observed_outcome_share_of_all_purchases": 0.970123,
+    "late_rate_among_selected": 0.065726,
+    "late_rate_among_observed": 0.067731
+  },
+  "phases": {
+    "TRAIN": {
+      "all_purchases": 27253,
+      "calendar_purchase_candidates": 27253,
+      "recorded_promise_candidates": 27253,
+      "observed_delivery_outcome": 26147,
+      "unknown_or_unobserved_outcome": 1106,
+      "recorded_promise_missing_or_invalid": 0,
+      "strict_historical_candidates": 26128,
+      "excluded_observed_due_to_chronology_or_invalid_promise": 19,
+      "labels_delivered_after_phase_cutoff": 1,
+      "selected_frozen_rule": 26127,
+      "late_calendar_day_among_observed": 951,
+      "late_calendar_day_among_selected": 950,
+      "selected_share_of_all_purchases": 0.958683,
+      "observed_outcome_share_of_all_purchases": 0.959417,
+      "late_rate_among_selected": 0.036361,
+      "late_rate_among_observed": 0.036371
+    },
+    "VALIDATION": {
+      "all_purchases": 21208,
+      "calendar_purchase_candidates": 21208,
+      "recorded_promise_candidates": 21208,
+      "observed_delivery_outcome": 20627,
+      "unknown_or_unobserved_outcome": 581,
+      "recorded_promise_missing_or_invalid": 0,
+      "strict_historical_candidates": 20627,
+      "excluded_observed_due_to_chronology_or_invalid_promise": 0,
+      "labels_delivered_after_phase_cutoff": 12,
+      "selected_frozen_rule": 20615,
+      "late_calendar_day_among_observed": 2657,
+      "late_calendar_day_among_selected": 2645,
+      "selected_share_of_all_purchases": 0.972039,
+      "observed_outcome_share_of_all_purchases": 0.972605,
+      "late_rate_among_selected": 0.128305,
+      "late_rate_among_observed": 0.128812
+    },
+    "TEST": {
+      "all_purchases": 12459,
+      "calendar_purchase_candidates": 12459,
+      "recorded_promise_candidates": 12459,
+      "observed_delivery_outcome": 12252,
+      "unknown_or_unobserved_outcome": 207,
+      "recorded_promise_missing_or_invalid": 0,
+      "strict_historical_candidates": 12169,
+      "excluded_observed_due_to_chronology_or_invalid_promise": 83,
+      "labels_delivered_after_phase_cutoff": 0,
+      "selected_frozen_rule": 12169,
+      "late_calendar_day_among_observed": 279,
+      "late_calendar_day_among_selected": 277,
+      "selected_share_of_all_purchases": 0.976724,
+      "observed_outcome_share_of_all_purchases": 0.983386,
+      "late_rate_among_selected": 0.022763,
+      "late_rate_among_observed": 0.022772
+    }
+  },
+  "timeline_anomaly_flag_counts": {
+    "carrier_before_purchase": 166,
+    "delivery_before_carrier": 23
+  },
+  "unobserved_outcome_final_statuses": {
+    "approved": 2,
+    "canceled": 625,
+    "created": 5,
+    "delivered": 8,
+    "invoiced": 314,
+    "processing": 301,
+    "shipped": 1107,
+    "unavailable": 609
+  },
+  "observed_after_cutoff_but_not_strict": 0,
+  "study": "AEGIS_STEP_204_OUTCOME_DEPENDENT_SELECTION_AUDIT",
+  "status": "RETROSPECTIVE_SELECTION_AUDITED_NOT_PROSPECTIVE",
+  "original_csv_sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+  "source_definition": "Frozen Step 165 strict eligibility and Step 170 B_WITH_GAPS selection",
+  "feature_contract": {
+    "calendar_only": "Purchase timestamp is present; other required data provenance not audited",
+    "recorded_promise_proxy": "Recorded estimated timestamp exists and is not before purchase, but availability at purchase has NOT been proven",
+    "geography": "Customer location was NOT examined; it may need independent as-of verification"
+  },
+  "limitations": [
+    "Strict selection depends on final status/delivery and is not a prospective prediction eligibility rule",
+    "Observed-only late rates cannot establish population-wide late rates for missing/undelivered outcomes",
+    "The saved estimated delivery date is not independently proven to be the originally communicated promise",
+    "Recorded delivery time does not independently prove when the source outcome became available to an operator",
+    "The previously inspected test period is not a pristine held-out prospective evaluation",
+    "This is an audit, not model training, causal evaluation or operational authorization"
+  ],
+  "step200_count_reconciliation": {
+    "checks": {
+      "source_registry_count": true,
+      "frozen_cohort_total": true,
+      "train_selected_count": true,
+      "validation_selected_count": true,
+      "test_selected_count": true
+    },
+    "all_pass": true
+  }
+}

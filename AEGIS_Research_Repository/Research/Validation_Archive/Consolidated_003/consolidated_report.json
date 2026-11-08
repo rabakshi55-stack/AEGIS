@@ -1,0 +1,590 @@
+{
+  "study": "AEGIS_CONSOLIDATED_RETROSPECTIVE_VALIDATION",
+  "status": "HISTORICAL_RESEARCH_ONLY_NOT_PROSPECTIVELY_CERTIFIED",
+  "inputs_sha256": {
+    "C:\\Users\\VISHAL\\Downloads\\AEGIS_Reviewed_Research_Copy\\AEGIS\\AEGIS_Public_Data\\Olist_Raw\\archive\\olist_orders_dataset.csv": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+    "C:\\Users\\VISHAL\\Downloads\\AEGIS_Reviewed_Research_Copy\\AEGIS\\AEGIS_Public_Data\\Olist_Raw\\archive\\olist_customers_dataset.csv": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2",
+    "C:\\Users\\VISHAL\\Downloads\\AEGIS_Reviewed_Research_Copy\\AEGIS\\AEGIS_4_0_Integrated_Dataset_v0_2\\AEGIS_4_0_v0_2\\AEGIS_Standalone_App\\AEGIS_App\\data\\aegis_bundle.json": "168ec0417db7b1956810df8a8069df75c4b105fad0075358e19221834c96a935",
+    "C:\\Users\\VISHAL\\Downloads\\AEGIS_Reviewed_Research_Copy\\AEGIS\\AEGIS_4_0_Integrated_Dataset_v0_2\\AEGIS_4_0_v0_2\\AEGIS_Standalone_App\\AEGIS_step200_olist_temporal_audit.json": "49d79fcbe607a2343b39ef229addbf62b22f14a470f7b99249b1ff78e332cf3d",
+    "C:\\Users\\VISHAL\\Downloads\\AEGIS_Reviewed_Research_Copy\\AEGIS\\AEGIS_4_0_Integrated_Dataset_v0_2\\AEGIS_4_0_v0_2\\AEGIS_Standalone_App\\AEGIS_step204_selection_report.json": "7d4ecebe234fbbd2710998f171c0ba27e1ba22c9f84607933a09044e604e1894",
+    "C:\\Users\\VISHAL\\Downloads\\AEGIS_Reviewed_Research_Copy\\AEGIS\\AEGIS_4_0_Integrated_Dataset_v0_2\\AEGIS_4_0_v0_2\\AEGIS_Standalone_App\\AEGIS_step205_eligibility_report.json": "f64897258aa9c67d2bb6f50ffb8df7974176779c52688013de8c9ac21a047e37"
+  },
+  "software_data_reconciliation": {
+    "passed": 23,
+    "total": 23,
+    "all_pass": true,
+    "checks": [
+      {
+        "name": "Original orders CSV SHA256 matches Step 200",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "Protects against a different Olist source version"
+      },
+      {
+        "name": "Original orders CSV SHA256 matches Step 204 and 205",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "Same original CSV across three historical audits"
+      },
+      {
+        "name": "Frozen bundle declared digest matches Step 200",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "Compares recorded bundle digest, not an independent cryptographic signature"
+      },
+      {
+        "name": "Prior Step 204/205 reconciliation passed",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "All reported historical reconciliation checks true"
+      },
+      {
+        "name": "Customer ID uniqueness and state coverage",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "duplicate_ids=0, missing_states=0"
+      },
+      {
+        "name": "Original order uniqueness and registry population",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "source=99441, duplicate_order_ids=0"
+      },
+      {
+        "name": "Every order has exactly one customer match",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "unmatched=0, customer_records=99441"
+      },
+      {
+        "name": "Purchase-calendar eligibility count",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "eligible=99441"
+      },
+      {
+        "name": "Historical strict eligibility agrees with Step 205",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "strict=96282"
+      },
+      {
+        "name": "Outcome category population agrees with Step 205",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "All six mutually exclusive final-status categories"
+      },
+      {
+        "name": "TRAIN: population/observability/selection reconciliation",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "purchase=27253, observed=26147, selected=26127"
+      },
+      {
+        "name": "VALIDATION: population/observability/selection reconciliation",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "purchase=21208, observed=20627, selected=20615"
+      },
+      {
+        "name": "TEST: population/observability/selection reconciliation",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "purchase=12459, observed=12252, selected=12169"
+      },
+      {
+        "name": "Bundle original order registry matches Olist source",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "No missing, extra, duplicated original order IDs"
+      },
+      {
+        "name": "Frozen scored population matches Step 200/205",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "scored=58911, source_selected=58911"
+      },
+      {
+        "name": "Every frozen scored ID belongs to original eligible cohort",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "missing_from_bundle=0, unexpected_in_bundle=0"
+      },
+      {
+        "name": "Frozen source features, score ranges and dates reconcile",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "problems={}"
+      },
+      {
+        "name": "ALL frozen-score ROC AUC and AP reproduce Step 200",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "AUC=0.6745828211745871, AP=0.12383406979709569, late=3872"
+      },
+      {
+        "name": "TRAIN frozen-score ROC AUC and AP reproduce Step 200",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "AUC=0.7031153538212612, AP=0.1115718759961698, late=950"
+      },
+      {
+        "name": "VALIDATION frozen-score ROC AUC and AP reproduce Step 200",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "AUC=0.5587054458544118, AP=0.1528809225752026, late=2645"
+      },
+      {
+        "name": "TEST frozen-score ROC AUC and AP reproduce Step 200",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "AUC=0.7026241589467663, AP=0.06003605518686805, late=277"
+      },
+      {
+        "name": "Historical long-promise registry matches previous inspection",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "all_original_over_60=260, frozen_scored_over_60=144"
+      },
+      {
+        "name": "No source or evidence input file modified",
+        "passed": true,
+        "severity": "BLOCK",
+        "detail": "Input SHA256s unchanged after audit"
+      }
+    ]
+  },
+  "original_population": {
+    "orders": 99441,
+    "customer_rows": 99441,
+    "historical_strict_candidates": 96282,
+    "frozen_selected": 58911,
+    "outcome_categories": {
+      "DELIVERED_COMPARABLE_STRICT": 96282,
+      "OTHER_STATUS_WITHOUT_COMPARABLE_DELIVERY": 1729,
+      "UNAVAILABLE_WITHOUT_COMPARABLE_DELIVERY": 609,
+      "CANCELED_WITHOUT_COMPARABLE_DELIVERY": 625,
+      "DELIVERED_COMPARABLE_FLAGGED_CHRONOLOGY_OR_PROMISE": 188,
+      "DELIVERED_STATUS_MISSING_COMPARABLE_DATES": 8
+    },
+    "source_promises_over_60_days": 260,
+    "phase_purchases": {
+      "TEST": 12459,
+      "VALIDATION": 21208,
+      "TRAIN": 27253
+    },
+    "phase_selected": {
+      "TEST": 12169,
+      "VALIDATION": 20615,
+      "TRAIN": 26127
+    },
+    "phase_promises_over_60_days": {
+      "TRAIN": 73,
+      "VALIDATION": 65,
+      "TEST": 16
+    }
+  },
+  "frozen_model_historical_metrics": {
+    "ALL": {
+      "count": 58911,
+      "late_count": 3872,
+      "observed_late_rate": 0.06572626504387975,
+      "mean_frozen_score": 0.042508966210575275,
+      "mean_score_minus_observed_rate": -0.02321729883330448,
+      "roc_auc": 0.6745828211745871,
+      "average_precision": 0.12383406979709569,
+      "brier_descriptive_not_calibration_certification": 0.06057421688172008,
+      "top_10pct_capture": 0.2128099173553719,
+      "top_10pct_lift": 2.127774107488512
+    },
+    "TRAIN": {
+      "count": 26127,
+      "late_count": 950,
+      "observed_late_rate": 0.03636085275768362,
+      "mean_frozen_score": 0.036391917347701606,
+      "mean_score_minus_observed_rate": 3.1064590017983174e-05,
+      "roc_auc": 0.7031153538212612,
+      "average_precision": 0.1115718759961698,
+      "brier_descriptive_not_calibration_certification": 0.0338921283686166,
+      "top_10pct_capture": 0.29578947368421055,
+      "top_10pct_lift": 2.95755513928334
+    },
+    "VALIDATION": {
+      "count": 20615,
+      "late_count": 2645,
+      "observed_late_rate": 0.12830463254911473,
+      "mean_frozen_score": 0.05615535474886248,
+      "mean_score_minus_observed_rate": -0.07214927780025225,
+      "roc_auc": 0.5587054458544118,
+      "average_precision": 0.1528809225752026,
+      "brier_descriptive_not_calibration_certification": 0.1171060998832256,
+      "top_10pct_capture": 0.13194706994328922,
+      "top_10pct_lift": 1.3191507501847273
+    },
+    "TEST": {
+      "count": 12169,
+      "late_count": 277,
+      "observed_late_rate": 0.022762757827266004,
+      "mean_frozen_score": 0.032524566171419175,
+      "mean_score_minus_observed_rate": 0.009761808344153172,
+      "roc_auc": 0.7026241589467663,
+      "average_precision": 0.06003605518686805,
+      "brier_descriptive_not_calibration_certification": 0.022092678423820327,
+      "top_10pct_capture": 0.30685920577617326,
+      "top_10pct_lift": 3.068339913796428
+    }
+  },
+  "by_purchase_month": {
+    "2017-01": {
+      "count": 749,
+      "late_count": 22,
+      "observed_late_rate": 0.029372496662216287,
+      "mean_frozen_score": 0.030354188474632844,
+      "mean_score_minus_observed_rate": 0.0009816918124165575,
+      "roc_auc": 0.663936476178567,
+      "average_precision": 0.06483400293780138,
+      "brier_descriptive_not_calibration_certification": 0.028543602767131786,
+      "top_10pct_capture": 0.2727272727272727,
+      "top_10pct_lift": 2.7236363636363636
+    },
+    "2017-02": {
+      "count": 1651,
+      "late_count": 49,
+      "observed_late_rate": 0.029678982434887948,
+      "mean_frozen_score": 0.029127797750938822,
+      "mean_score_minus_observed_rate": -0.0005511846839491262,
+      "roc_auc": 0.6848072562358276,
+      "average_precision": 0.06858540046828963,
+      "brier_descriptive_not_calibration_certification": 0.02856752256985854,
+      "top_10pct_capture": 0.32653061224489793,
+      "top_10pct_lift": 3.2476026555200392
+    },
+    "2017-03": {
+      "count": 2545,
+      "late_count": 116,
+      "observed_late_rate": 0.04557956777996071,
+      "mean_frozen_score": 0.04580950488982318,
+      "mean_score_minus_observed_rate": 0.0002299371098624728,
+      "roc_auc": 0.673217657330248,
+      "average_precision": 0.10731665567545853,
+      "brier_descriptive_not_calibration_certification": 0.04249459930915038,
+      "top_10pct_capture": 0.25862068965517243,
+      "top_10pct_lift": 2.581135902636917
+    },
+    "2017-04": {
+      "count": 2303,
+      "late_count": 151,
+      "observed_late_rate": 0.06556665219279201,
+      "mean_frozen_score": 0.06517887298992618,
+      "mean_score_minus_observed_rate": -0.0003877792028658261,
+      "roc_auc": 0.6887232575888131,
+      "average_precision": 0.1807082886015975,
+      "brier_descriptive_not_calibration_certification": 0.05845583112541219,
+      "top_10pct_capture": 0.2582781456953642,
+      "top_10pct_lift": 2.5749548464780254
+    },
+    "2017-05": {
+      "count": 3544,
+      "late_count": 106,
+      "observed_late_rate": 0.029909706546275394,
+      "mean_frozen_score": 0.030017389966958238,
+      "mean_score_minus_observed_rate": 0.0001076834206828435,
+      "roc_auc": 0.6670741545655109,
+      "average_precision": 0.060988784079045524,
+      "brier_descriptive_not_calibration_certification": 0.028759643367917902,
+      "top_10pct_capture": 0.25471698113207547,
+      "top_10pct_lift": 2.542864735583311
+    },
+    "2017-06": {
+      "count": 3134,
+      "late_count": 95,
+      "observed_late_rate": 0.030312699425654115,
+      "mean_frozen_score": 0.030142233115666876,
+      "mean_score_minus_observed_rate": -0.00017046630998723833,
+      "roc_auc": 0.6570894165324466,
+      "average_precision": 0.0900845150267598,
+      "brier_descriptive_not_calibration_certification": 0.028773307633415568,
+      "top_10pct_capture": 0.2,
+      "top_10pct_lift": 1.9961783439490448
+    },
+    "2017-07": {
+      "count": 3861,
+      "late_count": 108,
+      "observed_late_rate": 0.027972027972027972,
+      "mean_frozen_score": 0.02818220411872572,
+      "mean_score_minus_observed_rate": 0.00021017614669774712,
+      "roc_auc": 0.7408011862115246,
+      "average_precision": 0.12401820975941447,
+      "brier_descriptive_not_calibration_certification": 0.02619521684112162,
+      "top_10pct_capture": 0.35185185185185186,
+      "top_10pct_lift": 3.510335917312662
+    },
+    "2017-08": {
+      "count": 4191,
+      "late_count": 122,
+      "observed_late_rate": 0.02910999761393462,
+      "mean_frozen_score": 0.029174566269458364,
+      "mean_score_minus_observed_rate": 6.456865552374388e-05,
+      "roc_auc": 0.6312371831803036,
+      "average_precision": 0.0716120659688772,
+      "brier_descriptive_not_calibration_certification": 0.027879586114276666,
+      "top_10pct_capture": 0.2540983606557377,
+      "top_10pct_lift": 2.5355386416861827
+    },
+    "2017-09": {
+      "count": 4149,
+      "late_count": 181,
+      "observed_late_rate": 0.043624969872258376,
+      "mean_frozen_score": 0.04371287608667149,
+      "mean_score_minus_observed_rate": 8.790621441311097e-05,
+      "roc_auc": 0.7329749877472821,
+      "average_precision": 0.16487453309645445,
+      "brier_descriptive_not_calibration_certification": 0.03955173908900607,
+      "top_10pct_capture": 0.3370165745856354,
+      "top_10pct_lift": 3.369353657724822
+    },
+    "2018-01": {
+      "count": 7068,
+      "late_count": 402,
+      "observed_late_rate": 0.056876061120543296,
+      "mean_frozen_score": 0.06798713143242785,
+      "mean_score_minus_observed_rate": 0.011111070311884554,
+      "roc_auc": 0.6062234954838768,
+      "average_precision": 0.0949070185994712,
+      "brier_descriptive_not_calibration_certification": 0.05405043644243048,
+      "top_10pct_capture": 0.14925373134328357,
+      "top_10pct_lift": 1.4921150963710443
+    },
+    "2018-02": {
+      "count": 6551,
+      "late_count": 922,
+      "observed_late_rate": 0.14074187147000458,
+      "mean_frozen_score": 0.04562376066191421,
+      "mean_score_minus_observed_rate": -0.09511811080809038,
+      "roc_auc": 0.6127369922338186,
+      "average_precision": 0.19161503535492108,
+      "brier_descriptive_not_calibration_certification": 0.12841216248589057,
+      "top_10pct_capture": 0.14099783080260303,
+      "top_10pct_lift": 1.4080438865668483
+    },
+    "2018-03": {
+      "count": 6996,
+      "late_count": 1321,
+      "observed_late_rate": 0.18882218410520296,
+      "mean_frozen_score": 0.05406351301989708,
+      "mean_score_minus_observed_rate": -0.13475867108530587,
+      "roc_auc": 0.5663828964174117,
+      "average_precision": 0.22892571898008282,
+      "brier_descriptive_not_calibration_certification": 0.1702237975804071,
+      "top_10pct_capture": 0.14912944738834216,
+      "top_10pct_lift": 1.4904423056126312
+    },
+    "2018-06": {
+      "count": 6050,
+      "late_count": 70,
+      "observed_late_rate": 0.011570247933884297,
+      "mean_frozen_score": 0.025940086714512395,
+      "mean_score_minus_observed_rate": 0.014369838780628098,
+      "roc_auc": 0.7417116579073101,
+      "average_precision": 0.032935165480745404,
+      "brier_descriptive_not_calibration_certification": 0.011729746608080856,
+      "top_10pct_capture": 0.38571428571428573,
+      "top_10pct_lift": 3.857142857142857
+    },
+    "2018-07": {
+      "count": 6119,
+      "late_count": 207,
+      "observed_late_rate": 0.03382905703546331,
+      "mean_frozen_score": 0.03903479671796045,
+      "mean_score_minus_observed_rate": 0.005205739682497143,
+      "roc_auc": 0.6491468265641649,
+      "average_precision": 0.07407528746711146,
+      "brier_descriptive_not_calibration_certification": 0.03233875416907671,
+      "top_10pct_capture": 0.2946859903381642,
+      "top_10pct_lift": 2.9463783903255347
+    }
+  },
+  "frozen_long_promise_sensitivity": {
+    "ALL": {
+      "all": {
+        "count": 58911,
+        "late_count": 3872,
+        "observed_late_rate": 0.06572626504387975,
+        "mean_frozen_score": 0.042508966210575275,
+        "mean_score_minus_observed_rate": -0.02321729883330448,
+        "roc_auc": 0.6745828211745871,
+        "average_precision": 0.12383406979709569,
+        "brier_descriptive_not_calibration_certification": 0.06057421688172008,
+        "top_10pct_capture": 0.2128099173553719,
+        "top_10pct_lift": 2.127774107488512
+      },
+      "promise_over_60_days": {
+        "count": 144,
+        "late_count": 4,
+        "observed_late_rate": 0.027777777777777776,
+        "mean_frozen_score": 0.004105218114583333,
+        "mean_score_minus_observed_rate": -0.023672559663194443,
+        "roc_auc": 0.7428571428571429,
+        "average_precision": 0.08215689577717879,
+        "brier_descriptive_not_calibration_certification": 0.027449998842858165,
+        "top_10pct_capture": 0.25,
+        "top_10pct_lift": 2.4
+      },
+      "promise_at_most_60_days": {
+        "count": 58767,
+        "late_count": 3868,
+        "observed_late_rate": 0.06581925230146171,
+        "mean_frozen_score": 0.04260306901871288,
+        "mean_score_minus_observed_rate": -0.023216183282748833,
+        "roc_auc": 0.6744231670104807,
+        "average_precision": 0.123892580234039,
+        "brier_descriptive_not_calibration_certification": 0.060655382968088215,
+        "top_10pct_capture": 0.2127714581178904,
+        "top_10pct_lift": 2.127605968898088
+      },
+      "auc_difference_trimmed_minus_all": -0.00015965416410645972,
+      "interpretation": "Descriptive re-evaluation of the same frozen scores; not a new independent test"
+    },
+    "TRAIN": {
+      "all": {
+        "count": 26127,
+        "late_count": 950,
+        "observed_late_rate": 0.03636085275768362,
+        "mean_frozen_score": 0.036391917347701606,
+        "mean_score_minus_observed_rate": 3.1064590017983174e-05,
+        "roc_auc": 0.7031153538212612,
+        "average_precision": 0.1115718759961698,
+        "brier_descriptive_not_calibration_certification": 0.0338921283686166,
+        "top_10pct_capture": 0.29578947368421055,
+        "top_10pct_lift": 2.95755513928334
+      },
+      "promise_over_60_days": {
+        "count": 65,
+        "late_count": 1,
+        "observed_late_rate": 0.015384615384615385,
+        "mean_frozen_score": 0.0038769402615384616,
+        "mean_score_minus_observed_rate": -0.011507675123076924,
+        "roc_auc": 0.640625,
+        "average_precision": 0.041666666666666664,
+        "brier_descriptive_not_calibration_certification": 0.015333356937681834,
+        "top_10pct_capture": 0.0,
+        "top_10pct_lift": 0.0
+      },
+      "promise_at_most_60_days": {
+        "count": 26062,
+        "late_count": 949,
+        "observed_late_rate": 0.03641316859795871,
+        "mean_frozen_score": 0.036473011412263064,
+        "mean_score_minus_observed_rate": 5.984281430435057e-05,
+        "roc_auc": 0.7031247003795741,
+        "average_precision": 0.1116524985079849,
+        "brier_descriptive_not_calibration_certification": 0.03393841492156767,
+        "top_10pct_capture": 0.29610115911485774,
+        "top_10pct_lift": 2.9601029569817503
+      },
+      "auc_difference_trimmed_minus_all": 9.346558312861575e-06,
+      "interpretation": "Descriptive re-evaluation of the same frozen scores; not a new independent test"
+    },
+    "VALIDATION": {
+      "all": {
+        "count": 20615,
+        "late_count": 2645,
+        "observed_late_rate": 0.12830463254911473,
+        "mean_frozen_score": 0.05615535474886248,
+        "mean_score_minus_observed_rate": -0.07214927780025225,
+        "roc_auc": 0.5587054458544118,
+        "average_precision": 0.1528809225752026,
+        "brier_descriptive_not_calibration_certification": 0.1171060998832256,
+        "top_10pct_capture": 0.13194706994328922,
+        "top_10pct_lift": 1.3191507501847273
+      },
+      "promise_over_60_days": {
+        "count": 64,
+        "late_count": 3,
+        "observed_late_rate": 0.046875,
+        "mean_frozen_score": 0.0044771097765625,
+        "mean_score_minus_observed_rate": -0.0423978902234375,
+        "roc_auc": 0.7704918032786885,
+        "average_precision": 0.1607142857142857,
+        "brier_descriptive_not_calibration_certification": 0.04618565992748203,
+        "top_10pct_capture": 0.3333333333333333,
+        "top_10pct_lift": 3.0476190476190474
+      },
+      "promise_at_most_60_days": {
+        "count": 20551,
+        "late_count": 2642,
+        "observed_late_rate": 0.128558221011143,
+        "mean_frozen_score": 0.05631629132996448,
+        "mean_score_minus_observed_rate": -0.07224192968117853,
+        "roc_auc": 0.557830171703704,
+        "average_precision": 0.15290818713053622,
+        "brier_descriptive_not_calibration_certification": 0.11732696057891766,
+        "top_10pct_capture": 0.13209689629068888,
+        "top_10pct_lift": 1.3203907177383012
+      },
+      "auc_difference_trimmed_minus_all": -0.0008752741507078721,
+      "interpretation": "Descriptive re-evaluation of the same frozen scores; not a new independent test"
+    },
+    "TEST": {
+      "all": {
+        "count": 12169,
+        "late_count": 277,
+        "observed_late_rate": 0.022762757827266004,
+        "mean_frozen_score": 0.032524566171419175,
+        "mean_score_minus_observed_rate": 0.009761808344153172,
+        "roc_auc": 0.7026241589467663,
+        "average_precision": 0.06003605518686805,
+        "brier_descriptive_not_calibration_certification": 0.022092678423820327,
+        "top_10pct_capture": 0.30685920577617326,
+        "top_10pct_lift": 3.068339913796428
+      },
+      "promise_over_60_days": {
+        "count": 15,
+        "late_count": 0,
+        "observed_late_rate": 0.0,
+        "mean_frozen_score": 0.0035076843866666666,
+        "mean_score_minus_observed_rate": 0.0035076843866666666,
+        "roc_auc": null,
+        "average_precision": null,
+        "brier_descriptive_not_calibration_certification": 1.6626470893774653e-05,
+        "top_10pct_capture": null,
+        "top_10pct_lift": null
+      },
+      "promise_at_most_60_days": {
+        "count": 12154,
+        "late_count": 277,
+        "observed_late_rate": 0.022790850748724698,
+        "mean_frozen_score": 0.03256037769246339,
+        "mean_score_minus_observed_rate": 0.009769526943738688,
+        "roc_auc": 0.7022510212226465,
+        "average_precision": 0.06003611502423156,
+        "brier_descriptive_not_calibration_certification": 0.0221199238392633,
+        "top_10pct_capture": 0.30685920577617326,
+        "top_10pct_lift": 3.0670779498384952
+      },
+      "auc_difference_trimmed_minus_all": -0.00037313772411984303,
+      "interpretation": "Descriptive re-evaluation of the same frozen scores; not a new independent test"
+    }
+  },
+  "operational_evidence_gaps": [
+    "Validation-period mean model score differs from observed late rate by over 3 percentage points.",
+    "Validation-period ROC AUC below 0.60; material discrimination weakness in that historical period.",
+    "Original Olist snapshot does not certify original quoted delivery-promise availability or immutability at order purchase.",
+    "Customer state may be historically consistent but customer-state as-of availability/version history is not proven.",
+    "The strict frozen model cohort requires known delivery outcomes: retrospective selection bias remains for actual prospective scoring.",
+    "The test period has been inspected repeatedly; it is not a pristine independent holdout.",
+    "Historical discrimination, sensitivity and calibration descriptors do not prove future model reliability.",
+    "Olist estimated delivery is not independently verified as an enforceable contractual customer commitment.",
+    "Olist delivery prediction does not prove supplier-switch counterfactuals, causal gains, capacity feasibility or ERP suitability.",
+    "Existing AEGIS model risk-score values are not certified calibrated probabilities.",
+    "Real procurement actions must remain disabled and subject to human approval."
+  ],
+  "feature_as_of_availability_certified": false,
+  "pristine_prospective_holdout": false,
+  "probability_calibration_certified": false,
+  "supplier_counterfactual_validity_certified": false,
+  "automatic_business_actions": "DISABLED",
+  "source_input_modifications": "NONE",
+  "new_model_training": "NONE",
+  "note": "All scored metrics are retrospective; descriptive probability metrics do not imply calibration. No new score or outcome predictions made."
+}

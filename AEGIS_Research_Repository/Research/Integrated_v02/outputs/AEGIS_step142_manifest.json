@@ -1,0 +1,22 @@
+{
+  "artifacts": {
+    "AEGIS_step142_chronological_states.csv": "2107feb07380a63ed9b0ff01d5fb27613ff76cd5f35c0f2d3cfcc60890b16a08",
+    "AEGIS_step142_path_comparison.csv": "5887db429c86a100c8edbb007a19cd1eaa2170b35af0f195a530f483d8a3e172",
+    "AEGIS_step142_policy_risk.csv": "aec71093b8cd873a36d6a9d6391c6a564c2f65090e8b8f5134f21820dba5bc36"
+  },
+  "dynamic_optimization_performed": false,
+  "intraday_ordering_assumed": true,
+  "models_retrained": false,
+  "only_utilization_input_recalculated": true,
+  "original_allocations_modified": false,
+  "other_operational_features_certified": false,
+  "policy_allocations": 96,
+  "policy_count": 6,
+  "policy_specific_booking_reconstructed": true,
+  "production_authorized": false,
+  "reserved_test_accessed": false,
+  "scenario_records": 48000,
+  "source_utilization_formula_applied": true,
+  "step": 142,
+  "supplier_switch_causal_validity_certified": false
+}

@@ -1,0 +1,5 @@
+Feature,Candidate_Pairs,Pairs_With_Variation,Stable
+quoted_unit_cost_usd,80,0,True
+promised_lead_days,80,0,True
+supplier_completed_orders_past_90d,80,0,True
+supplier_late_rate_past_90d,80,0,True

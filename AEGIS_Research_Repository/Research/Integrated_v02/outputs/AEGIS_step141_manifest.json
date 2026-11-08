@@ -1,0 +1,22 @@
+{
+  "adaptive_optimizer_executed": false,
+  "artifact_sha256": {
+    "AEGIS_step141_booking_intervals.csv": "bf796cf353c1b7b0267dfd5b5d750d85e15be9774b2cda6439a788dcf1533c49",
+    "AEGIS_step141_capacity_headroom.csv": "846e9103d7a65d28457564c1bc5eae3bc90db3a6730cba083c62a5cccf3aa51b",
+    "AEGIS_step141_policy_consistency.csv": "2b15995a374f35d957b44139a57fb187d303f88347cf7fc91a50390a74dba5cc",
+    "AEGIS_step141_utilization_replay.csv": "2f688e302901fc2c6a6810c777ccf8ec9cc021ef550c7a164acd06665ec7bc3a"
+  },
+  "exact_original_execution_replayed": false,
+  "intraday_ordering_certified": false,
+  "ml_feature_validity_certified": false,
+  "original_allocations_modified": false,
+  "original_models_retrained": false,
+  "policy_count": 6,
+  "policy_orders": 96,
+  "pre_order_booking_intervals_constructed": true,
+  "production_authorized": false,
+  "reserved_test_accessed": false,
+  "scenario_records": 48000,
+  "source_formula_constants_checked": true,
+  "step": 141
+}

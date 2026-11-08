@@ -1,0 +1,74 @@
+{
+  "actual_resilience_benefit_proven": false,
+  "baseline_modeled_cost_cents": 800,
+  "declared_cost_ceiling_cents": 1000,
+  "frontier": [
+    {
+      "assignment": {
+        "O1": "O1-S1",
+        "O2": "O2-S2"
+      },
+      "exact_optimal": true,
+      "minimum_unused_capacity_percent_declared": 0,
+      "modeled_cost_cents": 800,
+      "status": "EXACT_MIN_COST_UNATTESTED"
+    },
+    {
+      "assignment": {
+        "O1": "O1-S1",
+        "O2": "O2-S2"
+      },
+      "exact_optimal": true,
+      "minimum_unused_capacity_percent_declared": 10,
+      "modeled_cost_cents": 800,
+      "status": "EXACT_MIN_COST_UNATTESTED"
+    },
+    {
+      "assignment": {
+        "O1": "O1-S1",
+        "O2": "O2-S2"
+      },
+      "exact_optimal": true,
+      "minimum_unused_capacity_percent_declared": 20,
+      "modeled_cost_cents": 800,
+      "status": "EXACT_MIN_COST_UNATTESTED"
+    },
+    {
+      "assignment": null,
+      "exact_optimal": false,
+      "minimum_unused_capacity_percent_declared": 30,
+      "modeled_cost_cents": null,
+      "status": "INFEASIBLE_WITH_RECORDED_CONSTRAINTS"
+    },
+    {
+      "assignment": null,
+      "exact_optimal": false,
+      "minimum_unused_capacity_percent_declared": 40,
+      "modeled_cost_cents": null,
+      "status": "INFEASIBLE_WITH_RECORDED_CONSTRAINTS"
+    },
+    {
+      "assignment": null,
+      "exact_optimal": false,
+      "minimum_unused_capacity_percent_declared": 50,
+      "modeled_cost_cents": null,
+      "status": "INFEASIBLE_NO_VALID_OPTIONS"
+    }
+  ],
+  "interpretation": "The program chooses a reserve level from a predeclared finite grid by maximizing unused declared capacity within an analyst-specified cost ceiling. Each candidate is re-solved jointly across all declared daily resources; no risk reduction, actual capacity, supplier causality or real savings is established.",
+  "legacy_ai_plus_five_quoted_cost_allowance_is_capacity": false,
+  "maximum_extra_modeled_cost_cents": 200,
+  "operational_approval": "NOT_GRANTED",
+  "permitted_business_action": "NONE",
+  "selected": {
+    "assignment": {
+      "O1": "O1-S1",
+      "O2": "O2-S2"
+    },
+    "exact_optimal": true,
+    "minimum_unused_capacity_percent_declared": 20,
+    "modeled_cost_cents": 800,
+    "status": "EXACT_MIN_COST_UNATTESTED"
+  },
+  "status": "EXACT_GRID_CONSTRAINED_RESEARCH_ONLY"
+}

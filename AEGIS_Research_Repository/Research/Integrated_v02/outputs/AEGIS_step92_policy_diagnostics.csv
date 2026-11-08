@@ -1,0 +1,9 @@
+Scenario_ID,Profile,Component,Decision_Dates,Required_Units,Cost_Only_Unserved_Units,Stochastic_Unserved_Units,Net_Units_Recovered,Cost_Only_Cost_USD,Stochastic_Cost_USD,Same_Served_Order_Set,Like_For_Like_Saving_USD,Decision_Stratum,Feasible_Assignments,Cost_Difference_USD,Cost_Difference_Percent,Decision_Batches,Multiple_Choice_Batches,Maximum_Choices,Changed_Assignments,Matched_Order_Cost_Difference
+normal__r01__CMP-004,normal,CMP-004,8,4917,0,0,0,512698.77,512698.77,True,0.0,Multiple-choice,3,0.0,0.0,8,7,4.0,0,0.0
+normal__r01__CMP-025,normal,CMP-025,12,5364,0,0,0,640890.3200000001,640890.3200000001,True,0.0,Single-choice,1,0.0,0.0,12,1,2.0,0,0.0
+scarcity_surge__r01__CMP-006,scarcity_surge,CMP-006,10,2112,0,0,0,116555.36,116555.36,True,0.0,Multiple-choice,4,0.0,0.0,10,6,4.0,0,0.0
+scarcity_surge__r02__CMP-015,scarcity_surge,CMP-015,9,7614,0,0,0,1559474.18,1559474.18,True,0.0,Single-choice,1,0.0,0.0,9,1,2.0,0,0.0
+capacity_crunch__r01__CMP-027,capacity_crunch,CMP-027,9,10875,2425,2425,0,1771494.25,1771494.25,True,0.0,Multiple-choice,2,0.0,0.0,9,3,2.0,0,0.0
+capacity_crunch__r02__CMP-030,capacity_crunch,CMP-030,10,2659,0,0,0,551908.8200000001,551908.8200000001,True,0.0,Single-choice,1,0.0,0.0,10,2,2.0,0,0.0
+combined_shock__r02__CMP-011,combined_shock,CMP-011,8,8171,1200,1200,0,568478.89,572761.25,True,-4282.359999999986,Multiple-choice,3,-4282.359999999986,-0.7533014990231187,8,2,3.0,6,-4282.359999999999
+combined_shock__r01__CMP-023,combined_shock,CMP-023,9,3119,0,0,0,124608.93999999999,124856.44,True,-247.50000000001455,Single-choice,1,-247.50000000001455,-0.19862138302437576,9,3,4.0,1,-247.50000000000364

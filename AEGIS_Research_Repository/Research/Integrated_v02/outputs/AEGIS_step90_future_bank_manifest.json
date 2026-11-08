@@ -1,0 +1,22 @@
+{
+  "ML_test_data_used": false,
+  "decision_batches": 75,
+  "future_bank_sha256": "e2c3b8ceb8d6101e898cd9744efe58a9482b7ee7551b68873fd41f9f025b7da5",
+  "future_seed": 202690,
+  "holdout_generated": false,
+  "paths_per_decision": 12,
+  "purpose": "Step 90 development-only decision-time future bank",
+  "reserved_evaluation_seed": 202668,
+  "selected_scenarios": [
+    "normal__r01__CMP-004",
+    "normal__r01__CMP-025",
+    "scarcity_surge__r01__CMP-006",
+    "scarcity_surge__r02__CMP-015",
+    "capacity_crunch__r01__CMP-027",
+    "capacity_crunch__r02__CMP-030",
+    "combined_shock__r02__CMP-011",
+    "combined_shock__r01__CMP-023"
+  ],
+  "source_development_sha256": "e90f49c0ee9e118067ed038e827c44ae8ca34982c3d598b5d87a2b1107b50aa2",
+  "step89_protocol_sha256": "3926416791837138bbc4345423b289f51876a0c9d969f99bbe6c90735eb4c6e1"
+}

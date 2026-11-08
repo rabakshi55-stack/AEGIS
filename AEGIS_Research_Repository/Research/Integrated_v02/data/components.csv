@@ -1,0 +1,31 @@
+component_id,component_family,criticality,standard_unit_cost_usd,annual_holding_rate,safety_stock_days
+CMP-001,Microcontroller,Low,33.15,0.22,27
+CMP-002,Sensor,High,195.88,0.285,26
+CMP-003,Power module,Medium,168.59,0.226,17
+CMP-004,Board,Low,120.29,0.211,24
+CMP-005,Housing,High,186.47,0.203,16
+CMP-006,Connector,Medium,56.82,0.257,11
+CMP-007,Microcontroller,Medium,139.88,0.245,21
+CMP-008,Sensor,High,167.2,0.261,25
+CMP-009,Power module,Medium,130.1,0.268,21
+CMP-010,Board,High,17.53,0.251,10
+CMP-011,Housing,Low,71.77,0.221,19
+CMP-012,Connector,Medium,205.07,0.171,25
+CMP-013,Microcontroller,High,63.95,0.188,10
+CMP-014,Sensor,Medium,84.57,0.159,11
+CMP-015,Power module,Medium,214.55,0.271,25
+CMP-016,Board,High,131.24,0.266,20
+CMP-017,Housing,Medium,118.6,0.249,30
+CMP-018,Connector,High,64.64,0.265,13
+CMP-019,Microcontroller,Low,50.94,0.161,17
+CMP-020,Sensor,High,128.12,0.248,28
+CMP-021,Power module,High,168.16,0.202,18
+CMP-022,Board,Medium,77.63,0.213,15
+CMP-023,Housing,Medium,39.26,0.154,25
+CMP-024,Connector,Low,153.06,0.227,28
+CMP-025,Microcontroller,High,136.12,0.223,22
+CMP-026,Sensor,High,20.75,0.285,12
+CMP-027,Power module,Low,189.19,0.209,22
+CMP-028,Board,High,133.03,0.179,29
+CMP-029,Housing,High,31.23,0.251,12
+CMP-030,Connector,Medium,196.95,0.243,11

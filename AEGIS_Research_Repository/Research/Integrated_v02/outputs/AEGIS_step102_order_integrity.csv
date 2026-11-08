@@ -1,0 +1,5 @@
+Feature,Orders_With_Multiple_Values,Maximum_Distinct_Values
+component_id,0,1
+plant_id,0,1
+order_quantity_units,0,1
+urgent_order_flag,0,1

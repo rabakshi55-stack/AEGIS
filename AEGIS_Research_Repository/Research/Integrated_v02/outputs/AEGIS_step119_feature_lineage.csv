@@ -1,0 +1,19 @@
+Feature,Category,Generator_Line,Original_Expression,Status,Fully_Certified
+supplier_id,Supplier Attributes,161,sid,CANDIDATE_SOURCE_REVIEW_REQUIRED,False
+component_id,Order Attributes,161,comp,DECISION_TIME_REVIEW_REQUIRED,False
+plant_id,Order Attributes,161,pl,DECISION_TIME_REVIEW_REQUIRED,False
+order_quantity_units,Order Attributes,162,units,DECISION_TIME_REVIEW_REQUIRED,False
+quoted_unit_cost_usd,Supplier Attributes,163,float(option.quoted_unit_cost_usd),CANDIDATE_SOURCE_REVIEW_REQUIRED,False
+promised_lead_days,Supplier Attributes,164,promised_lead,CANDIDATE_SOURCE_REVIEW_REQUIRED,False
+urgent_order_flag,Order Attributes,165,urgent,DECISION_TIME_REVIEW_REQUIRED,False
+regional_alert_available_at_order,Regional Alert Information,165,alert,PUBLICATION_TIME_REVIEW_REQUIRED,False
+regional_alert_level_at_order,Regional Alert Information,166,level,PUBLICATION_TIME_REVIEW_REQUIRED,False
+capacity_utilization_at_order,Operational Capacity and Congestion,166,"round(utilization, 4)",COUNTERFACTUAL_REVIEW_REQUIRED,False
+logistics_congestion_at_order,Operational Capacity and Congestion,167,"round(congestion, 4)",COUNTERFACTUAL_REVIEW_REQUIRED,False
+supplier_completed_orders_past_90d,Historical Supplier Performance,168,hist_count,RECEIPT_TIMING_SUPPORTED,False
+supplier_late_rate_past_90d,Historical Supplier Performance,169,hist_rate,RECEIPT_TIMING_SUPPORTED,False
+forecast_daily_requirements_at_order,Inventory and Demand State,170,"round(forecast, 3)",TIMESTAMP_REVIEW_REQUIRED,False
+inventory_on_hand_at_order,Inventory and Demand State,171,"stock[pl, comp]",TIMESTAMP_REVIEW_REQUIRED,False
+inventory_on_order_at_order,Inventory and Demand State,172,"onorder[pl, comp]",TIMESTAMP_REVIEW_REQUIRED,False
+reorder_target_units_at_order,Inventory and Demand State,173,target,TIMESTAMP_REVIEW_REQUIRED,False
+inventory_position_at_order,Inventory and Demand State,174,inventory_position,TIMESTAMP_REVIEW_REQUIRED,False

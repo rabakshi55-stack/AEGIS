@@ -1,0 +1,6 @@
+Feature,Candidate_Pairs,Pairs_With_Variation,Pairs_Constant
+capacity_utilization_at_order,80,80,0
+logistics_congestion_at_order,80,80,0
+supplier_late_rate_past_90d,80,0,80
+promised_lead_days,80,0,80
+quoted_unit_cost_usd,80,0,80

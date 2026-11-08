@@ -1,0 +1,2 @@
+Download Olist CSVs from https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce.
+Original raw files are omitted for license and repository size reasons.

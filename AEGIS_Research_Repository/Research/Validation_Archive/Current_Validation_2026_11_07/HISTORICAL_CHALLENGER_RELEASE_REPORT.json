@@ -1,0 +1,513 @@
+{
+  "business_action": "DISABLED",
+  "calibration_window": "February 2018; sigmoid on frozen raw scores; no later refit.",
+  "candidate_models": [
+    {
+      "algorithm": "logistic",
+      "arm": "timestamp_only",
+      "selection_ap": 0.073303,
+      "selection_auc": 0.595186
+    },
+    {
+      "algorithm": "hist_gradient_boosting",
+      "arm": "timestamp_only",
+      "selection_ap": 0.061999,
+      "selection_auc": 0.525391
+    },
+    {
+      "algorithm": "logistic",
+      "arm": "candidate_checkout_unattested",
+      "selection_ap": 0.138632,
+      "selection_auc": 0.687702
+    },
+    {
+      "algorithm": "hist_gradient_boosting",
+      "arm": "candidate_checkout_unattested",
+      "selection_ap": 0.106435,
+      "selection_auc": 0.644818
+    },
+    {
+      "algorithm": "logistic",
+      "arm": "extended_checkout_unattested",
+      "selection_ap": 0.145852,
+      "selection_auc": 0.690373
+    },
+    {
+      "algorithm": "hist_gradient_boosting",
+      "arm": "extended_checkout_unattested",
+      "selection_ap": 0.10869,
+      "selection_auc": 0.655752
+    }
+  ],
+  "feature_sets": {
+    "candidate_checkout_unattested": "Adds destination state and estimated-delivery horizon; as-of availability NOT proved.",
+    "extended_checkout_unattested": "Adds item count, seller origin, booked price/freight and seller-location relationship; no independently proven as-of timestamps.",
+    "timestamp_only": "Purchase timestamp calendar features only; independent ingestion time not provable."
+  },
+  "features_independently_verified_asof": false,
+  "frozen_json_shadow_score_arithmetic_parity_verified": true,
+  "frozen_shadow_model_artifact_sha256": "b1da7b4a0889a10ccbad65f214e67e1a410daac26312b2108d998ee1dfb7573c",
+  "frozen_shadow_model_deployed_to_manager": false,
+  "historical_diagnostic_thresholds_met_both_later_periods": false,
+  "historical_reference_auc_0_558705_not_directly_comparable": true,
+  "interpretation": "Retrospective historical experiment with posthoc feature iteration: target and cohort differ from frozen 58,911-score model. Later windows have already been seen by researchers and are NOT pristine tests. Scores do not establish prospective accuracy or availability of checkout candidate fields.",
+  "model_artifact_deployed_to_aegis": false,
+  "model_selection_rule": "Highest January-2018 average precision (then AUC); no stress/audit data in selection.",
+  "partitions": {
+    "development_calibration": {
+      "absolute_mean_calibration_gap": 1e-06,
+      "auc": 0.730638,
+      "average_precision": 0.329344,
+      "base_rate_average_precision": 0.141266,
+      "brier_calibrated_descriptive": 0.108802,
+      "calibration_buckets": [
+        {
+          "high": 0.1,
+          "late_rate": 0.0658,
+          "low": 0.0,
+          "mean_score": 0.06368,
+          "n": 3161
+        },
+        {
+          "high": 0.2,
+          "late_rate": 0.12953,
+          "low": 0.1,
+          "mean_score": 0.13581,
+          "n": 1961
+        },
+        {
+          "high": 0.3,
+          "late_rate": 0.23184,
+          "low": 0.2,
+          "mean_score": 0.24735,
+          "n": 716
+        },
+        {
+          "high": 0.4,
+          "late_rate": 0.37281,
+          "low": 0.3,
+          "mean_score": 0.34674,
+          "n": 456
+        },
+        {
+          "high": 0.5,
+          "late_rate": 0.50251,
+          "low": 0.4,
+          "mean_score": 0.43691,
+          "n": 199
+        },
+        {
+          "high": 0.6,
+          "late_rate": 0.42857,
+          "low": 0.5,
+          "mean_score": 0.54701,
+          "n": 42
+        },
+        {
+          "high": 0.7,
+          "late_rate": 0.5625,
+          "low": 0.6,
+          "mean_score": 0.63484,
+          "n": 16
+        },
+        {
+          "high": 0.8,
+          "late_rate": 0.0,
+          "low": 0.7,
+          "mean_score": 0.71257,
+          "n": 3
+        },
+        {
+          "high": 1.0,
+          "late_rate": 1.0,
+          "low": 0.9,
+          "mean_score": 0.96753,
+          "n": 1
+        }
+      ],
+      "late_count": 926,
+      "late_rate": 0.141266,
+      "mature_rows": 6555,
+      "mean_calibrated_score": 0.141267,
+      "mean_uncalibrated_score": 0.024058
+    },
+    "development_selection": {
+      "absolute_mean_calibration_gap": 0.054546,
+      "auc": 0.690373,
+      "average_precision": 0.145852,
+      "base_rate_average_precision": 0.057009,
+      "brier_calibrated_descriptive": 0.056733,
+      "calibration_buckets": [
+        {
+          "high": 0.1,
+          "late_rate": 0.03212,
+          "low": 0.0,
+          "mean_score": 0.06013,
+          "n": 4359
+        },
+        {
+          "high": 0.2,
+          "late_rate": 0.07259,
+          "low": 0.1,
+          "mean_score": 0.13821,
+          "n": 1722
+        },
+        {
+          "high": 0.3,
+          "late_rate": 0.1168,
+          "low": 0.2,
+          "mean_score": 0.24384,
+          "n": 625
+        },
+        {
+          "high": 0.4,
+          "late_rate": 0.14388,
+          "low": 0.3,
+          "mean_score": 0.33988,
+          "n": 278
+        },
+        {
+          "high": 0.5,
+          "late_rate": 0.2037,
+          "low": 0.4,
+          "mean_score": 0.43995,
+          "n": 54
+        },
+        {
+          "high": 0.6,
+          "late_rate": 0.3913,
+          "low": 0.5,
+          "mean_score": 0.54854,
+          "n": 23
+        },
+        {
+          "high": 0.7,
+          "late_rate": 0.71429,
+          "low": 0.6,
+          "mean_score": 0.63452,
+          "n": 7
+        },
+        {
+          "high": 0.8,
+          "late_rate": 0.0,
+          "low": 0.7,
+          "mean_score": 0.78545,
+          "n": 1
+        }
+      ],
+      "late_count": 403,
+      "late_rate": 0.057009,
+      "mature_rows": 7069,
+      "mean_calibrated_score": 0.111556,
+      "mean_uncalibrated_score": 0.019184
+    },
+    "development_training": {
+      "absolute_mean_calibration_gap": 0.25172,
+      "auc": 0.707687,
+      "average_precision": 0.156229,
+      "base_rate_average_precision": 0.056487,
+      "brier_calibrated_descriptive": 0.135323,
+      "calibration_buckets": [
+        {
+          "high": 0.1,
+          "late_rate": 0.02325,
+          "low": 0.0,
+          "mean_score": 0.06251,
+          "n": 5419
+        },
+        {
+          "high": 0.2,
+          "late_rate": 0.0257,
+          "low": 0.1,
+          "mean_score": 0.15226,
+          "n": 9105
+        },
+        {
+          "high": 0.3,
+          "late_rate": 0.03314,
+          "low": 0.2,
+          "mean_score": 0.2492,
+          "n": 9414
+        },
+        {
+          "high": 0.4,
+          "late_rate": 0.05443,
+          "low": 0.3,
+          "mean_score": 0.34636,
+          "n": 7661
+        },
+        {
+          "high": 0.5,
+          "late_rate": 0.06431,
+          "low": 0.4,
+          "mean_score": 0.44468,
+          "n": 4556
+        },
+        {
+          "high": 0.6,
+          "late_rate": 0.08903,
+          "low": 0.5,
+          "mean_score": 0.54792,
+          "n": 2898
+        },
+        {
+          "high": 0.7,
+          "late_rate": 0.13667,
+          "low": 0.6,
+          "mean_score": 0.64885,
+          "n": 2517
+        },
+        {
+          "high": 0.8,
+          "late_rate": 0.24917,
+          "low": 0.7,
+          "mean_score": 0.74242,
+          "n": 1509
+        },
+        {
+          "high": 0.9,
+          "late_rate": 0.26814,
+          "low": 0.8,
+          "mean_score": 0.83499,
+          "n": 317
+        },
+        {
+          "high": 1.0,
+          "late_rate": 0.26667,
+          "low": 0.9,
+          "mean_score": 0.92389,
+          "n": 30
+        }
+      ],
+      "late_count": 2453,
+      "late_rate": 0.056487,
+      "mature_rows": 43426,
+      "mean_calibrated_score": 0.308207,
+      "mean_uncalibrated_score": 0.056454
+    },
+    "historical_audit_inspected": {
+      "absolute_mean_calibration_gap": 0.179982,
+      "auc": 0.67872,
+      "average_precision": 0.075016,
+      "base_rate_average_precision": 0.039847,
+      "brier_calibrated_descriptive": 0.084679,
+      "calibration_buckets": [
+        {
+          "high": 0.1,
+          "late_rate": 0.01051,
+          "low": 0.0,
+          "mean_score": 0.06895,
+          "n": 4566
+        },
+        {
+          "high": 0.2,
+          "late_rate": 0.02911,
+          "low": 0.1,
+          "mean_score": 0.14711,
+          "n": 10134
+        },
+        {
+          "high": 0.3,
+          "late_rate": 0.04139,
+          "low": 0.2,
+          "mean_score": 0.24463,
+          "n": 5267
+        },
+        {
+          "high": 0.4,
+          "late_rate": 0.06494,
+          "low": 0.3,
+          "mean_score": 0.3474,
+          "n": 2710
+        },
+        {
+          "high": 0.5,
+          "late_rate": 0.09365,
+          "low": 0.4,
+          "mean_score": 0.44487,
+          "n": 1623
+        },
+        {
+          "high": 0.6,
+          "late_rate": 0.0908,
+          "low": 0.5,
+          "mean_score": 0.54417,
+          "n": 804
+        },
+        {
+          "high": 0.7,
+          "late_rate": 0.08647,
+          "low": 0.6,
+          "mean_score": 0.64392,
+          "n": 451
+        },
+        {
+          "high": 0.8,
+          "late_rate": 0.10995,
+          "low": 0.7,
+          "mean_score": 0.73796,
+          "n": 191
+        },
+        {
+          "high": 0.9,
+          "late_rate": 0.10638,
+          "low": 0.8,
+          "mean_score": 0.83444,
+          "n": 47
+        },
+        {
+          "high": 1.0,
+          "late_rate": 0.16667,
+          "low": 0.9,
+          "mean_score": 0.94611,
+          "n": 6
+        }
+      ],
+      "late_count": 1028,
+      "late_rate": 0.039847,
+      "mature_rows": 25799,
+      "mean_calibrated_score": 0.219829,
+      "mean_uncalibrated_score": 0.037854
+    },
+    "historical_stress_inspected": {
+      "absolute_mean_calibration_gap": 0.018983,
+      "auc": 0.634753,
+      "average_precision": 0.304187,
+      "base_rate_average_precision": 0.189633,
+      "brier_calibrated_descriptive": 0.147431,
+      "calibration_buckets": [
+        {
+          "high": 0.1,
+          "late_rate": 0.14264,
+          "low": 0.0,
+          "mean_score": 0.06994,
+          "n": 1963
+        },
+        {
+          "high": 0.2,
+          "late_rate": 0.13395,
+          "low": 0.1,
+          "mean_score": 0.14118,
+          "n": 3225
+        },
+        {
+          "high": 0.3,
+          "late_rate": 0.27479,
+          "low": 0.2,
+          "mean_score": 0.24559,
+          "n": 837
+        },
+        {
+          "high": 0.4,
+          "late_rate": 0.40773,
+          "low": 0.3,
+          "mean_score": 0.34677,
+          "n": 569
+        },
+        {
+          "high": 0.5,
+          "late_rate": 0.375,
+          "low": 0.4,
+          "mean_score": 0.44143,
+          "n": 280
+        },
+        {
+          "high": 0.6,
+          "late_rate": 0.3253,
+          "low": 0.5,
+          "mean_score": 0.53935,
+          "n": 83
+        },
+        {
+          "high": 0.7,
+          "late_rate": 0.51613,
+          "low": 0.6,
+          "mean_score": 0.64315,
+          "n": 31
+        },
+        {
+          "high": 0.8,
+          "late_rate": 0.46154,
+          "low": 0.7,
+          "mean_score": 0.73566,
+          "n": 13
+        },
+        {
+          "high": 0.9,
+          "late_rate": 0.0,
+          "low": 0.8,
+          "mean_score": 0.85042,
+          "n": 2
+        }
+      ],
+      "late_count": 1328,
+      "late_rate": 0.189633,
+      "mature_rows": 7003,
+      "mean_calibrated_score": 0.17065,
+      "mean_uncalibrated_score": 0.02879
+    }
+  },
+  "population_before_label_join": {
+    "development_calibration": {
+      "all_purchased_opportunities": 6728,
+      "mature_comparable_outcomes": 6555,
+      "unknown_or_noncomparable_outcomes": 173
+    },
+    "development_selection": {
+      "all_purchased_opportunities": 7269,
+      "mature_comparable_outcomes": 7069,
+      "unknown_or_noncomparable_outcomes": 200
+    },
+    "development_training": {
+      "all_purchased_opportunities": 45101,
+      "mature_comparable_outcomes": 43426,
+      "unknown_or_noncomparable_outcomes": 1675
+    },
+    "historical_audit_inspected": {
+      "all_purchased_opportunities": 26271,
+      "mature_comparable_outcomes": 25799,
+      "unknown_or_noncomparable_outcomes": 472
+    },
+    "historical_stress_inspected": {
+      "all_purchased_opportunities": 7211,
+      "mature_comparable_outcomes": 7003,
+      "unknown_or_noncomparable_outcomes": 208
+    }
+  },
+  "posthoc_feature_development_after_historical_inspection": true,
+  "probabilities_certified": false,
+  "product": "AEGIS",
+  "prospective_cohort_untouched": false,
+  "selected_algorithm": "logistic",
+  "selected_arm": "extended_checkout_unattested",
+  "source_sha256": {
+    "customers_csv_sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2",
+    "items_csv_sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279",
+    "orders_csv_sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+    "sellers_csv_sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+  },
+  "split_contract": {
+    "development_calibration": [
+      "2018-02-01",
+      "2018-03-01"
+    ],
+    "development_selection": [
+      "2018-01-01",
+      "2018-02-01"
+    ],
+    "development_training": [
+      "2017-01-01",
+      "2018-01-01"
+    ],
+    "historical_audit_inspected": [
+      "2018-04-01",
+      "2018-08-01"
+    ],
+    "historical_stress_inspected": [
+      "2018-03-01",
+      "2018-04-01"
+    ]
+  },
+  "study": "REPRODUCIBLE_HISTORICAL_CHALLENGER_NOT_PROSPECTIVE",
+  "total_original_orders": 99441
+}

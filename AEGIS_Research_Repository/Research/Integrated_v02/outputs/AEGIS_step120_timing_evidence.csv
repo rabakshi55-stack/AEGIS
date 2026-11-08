@@ -1,0 +1,7 @@
+Feature_Group,Evidence,Status
+Supplier historical performance,Receipt-time replay and generator order,SUPPORTED
+Order attributes,Original order dictionary,SOURCE_REVIEW
+Inventory state,Generator stock/on-order expressions,SOURCE_REVIEW
+Regional alerts,published_alert() source reference,PUBLICATION_TIMING_REVIEW
+Utilization and congestion,Original generator expressions,COUNTERFACTUAL_REVIEW
+Demand forecast,Historical demand calculation,FORECAST_LINEAGE_REVIEW

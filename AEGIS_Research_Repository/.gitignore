@@ -1,0 +1,20 @@
+# Local user data, original Olist licensed raw inputs, application caches
+**/__pycache__/
+**/*.pyc
+**/.ipynb_checkpoints/
+**/.DS_Store
+**/desktop.ini
+**/.venv/
+**/venv/
+*.log
+*.tmp
+.env
+.env.*
+# Keep original licensed raw data obtained separately from Kaggle
+Research/Public_Data/Olist_Raw/archive/*.csv
+# Original package hash manifests cannot represent the source-only repository
+# Generated new model outputs must be reviewed before committing
+AEGIS_App/BENCHMARK_REPRO.json
+AEGIS_App/BENCHMARK_EXTENDED_REPRO.json
+AEGIS_App/DIAGNOSTICS_REPRO.json
+Reproduction_Stress_New/

@@ -1,0 +1,17 @@
+{
+  "all_features_certified": false,
+  "fit_code_references_found": true,
+  "fitted_models": 3,
+  "historical_timing_supported": true,
+  "ml_integration_authorized": false,
+  "models_retrained": false,
+  "partition_certified": false,
+  "predictions_generated": false,
+  "reserved_test_isolation_certified": false,
+  "source_code_executed": false,
+  "sourcing_optimized": false,
+  "split_code_references_found": false,
+  "step": 116,
+  "training_features": 18,
+  "training_records": 6243
+}

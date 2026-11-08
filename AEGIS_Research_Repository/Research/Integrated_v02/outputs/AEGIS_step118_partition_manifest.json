@@ -1,0 +1,21 @@
+{
+  "all_features_point_in_time_certified": false,
+  "development_partition_gate": true,
+  "embargo_days": 60,
+  "fitted_model_origin_certified": false,
+  "ml_sourcing_integration_authorized": false,
+  "model_features": 18,
+  "models_retrained": false,
+  "overlapping_development_order_ids": 0,
+  "predictions_generated": false,
+  "reserved_test_isolation_certified": false,
+  "reserved_test_rows_accessed": false,
+  "reserved_test_start": "2026-01-01",
+  "sourcing_optimized": false,
+  "step": 118,
+  "training_end_exclusive": "2025-05-02",
+  "training_records": 6243,
+  "validation_end_exclusive": "2025-11-02",
+  "validation_records": 1721,
+  "validation_start": "2025-07-01"
+}

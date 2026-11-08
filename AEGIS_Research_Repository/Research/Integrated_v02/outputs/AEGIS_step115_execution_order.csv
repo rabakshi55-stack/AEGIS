@@ -1,0 +1,2 @@
+Append_Line,Append_Expression,Enclosing_Loops,Inside_Receipt_Queue_Loop
+192,"historical[order['supplier_id']].append((today,order['late_receipt_flag']))","for order in by_arrival.get(today, []) | for i in range((END - START).days + 1)",True

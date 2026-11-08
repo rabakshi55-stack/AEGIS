@@ -1,0 +1,3 @@
+Policy,Landed Cost ($),Mean Late Orders,Mean Delayed Units,Oracle Expected Units,P95 Delayed Units
+Frozen ML,1920165.0,3.6085,3038.475,3053.79515526688,5700.0
+Adaptive ML,1904435.25,3.622,2992.9,3008.0740184412407,5600.0

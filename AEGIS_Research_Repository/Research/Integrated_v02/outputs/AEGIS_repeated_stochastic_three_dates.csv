@@ -1,0 +1,7 @@
+Date,Policy,Orders,Served_Orders,Unserved_Units,Procurement_Cost_USD,Feasible_First_Stage_Assignments,Mean_Hypothetical_Future_Shortage,Remaining_Units
+2027-01-03,Cost-Only,4,4,0,88029.76,,,8126
+2027-01-03,Rolling-Stochastic,4,4,0,88592.52,16.0,0.0,8126
+2027-01-08,Cost-Only,2,2,0,54918.5,,,7601
+2027-01-08,Rolling-Stochastic,2,2,0,54918.5,2.0,0.0,7601
+2027-01-09,Cost-Only,1,1,0,58036.0,,,7051
+2027-01-09,Rolling-Stochastic,1,1,0,57183.5,1.0,0.0,7051

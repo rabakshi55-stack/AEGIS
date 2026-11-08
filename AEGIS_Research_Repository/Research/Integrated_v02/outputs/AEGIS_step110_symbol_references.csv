@@ -1,0 +1,6 @@
+Symbol,Line,Source_Text
+hist_count,156,hist_count=len(hist90)
+hist_count,157,"hist_rate=round((sum(hist90)+2)/(hist_count+10),4)"
+hist_rate,157,"hist_rate=round((sum(hist90)+2)/(hist_count+10),4)"
+hist_count,168,"'supplier_completed_orders_past_90d':hist_count,"
+hist_rate,169,"'supplier_late_rate_past_90d':hist_rate,"

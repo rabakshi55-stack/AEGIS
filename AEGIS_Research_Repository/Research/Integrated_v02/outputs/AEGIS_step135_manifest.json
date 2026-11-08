@@ -1,0 +1,44 @@
+{
+  "actual_supplier_outcomes_validated": false,
+  "artifacts": {
+    "AEGIS_step135_common_shocks.csv": "d405456c790e00356291d2356cad718585c61cfbb1e4d58447a5805165225b35",
+    "AEGIS_step135_paired_candidates.csv": "a11af384a4b675d6ee809fc6959a33af6715a5de93f32ba40bea46c9ea1050a9",
+    "AEGIS_step135_policy_paths.csv": "d1fb3640bdda80f9329949fee86f28b560ac18d13304652c32304a9fce3e253b",
+    "AEGIS_step135_policy_summary.csv": "7bb8809e8c45a23a0b484e6925bd8ebd7d5b6495d26b9c3310634120451e65e0",
+    "AEGIS_step135_range_diagnostics.csv": "cdc5e8cb2648bb0300a29695bbbfeff1fad8ac471e32c1904976f62a114d5da1"
+  },
+  "assumptions": {
+    "baseline": "candidate-specific empirical median",
+    "capacity_bounds": [
+      0.05,
+      1.6
+    ],
+    "capacity_shock_scale": 0.09,
+    "causal_validity_certified": false,
+    "congestion_bounds": [
+      0.1,
+      1.0
+    ],
+    "congestion_shock_scale": 0.085,
+    "random_seed": 1352026,
+    "shared_across": "all pilot orders and supplier options",
+    "simulation_count": 500
+  },
+  "candidate_rows": 40000,
+  "counterfactual_causal_validity_certified": false,
+  "existing_classifier_reused": true,
+  "generator_mechanism_exactly_replayed": false,
+  "method": "Explicit common-shock synthetic scenario design",
+  "models_retrained": false,
+  "new_milp_optimization_performed": false,
+  "new_predictions_generated": true,
+  "orders": 16,
+  "original_allocations_modified": false,
+  "original_candidate_bank_modified": false,
+  "production_deployment_authorized": false,
+  "reserved_test_accessed": false,
+  "shared_exogenous_shocks_certified": true,
+  "shared_scenarios": 500,
+  "step": 135,
+  "supplier_alternatives": 80
+}

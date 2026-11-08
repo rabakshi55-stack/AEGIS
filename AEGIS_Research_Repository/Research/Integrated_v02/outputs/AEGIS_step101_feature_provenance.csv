@@ -1,0 +1,19 @@
+Feature,Category,Required_Validation,Provenance_Certified
+supplier_id,Order or Sourcing Attribute,"Verify source, timestamp and supplier-specific reconstruction",False
+component_id,Order or Sourcing Attribute,"Verify source, timestamp and supplier-specific reconstruction",False
+plant_id,Order or Sourcing Attribute,"Verify source, timestamp and supplier-specific reconstruction",False
+order_quantity_units,Order or Sourcing Attribute,"Verify source, timestamp and supplier-specific reconstruction",False
+quoted_unit_cost_usd,Order or Sourcing Attribute,"Verify source, timestamp and supplier-specific reconstruction",False
+promised_lead_days,Order or Sourcing Attribute,"Verify source, timestamp and supplier-specific reconstruction",False
+urgent_order_flag,Order or Sourcing Attribute,"Verify source, timestamp and supplier-specific reconstruction",False
+regional_alert_available_at_order,Order or Sourcing Attribute,"Verify source, timestamp and supplier-specific reconstruction",False
+regional_alert_level_at_order,Order or Sourcing Attribute,"Verify source, timestamp and supplier-specific reconstruction",False
+capacity_utilization_at_order,Operational State,Verify decision-time reconstruction and response to supplier reassignment,False
+logistics_congestion_at_order,Operational State,Verify decision-time reconstruction and response to supplier reassignment,False
+supplier_completed_orders_past_90d,Historical Supplier Signal,Verify strictly prior supplier history and candidate-specific values,False
+supplier_late_rate_past_90d,Historical Supplier Signal,Verify strictly prior supplier history and candidate-specific values,False
+forecast_daily_requirements_at_order,Inventory and Demand State,Verify decision-time inventory records and candidate-specific effects,False
+inventory_on_hand_at_order,Inventory and Demand State,Verify decision-time inventory records and candidate-specific effects,False
+inventory_on_order_at_order,Inventory and Demand State,Verify decision-time inventory records and candidate-specific effects,False
+reorder_target_units_at_order,Inventory and Demand State,Verify decision-time inventory records and candidate-specific effects,False
+inventory_position_at_order,Inventory and Demand State,Verify decision-time inventory records and candidate-specific effects,False

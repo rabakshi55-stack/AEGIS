@@ -1,0 +1,34 @@
+{
+  "allowed_research_actions": [
+    "Historical data exploration",
+    "Evidence reconciliation",
+    "Cost-capacity research optimization",
+    "Synthetic scenario sensitivity",
+    "Explain existing numerical experiments"
+  ],
+  "artifact_sha256": {
+    "AEGIS_step145_development_priorities.csv": "755b7d690e0d22541abe9ce52afd116700846e7b1853f77009075f93db44bf6b",
+    "AEGIS_step145_feature_sensitivity.csv": "13dc6612bc7307b449321fa81db6ea5f789f0d98fc2680655c68a1ff20afd505",
+    "AEGIS_step145_input_coverage.csv": "9462451a294e176adee269c0725797451610cb25d879351ed1f7d2c49b2d4d1d",
+    "AEGIS_step145_policy_comparison.csv": "826ab5224fd10f1984ef3ba6395c0327d4520dfda2baa52b01d2a7ad23971661",
+    "AEGIS_step145_readiness_gates.csv": "e66870b6f78c11c8b9fb1ded0dd3239c27de489703d359bbbd26ec3b86685467",
+    "AEGIS_step145_timing_coverage.csv": "47c86e3b366c1ed2ff7b0bd92763733a003e6bdc10c88dee3734db5e0e54f92c"
+  },
+  "capacity_input_outside_range_pct": 19.55625,
+  "capacity_input_outside_range_rows": 9387,
+  "classification": "Consolidated research-readiness audit",
+  "cost_capacity_research_ready": true,
+  "dynamic_optimizer_implemented": false,
+  "human_approval_required": true,
+  "input_records_reconciled": 48000,
+  "models_retrained": false,
+  "new_predictions_generated": false,
+  "optimization_executed": false,
+  "original_policies": 6,
+  "production_authorized": false,
+  "research_paper_features_implemented": false,
+  "reserved_test_accessed": false,
+  "scientific_risk_optimization_authorized": false,
+  "source_integrity_verified": true,
+  "step": 145
+}

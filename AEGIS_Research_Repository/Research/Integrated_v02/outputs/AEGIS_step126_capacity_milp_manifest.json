@@ -1,0 +1,20 @@
+{
+  "all_policies_solved": true,
+  "approval_constraint_enforced": true,
+  "candidate_options": 80,
+  "complete_policies_solved": 6,
+  "counterfactual_ml_validity_certified": false,
+  "evaluated_policies": 6,
+  "models_retrained": false,
+  "monthly_capacity_constraint_enforced": true,
+  "moq_constraint_enforced": true,
+  "original_sourcing_modified": false,
+  "pilot_orders": 16,
+  "plant_route_eligibility_certified": false,
+  "production_deployment_authorized": false,
+  "real_world_benefit_established": false,
+  "retrospective_period_capacity_pass": true,
+  "same_day_commitments_assumed_known": true,
+  "step": 126,
+  "whole_order_assignment_enforced": true
+}

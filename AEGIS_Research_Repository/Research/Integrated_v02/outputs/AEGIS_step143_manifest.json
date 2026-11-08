@@ -1,0 +1,27 @@
+{
+  "artifact_sha256": {
+    "AEGIS_step143_policy_timing_comparison.csv": "03b7b9eeb07441ca4f92a8921cfe9f9612008cecb694550d198525d0db2f0f7d",
+    "AEGIS_step143_scenario_risks.csv": "14f6b6dddd372b9f499507df71f0a771feeb7fca2acdd5bd4c6f6006abeab905",
+    "AEGIS_step143_timing_robustness.csv": "743b2103be345ffc10a041a9288fc2f4d2ebe5e043a07418cd34fe699aa0c6dd",
+    "AEGIS_step143_training_range.csv": "9bf7bf0efe74141773e47ac3792c2836aef92f4adfda1a877b7aa059158d3364"
+  },
+  "booking_interval_reconciled": true,
+  "causal_supplier_switch_validity_certified": false,
+  "models_retrained": false,
+  "new_optimization_executed": false,
+  "original_allocations_modified": false,
+  "original_step142_risks_reconciled": true,
+  "policies": 6,
+  "policy_scenario_records": 9000,
+  "production_authorized": false,
+  "reserved_test_accessed": false,
+  "scenarios_per_policy": 500,
+  "step": 143,
+  "timing_cases": [
+    "Early_Booking",
+    "Current_Replay",
+    "Late_Booking"
+  ],
+  "timing_sensitivity_completed": true,
+  "true_intraday_sequence_certified": false
+}

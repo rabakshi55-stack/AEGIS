@@ -1,0 +1,17 @@
+{
+  "candidate_simulations": 40000,
+  "candidate_supplier_pairs": 80,
+  "counterfactual_validity_certified": false,
+  "existing_milp_optimized": false,
+  "guardrailed_supplier_switches": 0,
+  "lowest_risk_supplier_switches": 16,
+  "models_retrained": false,
+  "production_integration_authorized": false,
+  "purchase_orders_compared": 16,
+  "real_world_performance_established": false,
+  "reserved_test_accessed": false,
+  "selected_exploratory_model": "Logistic_Regression",
+  "step": 123,
+  "validation_observations": 1721,
+  "validation_used_for_model_selection": true
+}

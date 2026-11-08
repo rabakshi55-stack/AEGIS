@@ -1,0 +1,59 @@
+{
+  "assumed_mean_orders_per_3_day_wave": 4.0,
+  "current_day_cost_allowance": 0.01,
+  "current_service_priority": "Minimize unfulfilled units first",
+  "development_orders_sha256": "e90f49c0ee9e118067ed038e827c44ae8ca34982c3d598b5d87a2b1107b50aa2",
+  "future_paths_per_decision": 12,
+  "future_recourse": "Full-path planning approximation, not operational",
+  "future_simulator_seed": 202690,
+  "high_scarcity_paths": 6,
+  "historical_cutoff_exclusive": "2025-07-01",
+  "low_scarcity_paths": 6,
+  "modelled_arrival_days": [
+    1,
+    2,
+    3,
+    8,
+    9,
+    10,
+    15,
+    16,
+    17,
+    22,
+    23,
+    24
+  ],
+  "policy_parameters_tuned_using_selected_outcomes": false,
+  "previously_studied_pilots_excluded": [
+    "combined_shock__r01__CMP-002",
+    "combined_shock__r02__CMP-004"
+  ],
+  "prior_corrected_bank_sha256": "c30a41f6a7c814b49622ca366f41cd89347f8439d31173c4e2c6ca6d23b491ca",
+  "purpose": "Outcome-agnostic multi-component development evaluation",
+  "reserved_holdout_generated": false,
+  "reserved_holdout_seed": 202668,
+  "scarcity_probabilities": {
+    "high": 0.25,
+    "low": 0.05
+  },
+  "scenario_profiles": [
+    "normal",
+    "scarcity_surge",
+    "capacity_crunch",
+    "combined_shock"
+  ],
+  "selected_scenarios": [
+    "normal__r01__CMP-004",
+    "normal__r01__CMP-025",
+    "scarcity_surge__r01__CMP-006",
+    "scarcity_surge__r02__CMP-015",
+    "capacity_crunch__r01__CMP-027",
+    "capacity_crunch__r02__CMP-030",
+    "combined_shock__r02__CMP-011",
+    "combined_shock__r01__CMP-023"
+  ],
+  "selection_inputs": "Step 77 first-decision feasibility audit only",
+  "selection_seed": 202689,
+  "selection_strata": "One multiple-choice and one single-choice per profile",
+  "stochastic_priority": "Minimize simulated future shortage, then expected cost"
+}

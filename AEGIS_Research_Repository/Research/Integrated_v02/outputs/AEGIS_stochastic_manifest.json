@@ -1,0 +1,23 @@
+{
+  "evaluation_seed_reserved": 202668,
+  "final_holdout_generated": false,
+  "future_bank_sha256": "e909cda5ff0582ea4a218b3eec61f96b4cddb80f71a889e4d0dd7293692d6dfb",
+  "future_waves": [
+    2,
+    3,
+    4
+  ],
+  "historical_cutoff_exclusive": "2025-07-01",
+  "orders_per_future_wave_poisson_mean": 4.0,
+  "paths_per_scenario": 12,
+  "purpose": "Stochastic sourcing development",
+  "regime_weights": {
+    "high_scarcity": 0.5,
+    "low_scarcity": 0.5
+  },
+  "scarcity_regimes": {
+    "high_scarcity": 0.25,
+    "low_scarcity": 0.05
+  },
+  "seed": 202673
+}

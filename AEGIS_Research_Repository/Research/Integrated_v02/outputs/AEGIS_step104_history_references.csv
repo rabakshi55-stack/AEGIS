@@ -1,0 +1,10 @@
+History_Cell,Line,Source_Excerpt
+4,27,"""supplier_completed_orders_past_90d"","
+4,28,"""supplier_late_rate_past_90d"","
+18,28,"""supplier_completed_orders_past_90d"","
+18,29,"""supplier_late_rate_past_90d"""
+18,86,"original_choices[""supplier_completed_orders_past_90d""]"
+18,91,"original_choices[""supplier_late_rate_past_90d""]"
+18,106,"risk_candidates[""supplier_late_rate_past_90d""]"
+24,80,"""supplier_completed_orders_past_90d"","
+24,82,"""supplier_late_rate_past_90d"""

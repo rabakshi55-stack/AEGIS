@@ -1,0 +1,20 @@
+{
+  "counterfactual_validity_certified": false,
+  "current_notebook_sha256": "715163eb49631dd60cc5f92e85961dcf877e1bd6929de4544dfc76ba5d8b3ef8",
+  "development_partition_certified": true,
+  "exact_model_origin_certified": false,
+  "holdout_access_references": 3,
+  "model_structure_passed": true,
+  "models_retrained": false,
+  "original_dataset_modified": false,
+  "original_development_source_unchanged": true,
+  "possible_evaluation_references": 0,
+  "possible_label_references": 0,
+  "predictions_generated": false,
+  "previous_notebook_sha256": "715163eb49631dd60cc5f92e85961dcf877e1bd6929de4544dfc76ba5d8b3ef8",
+  "production_integration_authorized": false,
+  "reserved_test_isolation_certified": false,
+  "reserved_test_records_read_by_this_step": false,
+  "step": 122,
+  "training_source_supported": true
+}

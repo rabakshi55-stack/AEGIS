@@ -1,0 +1,4502 @@
+[
+  {
+    "scenario_id": 1,
+    "global_shock": 0.75917519,
+    "regional_shocks": {
+      "Gulf": 0.78706549,
+      "Northeast": 0.87141356,
+      "West": 0.51330544
+    }
+  },
+  {
+    "scenario_id": 2,
+    "global_shock": 0.14498519,
+    "regional_shocks": {
+      "Gulf": 0.40305323,
+      "Northeast": 0.63947281,
+      "West": 0.47924221
+    }
+  },
+  {
+    "scenario_id": 3,
+    "global_shock": 0.61556016,
+    "regional_shocks": {
+      "Gulf": 0.90021817,
+      "Northeast": 0.40572466,
+      "West": 0.36544896
+    }
+  },
+  {
+    "scenario_id": 4,
+    "global_shock": 0.36860448,
+    "regional_shocks": {
+      "Gulf": 0.72553856,
+      "Northeast": 0.62681328,
+      "West": 0.83065783
+    }
+  },
+  {
+    "scenario_id": 5,
+    "global_shock": 0.02383538,
+    "regional_shocks": {
+      "Gulf": 0.51239124,
+      "Northeast": 0.80234816,
+      "West": 0.87024289
+    }
+  },
+  {
+    "scenario_id": 6,
+    "global_shock": 0.29624223,
+    "regional_shocks": {
+      "Gulf": 0.36702605,
+      "Northeast": 0.84341043,
+      "West": 0.02645023
+    }
+  },
+  {
+    "scenario_id": 7,
+    "global_shock": 0.76969179,
+    "regional_shocks": {
+      "Gulf": 0.79564936,
+      "Northeast": 0.67253837,
+      "West": 0.88016373
+    }
+  },
+  {
+    "scenario_id": 8,
+    "global_shock": 0.22516047,
+    "regional_shocks": {
+      "Gulf": 0.63258773,
+      "Northeast": 0.98504175,
+      "West": 0.48426211
+    }
+  },
+  {
+    "scenario_id": 9,
+    "global_shock": 0.24930121,
+    "regional_shocks": {
+      "Gulf": 0.39892001,
+      "Northeast": 0.40907985,
+      "West": 0.47814939
+    }
+  },
+  {
+    "scenario_id": 10,
+    "global_shock": 0.80598634,
+    "regional_shocks": {
+      "Gulf": 0.0528892,
+      "Northeast": 0.07653398,
+      "West": 0.22772731
+    }
+  },
+  {
+    "scenario_id": 11,
+    "global_shock": 0.19105231,
+    "regional_shocks": {
+      "Gulf": 0.2914628,
+      "Northeast": 0.17789608,
+      "West": 0.16691561
+    }
+  },
+  {
+    "scenario_id": 12,
+    "global_shock": 0.66806489,
+    "regional_shocks": {
+      "Gulf": 0.95718024,
+      "Northeast": 0.67282945,
+      "West": 0.68019722
+    }
+  },
+  {
+    "scenario_id": 13,
+    "global_shock": 0.76538123,
+    "regional_shocks": {
+      "Gulf": 0.76466418,
+      "Northeast": 0.58050689,
+      "West": 0.97126694
+    }
+  },
+  {
+    "scenario_id": 14,
+    "global_shock": 0.67590059,
+    "regional_shocks": {
+      "Gulf": 0.1503267,
+      "Northeast": 0.83793234,
+      "West": 0.09559831
+    }
+  },
+  {
+    "scenario_id": 15,
+    "global_shock": 0.66133666,
+    "regional_shocks": {
+      "Gulf": 0.88527005,
+      "Northeast": 0.40379968,
+      "West": 0.46970523
+    }
+  },
+  {
+    "scenario_id": 16,
+    "global_shock": 0.96277062,
+    "regional_shocks": {
+      "Gulf": 0.10504683,
+      "Northeast": 0.43524944,
+      "West": 0.21176668
+    }
+  },
+  {
+    "scenario_id": 17,
+    "global_shock": 0.35658288,
+    "regional_shocks": {
+      "Gulf": 0.23739261,
+      "Northeast": 0.58974558,
+      "West": 0.41185225
+    }
+  },
+  {
+    "scenario_id": 18,
+    "global_shock": 0.5992461,
+    "regional_shocks": {
+      "Gulf": 0.73204133,
+      "Northeast": 0.98379578,
+      "West": 0.39044066
+    }
+  },
+  {
+    "scenario_id": 19,
+    "global_shock": 0.69372554,
+    "regional_shocks": {
+      "Gulf": 0.93302956,
+      "Northeast": 0.61419959,
+      "West": 0.69459439
+    }
+  },
+  {
+    "scenario_id": 20,
+    "global_shock": 0.53022975,
+    "regional_shocks": {
+      "Gulf": 0.31276545,
+      "Northeast": 0.0779065,
+      "West": 0.85003568
+    }
+  },
+  {
+    "scenario_id": 21,
+    "global_shock": 0.97143209,
+    "regional_shocks": {
+      "Gulf": 0.73110757,
+      "Northeast": 0.83441287,
+      "West": 0.96241309
+    }
+  },
+  {
+    "scenario_id": 22,
+    "global_shock": 0.56712007,
+    "regional_shocks": {
+      "Gulf": 0.77194552,
+      "Northeast": 0.91286789,
+      "West": 0.47815164
+    }
+  },
+  {
+    "scenario_id": 23,
+    "global_shock": 0.81846025,
+    "regional_shocks": {
+      "Gulf": 0.02295186,
+      "Northeast": 0.2528816,
+      "West": 0.54958351
+    }
+  },
+  {
+    "scenario_id": 24,
+    "global_shock": 0.66928254,
+    "regional_shocks": {
+      "Gulf": 0.16018302,
+      "Northeast": 0.71167764,
+      "West": 0.36502344
+    }
+  },
+  {
+    "scenario_id": 25,
+    "global_shock": 0.73163073,
+    "regional_shocks": {
+      "Gulf": 0.5118259,
+      "Northeast": 0.00588445,
+      "West": 0.01745648
+    }
+  },
+  {
+    "scenario_id": 26,
+    "global_shock": 0.72345597,
+    "regional_shocks": {
+      "Gulf": 0.19274536,
+      "Northeast": 0.22481019,
+      "West": 0.922172
+    }
+  },
+  {
+    "scenario_id": 27,
+    "global_shock": 0.81486754,
+    "regional_shocks": {
+      "Gulf": 0.09370711,
+      "Northeast": 0.59726447,
+      "West": 0.88782655
+    }
+  },
+  {
+    "scenario_id": 28,
+    "global_shock": 0.47242275,
+    "regional_shocks": {
+      "Gulf": 0.23135902,
+      "Northeast": 0.623174,
+      "West": 0.35515572
+    }
+  },
+  {
+    "scenario_id": 29,
+    "global_shock": 0.98602011,
+    "regional_shocks": {
+      "Gulf": 0.49560113,
+      "Northeast": 0.44905567,
+      "West": 0.23684833
+    }
+  },
+  {
+    "scenario_id": 30,
+    "global_shock": 0.05353819,
+    "regional_shocks": {
+      "Gulf": 0.02884738,
+      "Northeast": 0.12205807,
+      "West": 0.2738926
+    }
+  },
+  {
+    "scenario_id": 31,
+    "global_shock": 0.77455047,
+    "regional_shocks": {
+      "Gulf": 0.54441378,
+      "Northeast": 0.96820347,
+      "West": 0.16688505
+    }
+  },
+  {
+    "scenario_id": 32,
+    "global_shock": 0.44219885,
+    "regional_shocks": {
+      "Gulf": 0.58656064,
+      "Northeast": 0.32352427,
+      "West": 0.81394753
+    }
+  },
+  {
+    "scenario_id": 33,
+    "global_shock": 0.58205301,
+    "regional_shocks": {
+      "Gulf": 0.93108615,
+      "Northeast": 0.20088942,
+      "West": 0.25579261
+    }
+  },
+  {
+    "scenario_id": 34,
+    "global_shock": 0.61801255,
+    "regional_shocks": {
+      "Gulf": 0.31051885,
+      "Northeast": 0.95027839,
+      "West": 0.9019307
+    }
+  },
+  {
+    "scenario_id": 35,
+    "global_shock": 0.55467879,
+    "regional_shocks": {
+      "Gulf": 0.0628209,
+      "Northeast": 0.90839923,
+      "West": 0.19026978
+    }
+  },
+  {
+    "scenario_id": 36,
+    "global_shock": 0.47348105,
+    "regional_shocks": {
+      "Gulf": 0.28038334,
+      "Northeast": 0.41755158,
+      "West": 0.95692501
+    }
+  },
+  {
+    "scenario_id": 37,
+    "global_shock": 0.93283512,
+    "regional_shocks": {
+      "Gulf": 0.92967832,
+      "Northeast": 0.76840499,
+      "West": 0.50526297
+    }
+  },
+  {
+    "scenario_id": 38,
+    "global_shock": 0.12810138,
+    "regional_shocks": {
+      "Gulf": 0.05340378,
+      "Northeast": 0.8658219,
+      "West": 0.34181088
+    }
+  },
+  {
+    "scenario_id": 39,
+    "global_shock": 0.42179289,
+    "regional_shocks": {
+      "Gulf": 0.75741573,
+      "Northeast": 0.98898246,
+      "West": 0.75527234
+    }
+  },
+  {
+    "scenario_id": 40,
+    "global_shock": 0.2324503,
+    "regional_shocks": {
+      "Gulf": 0.82103937,
+      "Northeast": 0.76278487,
+      "West": 0.2084014
+    }
+  },
+  {
+    "scenario_id": 41,
+    "global_shock": 0.93244019,
+    "regional_shocks": {
+      "Gulf": 0.96022246,
+      "Northeast": 0.97638821,
+      "West": 0.79786197
+    }
+  },
+  {
+    "scenario_id": 42,
+    "global_shock": 0.10387603,
+    "regional_shocks": {
+      "Gulf": 0.70599155,
+      "Northeast": 0.48433879,
+      "West": 0.76992692
+    }
+  },
+  {
+    "scenario_id": 43,
+    "global_shock": 0.95480437,
+    "regional_shocks": {
+      "Gulf": 0.04459591,
+      "Northeast": 0.78300648,
+      "West": 0.30776327
+    }
+  },
+  {
+    "scenario_id": 44,
+    "global_shock": 0.99711071,
+    "regional_shocks": {
+      "Gulf": 0.48153177,
+      "Northeast": 0.59048952,
+      "West": 0.24025118
+    }
+  },
+  {
+    "scenario_id": 45,
+    "global_shock": 0.82349075,
+    "regional_shocks": {
+      "Gulf": 0.18621298,
+      "Northeast": 0.13060263,
+      "West": 0.67437519
+    }
+  },
+  {
+    "scenario_id": 46,
+    "global_shock": 0.18104887,
+    "regional_shocks": {
+      "Gulf": 0.85762767,
+      "Northeast": 0.94987419,
+      "West": 0.34406722
+    }
+  },
+  {
+    "scenario_id": 47,
+    "global_shock": 0.85331013,
+    "regional_shocks": {
+      "Gulf": 0.61888067,
+      "Northeast": 0.51957572,
+      "West": 0.49056332
+    }
+  },
+  {
+    "scenario_id": 48,
+    "global_shock": 0.23538182,
+    "regional_shocks": {
+      "Gulf": 0.49370954,
+      "Northeast": 0.65108937,
+      "West": 0.05852221
+    }
+  },
+  {
+    "scenario_id": 49,
+    "global_shock": 0.48483014,
+    "regional_shocks": {
+      "Gulf": 0.80522755,
+      "Northeast": 0.96976834,
+      "West": 0.87021592
+    }
+  },
+  {
+    "scenario_id": 50,
+    "global_shock": 0.41211638,
+    "regional_shocks": {
+      "Gulf": 0.16006777,
+      "Northeast": 0.50571238,
+      "West": 0.97917728
+    }
+  },
+  {
+    "scenario_id": 51,
+    "global_shock": 0.10577418,
+    "regional_shocks": {
+      "Gulf": 0.9656042,
+      "Northeast": 0.19728419,
+      "West": 0.58535917
+    }
+  },
+  {
+    "scenario_id": 52,
+    "global_shock": 0.82842405,
+    "regional_shocks": {
+      "Gulf": 0.13599537,
+      "Northeast": 0.21748426,
+      "West": 0.25504821
+    }
+  },
+  {
+    "scenario_id": 53,
+    "global_shock": 0.01864403,
+    "regional_shocks": {
+      "Gulf": 0.62894763,
+      "Northeast": 0.25491709,
+      "West": 0.76018068
+    }
+  },
+  {
+    "scenario_id": 54,
+    "global_shock": 0.57098976,
+    "regional_shocks": {
+      "Gulf": 0.9181785,
+      "Northeast": 0.58602686,
+      "West": 0.01256682
+    }
+  },
+  {
+    "scenario_id": 55,
+    "global_shock": 0.41822332,
+    "regional_shocks": {
+      "Gulf": 0.56268639,
+      "Northeast": 0.28655328,
+      "West": 0.57973316
+    }
+  },
+  {
+    "scenario_id": 56,
+    "global_shock": 0.42711483,
+    "regional_shocks": {
+      "Gulf": 0.56792433,
+      "Northeast": 0.18443207,
+      "West": 0.93151382
+    }
+  },
+  {
+    "scenario_id": 57,
+    "global_shock": 0.75531238,
+    "regional_shocks": {
+      "Gulf": 0.99093341,
+      "Northeast": 0.35793652,
+      "West": 0.0874814
+    }
+  },
+  {
+    "scenario_id": 58,
+    "global_shock": 0.88579508,
+    "regional_shocks": {
+      "Gulf": 0.44195548,
+      "Northeast": 0.90213884,
+      "West": 0.75490644
+    }
+  },
+  {
+    "scenario_id": 59,
+    "global_shock": 0.40374208,
+    "regional_shocks": {
+      "Gulf": 0.44928034,
+      "Northeast": 0.68025554,
+      "West": 0.61624866
+    }
+  },
+  {
+    "scenario_id": 60,
+    "global_shock": 0.95231877,
+    "regional_shocks": {
+      "Gulf": 0.855858,
+      "Northeast": 0.01833018,
+      "West": 0.95508698
+    }
+  },
+  {
+    "scenario_id": 61,
+    "global_shock": 0.20844211,
+    "regional_shocks": {
+      "Gulf": 0.25074875,
+      "Northeast": 0.64571521,
+      "West": 0.60728043
+    }
+  },
+  {
+    "scenario_id": 62,
+    "global_shock": 0.63449974,
+    "regional_shocks": {
+      "Gulf": 0.4420133,
+      "Northeast": 0.55897085,
+      "West": 0.48645394
+    }
+  },
+  {
+    "scenario_id": 63,
+    "global_shock": 0.1024857,
+    "regional_shocks": {
+      "Gulf": 0.20617462,
+      "Northeast": 0.3242508,
+      "West": 0.86233113
+    }
+  },
+  {
+    "scenario_id": 64,
+    "global_shock": 0.35234453,
+    "regional_shocks": {
+      "Gulf": 0.62176348,
+      "Northeast": 0.85849663,
+      "West": 0.3931001
+    }
+  },
+  {
+    "scenario_id": 65,
+    "global_shock": 0.55127154,
+    "regional_shocks": {
+      "Gulf": 0.36499424,
+      "Northeast": 0.83770293,
+      "West": 0.77395061
+    }
+  },
+  {
+    "scenario_id": 66,
+    "global_shock": 0.11227073,
+    "regional_shocks": {
+      "Gulf": 0.71061867,
+      "Northeast": 0.56123168,
+      "West": 0.67384924
+    }
+  },
+  {
+    "scenario_id": 67,
+    "global_shock": 0.12045757,
+    "regional_shocks": {
+      "Gulf": 0.11930923,
+      "Northeast": 0.11396458,
+      "West": 0.54867466
+    }
+  },
+  {
+    "scenario_id": 68,
+    "global_shock": 0.69685202,
+    "regional_shocks": {
+      "Gulf": 0.58111002,
+      "Northeast": 0.59937202,
+      "West": 0.57548236
+    }
+  },
+  {
+    "scenario_id": 69,
+    "global_shock": 0.49009996,
+    "regional_shocks": {
+      "Gulf": 0.56315831,
+      "Northeast": 0.15126496,
+      "West": 0.30417661
+    }
+  },
+  {
+    "scenario_id": 70,
+    "global_shock": 0.53824553,
+    "regional_shocks": {
+      "Gulf": 0.3861977,
+      "Northeast": 0.09290863,
+      "West": 0.76113143
+    }
+  },
+  {
+    "scenario_id": 71,
+    "global_shock": 0.67391827,
+    "regional_shocks": {
+      "Gulf": 0.36999491,
+      "Northeast": 0.43983262,
+      "West": 0.95901269
+    }
+  },
+  {
+    "scenario_id": 72,
+    "global_shock": 0.43071887,
+    "regional_shocks": {
+      "Gulf": 0.39344581,
+      "Northeast": 0.53744404,
+      "West": 0.37023335
+    }
+  },
+  {
+    "scenario_id": 73,
+    "global_shock": 0.81337549,
+    "regional_shocks": {
+      "Gulf": 0.44173643,
+      "Northeast": 0.52984004,
+      "West": 0.83517342
+    }
+  },
+  {
+    "scenario_id": 74,
+    "global_shock": 0.28999921,
+    "regional_shocks": {
+      "Gulf": 0.41311158,
+      "Northeast": 0.49653426,
+      "West": 0.04774007
+    }
+  },
+  {
+    "scenario_id": 75,
+    "global_shock": 0.72977293,
+    "regional_shocks": {
+      "Gulf": 0.08118518,
+      "Northeast": 0.39645127,
+      "West": 0.21563063
+    }
+  },
+  {
+    "scenario_id": 76,
+    "global_shock": 0.70608814,
+    "regional_shocks": {
+      "Gulf": 0.75810731,
+      "Northeast": 0.61534492,
+      "West": 0.01267465
+    }
+  },
+  {
+    "scenario_id": 77,
+    "global_shock": 0.39592042,
+    "regional_shocks": {
+      "Gulf": 0.3934759,
+      "Northeast": 0.34632564,
+      "West": 0.52526377
+    }
+  },
+  {
+    "scenario_id": 78,
+    "global_shock": 0.2320851,
+    "regional_shocks": {
+      "Gulf": 0.0133522,
+      "Northeast": 0.66983989,
+      "West": 0.89854026
+    }
+  },
+  {
+    "scenario_id": 79,
+    "global_shock": 0.41870363,
+    "regional_shocks": {
+      "Gulf": 0.0012306,
+      "Northeast": 0.07753513,
+      "West": 0.72519716
+    }
+  },
+  {
+    "scenario_id": 80,
+    "global_shock": 0.05441818,
+    "regional_shocks": {
+      "Gulf": 0.43714981,
+      "Northeast": 0.88507093,
+      "West": 0.75791017
+    }
+  },
+  {
+    "scenario_id": 81,
+    "global_shock": 0.49734503,
+    "regional_shocks": {
+      "Gulf": 0.88523901,
+      "Northeast": 0.85048729,
+      "West": 0.09792145
+    }
+  },
+  {
+    "scenario_id": 82,
+    "global_shock": 0.4561346,
+    "regional_shocks": {
+      "Gulf": 0.32558946,
+      "Northeast": 0.45083421,
+      "West": 0.54307938
+    }
+  },
+  {
+    "scenario_id": 83,
+    "global_shock": 0.94862179,
+    "regional_shocks": {
+      "Gulf": 0.36518045,
+      "Northeast": 0.87006846,
+      "West": 0.19188406
+    }
+  },
+  {
+    "scenario_id": 84,
+    "global_shock": 0.17978322,
+    "regional_shocks": {
+      "Gulf": 0.64430227,
+      "Northeast": 0.29915065,
+      "West": 0.56592503
+    }
+  },
+  {
+    "scenario_id": 85,
+    "global_shock": 0.58989902,
+    "regional_shocks": {
+      "Gulf": 0.9282498,
+      "Northeast": 0.32604225,
+      "West": 0.35209745
+    }
+  },
+  {
+    "scenario_id": 86,
+    "global_shock": 0.47942679,
+    "regional_shocks": {
+      "Gulf": 0.69687768,
+      "Northeast": 0.82173164,
+      "West": 0.73225696
+    }
+  },
+  {
+    "scenario_id": 87,
+    "global_shock": 0.46804726,
+    "regional_shocks": {
+      "Gulf": 0.79227403,
+      "Northeast": 0.3854243,
+      "West": 0.95183714
+    }
+  },
+  {
+    "scenario_id": 88,
+    "global_shock": 0.23881669,
+    "regional_shocks": {
+      "Gulf": 0.98036353,
+      "Northeast": 0.86507761,
+      "West": 0.11780214
+    }
+  },
+  {
+    "scenario_id": 89,
+    "global_shock": 0.09103208,
+    "regional_shocks": {
+      "Gulf": 0.45181399,
+      "Northeast": 0.2339156,
+      "West": 0.01581273
+    }
+  },
+  {
+    "scenario_id": 90,
+    "global_shock": 0.41131418,
+    "regional_shocks": {
+      "Gulf": 0.00027317,
+      "Northeast": 0.32475422,
+      "West": 0.7676846
+    }
+  },
+  {
+    "scenario_id": 91,
+    "global_shock": 0.91811368,
+    "regional_shocks": {
+      "Gulf": 0.3296731,
+      "Northeast": 0.49113496,
+      "West": 0.71734134
+    }
+  },
+  {
+    "scenario_id": 92,
+    "global_shock": 0.57532487,
+    "regional_shocks": {
+      "Gulf": 0.87332982,
+      "Northeast": 0.80699672,
+      "West": 0.74549861
+    }
+  },
+  {
+    "scenario_id": 93,
+    "global_shock": 0.26274251,
+    "regional_shocks": {
+      "Gulf": 0.04396455,
+      "Northeast": 0.59827481,
+      "West": 0.90460091
+    }
+  },
+  {
+    "scenario_id": 94,
+    "global_shock": 0.10494368,
+    "regional_shocks": {
+      "Gulf": 0.9505065,
+      "Northeast": 0.49844278,
+      "West": 0.4319
+    }
+  },
+  {
+    "scenario_id": 95,
+    "global_shock": 0.62256015,
+    "regional_shocks": {
+      "Gulf": 0.93922463,
+      "Northeast": 0.0841604,
+      "West": 0.38486503
+    }
+  },
+  {
+    "scenario_id": 96,
+    "global_shock": 0.66935013,
+    "regional_shocks": {
+      "Gulf": 0.75969622,
+      "Northeast": 0.88353613,
+      "West": 0.42126893
+    }
+  },
+  {
+    "scenario_id": 97,
+    "global_shock": 0.99446383,
+    "regional_shocks": {
+      "Gulf": 0.19454469,
+      "Northeast": 0.26792691,
+      "West": 0.5211782
+    }
+  },
+  {
+    "scenario_id": 98,
+    "global_shock": 0.64600548,
+    "regional_shocks": {
+      "Gulf": 0.69326859,
+      "Northeast": 0.90896056,
+      "West": 0.45730305
+    }
+  },
+  {
+    "scenario_id": 99,
+    "global_shock": 0.29988794,
+    "regional_shocks": {
+      "Gulf": 0.75555516,
+      "Northeast": 0.58686091,
+      "West": 0.6709704
+    }
+  },
+  {
+    "scenario_id": 100,
+    "global_shock": 0.35744267,
+    "regional_shocks": {
+      "Gulf": 0.93014945,
+      "Northeast": 0.25345221,
+      "West": 0.86899259
+    }
+  },
+  {
+    "scenario_id": 101,
+    "global_shock": 0.6945658,
+    "regional_shocks": {
+      "Gulf": 0.52547057,
+      "Northeast": 0.70064231,
+      "West": 0.23944858
+    }
+  },
+  {
+    "scenario_id": 102,
+    "global_shock": 0.80817069,
+    "regional_shocks": {
+      "Gulf": 0.11301247,
+      "Northeast": 0.38967119,
+      "West": 0.93138383
+    }
+  },
+  {
+    "scenario_id": 103,
+    "global_shock": 0.26606017,
+    "regional_shocks": {
+      "Gulf": 0.84678588,
+      "Northeast": 0.95986508,
+      "West": 0.00042366
+    }
+  },
+  {
+    "scenario_id": 104,
+    "global_shock": 0.21911517,
+    "regional_shocks": {
+      "Gulf": 0.19884913,
+      "Northeast": 0.95894554,
+      "West": 0.8566831
+    }
+  },
+  {
+    "scenario_id": 105,
+    "global_shock": 0.17424313,
+    "regional_shocks": {
+      "Gulf": 0.42560376,
+      "Northeast": 0.31157191,
+      "West": 0.89771298
+    }
+  },
+  {
+    "scenario_id": 106,
+    "global_shock": 0.36176358,
+    "regional_shocks": {
+      "Gulf": 0.47468193,
+      "Northeast": 0.23494977,
+      "West": 0.45503366
+    }
+  },
+  {
+    "scenario_id": 107,
+    "global_shock": 0.55263379,
+    "regional_shocks": {
+      "Gulf": 0.04586316,
+      "Northeast": 0.26553439,
+      "West": 0.56347018
+    }
+  },
+  {
+    "scenario_id": 108,
+    "global_shock": 0.9414474,
+    "regional_shocks": {
+      "Gulf": 0.47928396,
+      "Northeast": 0.10002955,
+      "West": 0.23600273
+    }
+  },
+  {
+    "scenario_id": 109,
+    "global_shock": 0.84557001,
+    "regional_shocks": {
+      "Gulf": 0.69600526,
+      "Northeast": 0.27418209,
+      "West": 0.6229159
+    }
+  },
+  {
+    "scenario_id": 110,
+    "global_shock": 0.52054797,
+    "regional_shocks": {
+      "Gulf": 0.3485819,
+      "Northeast": 0.94133027,
+      "West": 0.4431817
+    }
+  },
+  {
+    "scenario_id": 111,
+    "global_shock": 0.1513388,
+    "regional_shocks": {
+      "Gulf": 0.80063676,
+      "Northeast": 0.31905233,
+      "West": 0.12482366
+    }
+  },
+  {
+    "scenario_id": 112,
+    "global_shock": 0.5209574,
+    "regional_shocks": {
+      "Gulf": 0.82426257,
+      "Northeast": 0.12631094,
+      "West": 0.98208252
+    }
+  },
+  {
+    "scenario_id": 113,
+    "global_shock": 0.00983109,
+    "regional_shocks": {
+      "Gulf": 0.86573995,
+      "Northeast": 0.81620101,
+      "West": 0.57410228
+    }
+  },
+  {
+    "scenario_id": 114,
+    "global_shock": 0.46026077,
+    "regional_shocks": {
+      "Gulf": 0.73164306,
+      "Northeast": 0.13927278,
+      "West": 0.15060202
+    }
+  },
+  {
+    "scenario_id": 115,
+    "global_shock": 0.92860672,
+    "regional_shocks": {
+      "Gulf": 0.22890868,
+      "Northeast": 0.90031648,
+      "West": 0.72281735
+    }
+  },
+  {
+    "scenario_id": 116,
+    "global_shock": 0.9891889,
+    "regional_shocks": {
+      "Gulf": 0.74957982,
+      "Northeast": 0.26812468,
+      "West": 0.4195777
+    }
+  },
+  {
+    "scenario_id": 117,
+    "global_shock": 0.57872897,
+    "regional_shocks": {
+      "Gulf": 0.85185245,
+      "Northeast": 0.88661486,
+      "West": 0.64220106
+    }
+  },
+  {
+    "scenario_id": 118,
+    "global_shock": 0.69219939,
+    "regional_shocks": {
+      "Gulf": 0.42378037,
+      "Northeast": 0.59826567,
+      "West": 0.20963078
+    }
+  },
+  {
+    "scenario_id": 119,
+    "global_shock": 0.24011865,
+    "regional_shocks": {
+      "Gulf": 0.79910497,
+      "Northeast": 0.14451819,
+      "West": 0.7263962
+    }
+  },
+  {
+    "scenario_id": 120,
+    "global_shock": 0.45206961,
+    "regional_shocks": {
+      "Gulf": 0.95550111,
+      "Northeast": 0.85162191,
+      "West": 0.56385521
+    }
+  },
+  {
+    "scenario_id": 121,
+    "global_shock": 0.28047833,
+    "regional_shocks": {
+      "Gulf": 0.05236565,
+      "Northeast": 0.334866,
+      "West": 0.6778278
+    }
+  },
+  {
+    "scenario_id": 122,
+    "global_shock": 0.07835173,
+    "regional_shocks": {
+      "Gulf": 0.01319529,
+      "Northeast": 0.99176665,
+      "West": 0.79710718
+    }
+  },
+  {
+    "scenario_id": 123,
+    "global_shock": 0.78444384,
+    "regional_shocks": {
+      "Gulf": 0.38641716,
+      "Northeast": 0.77784074,
+      "West": 0.10699497
+    }
+  },
+  {
+    "scenario_id": 124,
+    "global_shock": 0.57569083,
+    "regional_shocks": {
+      "Gulf": 0.32812565,
+      "Northeast": 0.07013525,
+      "West": 0.74699879
+    }
+  },
+  {
+    "scenario_id": 125,
+    "global_shock": 0.28910588,
+    "regional_shocks": {
+      "Gulf": 0.76881841,
+      "Northeast": 0.52919992,
+      "West": 0.2479613
+    }
+  },
+  {
+    "scenario_id": 126,
+    "global_shock": 0.53674438,
+    "regional_shocks": {
+      "Gulf": 0.18278024,
+      "Northeast": 0.01750568,
+      "West": 0.02335716
+    }
+  },
+  {
+    "scenario_id": 127,
+    "global_shock": 0.79203655,
+    "regional_shocks": {
+      "Gulf": 0.0310878,
+      "Northeast": 0.09828727,
+      "West": 0.68181228
+    }
+  },
+  {
+    "scenario_id": 128,
+    "global_shock": 0.64644182,
+    "regional_shocks": {
+      "Gulf": 0.94421053,
+      "Northeast": 0.37187406,
+      "West": 0.94501213
+    }
+  },
+  {
+    "scenario_id": 129,
+    "global_shock": 0.03111821,
+    "regional_shocks": {
+      "Gulf": 0.95578808,
+      "Northeast": 0.65278369,
+      "West": 0.61078833
+    }
+  },
+  {
+    "scenario_id": 130,
+    "global_shock": 0.73513164,
+    "regional_shocks": {
+      "Gulf": 0.99701118,
+      "Northeast": 0.96775139,
+      "West": 0.05684871
+    }
+  },
+  {
+    "scenario_id": 131,
+    "global_shock": 0.98473396,
+    "regional_shocks": {
+      "Gulf": 0.29954282,
+      "Northeast": 0.84259391,
+      "West": 0.89737482
+    }
+  },
+  {
+    "scenario_id": 132,
+    "global_shock": 0.13793143,
+    "regional_shocks": {
+      "Gulf": 0.29392007,
+      "Northeast": 0.11559278,
+      "West": 0.605469
+    }
+  },
+  {
+    "scenario_id": 133,
+    "global_shock": 0.11251036,
+    "regional_shocks": {
+      "Gulf": 0.23018602,
+      "Northeast": 0.33282366,
+      "West": 0.42474869
+    }
+  },
+  {
+    "scenario_id": 134,
+    "global_shock": 0.06443095,
+    "regional_shocks": {
+      "Gulf": 0.16864537,
+      "Northeast": 0.87976694,
+      "West": 0.58813795
+    }
+  },
+  {
+    "scenario_id": 135,
+    "global_shock": 0.75088959,
+    "regional_shocks": {
+      "Gulf": 0.46883305,
+      "Northeast": 0.90302882,
+      "West": 0.26745258
+    }
+  },
+  {
+    "scenario_id": 136,
+    "global_shock": 0.83167455,
+    "regional_shocks": {
+      "Gulf": 0.9337384,
+      "Northeast": 0.37770096,
+      "West": 0.49278298
+    }
+  },
+  {
+    "scenario_id": 137,
+    "global_shock": 0.20756651,
+    "regional_shocks": {
+      "Gulf": 0.39388886,
+      "Northeast": 0.11039236,
+      "West": 0.40018616
+    }
+  },
+  {
+    "scenario_id": 138,
+    "global_shock": 0.70688394,
+    "regional_shocks": {
+      "Gulf": 0.37289355,
+      "Northeast": 0.75080736,
+      "West": 0.27099028
+    }
+  },
+  {
+    "scenario_id": 139,
+    "global_shock": 0.04253007,
+    "regional_shocks": {
+      "Gulf": 0.76674078,
+      "Northeast": 0.56589281,
+      "West": 0.92084838
+    }
+  },
+  {
+    "scenario_id": 140,
+    "global_shock": 0.94898682,
+    "regional_shocks": {
+      "Gulf": 0.57520738,
+      "Northeast": 0.63717589,
+      "West": 0.36373253
+    }
+  },
+  {
+    "scenario_id": 141,
+    "global_shock": 0.47886756,
+    "regional_shocks": {
+      "Gulf": 0.62667289,
+      "Northeast": 0.31386489,
+      "West": 0.89363841
+    }
+  },
+  {
+    "scenario_id": 142,
+    "global_shock": 0.55242654,
+    "regional_shocks": {
+      "Gulf": 0.51944758,
+      "Northeast": 0.30111206,
+      "West": 0.73380874
+    }
+  },
+  {
+    "scenario_id": 143,
+    "global_shock": 0.27775295,
+    "regional_shocks": {
+      "Gulf": 0.09674096,
+      "Northeast": 0.88394021,
+      "West": 0.23176108
+    }
+  },
+  {
+    "scenario_id": 144,
+    "global_shock": 0.55060451,
+    "regional_shocks": {
+      "Gulf": 0.71103934,
+      "Northeast": 0.90013904,
+      "West": 0.19684712
+    }
+  },
+  {
+    "scenario_id": 145,
+    "global_shock": 0.74337688,
+    "regional_shocks": {
+      "Gulf": 0.01401466,
+      "Northeast": 0.61965994,
+      "West": 0.18412863
+    }
+  },
+  {
+    "scenario_id": 146,
+    "global_shock": 0.72156113,
+    "regional_shocks": {
+      "Gulf": 0.4123372,
+      "Northeast": 0.57407224,
+      "West": 0.76685511
+    }
+  },
+  {
+    "scenario_id": 147,
+    "global_shock": 0.18639067,
+    "regional_shocks": {
+      "Gulf": 0.55102008,
+      "Northeast": 0.51799058,
+      "West": 0.12006233
+    }
+  },
+  {
+    "scenario_id": 148,
+    "global_shock": 0.56563147,
+    "regional_shocks": {
+      "Gulf": 0.83738897,
+      "Northeast": 0.0769248,
+      "West": 0.10052315
+    }
+  },
+  {
+    "scenario_id": 149,
+    "global_shock": 0.77605853,
+    "regional_shocks": {
+      "Gulf": 0.60038813,
+      "Northeast": 0.59251014,
+      "West": 0.59855943
+    }
+  },
+  {
+    "scenario_id": 150,
+    "global_shock": 0.58919703,
+    "regional_shocks": {
+      "Gulf": 0.24771014,
+      "Northeast": 0.40343721,
+      "West": 0.78055375
+    }
+  },
+  {
+    "scenario_id": 151,
+    "global_shock": 0.29792144,
+    "regional_shocks": {
+      "Gulf": 0.24684144,
+      "Northeast": 0.72871871,
+      "West": 0.11745162
+    }
+  },
+  {
+    "scenario_id": 152,
+    "global_shock": 0.29055694,
+    "regional_shocks": {
+      "Gulf": 0.59597138,
+      "Northeast": 0.78339509,
+      "West": 0.5710985
+    }
+  },
+  {
+    "scenario_id": 153,
+    "global_shock": 0.51353278,
+    "regional_shocks": {
+      "Gulf": 0.23076006,
+      "Northeast": 0.58271999,
+      "West": 0.57002391
+    }
+  },
+  {
+    "scenario_id": 154,
+    "global_shock": 0.88214065,
+    "regional_shocks": {
+      "Gulf": 0.05858612,
+      "Northeast": 0.2060528,
+      "West": 0.18609844
+    }
+  },
+  {
+    "scenario_id": 155,
+    "global_shock": 0.85629076,
+    "regional_shocks": {
+      "Gulf": 0.03108274,
+      "Northeast": 0.15969574,
+      "West": 0.03770974
+    }
+  },
+  {
+    "scenario_id": 156,
+    "global_shock": 0.69294587,
+    "regional_shocks": {
+      "Gulf": 0.49912337,
+      "Northeast": 0.48007596,
+      "West": 0.21870882
+    }
+  },
+  {
+    "scenario_id": 157,
+    "global_shock": 0.41968486,
+    "regional_shocks": {
+      "Gulf": 0.41013384,
+      "Northeast": 0.81416633,
+      "West": 0.15272918
+    }
+  },
+  {
+    "scenario_id": 158,
+    "global_shock": 0.55336633,
+    "regional_shocks": {
+      "Gulf": 0.16836055,
+      "Northeast": 0.66784469,
+      "West": 0.08721859
+    }
+  },
+  {
+    "scenario_id": 159,
+    "global_shock": 0.29289717,
+    "regional_shocks": {
+      "Gulf": 0.08869308,
+      "Northeast": 0.99178981,
+      "West": 0.7482317
+    }
+  },
+  {
+    "scenario_id": 160,
+    "global_shock": 0.14229015,
+    "regional_shocks": {
+      "Gulf": 0.64311715,
+      "Northeast": 0.6551526,
+      "West": 0.79911814
+    }
+  },
+  {
+    "scenario_id": 161,
+    "global_shock": 0.32238453,
+    "regional_shocks": {
+      "Gulf": 0.79265998,
+      "Northeast": 0.8575555,
+      "West": 0.14572666
+    }
+  },
+  {
+    "scenario_id": 162,
+    "global_shock": 0.35879905,
+    "regional_shocks": {
+      "Gulf": 0.3702361,
+      "Northeast": 0.95793577,
+      "West": 0.76523295
+    }
+  },
+  {
+    "scenario_id": 163,
+    "global_shock": 0.34012156,
+    "regional_shocks": {
+      "Gulf": 0.2822178,
+      "Northeast": 0.30301813,
+      "West": 0.33043792
+    }
+  },
+  {
+    "scenario_id": 164,
+    "global_shock": 0.69227627,
+    "regional_shocks": {
+      "Gulf": 0.51270404,
+      "Northeast": 0.08752589,
+      "West": 0.34922483
+    }
+  },
+  {
+    "scenario_id": 165,
+    "global_shock": 0.99143762,
+    "regional_shocks": {
+      "Gulf": 0.85554783,
+      "Northeast": 0.79296359,
+      "West": 0.06802742
+    }
+  },
+  {
+    "scenario_id": 166,
+    "global_shock": 0.9523722,
+    "regional_shocks": {
+      "Gulf": 0.73633369,
+      "Northeast": 0.41473904,
+      "West": 0.88358733
+    }
+  },
+  {
+    "scenario_id": 167,
+    "global_shock": 0.93699067,
+    "regional_shocks": {
+      "Gulf": 0.49208203,
+      "Northeast": 0.36895727,
+      "West": 0.56801297
+    }
+  },
+  {
+    "scenario_id": 168,
+    "global_shock": 0.46524452,
+    "regional_shocks": {
+      "Gulf": 0.58929802,
+      "Northeast": 0.4446751,
+      "West": 0.27771492
+    }
+  },
+  {
+    "scenario_id": 169,
+    "global_shock": 0.34135299,
+    "regional_shocks": {
+      "Gulf": 0.62645396,
+      "Northeast": 0.91485429,
+      "West": 0.300898
+    }
+  },
+  {
+    "scenario_id": 170,
+    "global_shock": 0.86167184,
+    "regional_shocks": {
+      "Gulf": 0.51782949,
+      "Northeast": 0.01151181,
+      "West": 0.78796771
+    }
+  },
+  {
+    "scenario_id": 171,
+    "global_shock": 0.67517351,
+    "regional_shocks": {
+      "Gulf": 0.67679245,
+      "Northeast": 0.44086805,
+      "West": 0.54601615
+    }
+  },
+  {
+    "scenario_id": 172,
+    "global_shock": 0.90199174,
+    "regional_shocks": {
+      "Gulf": 0.98221305,
+      "Northeast": 0.24488642,
+      "West": 0.79631727
+    }
+  },
+  {
+    "scenario_id": 173,
+    "global_shock": 0.09547695,
+    "regional_shocks": {
+      "Gulf": 0.38777427,
+      "Northeast": 0.25890176,
+      "West": 0.31643617
+    }
+  },
+  {
+    "scenario_id": 174,
+    "global_shock": 0.42441919,
+    "regional_shocks": {
+      "Gulf": 0.83124381,
+      "Northeast": 0.54173896,
+      "West": 0.06847687
+    }
+  },
+  {
+    "scenario_id": 175,
+    "global_shock": 0.06021534,
+    "regional_shocks": {
+      "Gulf": 0.15412972,
+      "Northeast": 0.15923661,
+      "West": 0.24062952
+    }
+  },
+  {
+    "scenario_id": 176,
+    "global_shock": 0.77346011,
+    "regional_shocks": {
+      "Gulf": 0.36054027,
+      "Northeast": 0.17464142,
+      "West": 0.53645785
+    }
+  },
+  {
+    "scenario_id": 177,
+    "global_shock": 0.12848265,
+    "regional_shocks": {
+      "Gulf": 0.12582836,
+      "Northeast": 0.53171432,
+      "West": 0.56226583
+    }
+  },
+  {
+    "scenario_id": 178,
+    "global_shock": 0.95012916,
+    "regional_shocks": {
+      "Gulf": 0.31313321,
+      "Northeast": 0.8995643,
+      "West": 0.12437807
+    }
+  },
+  {
+    "scenario_id": 179,
+    "global_shock": 0.3079875,
+    "regional_shocks": {
+      "Gulf": 0.85358877,
+      "Northeast": 0.53670641,
+      "West": 0.13503964
+    }
+  },
+  {
+    "scenario_id": 180,
+    "global_shock": 0.8018608,
+    "regional_shocks": {
+      "Gulf": 0.3615383,
+      "Northeast": 0.77573231,
+      "West": 0.32937339
+    }
+  },
+  {
+    "scenario_id": 181,
+    "global_shock": 0.3699539,
+    "regional_shocks": {
+      "Gulf": 0.01105121,
+      "Northeast": 0.6697542,
+      "West": 0.67466229
+    }
+  },
+  {
+    "scenario_id": 182,
+    "global_shock": 0.47926453,
+    "regional_shocks": {
+      "Gulf": 0.15750536,
+      "Northeast": 0.3731836,
+      "West": 0.86387742
+    }
+  },
+  {
+    "scenario_id": 183,
+    "global_shock": 0.53824353,
+    "regional_shocks": {
+      "Gulf": 0.29758085,
+      "Northeast": 0.30944892,
+      "West": 0.4673337
+    }
+  },
+  {
+    "scenario_id": 184,
+    "global_shock": 0.35089208,
+    "regional_shocks": {
+      "Gulf": 0.74278156,
+      "Northeast": 0.54939586,
+      "West": 0.3239661
+    }
+  },
+  {
+    "scenario_id": 185,
+    "global_shock": 0.82439262,
+    "regional_shocks": {
+      "Gulf": 0.53682869,
+      "Northeast": 0.9693351,
+      "West": 0.31569236
+    }
+  },
+  {
+    "scenario_id": 186,
+    "global_shock": 0.96965391,
+    "regional_shocks": {
+      "Gulf": 0.29752636,
+      "Northeast": 0.53365934,
+      "West": 0.73034526
+    }
+  },
+  {
+    "scenario_id": 187,
+    "global_shock": 0.59046897,
+    "regional_shocks": {
+      "Gulf": 0.76622046,
+      "Northeast": 0.52895352,
+      "West": 0.30634739
+    }
+  },
+  {
+    "scenario_id": 188,
+    "global_shock": 0.0917197,
+    "regional_shocks": {
+      "Gulf": 0.51398697,
+      "Northeast": 0.82746774,
+      "West": 0.00935191
+    }
+  },
+  {
+    "scenario_id": 189,
+    "global_shock": 0.48998259,
+    "regional_shocks": {
+      "Gulf": 0.75758831,
+      "Northeast": 0.82106365,
+      "West": 0.7558289
+    }
+  },
+  {
+    "scenario_id": 190,
+    "global_shock": 0.77713836,
+    "regional_shocks": {
+      "Gulf": 0.16501937,
+      "Northeast": 0.77037114,
+      "West": 0.63122063
+    }
+  },
+  {
+    "scenario_id": 191,
+    "global_shock": 0.70353957,
+    "regional_shocks": {
+      "Gulf": 0.49499781,
+      "Northeast": 0.34247882,
+      "West": 0.25608322
+    }
+  },
+  {
+    "scenario_id": 192,
+    "global_shock": 0.08430305,
+    "regional_shocks": {
+      "Gulf": 0.8251086,
+      "Northeast": 0.19113556,
+      "West": 0.92112472
+    }
+  },
+  {
+    "scenario_id": 193,
+    "global_shock": 0.48819764,
+    "regional_shocks": {
+      "Gulf": 0.64734887,
+      "Northeast": 0.8923389,
+      "West": 0.29792044
+    }
+  },
+  {
+    "scenario_id": 194,
+    "global_shock": 0.869303,
+    "regional_shocks": {
+      "Gulf": 0.3264248,
+      "Northeast": 0.13906377,
+      "West": 0.34088277
+    }
+  },
+  {
+    "scenario_id": 195,
+    "global_shock": 0.7884665,
+    "regional_shocks": {
+      "Gulf": 0.37903967,
+      "Northeast": 0.77338977,
+      "West": 0.36854817
+    }
+  },
+  {
+    "scenario_id": 196,
+    "global_shock": 0.00196569,
+    "regional_shocks": {
+      "Gulf": 0.40365696,
+      "Northeast": 0.59721068,
+      "West": 0.59655514
+    }
+  },
+  {
+    "scenario_id": 197,
+    "global_shock": 0.63657457,
+    "regional_shocks": {
+      "Gulf": 0.81274154,
+      "Northeast": 0.56708248,
+      "West": 0.380455
+    }
+  },
+  {
+    "scenario_id": 198,
+    "global_shock": 0.96624064,
+    "regional_shocks": {
+      "Gulf": 0.78795059,
+      "Northeast": 0.70187422,
+      "West": 0.03099311
+    }
+  },
+  {
+    "scenario_id": 199,
+    "global_shock": 0.09633301,
+    "regional_shocks": {
+      "Gulf": 0.90012901,
+      "Northeast": 0.31314809,
+      "West": 0.23130264
+    }
+  },
+  {
+    "scenario_id": 200,
+    "global_shock": 0.08900389,
+    "regional_shocks": {
+      "Gulf": 0.63204428,
+      "Northeast": 0.04697763,
+      "West": 0.06694589
+    }
+  },
+  {
+    "scenario_id": 201,
+    "global_shock": 0.16946675,
+    "regional_shocks": {
+      "Gulf": 0.18572589,
+      "Northeast": 0.67694909,
+      "West": 0.22643011
+    }
+  },
+  {
+    "scenario_id": 202,
+    "global_shock": 0.75776755,
+    "regional_shocks": {
+      "Gulf": 0.85198893,
+      "Northeast": 0.16417506,
+      "West": 0.00851342
+    }
+  },
+  {
+    "scenario_id": 203,
+    "global_shock": 0.11253046,
+    "regional_shocks": {
+      "Gulf": 0.55224797,
+      "Northeast": 0.74448262,
+      "West": 0.93992654
+    }
+  },
+  {
+    "scenario_id": 204,
+    "global_shock": 0.93799239,
+    "regional_shocks": {
+      "Gulf": 0.3641363,
+      "Northeast": 0.73722145,
+      "West": 0.03924765
+    }
+  },
+  {
+    "scenario_id": 205,
+    "global_shock": 0.47091125,
+    "regional_shocks": {
+      "Gulf": 0.11017563,
+      "Northeast": 0.92072767,
+      "West": 0.72091819
+    }
+  },
+  {
+    "scenario_id": 206,
+    "global_shock": 0.93785141,
+    "regional_shocks": {
+      "Gulf": 0.25004715,
+      "Northeast": 0.53193255,
+      "West": 0.60408823
+    }
+  },
+  {
+    "scenario_id": 207,
+    "global_shock": 0.53264437,
+    "regional_shocks": {
+      "Gulf": 0.65503452,
+      "Northeast": 0.9027495,
+      "West": 0.83348207
+    }
+  },
+  {
+    "scenario_id": 208,
+    "global_shock": 0.07158101,
+    "regional_shocks": {
+      "Gulf": 0.87389893,
+      "Northeast": 0.87339103,
+      "West": 0.99238835
+    }
+  },
+  {
+    "scenario_id": 209,
+    "global_shock": 0.39445245,
+    "regional_shocks": {
+      "Gulf": 0.48114997,
+      "Northeast": 0.57077166,
+      "West": 0.22288238
+    }
+  },
+  {
+    "scenario_id": 210,
+    "global_shock": 0.54651726,
+    "regional_shocks": {
+      "Gulf": 0.5492112,
+      "Northeast": 0.43008511,
+      "West": 0.69355164
+    }
+  },
+  {
+    "scenario_id": 211,
+    "global_shock": 0.37748067,
+    "regional_shocks": {
+      "Gulf": 0.2360476,
+      "Northeast": 0.4617521,
+      "West": 0.38371604
+    }
+  },
+  {
+    "scenario_id": 212,
+    "global_shock": 0.99611624,
+    "regional_shocks": {
+      "Gulf": 0.11794169,
+      "Northeast": 0.01177547,
+      "West": 0.59803991
+    }
+  },
+  {
+    "scenario_id": 213,
+    "global_shock": 0.55412376,
+    "regional_shocks": {
+      "Gulf": 0.10895002,
+      "Northeast": 0.36009654,
+      "West": 0.4093315
+    }
+  },
+  {
+    "scenario_id": 214,
+    "global_shock": 0.05341709,
+    "regional_shocks": {
+      "Gulf": 0.5037058,
+      "Northeast": 0.18566463,
+      "West": 0.42962137
+    }
+  },
+  {
+    "scenario_id": 215,
+    "global_shock": 0.66463156,
+    "regional_shocks": {
+      "Gulf": 0.13452808,
+      "Northeast": 0.04555375,
+      "West": 0.6079734
+    }
+  },
+  {
+    "scenario_id": 216,
+    "global_shock": 0.48409627,
+    "regional_shocks": {
+      "Gulf": 0.93284421,
+      "Northeast": 0.7341564,
+      "West": 0.80380734
+    }
+  },
+  {
+    "scenario_id": 217,
+    "global_shock": 0.80659155,
+    "regional_shocks": {
+      "Gulf": 0.37510869,
+      "Northeast": 0.83067276,
+      "West": 0.35888895
+    }
+  },
+  {
+    "scenario_id": 218,
+    "global_shock": 0.41788145,
+    "regional_shocks": {
+      "Gulf": 0.7685541,
+      "Northeast": 0.91323444,
+      "West": 0.83173453
+    }
+  },
+  {
+    "scenario_id": 219,
+    "global_shock": 0.66635658,
+    "regional_shocks": {
+      "Gulf": 0.81635037,
+      "Northeast": 0.08450091,
+      "West": 0.83585106
+    }
+  },
+  {
+    "scenario_id": 220,
+    "global_shock": 0.01527493,
+    "regional_shocks": {
+      "Gulf": 0.6275899,
+      "Northeast": 0.27852768,
+      "West": 0.14731541
+    }
+  },
+  {
+    "scenario_id": 221,
+    "global_shock": 0.64462808,
+    "regional_shocks": {
+      "Gulf": 0.19895401,
+      "Northeast": 0.29932293,
+      "West": 0.71419073
+    }
+  },
+  {
+    "scenario_id": 222,
+    "global_shock": 0.29968762,
+    "regional_shocks": {
+      "Gulf": 0.2505894,
+      "Northeast": 0.49766806,
+      "West": 0.23173192
+    }
+  },
+  {
+    "scenario_id": 223,
+    "global_shock": 0.74730722,
+    "regional_shocks": {
+      "Gulf": 0.92878756,
+      "Northeast": 0.62312206,
+      "West": 0.2659693
+    }
+  },
+  {
+    "scenario_id": 224,
+    "global_shock": 0.75500654,
+    "regional_shocks": {
+      "Gulf": 0.70717256,
+      "Northeast": 0.97799202,
+      "West": 0.99347176
+    }
+  },
+  {
+    "scenario_id": 225,
+    "global_shock": 0.74482668,
+    "regional_shocks": {
+      "Gulf": 0.22742806,
+      "Northeast": 0.14932199,
+      "West": 0.52709759
+    }
+  },
+  {
+    "scenario_id": 226,
+    "global_shock": 0.74642546,
+    "regional_shocks": {
+      "Gulf": 0.62335688,
+      "Northeast": 0.01641981,
+      "West": 0.7592494
+    }
+  },
+  {
+    "scenario_id": 227,
+    "global_shock": 0.99522899,
+    "regional_shocks": {
+      "Gulf": 0.79031228,
+      "Northeast": 0.06728435,
+      "West": 0.2083685
+    }
+  },
+  {
+    "scenario_id": 228,
+    "global_shock": 0.41014958,
+    "regional_shocks": {
+      "Gulf": 0.60943528,
+      "Northeast": 0.89534078,
+      "West": 0.30941581
+    }
+  },
+  {
+    "scenario_id": 229,
+    "global_shock": 0.24222956,
+    "regional_shocks": {
+      "Gulf": 0.56088468,
+      "Northeast": 0.94505479,
+      "West": 0.30694825
+    }
+  },
+  {
+    "scenario_id": 230,
+    "global_shock": 0.69188625,
+    "regional_shocks": {
+      "Gulf": 0.89737983,
+      "Northeast": 0.14225948,
+      "West": 0.68003908
+    }
+  },
+  {
+    "scenario_id": 231,
+    "global_shock": 0.47603156,
+    "regional_shocks": {
+      "Gulf": 0.70716113,
+      "Northeast": 0.32841163,
+      "West": 0.8976583
+    }
+  },
+  {
+    "scenario_id": 232,
+    "global_shock": 0.72218603,
+    "regional_shocks": {
+      "Gulf": 0.27518297,
+      "Northeast": 0.6741318,
+      "West": 0.3793005
+    }
+  },
+  {
+    "scenario_id": 233,
+    "global_shock": 0.19894692,
+    "regional_shocks": {
+      "Gulf": 0.64367748,
+      "Northeast": 0.08594618,
+      "West": 0.36590277
+    }
+  },
+  {
+    "scenario_id": 234,
+    "global_shock": 0.04894266,
+    "regional_shocks": {
+      "Gulf": 0.81911857,
+      "Northeast": 0.26847412,
+      "West": 0.95183558
+    }
+  },
+  {
+    "scenario_id": 235,
+    "global_shock": 0.56510852,
+    "regional_shocks": {
+      "Gulf": 0.94780142,
+      "Northeast": 0.35760224,
+      "West": 0.63338841
+    }
+  },
+  {
+    "scenario_id": 236,
+    "global_shock": 0.03758829,
+    "regional_shocks": {
+      "Gulf": 0.0625444,
+      "Northeast": 0.09318822,
+      "West": 0.21339909
+    }
+  },
+  {
+    "scenario_id": 237,
+    "global_shock": 0.39180873,
+    "regional_shocks": {
+      "Gulf": 0.89825132,
+      "Northeast": 0.24770528,
+      "West": 0.1357155
+    }
+  },
+  {
+    "scenario_id": 238,
+    "global_shock": 0.70295783,
+    "regional_shocks": {
+      "Gulf": 0.18620746,
+      "Northeast": 0.22016925,
+      "West": 0.59321687
+    }
+  },
+  {
+    "scenario_id": 239,
+    "global_shock": 0.69209497,
+    "regional_shocks": {
+      "Gulf": 0.69766151,
+      "Northeast": 0.44686062,
+      "West": 0.10094756
+    }
+  },
+  {
+    "scenario_id": 240,
+    "global_shock": 0.73093151,
+    "regional_shocks": {
+      "Gulf": 0.80793762,
+      "Northeast": 0.68199626,
+      "West": 0.87747679
+    }
+  },
+  {
+    "scenario_id": 241,
+    "global_shock": 0.5220088,
+    "regional_shocks": {
+      "Gulf": 0.26943917,
+      "Northeast": 0.62352485,
+      "West": 0.56583081
+    }
+  },
+  {
+    "scenario_id": 242,
+    "global_shock": 0.37748842,
+    "regional_shocks": {
+      "Gulf": 0.86838558,
+      "Northeast": 0.55414994,
+      "West": 0.79901299
+    }
+  },
+  {
+    "scenario_id": 243,
+    "global_shock": 0.38070947,
+    "regional_shocks": {
+      "Gulf": 0.00384639,
+      "Northeast": 0.52332307,
+      "West": 0.59675584
+    }
+  },
+  {
+    "scenario_id": 244,
+    "global_shock": 0.23263546,
+    "regional_shocks": {
+      "Gulf": 0.52701976,
+      "Northeast": 0.16072086,
+      "West": 0.63029357
+    }
+  },
+  {
+    "scenario_id": 245,
+    "global_shock": 0.44061793,
+    "regional_shocks": {
+      "Gulf": 0.6712168,
+      "Northeast": 0.19496402,
+      "West": 0.30067463
+    }
+  },
+  {
+    "scenario_id": 246,
+    "global_shock": 0.72225567,
+    "regional_shocks": {
+      "Gulf": 0.67236997,
+      "Northeast": 0.89733841,
+      "West": 0.10432774
+    }
+  },
+  {
+    "scenario_id": 247,
+    "global_shock": 0.210556,
+    "regional_shocks": {
+      "Gulf": 0.53168912,
+      "Northeast": 0.36612225,
+      "West": 0.19858652
+    }
+  },
+  {
+    "scenario_id": 248,
+    "global_shock": 0.73464042,
+    "regional_shocks": {
+      "Gulf": 0.04627206,
+      "Northeast": 0.32218265,
+      "West": 0.74123433
+    }
+  },
+  {
+    "scenario_id": 249,
+    "global_shock": 0.40272863,
+    "regional_shocks": {
+      "Gulf": 0.22886919,
+      "Northeast": 0.27251151,
+      "West": 0.56243959
+    }
+  },
+  {
+    "scenario_id": 250,
+    "global_shock": 0.16340818,
+    "regional_shocks": {
+      "Gulf": 0.85284721,
+      "Northeast": 0.43389886,
+      "West": 0.83735887
+    }
+  },
+  {
+    "scenario_id": 251,
+    "global_shock": 0.4788375,
+    "regional_shocks": {
+      "Gulf": 0.9047622,
+      "Northeast": 0.50766809,
+      "West": 0.41314955
+    }
+  },
+  {
+    "scenario_id": 252,
+    "global_shock": 0.45655277,
+    "regional_shocks": {
+      "Gulf": 0.22451287,
+      "Northeast": 0.82028717,
+      "West": 0.93090646
+    }
+  },
+  {
+    "scenario_id": 253,
+    "global_shock": 0.86422131,
+    "regional_shocks": {
+      "Gulf": 0.39986816,
+      "Northeast": 0.35773477,
+      "West": 0.7302611
+    }
+  },
+  {
+    "scenario_id": 254,
+    "global_shock": 0.62074036,
+    "regional_shocks": {
+      "Gulf": 0.95409333,
+      "Northeast": 0.77376381,
+      "West": 0.35893908
+    }
+  },
+  {
+    "scenario_id": 255,
+    "global_shock": 0.29147758,
+    "regional_shocks": {
+      "Gulf": 0.36031038,
+      "Northeast": 0.77471081,
+      "West": 0.6221952
+    }
+  },
+  {
+    "scenario_id": 256,
+    "global_shock": 0.1144017,
+    "regional_shocks": {
+      "Gulf": 0.47457714,
+      "Northeast": 0.0206547,
+      "West": 0.20532455
+    }
+  },
+  {
+    "scenario_id": 257,
+    "global_shock": 0.84462595,
+    "regional_shocks": {
+      "Gulf": 0.45232761,
+      "Northeast": 0.64590103,
+      "West": 0.65021939
+    }
+  },
+  {
+    "scenario_id": 258,
+    "global_shock": 0.92345107,
+    "regional_shocks": {
+      "Gulf": 0.61461286,
+      "Northeast": 0.20404197,
+      "West": 0.39343717
+    }
+  },
+  {
+    "scenario_id": 259,
+    "global_shock": 0.38640785,
+    "regional_shocks": {
+      "Gulf": 0.47200521,
+      "Northeast": 0.40816151,
+      "West": 0.76581365
+    }
+  },
+  {
+    "scenario_id": 260,
+    "global_shock": 0.67605578,
+    "regional_shocks": {
+      "Gulf": 0.65472662,
+      "Northeast": 0.4702264,
+      "West": 0.6937921
+    }
+  },
+  {
+    "scenario_id": 261,
+    "global_shock": 0.78628009,
+    "regional_shocks": {
+      "Gulf": 0.87951325,
+      "Northeast": 0.64183263,
+      "West": 0.35706865
+    }
+  },
+  {
+    "scenario_id": 262,
+    "global_shock": 0.82112099,
+    "regional_shocks": {
+      "Gulf": 0.21727175,
+      "Northeast": 0.52588413,
+      "West": 0.07446635
+    }
+  },
+  {
+    "scenario_id": 263,
+    "global_shock": 0.95181804,
+    "regional_shocks": {
+      "Gulf": 0.71333569,
+      "Northeast": 0.02125689,
+      "West": 0.49907545
+    }
+  },
+  {
+    "scenario_id": 264,
+    "global_shock": 0.13542921,
+    "regional_shocks": {
+      "Gulf": 0.15682704,
+      "Northeast": 0.12136204,
+      "West": 0.72022634
+    }
+  },
+  {
+    "scenario_id": 265,
+    "global_shock": 0.82270466,
+    "regional_shocks": {
+      "Gulf": 0.64623106,
+      "Northeast": 0.11430117,
+      "West": 0.80870174
+    }
+  },
+  {
+    "scenario_id": 266,
+    "global_shock": 0.86338751,
+    "regional_shocks": {
+      "Gulf": 0.62475664,
+      "Northeast": 0.50393508,
+      "West": 0.30906129
+    }
+  },
+  {
+    "scenario_id": 267,
+    "global_shock": 0.48866388,
+    "regional_shocks": {
+      "Gulf": 0.03893468,
+      "Northeast": 0.8374487,
+      "West": 0.67368145
+    }
+  },
+  {
+    "scenario_id": 268,
+    "global_shock": 0.62630089,
+    "regional_shocks": {
+      "Gulf": 0.51094695,
+      "Northeast": 0.85686785,
+      "West": 0.51457529
+    }
+  },
+  {
+    "scenario_id": 269,
+    "global_shock": 0.84154652,
+    "regional_shocks": {
+      "Gulf": 0.31366483,
+      "Northeast": 0.46159911,
+      "West": 0.19331889
+    }
+  },
+  {
+    "scenario_id": 270,
+    "global_shock": 0.51327869,
+    "regional_shocks": {
+      "Gulf": 0.53952717,
+      "Northeast": 0.05658017,
+      "West": 0.09299379
+    }
+  },
+  {
+    "scenario_id": 271,
+    "global_shock": 0.87348882,
+    "regional_shocks": {
+      "Gulf": 0.24489164,
+      "Northeast": 0.98002847,
+      "West": 0.02296431
+    }
+  },
+  {
+    "scenario_id": 272,
+    "global_shock": 0.00733472,
+    "regional_shocks": {
+      "Gulf": 0.57308194,
+      "Northeast": 0.59792562,
+      "West": 0.45298146
+    }
+  },
+  {
+    "scenario_id": 273,
+    "global_shock": 0.22809747,
+    "regional_shocks": {
+      "Gulf": 0.8682881,
+      "Northeast": 0.12710451,
+      "West": 0.1134727
+    }
+  },
+  {
+    "scenario_id": 274,
+    "global_shock": 0.77533061,
+    "regional_shocks": {
+      "Gulf": 0.11511524,
+      "Northeast": 0.37200087,
+      "West": 0.87424775
+    }
+  },
+  {
+    "scenario_id": 275,
+    "global_shock": 0.97615412,
+    "regional_shocks": {
+      "Gulf": 0.48624044,
+      "Northeast": 0.61832612,
+      "West": 0.67542192
+    }
+  },
+  {
+    "scenario_id": 276,
+    "global_shock": 0.99948859,
+    "regional_shocks": {
+      "Gulf": 0.33666836,
+      "Northeast": 0.39979736,
+      "West": 0.91435542
+    }
+  },
+  {
+    "scenario_id": 277,
+    "global_shock": 0.66009921,
+    "regional_shocks": {
+      "Gulf": 0.16739927,
+      "Northeast": 0.97933325,
+      "West": 0.38400714
+    }
+  },
+  {
+    "scenario_id": 278,
+    "global_shock": 0.02699825,
+    "regional_shocks": {
+      "Gulf": 0.19389597,
+      "Northeast": 0.25772148,
+      "West": 0.86454653
+    }
+  },
+  {
+    "scenario_id": 279,
+    "global_shock": 0.30340487,
+    "regional_shocks": {
+      "Gulf": 0.34775701,
+      "Northeast": 0.24883067,
+      "West": 0.30490061
+    }
+  },
+  {
+    "scenario_id": 280,
+    "global_shock": 0.23303805,
+    "regional_shocks": {
+      "Gulf": 0.49816521,
+      "Northeast": 0.31250057,
+      "West": 0.0705531
+    }
+  },
+  {
+    "scenario_id": 281,
+    "global_shock": 0.865685,
+    "regional_shocks": {
+      "Gulf": 0.41293207,
+      "Northeast": 0.27823066,
+      "West": 0.05665362
+    }
+  },
+  {
+    "scenario_id": 282,
+    "global_shock": 0.97080815,
+    "regional_shocks": {
+      "Gulf": 0.83136376,
+      "Northeast": 0.09453713,
+      "West": 0.57134714
+    }
+  },
+  {
+    "scenario_id": 283,
+    "global_shock": 0.16698449,
+    "regional_shocks": {
+      "Gulf": 0.0809942,
+      "Northeast": 0.88975443,
+      "West": 0.21243528
+    }
+  },
+  {
+    "scenario_id": 284,
+    "global_shock": 0.4588384,
+    "regional_shocks": {
+      "Gulf": 0.20056718,
+      "Northeast": 0.72447749,
+      "West": 0.84419996
+    }
+  },
+  {
+    "scenario_id": 285,
+    "global_shock": 0.77258798,
+    "regional_shocks": {
+      "Gulf": 0.66822638,
+      "Northeast": 0.38046146,
+      "West": 0.07134097
+    }
+  },
+  {
+    "scenario_id": 286,
+    "global_shock": 0.42192124,
+    "regional_shocks": {
+      "Gulf": 0.67237781,
+      "Northeast": 0.14079819,
+      "West": 0.82185448
+    }
+  },
+  {
+    "scenario_id": 287,
+    "global_shock": 0.41519768,
+    "regional_shocks": {
+      "Gulf": 0.14602717,
+      "Northeast": 0.25291313,
+      "West": 0.00418413
+    }
+  },
+  {
+    "scenario_id": 288,
+    "global_shock": 0.21793206,
+    "regional_shocks": {
+      "Gulf": 0.50731863,
+      "Northeast": 0.83449025,
+      "West": 0.10505695
+    }
+  },
+  {
+    "scenario_id": 289,
+    "global_shock": 0.91839768,
+    "regional_shocks": {
+      "Gulf": 0.86805906,
+      "Northeast": 0.45424276,
+      "West": 0.04332099
+    }
+  },
+  {
+    "scenario_id": 290,
+    "global_shock": 0.37023527,
+    "regional_shocks": {
+      "Gulf": 0.03525164,
+      "Northeast": 0.34428818,
+      "West": 0.55200062
+    }
+  },
+  {
+    "scenario_id": 291,
+    "global_shock": 0.27257837,
+    "regional_shocks": {
+      "Gulf": 0.71749347,
+      "Northeast": 0.06135526,
+      "West": 0.49879738
+    }
+  },
+  {
+    "scenario_id": 292,
+    "global_shock": 0.73988907,
+    "regional_shocks": {
+      "Gulf": 0.75847604,
+      "Northeast": 0.63215837,
+      "West": 0.55639326
+    }
+  },
+  {
+    "scenario_id": 293,
+    "global_shock": 0.67206524,
+    "regional_shocks": {
+      "Gulf": 0.35116706,
+      "Northeast": 0.44176451,
+      "West": 0.02614288
+    }
+  },
+  {
+    "scenario_id": 294,
+    "global_shock": 0.55237131,
+    "regional_shocks": {
+      "Gulf": 0.34078962,
+      "Northeast": 0.34583513,
+      "West": 0.7334722
+    }
+  },
+  {
+    "scenario_id": 295,
+    "global_shock": 0.49617517,
+    "regional_shocks": {
+      "Gulf": 0.75005282,
+      "Northeast": 0.36708503,
+      "West": 0.98690045
+    }
+  },
+  {
+    "scenario_id": 296,
+    "global_shock": 0.88954192,
+    "regional_shocks": {
+      "Gulf": 0.38758572,
+      "Northeast": 0.77456149,
+      "West": 0.71765581
+    }
+  },
+  {
+    "scenario_id": 297,
+    "global_shock": 0.24868984,
+    "regional_shocks": {
+      "Gulf": 0.48324476,
+      "Northeast": 0.48748623,
+      "West": 0.47744402
+    }
+  },
+  {
+    "scenario_id": 298,
+    "global_shock": 0.74965862,
+    "regional_shocks": {
+      "Gulf": 0.34088256,
+      "Northeast": 0.39229763,
+      "West": 0.56851318
+    }
+  },
+  {
+    "scenario_id": 299,
+    "global_shock": 0.88992865,
+    "regional_shocks": {
+      "Gulf": 0.13962683,
+      "Northeast": 0.2109681,
+      "West": 0.74332457
+    }
+  },
+  {
+    "scenario_id": 300,
+    "global_shock": 0.21396883,
+    "regional_shocks": {
+      "Gulf": 0.79829388,
+      "Northeast": 0.8214777,
+      "West": 0.66549254
+    }
+  },
+  {
+    "scenario_id": 301,
+    "global_shock": 0.55402002,
+    "regional_shocks": {
+      "Gulf": 0.91915328,
+      "Northeast": 0.91533094,
+      "West": 0.13278612
+    }
+  },
+  {
+    "scenario_id": 302,
+    "global_shock": 0.68624052,
+    "regional_shocks": {
+      "Gulf": 0.23624741,
+      "Northeast": 0.67029621,
+      "West": 0.13921004
+    }
+  },
+  {
+    "scenario_id": 303,
+    "global_shock": 0.84672182,
+    "regional_shocks": {
+      "Gulf": 0.27330874,
+      "Northeast": 0.29293345,
+      "West": 0.61366767
+    }
+  },
+  {
+    "scenario_id": 304,
+    "global_shock": 0.46493403,
+    "regional_shocks": {
+      "Gulf": 0.90100926,
+      "Northeast": 0.00078059,
+      "West": 0.92457712
+    }
+  },
+  {
+    "scenario_id": 305,
+    "global_shock": 0.41978351,
+    "regional_shocks": {
+      "Gulf": 0.35066071,
+      "Northeast": 0.16455455,
+      "West": 0.71419474
+    }
+  },
+  {
+    "scenario_id": 306,
+    "global_shock": 0.43982709,
+    "regional_shocks": {
+      "Gulf": 0.96606632,
+      "Northeast": 0.05853488,
+      "West": 0.20273562
+    }
+  },
+  {
+    "scenario_id": 307,
+    "global_shock": 0.57990165,
+    "regional_shocks": {
+      "Gulf": 0.29893432,
+      "Northeast": 0.72913633,
+      "West": 0.59791968
+    }
+  },
+  {
+    "scenario_id": 308,
+    "global_shock": 0.42989273,
+    "regional_shocks": {
+      "Gulf": 0.25371357,
+      "Northeast": 0.02340013,
+      "West": 0.71916452
+    }
+  },
+  {
+    "scenario_id": 309,
+    "global_shock": 0.5736513,
+    "regional_shocks": {
+      "Gulf": 0.81972626,
+      "Northeast": 0.08912761,
+      "West": 0.08039614
+    }
+  },
+  {
+    "scenario_id": 310,
+    "global_shock": 0.1591834,
+    "regional_shocks": {
+      "Gulf": 0.89579865,
+      "Northeast": 0.13262281,
+      "West": 0.4830598
+    }
+  },
+  {
+    "scenario_id": 311,
+    "global_shock": 0.93981132,
+    "regional_shocks": {
+      "Gulf": 0.86229443,
+      "Northeast": 0.08828187,
+      "West": 0.03625414
+    }
+  },
+  {
+    "scenario_id": 312,
+    "global_shock": 0.98164516,
+    "regional_shocks": {
+      "Gulf": 0.94879132,
+      "Northeast": 0.74541302,
+      "West": 0.47584472
+    }
+  },
+  {
+    "scenario_id": 313,
+    "global_shock": 0.91524024,
+    "regional_shocks": {
+      "Gulf": 0.49015799,
+      "Northeast": 0.15533742,
+      "West": 0.15710867
+    }
+  },
+  {
+    "scenario_id": 314,
+    "global_shock": 0.33829679,
+    "regional_shocks": {
+      "Gulf": 0.22795156,
+      "Northeast": 0.08337157,
+      "West": 0.77526636
+    }
+  },
+  {
+    "scenario_id": 315,
+    "global_shock": 0.65992695,
+    "regional_shocks": {
+      "Gulf": 0.79375576,
+      "Northeast": 0.31854638,
+      "West": 0.24664666
+    }
+  },
+  {
+    "scenario_id": 316,
+    "global_shock": 0.49719044,
+    "regional_shocks": {
+      "Gulf": 0.27421965,
+      "Northeast": 0.80398291,
+      "West": 0.76141155
+    }
+  },
+  {
+    "scenario_id": 317,
+    "global_shock": 0.80145354,
+    "regional_shocks": {
+      "Gulf": 0.74818171,
+      "Northeast": 0.25983268,
+      "West": 0.6337609
+    }
+  },
+  {
+    "scenario_id": 318,
+    "global_shock": 0.8174579,
+    "regional_shocks": {
+      "Gulf": 0.74858843,
+      "Northeast": 0.94913435,
+      "West": 0.81383848
+    }
+  },
+  {
+    "scenario_id": 319,
+    "global_shock": 0.06878308,
+    "regional_shocks": {
+      "Gulf": 0.0415009,
+      "Northeast": 0.04254213,
+      "West": 0.95401823
+    }
+  },
+  {
+    "scenario_id": 320,
+    "global_shock": 0.0967212,
+    "regional_shocks": {
+      "Gulf": 0.740341,
+      "Northeast": 0.43324409,
+      "West": 0.43129883
+    }
+  },
+  {
+    "scenario_id": 321,
+    "global_shock": 0.3566671,
+    "regional_shocks": {
+      "Gulf": 0.26667283,
+      "Northeast": 0.52680285,
+      "West": 0.19449366
+    }
+  },
+  {
+    "scenario_id": 322,
+    "global_shock": 0.00044296,
+    "regional_shocks": {
+      "Gulf": 0.48713039,
+      "Northeast": 0.33115491,
+      "West": 0.97585419
+    }
+  },
+  {
+    "scenario_id": 323,
+    "global_shock": 0.36544285,
+    "regional_shocks": {
+      "Gulf": 0.8366561,
+      "Northeast": 0.63402709,
+      "West": 0.15416387
+    }
+  },
+  {
+    "scenario_id": 324,
+    "global_shock": 0.03953553,
+    "regional_shocks": {
+      "Gulf": 0.83424401,
+      "Northeast": 0.94594045,
+      "West": 0.3633934
+    }
+  },
+  {
+    "scenario_id": 325,
+    "global_shock": 0.92106241,
+    "regional_shocks": {
+      "Gulf": 0.72141754,
+      "Northeast": 0.73943024,
+      "West": 0.50365039
+    }
+  },
+  {
+    "scenario_id": 326,
+    "global_shock": 0.4024022,
+    "regional_shocks": {
+      "Gulf": 0.89612924,
+      "Northeast": 0.47476334,
+      "West": 0.74232412
+    }
+  },
+  {
+    "scenario_id": 327,
+    "global_shock": 0.29757321,
+    "regional_shocks": {
+      "Gulf": 0.34871624,
+      "Northeast": 0.13977513,
+      "West": 0.66219006
+    }
+  },
+  {
+    "scenario_id": 328,
+    "global_shock": 0.93627672,
+    "regional_shocks": {
+      "Gulf": 0.95330921,
+      "Northeast": 0.58809324,
+      "West": 0.26227946
+    }
+  },
+  {
+    "scenario_id": 329,
+    "global_shock": 0.50991769,
+    "regional_shocks": {
+      "Gulf": 0.72780977,
+      "Northeast": 0.4253983,
+      "West": 0.15189182
+    }
+  },
+  {
+    "scenario_id": 330,
+    "global_shock": 0.70449792,
+    "regional_shocks": {
+      "Gulf": 0.83458046,
+      "Northeast": 0.91367877,
+      "West": 0.19998029
+    }
+  },
+  {
+    "scenario_id": 331,
+    "global_shock": 0.24271211,
+    "regional_shocks": {
+      "Gulf": 0.46076325,
+      "Northeast": 0.34200537,
+      "West": 0.37164736
+    }
+  },
+  {
+    "scenario_id": 332,
+    "global_shock": 0.05985018,
+    "regional_shocks": {
+      "Gulf": 0.99884548,
+      "Northeast": 0.54545159,
+      "West": 0.25584139
+    }
+  },
+  {
+    "scenario_id": 333,
+    "global_shock": 0.89290764,
+    "regional_shocks": {
+      "Gulf": 0.3870477,
+      "Northeast": 0.94439079,
+      "West": 0.04262679
+    }
+  },
+  {
+    "scenario_id": 334,
+    "global_shock": 0.18641936,
+    "regional_shocks": {
+      "Gulf": 0.69221757,
+      "Northeast": 0.50342482,
+      "West": 0.1185505
+    }
+  },
+  {
+    "scenario_id": 335,
+    "global_shock": 0.51910686,
+    "regional_shocks": {
+      "Gulf": 0.43556546,
+      "Northeast": 0.16661711,
+      "West": 0.81923886
+    }
+  },
+  {
+    "scenario_id": 336,
+    "global_shock": 0.1316552,
+    "regional_shocks": {
+      "Gulf": 0.40665082,
+      "Northeast": 0.04064707,
+      "West": 0.94411918
+    }
+  },
+  {
+    "scenario_id": 337,
+    "global_shock": 0.46330819,
+    "regional_shocks": {
+      "Gulf": 0.31916057,
+      "Northeast": 0.39887594,
+      "West": 0.69069401
+    }
+  },
+  {
+    "scenario_id": 338,
+    "global_shock": 0.72610977,
+    "regional_shocks": {
+      "Gulf": 0.67105926,
+      "Northeast": 0.82608656,
+      "West": 0.47728003
+    }
+  },
+  {
+    "scenario_id": 339,
+    "global_shock": 0.32653314,
+    "regional_shocks": {
+      "Gulf": 0.62003542,
+      "Northeast": 0.47416194,
+      "West": 0.11314008
+    }
+  },
+  {
+    "scenario_id": 340,
+    "global_shock": 0.37815017,
+    "regional_shocks": {
+      "Gulf": 0.66635047,
+      "Northeast": 0.36555847,
+      "West": 0.61535795
+    }
+  },
+  {
+    "scenario_id": 341,
+    "global_shock": 0.630811,
+    "regional_shocks": {
+      "Gulf": 0.65066337,
+      "Northeast": 0.50293677,
+      "West": 0.55045093
+    }
+  },
+  {
+    "scenario_id": 342,
+    "global_shock": 0.73241848,
+    "regional_shocks": {
+      "Gulf": 0.90487199,
+      "Northeast": 0.87127538,
+      "West": 0.08570047
+    }
+  },
+  {
+    "scenario_id": 343,
+    "global_shock": 0.83687536,
+    "regional_shocks": {
+      "Gulf": 0.74755695,
+      "Northeast": 0.35334518,
+      "West": 0.01553821
+    }
+  },
+  {
+    "scenario_id": 344,
+    "global_shock": 0.43997109,
+    "regional_shocks": {
+      "Gulf": 0.39581319,
+      "Northeast": 0.24610602,
+      "West": 0.46674311
+    }
+  },
+  {
+    "scenario_id": 345,
+    "global_shock": 0.5281661,
+    "regional_shocks": {
+      "Gulf": 0.79146006,
+      "Northeast": 0.16309882,
+      "West": 0.82575143
+    }
+  },
+  {
+    "scenario_id": 346,
+    "global_shock": 0.82692582,
+    "regional_shocks": {
+      "Gulf": 0.98570847,
+      "Northeast": 0.32068184,
+      "West": 0.80700058
+    }
+  },
+  {
+    "scenario_id": 347,
+    "global_shock": 0.34057308,
+    "regional_shocks": {
+      "Gulf": 0.24527954,
+      "Northeast": 0.45101485,
+      "West": 0.7535195
+    }
+  },
+  {
+    "scenario_id": 348,
+    "global_shock": 0.77407338,
+    "regional_shocks": {
+      "Gulf": 0.94913182,
+      "Northeast": 0.26656352,
+      "West": 0.70278866
+    }
+  },
+  {
+    "scenario_id": 349,
+    "global_shock": 0.62065925,
+    "regional_shocks": {
+      "Gulf": 0.3490569,
+      "Northeast": 0.45059772,
+      "West": 0.76117771
+    }
+  },
+  {
+    "scenario_id": 350,
+    "global_shock": 0.82218292,
+    "regional_shocks": {
+      "Gulf": 0.02023331,
+      "Northeast": 0.23399366,
+      "West": 0.97466041
+    }
+  },
+  {
+    "scenario_id": 351,
+    "global_shock": 0.49641462,
+    "regional_shocks": {
+      "Gulf": 0.23898035,
+      "Northeast": 0.85216296,
+      "West": 0.21221418
+    }
+  },
+  {
+    "scenario_id": 352,
+    "global_shock": 0.16800823,
+    "regional_shocks": {
+      "Gulf": 0.11794999,
+      "Northeast": 0.53104725,
+      "West": 0.51173354
+    }
+  },
+  {
+    "scenario_id": 353,
+    "global_shock": 0.36489363,
+    "regional_shocks": {
+      "Gulf": 0.78690539,
+      "Northeast": 0.24505158,
+      "West": 0.02451448
+    }
+  },
+  {
+    "scenario_id": 354,
+    "global_shock": 0.55642407,
+    "regional_shocks": {
+      "Gulf": 0.76520624,
+      "Northeast": 0.73437345,
+      "West": 0.17152931
+    }
+  },
+  {
+    "scenario_id": 355,
+    "global_shock": 0.3467962,
+    "regional_shocks": {
+      "Gulf": 0.75658362,
+      "Northeast": 0.48065666,
+      "West": 0.18986662
+    }
+  },
+  {
+    "scenario_id": 356,
+    "global_shock": 0.54775734,
+    "regional_shocks": {
+      "Gulf": 0.92869961,
+      "Northeast": 0.48688022,
+      "West": 0.88650281
+    }
+  },
+  {
+    "scenario_id": 357,
+    "global_shock": 0.05919987,
+    "regional_shocks": {
+      "Gulf": 0.00025958,
+      "Northeast": 0.82079608,
+      "West": 0.24589348
+    }
+  },
+  {
+    "scenario_id": 358,
+    "global_shock": 0.22621827,
+    "regional_shocks": {
+      "Gulf": 0.09070315,
+      "Northeast": 0.52327481,
+      "West": 0.59177058
+    }
+  },
+  {
+    "scenario_id": 359,
+    "global_shock": 0.99509486,
+    "regional_shocks": {
+      "Gulf": 0.28385092,
+      "Northeast": 0.85315152,
+      "West": 0.32135266
+    }
+  },
+  {
+    "scenario_id": 360,
+    "global_shock": 0.18234292,
+    "regional_shocks": {
+      "Gulf": 0.40126551,
+      "Northeast": 0.65848542,
+      "West": 0.80679543
+    }
+  },
+  {
+    "scenario_id": 361,
+    "global_shock": 0.07639934,
+    "regional_shocks": {
+      "Gulf": 0.76333114,
+      "Northeast": 0.07706449,
+      "West": 0.57078276
+    }
+  },
+  {
+    "scenario_id": 362,
+    "global_shock": 0.63326347,
+    "regional_shocks": {
+      "Gulf": 0.16233985,
+      "Northeast": 0.56203649,
+      "West": 0.47663909
+    }
+  },
+  {
+    "scenario_id": 363,
+    "global_shock": 0.322325,
+    "regional_shocks": {
+      "Gulf": 0.45242859,
+      "Northeast": 0.41792972,
+      "West": 0.9486732
+    }
+  },
+  {
+    "scenario_id": 364,
+    "global_shock": 0.43464762,
+    "regional_shocks": {
+      "Gulf": 0.57008394,
+      "Northeast": 0.65315691,
+      "West": 0.41586444
+    }
+  },
+  {
+    "scenario_id": 365,
+    "global_shock": 0.68631035,
+    "regional_shocks": {
+      "Gulf": 0.49679609,
+      "Northeast": 0.27037361,
+      "West": 0.2930506
+    }
+  },
+  {
+    "scenario_id": 366,
+    "global_shock": 0.97319149,
+    "regional_shocks": {
+      "Gulf": 0.49294354,
+      "Northeast": 0.39462503,
+      "West": 0.02410901
+    }
+  },
+  {
+    "scenario_id": 367,
+    "global_shock": 0.73339841,
+    "regional_shocks": {
+      "Gulf": 0.94346552,
+      "Northeast": 0.00409863,
+      "West": 0.36126075
+    }
+  },
+  {
+    "scenario_id": 368,
+    "global_shock": 0.08111145,
+    "regional_shocks": {
+      "Gulf": 0.41263727,
+      "Northeast": 0.3758838,
+      "West": 0.54985444
+    }
+  },
+  {
+    "scenario_id": 369,
+    "global_shock": 0.77103251,
+    "regional_shocks": {
+      "Gulf": 0.21697016,
+      "Northeast": 0.76408965,
+      "West": 0.51738889
+    }
+  },
+  {
+    "scenario_id": 370,
+    "global_shock": 0.02255691,
+    "regional_shocks": {
+      "Gulf": 0.16074027,
+      "Northeast": 0.50677257,
+      "West": 0.75054516
+    }
+  },
+  {
+    "scenario_id": 371,
+    "global_shock": 0.7743551,
+    "regional_shocks": {
+      "Gulf": 0.12526417,
+      "Northeast": 0.43274914,
+      "West": 0.93613979
+    }
+  },
+  {
+    "scenario_id": 372,
+    "global_shock": 0.42494328,
+    "regional_shocks": {
+      "Gulf": 0.01347309,
+      "Northeast": 0.32948675,
+      "West": 0.27811316
+    }
+  },
+  {
+    "scenario_id": 373,
+    "global_shock": 0.75950449,
+    "regional_shocks": {
+      "Gulf": 0.3277441,
+      "Northeast": 0.31695104,
+      "West": 0.94448558
+    }
+  },
+  {
+    "scenario_id": 374,
+    "global_shock": 0.78073063,
+    "regional_shocks": {
+      "Gulf": 0.03764083,
+      "Northeast": 0.44657894,
+      "West": 0.12890298
+    }
+  },
+  {
+    "scenario_id": 375,
+    "global_shock": 0.6346958,
+    "regional_shocks": {
+      "Gulf": 0.84530664,
+      "Northeast": 0.07364307,
+      "West": 0.03223821
+    }
+  },
+  {
+    "scenario_id": 376,
+    "global_shock": 0.59119158,
+    "regional_shocks": {
+      "Gulf": 0.56680069,
+      "Northeast": 0.11912051,
+      "West": 0.17658858
+    }
+  },
+  {
+    "scenario_id": 377,
+    "global_shock": 0.70522398,
+    "regional_shocks": {
+      "Gulf": 0.78273351,
+      "Northeast": 0.37201876,
+      "West": 0.0705578
+    }
+  },
+  {
+    "scenario_id": 378,
+    "global_shock": 0.34008533,
+    "regional_shocks": {
+      "Gulf": 0.60865519,
+      "Northeast": 0.78522263,
+      "West": 0.11032703
+    }
+  },
+  {
+    "scenario_id": 379,
+    "global_shock": 0.92196599,
+    "regional_shocks": {
+      "Gulf": 0.10527345,
+      "Northeast": 0.94261887,
+      "West": 0.65182984
+    }
+  },
+  {
+    "scenario_id": 380,
+    "global_shock": 0.9708752,
+    "regional_shocks": {
+      "Gulf": 0.13181415,
+      "Northeast": 0.3170337,
+      "West": 0.75809974
+    }
+  },
+  {
+    "scenario_id": 381,
+    "global_shock": 0.65392153,
+    "regional_shocks": {
+      "Gulf": 0.10752814,
+      "Northeast": 0.79989028,
+      "West": 0.12445428
+    }
+  },
+  {
+    "scenario_id": 382,
+    "global_shock": 0.50585722,
+    "regional_shocks": {
+      "Gulf": 0.1516642,
+      "Northeast": 0.88886871,
+      "West": 0.12931616
+    }
+  },
+  {
+    "scenario_id": 383,
+    "global_shock": 0.22396299,
+    "regional_shocks": {
+      "Gulf": 0.80960085,
+      "Northeast": 0.92227273,
+      "West": 0.48903935
+    }
+  },
+  {
+    "scenario_id": 384,
+    "global_shock": 0.06571748,
+    "regional_shocks": {
+      "Gulf": 0.33575243,
+      "Northeast": 0.58683975,
+      "West": 0.95416977
+    }
+  },
+  {
+    "scenario_id": 385,
+    "global_shock": 0.32486618,
+    "regional_shocks": {
+      "Gulf": 0.70019322,
+      "Northeast": 0.33072626,
+      "West": 0.6144241
+    }
+  },
+  {
+    "scenario_id": 386,
+    "global_shock": 0.62222081,
+    "regional_shocks": {
+      "Gulf": 0.65091742,
+      "Northeast": 0.03480085,
+      "West": 0.81035819
+    }
+  },
+  {
+    "scenario_id": 387,
+    "global_shock": 0.08684341,
+    "regional_shocks": {
+      "Gulf": 0.07759964,
+      "Northeast": 0.48563163,
+      "West": 0.26134409
+    }
+  },
+  {
+    "scenario_id": 388,
+    "global_shock": 0.21813741,
+    "regional_shocks": {
+      "Gulf": 0.96987903,
+      "Northeast": 0.54618238,
+      "West": 0.13512557
+    }
+  },
+  {
+    "scenario_id": 389,
+    "global_shock": 0.49389258,
+    "regional_shocks": {
+      "Gulf": 0.10663115,
+      "Northeast": 0.39109994,
+      "West": 0.43171455
+    }
+  },
+  {
+    "scenario_id": 390,
+    "global_shock": 0.39337453,
+    "regional_shocks": {
+      "Gulf": 0.965972,
+      "Northeast": 0.60738335,
+      "West": 0.32772487
+    }
+  },
+  {
+    "scenario_id": 391,
+    "global_shock": 0.49898707,
+    "regional_shocks": {
+      "Gulf": 0.25255819,
+      "Northeast": 0.03921385,
+      "West": 0.64951252
+    }
+  },
+  {
+    "scenario_id": 392,
+    "global_shock": 0.71418337,
+    "regional_shocks": {
+      "Gulf": 0.64306266,
+      "Northeast": 0.01178493,
+      "West": 0.53735621
+    }
+  },
+  {
+    "scenario_id": 393,
+    "global_shock": 0.04068586,
+    "regional_shocks": {
+      "Gulf": 0.2028183,
+      "Northeast": 0.47146927,
+      "West": 0.52556068
+    }
+  },
+  {
+    "scenario_id": 394,
+    "global_shock": 0.00056126,
+    "regional_shocks": {
+      "Gulf": 0.9128927,
+      "Northeast": 0.70884829,
+      "West": 0.09508874
+    }
+  },
+  {
+    "scenario_id": 395,
+    "global_shock": 0.95326909,
+    "regional_shocks": {
+      "Gulf": 0.22741388,
+      "Northeast": 0.40069469,
+      "West": 0.04126733
+    }
+  },
+  {
+    "scenario_id": 396,
+    "global_shock": 0.36260515,
+    "regional_shocks": {
+      "Gulf": 0.20367813,
+      "Northeast": 0.90646749,
+      "West": 0.12050468
+    }
+  },
+  {
+    "scenario_id": 397,
+    "global_shock": 0.43805912,
+    "regional_shocks": {
+      "Gulf": 0.0031618,
+      "Northeast": 0.38131197,
+      "West": 0.85250663
+    }
+  },
+  {
+    "scenario_id": 398,
+    "global_shock": 0.30976135,
+    "regional_shocks": {
+      "Gulf": 0.55354382,
+      "Northeast": 0.22414687,
+      "West": 0.89824471
+    }
+  },
+  {
+    "scenario_id": 399,
+    "global_shock": 0.25690105,
+    "regional_shocks": {
+      "Gulf": 0.12267213,
+      "Northeast": 0.50911705,
+      "West": 0.51631967
+    }
+  },
+  {
+    "scenario_id": 400,
+    "global_shock": 0.69260083,
+    "regional_shocks": {
+      "Gulf": 0.4713978,
+      "Northeast": 0.73325899,
+      "West": 0.06225495
+    }
+  },
+  {
+    "scenario_id": 401,
+    "global_shock": 0.7387434,
+    "regional_shocks": {
+      "Gulf": 0.07083594,
+      "Northeast": 0.50132075,
+      "West": 0.66440378
+    }
+  },
+  {
+    "scenario_id": 402,
+    "global_shock": 0.81722172,
+    "regional_shocks": {
+      "Gulf": 0.22099887,
+      "Northeast": 0.87655638,
+      "West": 0.6776698
+    }
+  },
+  {
+    "scenario_id": 403,
+    "global_shock": 0.88988995,
+    "regional_shocks": {
+      "Gulf": 0.40130107,
+      "Northeast": 0.92013826,
+      "West": 0.00964424
+    }
+  },
+  {
+    "scenario_id": 404,
+    "global_shock": 0.44120756,
+    "regional_shocks": {
+      "Gulf": 0.07564348,
+      "Northeast": 0.21332843,
+      "West": 0.05637126
+    }
+  },
+  {
+    "scenario_id": 405,
+    "global_shock": 0.64768257,
+    "regional_shocks": {
+      "Gulf": 0.24036115,
+      "Northeast": 0.63046155,
+      "West": 0.30844446
+    }
+  },
+  {
+    "scenario_id": 406,
+    "global_shock": 0.81226319,
+    "regional_shocks": {
+      "Gulf": 0.69351962,
+      "Northeast": 0.09011358,
+      "West": 0.4236822
+    }
+  },
+  {
+    "scenario_id": 407,
+    "global_shock": 0.12740085,
+    "regional_shocks": {
+      "Gulf": 0.6052145,
+      "Northeast": 0.80795833,
+      "West": 0.10214862
+    }
+  },
+  {
+    "scenario_id": 408,
+    "global_shock": 0.10774072,
+    "regional_shocks": {
+      "Gulf": 0.24772155,
+      "Northeast": 0.12957765,
+      "West": 0.6159024
+    }
+  },
+  {
+    "scenario_id": 409,
+    "global_shock": 0.4642579,
+    "regional_shocks": {
+      "Gulf": 0.95787213,
+      "Northeast": 0.62832151,
+      "West": 0.60325613
+    }
+  },
+  {
+    "scenario_id": 410,
+    "global_shock": 0.73001049,
+    "regional_shocks": {
+      "Gulf": 0.89991043,
+      "Northeast": 0.14524607,
+      "West": 0.27403552
+    }
+  },
+  {
+    "scenario_id": 411,
+    "global_shock": 0.15819065,
+    "regional_shocks": {
+      "Gulf": 0.57001873,
+      "Northeast": 0.17845683,
+      "West": 0.34982565
+    }
+  },
+  {
+    "scenario_id": 412,
+    "global_shock": 0.45740869,
+    "regional_shocks": {
+      "Gulf": 0.44953876,
+      "Northeast": 0.35538977,
+      "West": 0.00448073
+    }
+  },
+  {
+    "scenario_id": 413,
+    "global_shock": 0.9641223,
+    "regional_shocks": {
+      "Gulf": 0.06662533,
+      "Northeast": 0.36080688,
+      "West": 0.28899325
+    }
+  },
+  {
+    "scenario_id": 414,
+    "global_shock": 0.43710026,
+    "regional_shocks": {
+      "Gulf": 0.42603697,
+      "Northeast": 0.77237007,
+      "West": 0.62293453
+    }
+  },
+  {
+    "scenario_id": 415,
+    "global_shock": 0.96997721,
+    "regional_shocks": {
+      "Gulf": 0.5874111,
+      "Northeast": 0.61592532,
+      "West": 0.31738064
+    }
+  },
+  {
+    "scenario_id": 416,
+    "global_shock": 0.69936435,
+    "regional_shocks": {
+      "Gulf": 0.39559135,
+      "Northeast": 0.41617857,
+      "West": 0.78276078
+    }
+  },
+  {
+    "scenario_id": 417,
+    "global_shock": 0.67753293,
+    "regional_shocks": {
+      "Gulf": 0.45936133,
+      "Northeast": 0.0795475,
+      "West": 0.26175082
+    }
+  },
+  {
+    "scenario_id": 418,
+    "global_shock": 0.08397063,
+    "regional_shocks": {
+      "Gulf": 0.76064006,
+      "Northeast": 0.35212669,
+      "West": 0.42024986
+    }
+  },
+  {
+    "scenario_id": 419,
+    "global_shock": 0.61015142,
+    "regional_shocks": {
+      "Gulf": 0.5528808,
+      "Northeast": 0.03589661,
+      "West": 0.34226435
+    }
+  },
+  {
+    "scenario_id": 420,
+    "global_shock": 0.2800013,
+    "regional_shocks": {
+      "Gulf": 0.78845836,
+      "Northeast": 0.21832242,
+      "West": 0.54738708
+    }
+  },
+  {
+    "scenario_id": 421,
+    "global_shock": 0.35281616,
+    "regional_shocks": {
+      "Gulf": 0.13808537,
+      "Northeast": 0.34907262,
+      "West": 0.58413254
+    }
+  },
+  {
+    "scenario_id": 422,
+    "global_shock": 0.80573085,
+    "regional_shocks": {
+      "Gulf": 0.20298461,
+      "Northeast": 0.0681711,
+      "West": 0.10722207
+    }
+  },
+  {
+    "scenario_id": 423,
+    "global_shock": 0.73713441,
+    "regional_shocks": {
+      "Gulf": 0.36026222,
+      "Northeast": 0.00919788,
+      "West": 0.53671888
+    }
+  },
+  {
+    "scenario_id": 424,
+    "global_shock": 0.43999895,
+    "regional_shocks": {
+      "Gulf": 0.8253671,
+      "Northeast": 0.8341864,
+      "West": 0.63592076
+    }
+  },
+  {
+    "scenario_id": 425,
+    "global_shock": 0.5125451,
+    "regional_shocks": {
+      "Gulf": 0.60005976,
+      "Northeast": 0.36422663,
+      "West": 0.3112914
+    }
+  },
+  {
+    "scenario_id": 426,
+    "global_shock": 0.98569408,
+    "regional_shocks": {
+      "Gulf": 0.79107862,
+      "Northeast": 0.40639721,
+      "West": 0.23089049
+    }
+  },
+  {
+    "scenario_id": 427,
+    "global_shock": 0.33614358,
+    "regional_shocks": {
+      "Gulf": 0.26879454,
+      "Northeast": 0.42965644,
+      "West": 0.18081978
+    }
+  },
+  {
+    "scenario_id": 428,
+    "global_shock": 0.3318682,
+    "regional_shocks": {
+      "Gulf": 0.04605285,
+      "Northeast": 0.91156971,
+      "West": 0.53552817
+    }
+  },
+  {
+    "scenario_id": 429,
+    "global_shock": 0.18523223,
+    "regional_shocks": {
+      "Gulf": 0.25111927,
+      "Northeast": 0.90465028,
+      "West": 0.96001809
+    }
+  },
+  {
+    "scenario_id": 430,
+    "global_shock": 0.99390687,
+    "regional_shocks": {
+      "Gulf": 0.41356857,
+      "Northeast": 0.7356406,
+      "West": 0.28200626
+    }
+  },
+  {
+    "scenario_id": 431,
+    "global_shock": 0.23427585,
+    "regional_shocks": {
+      "Gulf": 0.97619175,
+      "Northeast": 0.34154666,
+      "West": 0.62863795
+    }
+  },
+  {
+    "scenario_id": 432,
+    "global_shock": 0.52873198,
+    "regional_shocks": {
+      "Gulf": 0.78982913,
+      "Northeast": 0.27835632,
+      "West": 0.78752591
+    }
+  },
+  {
+    "scenario_id": 433,
+    "global_shock": 0.75449733,
+    "regional_shocks": {
+      "Gulf": 0.7326116,
+      "Northeast": 0.10076004,
+      "West": 0.87712946
+    }
+  },
+  {
+    "scenario_id": 434,
+    "global_shock": 0.76026389,
+    "regional_shocks": {
+      "Gulf": 0.38683715,
+      "Northeast": 0.32561422,
+      "West": 0.98186212
+    }
+  },
+  {
+    "scenario_id": 435,
+    "global_shock": 0.4163262,
+    "regional_shocks": {
+      "Gulf": 0.79187395,
+      "Northeast": 0.0874408,
+      "West": 0.72066051
+    }
+  },
+  {
+    "scenario_id": 436,
+    "global_shock": 0.96235945,
+    "regional_shocks": {
+      "Gulf": 0.48968541,
+      "Northeast": 0.07367085,
+      "West": 0.13951561
+    }
+  },
+  {
+    "scenario_id": 437,
+    "global_shock": 0.68745575,
+    "regional_shocks": {
+      "Gulf": 0.15540094,
+      "Northeast": 0.40602885,
+      "West": 0.23846385
+    }
+  },
+  {
+    "scenario_id": 438,
+    "global_shock": 0.05819672,
+    "regional_shocks": {
+      "Gulf": 0.10160635,
+      "Northeast": 0.80514392,
+      "West": 0.52703962
+    }
+  },
+  {
+    "scenario_id": 439,
+    "global_shock": 0.70980173,
+    "regional_shocks": {
+      "Gulf": 0.73304771,
+      "Northeast": 0.79095053,
+      "West": 0.66212589
+    }
+  },
+  {
+    "scenario_id": 440,
+    "global_shock": 0.0778531,
+    "regional_shocks": {
+      "Gulf": 0.23688706,
+      "Northeast": 0.09898739,
+      "West": 0.59883489
+    }
+  },
+  {
+    "scenario_id": 441,
+    "global_shock": 0.22732738,
+    "regional_shocks": {
+      "Gulf": 0.16353826,
+      "Northeast": 0.46969241,
+      "West": 0.62373093
+    }
+  },
+  {
+    "scenario_id": 442,
+    "global_shock": 0.88240417,
+    "regional_shocks": {
+      "Gulf": 0.05762369,
+      "Northeast": 0.53587624,
+      "West": 0.55904458
+    }
+  },
+  {
+    "scenario_id": 443,
+    "global_shock": 0.27821728,
+    "regional_shocks": {
+      "Gulf": 0.50027064,
+      "Northeast": 0.70083074,
+      "West": 0.79617619
+    }
+  },
+  {
+    "scenario_id": 444,
+    "global_shock": 0.27972698,
+    "regional_shocks": {
+      "Gulf": 0.51524623,
+      "Northeast": 0.89424529,
+      "West": 0.90062932
+    }
+  },
+  {
+    "scenario_id": 445,
+    "global_shock": 0.94074581,
+    "regional_shocks": {
+      "Gulf": 0.72324459,
+      "Northeast": 0.17627902,
+      "West": 0.53478881
+    }
+  },
+  {
+    "scenario_id": 446,
+    "global_shock": 0.98638962,
+    "regional_shocks": {
+      "Gulf": 0.85026294,
+      "Northeast": 0.0091438,
+      "West": 0.78813856
+    }
+  },
+  {
+    "scenario_id": 447,
+    "global_shock": 0.82990739,
+    "regional_shocks": {
+      "Gulf": 0.31696523,
+      "Northeast": 0.67450533,
+      "West": 0.39828141
+    }
+  },
+  {
+    "scenario_id": 448,
+    "global_shock": 0.76226968,
+    "regional_shocks": {
+      "Gulf": 0.45118675,
+      "Northeast": 0.7346738,
+      "West": 0.04517487
+    }
+  },
+  {
+    "scenario_id": 449,
+    "global_shock": 0.05326296,
+    "regional_shocks": {
+      "Gulf": 0.81335408,
+      "Northeast": 0.04528833,
+      "West": 0.61303103
+    }
+  },
+  {
+    "scenario_id": 450,
+    "global_shock": 0.84892875,
+    "regional_shocks": {
+      "Gulf": 0.47556439,
+      "Northeast": 0.86007436,
+      "West": 0.59771639
+    }
+  },
+  {
+    "scenario_id": 451,
+    "global_shock": 0.61177225,
+    "regional_shocks": {
+      "Gulf": 0.12733694,
+      "Northeast": 0.78324375,
+      "West": 0.64820323
+    }
+  },
+  {
+    "scenario_id": 452,
+    "global_shock": 0.33732936,
+    "regional_shocks": {
+      "Gulf": 0.15356463,
+      "Northeast": 0.62130869,
+      "West": 0.16410432
+    }
+  },
+  {
+    "scenario_id": 453,
+    "global_shock": 0.36205297,
+    "regional_shocks": {
+      "Gulf": 0.17862723,
+      "Northeast": 0.46032134,
+      "West": 0.78121874
+    }
+  },
+  {
+    "scenario_id": 454,
+    "global_shock": 0.14523692,
+    "regional_shocks": {
+      "Gulf": 0.81498701,
+      "Northeast": 0.06843128,
+      "West": 0.3119322
+    }
+  },
+  {
+    "scenario_id": 455,
+    "global_shock": 0.95048792,
+    "regional_shocks": {
+      "Gulf": 0.26129496,
+      "Northeast": 0.88882,
+      "West": 0.03133623
+    }
+  },
+  {
+    "scenario_id": 456,
+    "global_shock": 0.68976198,
+    "regional_shocks": {
+      "Gulf": 0.87471247,
+      "Northeast": 0.11151911,
+      "West": 0.87433268
+    }
+  },
+  {
+    "scenario_id": 457,
+    "global_shock": 0.86176717,
+    "regional_shocks": {
+      "Gulf": 0.33287312,
+      "Northeast": 0.53650063,
+      "West": 0.18077826
+    }
+  },
+  {
+    "scenario_id": 458,
+    "global_shock": 0.91567418,
+    "regional_shocks": {
+      "Gulf": 0.35773275,
+      "Northeast": 0.65975593,
+      "West": 0.34983797
+    }
+  },
+  {
+    "scenario_id": 459,
+    "global_shock": 0.28995516,
+    "regional_shocks": {
+      "Gulf": 0.32493512,
+      "Northeast": 0.46243112,
+      "West": 0.35811775
+    }
+  },
+  {
+    "scenario_id": 460,
+    "global_shock": 0.18250796,
+    "regional_shocks": {
+      "Gulf": 0.04985848,
+      "Northeast": 0.62753528,
+      "West": 0.56501381
+    }
+  },
+  {
+    "scenario_id": 461,
+    "global_shock": 0.57650461,
+    "regional_shocks": {
+      "Gulf": 0.38234584,
+      "Northeast": 0.33308412,
+      "West": 0.39448595
+    }
+  },
+  {
+    "scenario_id": 462,
+    "global_shock": 0.65596737,
+    "regional_shocks": {
+      "Gulf": 0.64369183,
+      "Northeast": 0.48449205,
+      "West": 0.13148212
+    }
+  },
+  {
+    "scenario_id": 463,
+    "global_shock": 0.04474382,
+    "regional_shocks": {
+      "Gulf": 0.66253474,
+      "Northeast": 0.18772079,
+      "West": 0.20028023
+    }
+  },
+  {
+    "scenario_id": 464,
+    "global_shock": 0.8741266,
+    "regional_shocks": {
+      "Gulf": 0.6373896,
+      "Northeast": 0.78746862,
+      "West": 0.88189889
+    }
+  },
+  {
+    "scenario_id": 465,
+    "global_shock": 0.05143412,
+    "regional_shocks": {
+      "Gulf": 0.16397578,
+      "Northeast": 0.00229264,
+      "West": 0.75510985
+    }
+  },
+  {
+    "scenario_id": 466,
+    "global_shock": 0.21968322,
+    "regional_shocks": {
+      "Gulf": 0.1186102,
+      "Northeast": 0.37960384,
+      "West": 0.48370367
+    }
+  },
+  {
+    "scenario_id": 467,
+    "global_shock": 0.2893857,
+    "regional_shocks": {
+      "Gulf": 0.4935822,
+      "Northeast": 0.57098652,
+      "West": 0.89743972
+    }
+  },
+  {
+    "scenario_id": 468,
+    "global_shock": 0.35506313,
+    "regional_shocks": {
+      "Gulf": 0.79083862,
+      "Northeast": 0.33453062,
+      "West": 0.14749106
+    }
+  },
+  {
+    "scenario_id": 469,
+    "global_shock": 0.23820913,
+    "regional_shocks": {
+      "Gulf": 0.15233381,
+      "Northeast": 0.03335462,
+      "West": 0.76362765
+    }
+  },
+  {
+    "scenario_id": 470,
+    "global_shock": 0.28926864,
+    "regional_shocks": {
+      "Gulf": 0.99395855,
+      "Northeast": 0.04094347,
+      "West": 0.12349298
+    }
+  },
+  {
+    "scenario_id": 471,
+    "global_shock": 0.02649156,
+    "regional_shocks": {
+      "Gulf": 0.81390771,
+      "Northeast": 0.09076329,
+      "West": 0.57510798
+    }
+  },
+  {
+    "scenario_id": 472,
+    "global_shock": 0.52891679,
+    "regional_shocks": {
+      "Gulf": 0.63456268,
+      "Northeast": 0.75142089,
+      "West": 0.99451469
+    }
+  },
+  {
+    "scenario_id": 473,
+    "global_shock": 0.45061502,
+    "regional_shocks": {
+      "Gulf": 0.69427975,
+      "Northeast": 0.76574847,
+      "West": 0.63687779
+    }
+  },
+  {
+    "scenario_id": 474,
+    "global_shock": 0.08116422,
+    "regional_shocks": {
+      "Gulf": 0.23469854,
+      "Northeast": 0.07965022,
+      "West": 0.89298412
+    }
+  },
+  {
+    "scenario_id": 475,
+    "global_shock": 0.5926277,
+    "regional_shocks": {
+      "Gulf": 0.00720498,
+      "Northeast": 0.8018337,
+      "West": 0.10495264
+    }
+  },
+  {
+    "scenario_id": 476,
+    "global_shock": 0.49540046,
+    "regional_shocks": {
+      "Gulf": 0.95936907,
+      "Northeast": 0.71050225,
+      "West": 0.32572727
+    }
+  },
+  {
+    "scenario_id": 477,
+    "global_shock": 0.661394,
+    "regional_shocks": {
+      "Gulf": 0.04097483,
+      "Northeast": 0.98972366,
+      "West": 0.99250915
+    }
+  },
+  {
+    "scenario_id": 478,
+    "global_shock": 0.09087979,
+    "regional_shocks": {
+      "Gulf": 0.36894835,
+      "Northeast": 0.41361961,
+      "West": 0.70638386
+    }
+  },
+  {
+    "scenario_id": 479,
+    "global_shock": 0.49326404,
+    "regional_shocks": {
+      "Gulf": 0.84951343,
+      "Northeast": 0.07653011,
+      "West": 0.44355249
+    }
+  },
+  {
+    "scenario_id": 480,
+    "global_shock": 0.42365949,
+    "regional_shocks": {
+      "Gulf": 0.09651989,
+      "Northeast": 0.5470723,
+      "West": 0.26989597
+    }
+  },
+  {
+    "scenario_id": 481,
+    "global_shock": 0.64786346,
+    "regional_shocks": {
+      "Gulf": 0.79350239,
+      "Northeast": 0.32962214,
+      "West": 0.6320431
+    }
+  },
+  {
+    "scenario_id": 482,
+    "global_shock": 0.58491878,
+    "regional_shocks": {
+      "Gulf": 0.38426034,
+      "Northeast": 0.03473216,
+      "West": 0.1906568
+    }
+  },
+  {
+    "scenario_id": 483,
+    "global_shock": 0.42597308,
+    "regional_shocks": {
+      "Gulf": 0.71207178,
+      "Northeast": 0.8599892,
+      "West": 0.52514802
+    }
+  },
+  {
+    "scenario_id": 484,
+    "global_shock": 0.88160865,
+    "regional_shocks": {
+      "Gulf": 0.2895304,
+      "Northeast": 0.21233759,
+      "West": 0.32651444
+    }
+  },
+  {
+    "scenario_id": 485,
+    "global_shock": 0.54576889,
+    "regional_shocks": {
+      "Gulf": 0.0037719,
+      "Northeast": 0.9061742,
+      "West": 0.33354672
+    }
+  },
+  {
+    "scenario_id": 486,
+    "global_shock": 0.34602451,
+    "regional_shocks": {
+      "Gulf": 0.29431097,
+      "Northeast": 0.6918542,
+      "West": 0.29516346
+    }
+  },
+  {
+    "scenario_id": 487,
+    "global_shock": 0.52669481,
+    "regional_shocks": {
+      "Gulf": 0.40664151,
+      "Northeast": 0.59715619,
+      "West": 0.37796878
+    }
+  },
+  {
+    "scenario_id": 488,
+    "global_shock": 0.54717905,
+    "regional_shocks": {
+      "Gulf": 0.29715939,
+      "Northeast": 0.16430857,
+      "West": 0.30206273
+    }
+  },
+  {
+    "scenario_id": 489,
+    "global_shock": 0.49228097,
+    "regional_shocks": {
+      "Gulf": 0.59307099,
+      "Northeast": 0.72204795,
+      "West": 0.84435192
+    }
+  },
+  {
+    "scenario_id": 490,
+    "global_shock": 0.83806442,
+    "regional_shocks": {
+      "Gulf": 0.81324129,
+      "Northeast": 0.24980127,
+      "West": 0.21487192
+    }
+  },
+  {
+    "scenario_id": 491,
+    "global_shock": 0.82504153,
+    "regional_shocks": {
+      "Gulf": 0.4329975,
+      "Northeast": 0.88968275,
+      "West": 0.54951007
+    }
+  },
+  {
+    "scenario_id": 492,
+    "global_shock": 0.26700168,
+    "regional_shocks": {
+      "Gulf": 0.15709525,
+      "Northeast": 0.80086912,
+      "West": 0.11702367
+    }
+  },
+  {
+    "scenario_id": 493,
+    "global_shock": 0.03700924,
+    "regional_shocks": {
+      "Gulf": 0.2793655,
+      "Northeast": 0.88586687,
+      "West": 0.56125657
+    }
+  },
+  {
+    "scenario_id": 494,
+    "global_shock": 0.90735789,
+    "regional_shocks": {
+      "Gulf": 0.6385033,
+      "Northeast": 0.7966774,
+      "West": 0.11929356
+    }
+  },
+  {
+    "scenario_id": 495,
+    "global_shock": 0.24026696,
+    "regional_shocks": {
+      "Gulf": 0.13650774,
+      "Northeast": 0.79042717,
+      "West": 0.48237114
+    }
+  },
+  {
+    "scenario_id": 496,
+    "global_shock": 0.98867707,
+    "regional_shocks": {
+      "Gulf": 0.67996142,
+      "Northeast": 0.13079357,
+      "West": 0.23349516
+    }
+  },
+  {
+    "scenario_id": 497,
+    "global_shock": 0.94826064,
+    "regional_shocks": {
+      "Gulf": 0.46633378,
+      "Northeast": 0.59306911,
+      "West": 0.43071071
+    }
+  },
+  {
+    "scenario_id": 498,
+    "global_shock": 0.25517698,
+    "regional_shocks": {
+      "Gulf": 0.53650093,
+      "Northeast": 0.89531019,
+      "West": 0.86506587
+    }
+  },
+  {
+    "scenario_id": 499,
+    "global_shock": 0.88580178,
+    "regional_shocks": {
+      "Gulf": 0.70242481,
+      "Northeast": 0.3586498,
+      "West": 0.52112007
+    }
+  },
+  {
+    "scenario_id": 500,
+    "global_shock": 0.78564429,
+    "regional_shocks": {
+      "Gulf": 0.28372066,
+      "Northeast": 0.47710527,
+      "West": 0.35548879
+    }
+  }
+]

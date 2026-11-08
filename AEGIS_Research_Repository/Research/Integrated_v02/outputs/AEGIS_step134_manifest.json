@@ -1,0 +1,29 @@
+{
+  "artifact_sha256": {
+    "AEGIS_step134_comparison.csv": "3d2be3d061b302fe1fb51f5c484214f2e25f9e5708bb9b4d12cf12b6c904fdb8",
+    "AEGIS_step134_pairing_sensitivity.csv": "3a5c0886f1a2635270f08d4beb01f704d314219f5fc3493d2c706d0eaf2da835",
+    "AEGIS_step134_path_differences.csv": "5d894fe6162929f18007dbd579351ce66d8e1b8f969255c7928e8ce11d285bb9",
+    "AEGIS_step134_policy_paths.csv": "883a4b74659a5432b5ef2f62216b3af80b29babd691c2bfd152a1e5f817f3e65"
+  },
+  "candidate_records": 40000,
+  "existing_policy_mean_risks_reconciled": true,
+  "existing_prediction_distributions_preserved": true,
+  "genuine_scenario_pairing_certified": false,
+  "models_retrained": false,
+  "new_optimization_performed": false,
+  "new_predictions_generated": false,
+  "orders": 16,
+  "original_allocations_modified": false,
+  "original_shared_shocks_recovered": false,
+  "pairing_assumptions": [
+    "Stress_Aligned",
+    "Independent_Permutation"
+  ],
+  "policies": 6,
+  "real_world_outcomes_observed": false,
+  "reserved_test_accessed": false,
+  "simulations_per_candidate": 500,
+  "step": 134,
+  "supplier_options": 80,
+  "supplier_switch_causal_validity_certified": false
+}

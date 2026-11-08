@@ -1,0 +1,4 @@
+def published_alert(region,today):
+    count=sum(1 for e in ev_by_region[region]
+              if date.fromisoformat(e.alert_published_date)<=today<=date.fromisoformat(e.alert_published_date)+timedelta(days=10))
+    return int(count>0),int(min(3,count))

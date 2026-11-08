@@ -1,0 +1,20 @@
+{
+  "causal_validity_certified": false,
+  "decomposition_error": 1.4210854715202004e-14,
+  "detail_sha256": "caf833b99d6de05d68671ffb2b0a726e5939df9f894219c473ba318b87984646",
+  "existing_shocks_modified": false,
+  "identity_only_predictions_generated": true,
+  "matched_policy_scenarios": 40000,
+  "model": "Logistic_Regression",
+  "new_milp_optimization": false,
+  "nonbaseline_policies": 5,
+  "original_allocations_modified": false,
+  "original_model_retrained": false,
+  "pilot_orders": 16,
+  "production_authorized": false,
+  "real_world_outcomes_validated": false,
+  "reserved_test_accessed": false,
+  "source_sha256": "8a2b6d4d79f7027ad064112cd8e19649b9420318f451836acdf7bfa6a208eba3",
+  "step": 136,
+  "supplier_profile_predictions_generated": true
+}

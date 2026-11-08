@@ -1,0 +1,63 @@
+{
+  "components": [
+    "CMP-002",
+    "CMP-003",
+    "CMP-004",
+    "CMP-005",
+    "CMP-006",
+    "CMP-007",
+    "CMP-008",
+    "CMP-009",
+    "CMP-010",
+    "CMP-011",
+    "CMP-012",
+    "CMP-013",
+    "CMP-014",
+    "CMP-015",
+    "CMP-016",
+    "CMP-017",
+    "CMP-018",
+    "CMP-019",
+    "CMP-020",
+    "CMP-021",
+    "CMP-022",
+    "CMP-023",
+    "CMP-024",
+    "CMP-025",
+    "CMP-027",
+    "CMP-028",
+    "CMP-029",
+    "CMP-030"
+  ],
+  "development_seed": 202667,
+  "evaluation_holdout_generated": false,
+  "generator_horizon": "2027-01",
+  "history_cutoff_exclusive": "2025-07-01",
+  "orders_per_scenario": 16,
+  "policy_cost_allowance_fraction": 0.01,
+  "profiles": {
+    "capacity_crunch": {
+      "capacity_fraction": 0.1,
+      "late_bias": 0.0,
+      "scarce_share": 0.05
+    },
+    "combined_shock": {
+      "capacity_fraction": 0.1,
+      "late_bias": 0.75,
+      "scarce_share": 0.25
+    },
+    "normal": {
+      "capacity_fraction": 0.25,
+      "late_bias": 0.0,
+      "scarce_share": 0.05
+    },
+    "scarcity_surge": {
+      "capacity_fraction": 0.25,
+      "late_bias": 0.75,
+      "scarce_share": 0.25
+    }
+  },
+  "purpose": "Synthetic sourcing stress-test development",
+  "replicates_per_profile": 2,
+  "reserved_future_holdout_seed": 202668
+}

@@ -1,0 +1,93 @@
+file,column,availability,description
+bill_of_materials.csv,sku_id,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+bill_of_materials.csv,component_id,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+bill_of_materials.csv,units_per_finished_unit,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+component_inventory_monthly.csv,month,Available after end of month,Synthetic; refer to README for use and caveats
+component_inventory_monthly.csv,plant_id,Available after end of month,Synthetic; refer to README for use and caveats
+component_inventory_monthly.csv,component_id,Available after end of month,Synthetic; refer to README for use and caveats
+component_inventory_monthly.csv,opening_inventory_units,Available after end of month,Synthetic; refer to README for use and caveats
+component_inventory_monthly.csv,receipts_units,Available after end of month,Synthetic; refer to README for use and caveats
+component_inventory_monthly.csv,planned_requirements_units,Available after end of month,Synthetic; refer to README for use and caveats
+component_inventory_monthly.csv,consumed_units,Available after end of month,Synthetic; refer to README for use and caveats
+component_inventory_monthly.csv,unmet_component_requirements_units,Available after end of month,Synthetic; refer to README for use and caveats
+component_inventory_monthly.csv,closing_inventory_units,Available after end of month,Synthetic; refer to README for use and caveats
+components.csv,component_id,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+components.csv,component_family,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+components.csv,criticality,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+components.csv,standard_unit_cost_usd,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+components.csv,annual_holding_rate,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+components.csv,safety_stock_days,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+customer_demand_daily.csv,demand_date,Calendar/planned variable,Synthetic; refer to README for use and caveats
+customer_demand_daily.csv,warehouse_id,Calendar/planned variable,Synthetic; refer to README for use and caveats
+customer_demand_daily.csv,sku_id,Calendar/planned variable,Synthetic; refer to README for use and caveats
+customer_demand_daily.csv,promotion_announced_flag,Calendar/planned variable,Synthetic; refer to README for use and caveats
+customer_demand_daily.csv,weekend_flag,Calendar/planned variable,Synthetic; refer to README for use and caveats
+customer_demand_daily.csv,requested_units,Observed at end of demand day,Synthetic; refer to README for use and caveats
+disruption_events.csv,event_id,"At or after published/observed date, subject to alert rules",Synthetic; refer to README for use and caveats
+disruption_events.csv,region,"At or after published/observed date, subject to alert rules",Synthetic; refer to README for use and caveats
+disruption_events.csv,event_type,"At or after published/observed date, subject to alert rules",Synthetic; refer to README for use and caveats
+disruption_events.csv,alert_published_date,"At or after published/observed date, subject to alert rules",Synthetic; refer to README for use and caveats
+disruption_events.csv,event_start_date,"At or after published/observed date, subject to alert rules",Synthetic; refer to README for use and caveats
+disruption_events.csv,event_end_date,"Future realization, NOT available at order time",Synthetic; refer to README for use and caveats
+disruption_events.csv,realized_severity,"Future realization, NOT available at order time",Synthetic; refer to README for use and caveats
+disruption_events.csv,source_type,"At or after published/observed date, subject to alert rules",Synthetic; refer to README for use and caveats
+finished_products.csv,sku_id,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+finished_products.csv,product_family,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+finished_products.csv,selling_price_usd,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+finished_products.csv,priority_tier,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+plants.csv,plant_id,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+plants.csv,plant_name,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+plants.csv,region,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+plants.csv,daily_capacity_finished_units,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+purchase_orders.csv,purchase_order_id,Order-time feature; simulated available at order creation,Synthetic; refer to README for use and caveats
+purchase_orders.csv,order_date,Order-time feature; simulated available at order creation,Synthetic; refer to README for use and caveats
+purchase_orders.csv,supplier_id,Order-time feature; simulated available at order creation,Synthetic; refer to README for use and caveats
+purchase_orders.csv,component_id,Order-time feature; simulated available at order creation,Synthetic; refer to README for use and caveats
+purchase_orders.csv,plant_id,Order-time feature; simulated available at order creation,Synthetic; refer to README for use and caveats
+purchase_orders.csv,lane_id,Order-time feature; simulated available at order creation,Synthetic; refer to README for use and caveats
+purchase_orders.csv,order_quantity_units,Order-time feature; simulated available at order creation,Synthetic; refer to README for use and caveats
+purchase_orders.csv,quoted_unit_cost_usd,Order-time feature; simulated available at order creation,Synthetic; refer to README for use and caveats
+purchase_orders.csv,promised_lead_days,Order-time feature; simulated available at order creation,Synthetic; refer to README for use and caveats
+purchase_orders.csv,promised_receipt_date,Order-time feature; simulated available at order creation,Synthetic; refer to README for use and caveats
+purchase_orders.csv,urgent_order_flag,Order-time feature; simulated available at order creation,Synthetic; refer to README for use and caveats
+purchase_orders.csv,regional_alert_available_at_order,Order-time feature; simulated available at order creation,Synthetic; refer to README for use and caveats
+purchase_orders.csv,regional_alert_level_at_order,Order-time feature; simulated available at order creation,Synthetic; refer to README for use and caveats
+purchase_orders.csv,capacity_utilization_at_order,Order-time feature; simulated available at order creation,Synthetic; refer to README for use and caveats
+purchase_orders.csv,logistics_congestion_at_order,Order-time feature; simulated available at order creation,Synthetic; refer to README for use and caveats
+purchase_orders.csv,supplier_completed_orders_past_90d,Order-time feature; simulated available at order creation,Synthetic; refer to README for use and caveats
+purchase_orders.csv,supplier_late_rate_past_90d,Order-time feature; simulated available at order creation,Synthetic; refer to README for use and caveats
+purchase_orders.csv,forecast_daily_requirements_at_order,Order-time feature; simulated available at order creation,Derived from trailing observed requirements and previously observed state
+purchase_orders.csv,inventory_on_hand_at_order,Order-time feature; simulated available at order creation,Derived from trailing observed requirements and previously observed state
+purchase_orders.csv,inventory_on_order_at_order,Order-time feature; simulated available at order creation,Derived from trailing observed requirements and previously observed state
+purchase_orders.csv,reorder_target_units_at_order,Order-time feature; simulated available at order creation,Derived from trailing observed requirements and previously observed state
+purchase_orders.csv,inventory_position_at_order,Order-time feature; simulated available at order creation,Derived from trailing observed requirements and previously observed state
+purchase_orders.csv,actual_receipt_date,Target or outcome; available ONLY on actual receipt,Synthetic; refer to README for use and caveats
+purchase_orders.csv,actual_lead_days,Target or outcome; available ONLY on actual receipt,Synthetic; refer to README for use and caveats
+purchase_orders.csv,days_late,Target or outcome; available ONLY on actual receipt,Synthetic; refer to README for use and caveats
+purchase_orders.csv,late_receipt_flag,Target or outcome; available ONLY on actual receipt,Synthetic; refer to README for use and caveats
+purchase_orders.csv,replenishment_policy,Order-time feature; simulated available at order creation,Synthetic; refer to README for use and caveats
+supplier_component_options.csv,supplier_id,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+supplier_component_options.csv,component_id,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+supplier_component_options.csv,quoted_unit_cost_usd,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+supplier_component_options.csv,promised_lead_days,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+supplier_component_options.csv,minimum_order_qty,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+supplier_component_options.csv,monthly_capacity_units,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+supplier_component_options.csv,approved_for_sourcing,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+suppliers.csv,supplier_id,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+suppliers.csv,supplier_name,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+suppliers.csv,region,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+suppliers.csv,contract_on_time_target,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+suppliers.csv,quality_acceptance_target,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+suppliers.csv,financial_risk_band,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+suppliers.csv,qualified_flag,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+transport_lanes.csv,lane_id,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+transport_lanes.csv,origin_type,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+transport_lanes.csv,origin_id,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+transport_lanes.csv,destination_type,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+transport_lanes.csv,destination_id,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+transport_lanes.csv,transit_days,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+transport_lanes.csv,freight_cost_per_unit_usd,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+transport_lanes.csv,route_region,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+warehouses.csv,warehouse_id,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+warehouses.csv,region,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats
+warehouses.csv,primary_plant_id,Static/structural reference; provenance synthetic,Synthetic; refer to README for use and caveats

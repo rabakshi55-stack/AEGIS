@@ -1,0 +1,7 @@
+Source_File,Column,Nonmissing,Distinct_Values
+plants.csv,daily_capacity_finished_units,4,4
+supplier_component_options.csv,promised_lead_days,150,20
+supplier_component_options.csv,minimum_order_qty,150,88
+supplier_component_options.csv,monthly_capacity_units,150,150
+supplier_component_options.csv,approved_for_sourcing,150,1
+transport_lanes.csv,transit_days,264,11

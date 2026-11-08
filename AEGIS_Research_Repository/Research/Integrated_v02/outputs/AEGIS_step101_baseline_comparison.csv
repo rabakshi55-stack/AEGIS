@@ -1,0 +1,3 @@
+Baseline,Model_Feature,Missing_Baseline,Missing_Model_Feature,Mean_Absolute_Difference,Rows_Different
+baseline_utilization,capacity_utilization_at_order,0,0,0.07232699483897138,39990
+baseline_congestion,logistics_congestion_at_order,0,0,0.06655611829367693,40000

@@ -1,0 +1,24 @@
+{
+  "artifact_sha256": {
+    "AEGIS_step133_operational_variation.csv": "3b12e12c65673485845c58c30daee6810d20bf64274057458d67e1d51c76693f",
+    "AEGIS_step133_order_invariants.csv": "1bd93066f64ac212285ad7fc4777c0043b31655bb8934ee98c62206fa17ad7e0",
+    "AEGIS_step133_readiness.csv": "29ed438b5a86d968c45ef6cc45c89c615a09aa4945741da65d0f410b9acbe0d2",
+    "AEGIS_step133_risk_separation.csv": "406a801584e1dff418f767a07fcc1df384560ad0b58fe2105f2cde0367cf6190",
+    "AEGIS_step133_supplier_stability.csv": "038ebe9f79a119a20ae8612f0820abceeee4c192e2b8c98324ef22a998c7d2b5",
+    "AEGIS_step133_training_range_audit.csv": "de9ca53132aa494ef90cd4e9424a963b1fbf8052cab72d9a098f40ba380dfb7f"
+  },
+  "candidate_pairs": 80,
+  "candidate_rows": 40000,
+  "counterfactual_causal_validity_certified": false,
+  "new_optimization_performed": false,
+  "new_predictions_generated": false,
+  "operational_variation_examined": true,
+  "order_invariants_passed": true,
+  "orders": 16,
+  "original_models_retrained": false,
+  "paired_draws_certified": false,
+  "reserved_test_accessed": false,
+  "step": 133,
+  "supplier_attributes_stable": true,
+  "training_range_audit_completed": true
+}

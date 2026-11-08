@@ -1,0 +1,4 @@
+Definition,Candidate_Pairs,Comparable_Rates,Rate_Matches,Mean_Absolute_Rate_Error,Maximum_Absolute_Rate_Error,Match_Percent
+Positive_Days_Late,80,80,0,0.03627667859575169,0.11273333333333335,0.0
+Receipt_After_Promise,80,80,0,0.03627667859575169,0.11273333333333335,0.0
+Recorded_Flag,80,80,0,0.03627667859575169,0.11273333333333335,0.0

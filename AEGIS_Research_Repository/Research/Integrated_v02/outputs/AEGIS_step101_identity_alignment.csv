@@ -1,0 +1,8 @@
+Feature,Matching_Rows,Mismatched_Rows
+supplier_id,40000,0
+component_id,40000,0
+plant_id,40000,0
+order_quantity_units,40000,0
+quoted_unit_cost_usd,40000,0
+promised_lead_days,40000,0
+urgent_order_flag,40000,0

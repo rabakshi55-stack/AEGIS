@@ -1,0 +1,9 @@
+Scenario_ID,component_id,Decision_Dates,First_Decision,Last_Decision,Latest_Historical_Date,Minimum_Forecast_Horizon,Maximum_Forecast_Horizon,One_Step_Ready_Batches
+capacity_crunch__r01__CMP-027,CMP-027,9,2027-01-02,2027-01-23,2025-06-30,19,19,0
+capacity_crunch__r02__CMP-030,CMP-030,10,2027-01-02,2027-01-23,2025-06-30,19,19,0
+combined_shock__r01__CMP-023,CMP-023,9,2027-01-01,2027-01-24,2025-06-30,19,19,0
+combined_shock__r02__CMP-011,CMP-011,8,2027-01-02,2027-01-24,2025-06-30,19,19,0
+normal__r01__CMP-004,CMP-004,8,2027-01-02,2027-01-24,2025-06-30,19,19,0
+normal__r01__CMP-025,CMP-025,12,2027-01-01,2027-01-24,2025-06-30,19,19,0
+scarcity_surge__r01__CMP-006,CMP-006,10,2027-01-01,2027-01-24,2025-06-30,19,19,0
+scarcity_surge__r02__CMP-015,CMP-015,9,2027-01-01,2027-01-24,2025-06-30,19,19,0

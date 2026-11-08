@@ -1,0 +1,8 @@
+Feature,Pairs_With_Variation,Pairs_Constant,Maximum_Distinct_Values
+capacity_utilization_at_order,80,0,486
+logistics_congestion_at_order,80,0,488
+forecast_daily_requirements_at_order,0,80,1
+inventory_on_hand_at_order,0,80,1
+inventory_on_order_at_order,0,80,1
+inventory_position_at_order,0,80,1
+regional_alert_level_at_order,0,80,1

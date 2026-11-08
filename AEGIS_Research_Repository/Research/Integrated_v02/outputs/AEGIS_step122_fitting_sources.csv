@@ -1,0 +1,6 @@
+Cell,Line,Model,Training_Only_Syntax,Fit_Arguments
+5,89,dummy_model,True,"X_train, y_train"
+5,110,logistic_model,True,"X_train, y_train"
+7,38,rf_model,True,"X_train, y_train"
+8,36,rf_simple,True,"X_train, y_train"
+9,56,xgb_model,True,"X_train, y_train"

@@ -1,0 +1,31 @@
+AEGIS -- CONSOLIDATED RETROSPECTIVE VALIDATION
+This is historical research, not prospective certification.
+Software/source checks: 23/23
+All reconciliation checks passed: True
+
+HISTORICAL FROZEN-SCORE METRICS
+ALL: n=58911 late=3872 AUC=0.674583 AP=0.123834 observed_late=6.5726% mean_score=4.2509%
+TRAIN: n=26127 late=950 AUC=0.703115 AP=0.111572 observed_late=3.6361% mean_score=3.6392%
+VALIDATION: n=20615 late=2645 AUC=0.558705 AP=0.152881 observed_late=12.8305% mean_score=5.6155%
+TEST: n=12169 late=277 AUC=0.702624 AP=0.060036 observed_late=2.2763% mean_score=3.2525%
+
+LONG-PROMISE SENSITIVITY (>60 CALENDAR DAYS)
+ALL: long_n=144 kept_n=58767 AUC_trimmed_minus_full=-0.00015965416410645972
+TRAIN: long_n=65 kept_n=26062 AUC_trimmed_minus_full=9.346558312861575e-06
+VALIDATION: long_n=64 kept_n=20551 AUC_trimmed_minus_full=-0.0008752741507078721
+TEST: long_n=15 kept_n=12154 AUC_trimmed_minus_full=-0.00037313772411984303
+
+UNRESOLVED CERTIFICATION GAPS
+- Validation-period mean model score differs from observed late rate by over 3 percentage points.
+- Validation-period ROC AUC below 0.60; material discrimination weakness in that historical period.
+- Original Olist snapshot does not certify original quoted delivery-promise availability or immutability at order purchase.
+- Customer state may be historically consistent but customer-state as-of availability/version history is not proven.
+- The strict frozen model cohort requires known delivery outcomes: retrospective selection bias remains for actual prospective scoring.
+- The test period has been inspected repeatedly; it is not a pristine independent holdout.
+- Historical discrimination, sensitivity and calibration descriptors do not prove future model reliability.
+- Olist estimated delivery is not independently verified as an enforceable contractual customer commitment.
+- Olist delivery prediction does not prove supplier-switch counterfactuals, causal gains, capacity feasibility or ERP suitability.
+- Existing AEGIS model risk-score values are not certified calibrated probabilities.
+- Real procurement actions must remain disabled and subject to human approval.
+
+INPUTS WERE READ ONLY. NO MODEL RETRAINING. NO OPERATIONAL APPROVAL.

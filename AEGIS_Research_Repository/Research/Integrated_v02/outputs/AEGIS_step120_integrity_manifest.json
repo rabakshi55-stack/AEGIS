@@ -1,0 +1,18 @@
+{
+  "counterfactual_validity_certified": false,
+  "development_records": 7964,
+  "feature_count": 18,
+  "fitted_model_lineage_certified": false,
+  "full_feature_timing_certified": false,
+  "generator_statement_sequence_passed": true,
+  "ml_integration_authorized": false,
+  "models_retrained": false,
+  "operational_integrity_passed": true,
+  "original_data_modified": false,
+  "predictions_generated": false,
+  "reserved_holdout_certified": false,
+  "step": 120,
+  "training_records": 6243,
+  "unavailable_alert_nonzero_level_rows": 0,
+  "validation_records": 1721
+}

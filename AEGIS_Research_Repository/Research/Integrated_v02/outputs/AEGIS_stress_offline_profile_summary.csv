@@ -1,0 +1,5 @@
+Profile,Scenarios,Fully_Feasible,Required_Units,Served_Units,Unserved_Units,Aggregate_LB,Extra_Shortage,Landed_Cost_USD,Unit_Service_Rate_Pct
+capacity_crunch,56,36,407577,335789,71788,70185,1603,43847767.17,82.38664105187486
+combined_shock,56,40,345174,310697,34477,32538,1939,39746666.92,90.01170424191857
+normal,56,56,419210,419210,0,0,0,48341654.64,100.0
+scarcity_surge,56,56,352301,352301,0,0,0,40750606.08,100.0

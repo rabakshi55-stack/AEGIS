@@ -1,0 +1,159 @@
+{
+  "source_order_count": 99441,
+  "unique_order_count": 99441,
+  "outside_research_period_order_count": 38521,
+  "full_original_population": {
+    "all_orders": 99441,
+    "purchase_calendar_eligible": 99441,
+    "recorded_promise_proxy_candidate": 99441,
+    "missing_or_invalid_recorded_promise": 0,
+    "observed_comparable_outcome": 96470,
+    "unobserved_or_incomparable_outcome": 2971,
+    "strict_historical_label_candidate": 96282,
+    "historical_frozen_selected": 58911,
+    "recorded_delivery_at_or_after_phase_label_cutoff": 13,
+    "observed_late_by_recorded_calendar_dates": 6534,
+    "strict_label_late_by_recorded_calendar_dates": 6532,
+    "final_status_delivery_timestamp_contradiction": 6,
+    "category_counts": {
+      "DELIVERED_COMPARABLE_STRICT": 96282,
+      "DELIVERED_COMPARABLE_FLAGGED_CHRONOLOGY_OR_PROMISE": 188,
+      "DELIVERED_STATUS_MISSING_COMPARABLE_DATES": 8,
+      "CANCELED_WITHOUT_COMPARABLE_DELIVERY": 625,
+      "UNAVAILABLE_WITHOUT_COMPARABLE_DELIVERY": 609,
+      "OTHER_STATUS_WITHOUT_COMPARABLE_DELIVERY": 1729
+    }
+  },
+  "research_phases": {
+    "TRAIN": {
+      "all_orders": 27253,
+      "purchase_calendar_eligible": 27253,
+      "recorded_promise_proxy_candidate": 27253,
+      "missing_or_invalid_recorded_promise": 0,
+      "observed_comparable_outcome": 26147,
+      "unobserved_or_incomparable_outcome": 1106,
+      "strict_historical_label_candidate": 26128,
+      "historical_frozen_selected": 26127,
+      "recorded_delivery_at_or_after_phase_label_cutoff": 1,
+      "observed_late_by_recorded_calendar_dates": 951,
+      "strict_label_late_by_recorded_calendar_dates": 951,
+      "final_status_delivery_timestamp_contradiction": 0,
+      "category_counts": {
+        "DELIVERED_COMPARABLE_STRICT": 26128,
+        "DELIVERED_COMPARABLE_FLAGGED_CHRONOLOGY_OR_PROMISE": 19,
+        "DELIVERED_STATUS_MISSING_COMPARABLE_DATES": 1,
+        "CANCELED_WITHOUT_COMPARABLE_DELIVERY": 191,
+        "UNAVAILABLE_WITHOUT_COMPARABLE_DELIVERY": 273,
+        "OTHER_STATUS_WITHOUT_COMPARABLE_DELIVERY": 641
+      }
+    },
+    "VALIDATION": {
+      "all_orders": 21208,
+      "purchase_calendar_eligible": 21208,
+      "recorded_promise_proxy_candidate": 21208,
+      "missing_or_invalid_recorded_promise": 0,
+      "observed_comparable_outcome": 20627,
+      "unobserved_or_incomparable_outcome": 581,
+      "strict_historical_label_candidate": 20627,
+      "historical_frozen_selected": 20615,
+      "recorded_delivery_at_or_after_phase_label_cutoff": 12,
+      "observed_late_by_recorded_calendar_dates": 2657,
+      "strict_label_late_by_recorded_calendar_dates": 2657,
+      "final_status_delivery_timestamp_contradiction": 1,
+      "category_counts": {
+        "DELIVERED_COMPARABLE_STRICT": 20627,
+        "DELIVERED_COMPARABLE_FLAGGED_CHRONOLOGY_OR_PROMISE": 0,
+        "DELIVERED_STATUS_MISSING_COMPARABLE_DATES": 0,
+        "CANCELED_WITHOUT_COMPARABLE_DELIVERY": 133,
+        "UNAVAILABLE_WITHOUT_COMPARABLE_DELIVERY": 95,
+        "OTHER_STATUS_WITHOUT_COMPARABLE_DELIVERY": 353
+      }
+    },
+    "TEST": {
+      "all_orders": 12459,
+      "purchase_calendar_eligible": 12459,
+      "recorded_promise_proxy_candidate": 12459,
+      "missing_or_invalid_recorded_promise": 0,
+      "observed_comparable_outcome": 12252,
+      "unobserved_or_incomparable_outcome": 207,
+      "strict_historical_label_candidate": 12169,
+      "historical_frozen_selected": 12169,
+      "recorded_delivery_at_or_after_phase_label_cutoff": 0,
+      "observed_late_by_recorded_calendar_dates": 279,
+      "strict_label_late_by_recorded_calendar_dates": 277,
+      "final_status_delivery_timestamp_contradiction": 0,
+      "category_counts": {
+        "DELIVERED_COMPARABLE_STRICT": 12169,
+        "DELIVERED_COMPARABLE_FLAGGED_CHRONOLOGY_OR_PROMISE": 83,
+        "DELIVERED_STATUS_MISSING_COMPARABLE_DATES": 6,
+        "CANCELED_WITHOUT_COMPARABLE_DELIVERY": 59,
+        "UNAVAILABLE_WITHOUT_COMPARABLE_DELIVERY": 22,
+        "OTHER_STATUS_WITHOUT_COMPARABLE_DELIVERY": 120
+      }
+    }
+  },
+  "anomaly_evidence_counts": {
+    "carrier_before_purchase": 166,
+    "delivery_before_carrier": 23,
+    "non_delivered_status_with_delivery_timestamp": 6
+  },
+  "study": "AEGIS_STEP_205_PURCHASE_TIME_ELIGIBILITY_VS_OUTCOME_OBSERVABILITY",
+  "status": "RETROSPECTIVE_POPULATION_AUDITED_NOT_PROSPECTIVE",
+  "original_csv_sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+  "step204_reconciliation": {
+    "checks": {
+      "source_registry": true,
+      "purchase_timestamp_coverage": true,
+      "recorded_promise_proxy": true,
+      "observed_outcome_count": true,
+      "strict_historical_candidate_count": true,
+      "frozen_selected_count": true,
+      "outside_research_windows": true,
+      "train_purchase_population": true,
+      "train_observed_outcomes": true,
+      "train_strict_candidate": true,
+      "train_frozen_selected": true,
+      "train_recorded_delivery_cutoff_proxy": true,
+      "validation_purchase_population": true,
+      "validation_observed_outcomes": true,
+      "validation_strict_candidate": true,
+      "validation_frozen_selected": true,
+      "validation_recorded_delivery_cutoff_proxy": true,
+      "test_purchase_population": true,
+      "test_observed_outcomes": true,
+      "test_strict_candidate": true,
+      "test_frozen_selected": true,
+      "test_recorded_delivery_cutoff_proxy": true
+    },
+    "passed": 22,
+    "total": 22,
+    "all_pass": true
+  },
+  "prediction_eligibility_policy": {
+    "calendar_only_eligible": "Purchase timestamp valid; independent of final status, recorded delivery and outcome label",
+    "recorded_promise_proxy": "Historical estimated date is valid by the saved record; not independently verified as available and unchanged at purchase time",
+    "customer_state": "Not evaluated from orders CSV; as-of contract not independently verified",
+    "full_step180_model_asof_certified": false,
+    "full_model_eligible_order_count": null
+  },
+  "evaluation_eligibility_policy": {
+    "late_label": "Recorded delivery calendar date later than recorded estimated delivery calendar date, only among delivered orders with comparable dates",
+    "unobserved_canceled_unavailable": "Separate outcomes; never automatically labeled on time or late",
+    "chronology_anomalies": "Separate flagged comparable records, excluded from strict historical label candidate",
+    "train_validation_label_cutoff": "Recorded delivery timestamp prior to cutoff is a historical proxy only, not evidence of event ingestion or label availability",
+    "test_label_cutoff": "NO_VERIFIED_AS_OF_CUTOFF",
+    "prospective_outcome_availability_certified": false
+  },
+  "known_limitations": [
+    "Original Olist CSV is a retrospective snapshot, not a sequence of operational as-of snapshots",
+    "Purchase-time availability and immutability of recorded promise and customer state unverified",
+    "Delivery timestamp is not an independently verified source-system label-ingestion timestamp",
+    "Final statuses do not establish the order status at purchase time or at a later operational cutoff",
+    "Selection still has retrospective outcome-availability bias; scoring eligibility must not use delivery outcome",
+    "Previous test cohort was inspected; it is not an independent pristine future holdout",
+    "No model retraining, scoring, supplier causality, calibration, or business action performed"
+  ],
+  "operational_approval": "NOT_GRANTED",
+  "automatic_business_action": "DISABLED",
+  "original_data_modified": false
+}

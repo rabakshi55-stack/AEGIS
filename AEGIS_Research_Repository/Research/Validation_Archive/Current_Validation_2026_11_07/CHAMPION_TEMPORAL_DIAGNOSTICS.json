@@ -1,0 +1,226 @@
+{
+  "product": "AEGIS",
+  "study": "RESEARCH_CHAMPION_TEMPORAL_DIAGNOSTICS_NON_PROSPECTIVE",
+  "source_hashes": {
+    "orders_csv_sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+    "customers_csv_sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2",
+    "items_csv_sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279",
+    "sellers_csv_sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+  },
+  "features_independently_available_asof": false,
+  "model_choice": "logistic_l2 by January 2018 development-selection average precision",
+  "periods": {
+    "development_training": [
+      "2017-01-01",
+      "2018-01-01"
+    ],
+    "development_selection": [
+      "2018-01-01",
+      "2018-02-01"
+    ],
+    "development_calibration": [
+      "2018-02-01",
+      "2018-03-01"
+    ],
+    "historical_stress_inspected": [
+      "2018-03-01",
+      "2018-04-01"
+    ],
+    "historical_audit_inspected": [
+      "2018-04-01",
+      "2018-08-01"
+    ]
+  },
+  "models": {
+    "logistic_l2": {
+      "development_training": {
+        "rows": 43426,
+        "late_count": 2453,
+        "average_precision": 0.156229,
+        "roc_auc": 0.707687
+      },
+      "development_selection": {
+        "rows": 7069,
+        "late_count": 403,
+        "average_precision": 0.145852,
+        "roc_auc": 0.690373
+      },
+      "development_calibration": {
+        "rows": 6555,
+        "late_count": 926,
+        "average_precision": 0.329344,
+        "roc_auc": 0.730638
+      },
+      "historical_stress_inspected": {
+        "rows": 7003,
+        "late_count": 1328,
+        "average_precision": 0.304187,
+        "roc_auc": 0.634753,
+        "february_calibration_brier": 0.147431,
+        "mean_calibrated_score": 0.17065,
+        "observed_late_rate": 0.189633,
+        "absolute_mean_calibration_gap": 0.018983
+      },
+      "historical_audit_inspected": {
+        "rows": 25799,
+        "late_count": 1028,
+        "average_precision": 0.075016,
+        "roc_auc": 0.67872,
+        "february_calibration_brier": 0.084679,
+        "mean_calibrated_score": 0.219829,
+        "observed_late_rate": 0.039847,
+        "absolute_mean_calibration_gap": 0.179982
+      }
+    },
+    "logistic_l1": {
+      "development_training": {
+        "rows": 43426,
+        "late_count": 2453,
+        "average_precision": 0.15649,
+        "roc_auc": 0.707137
+      },
+      "development_selection": {
+        "rows": 7069,
+        "late_count": 403,
+        "average_precision": 0.145779,
+        "roc_auc": 0.692032
+      },
+      "development_calibration": {
+        "rows": 6555,
+        "late_count": 926,
+        "average_precision": 0.331097,
+        "roc_auc": 0.733275
+      },
+      "historical_stress_inspected": {
+        "rows": 7003,
+        "late_count": 1328,
+        "average_precision": 0.304683,
+        "roc_auc": 0.635282,
+        "february_calibration_brier": 0.147452,
+        "mean_calibrated_score": 0.170638,
+        "observed_late_rate": 0.189633,
+        "absolute_mean_calibration_gap": 0.018995
+      },
+      "historical_audit_inspected": {
+        "rows": 25799,
+        "late_count": 1028,
+        "average_precision": 0.073993,
+        "roc_auc": 0.674705,
+        "february_calibration_brier": 0.085916,
+        "mean_calibrated_score": 0.221757,
+        "observed_late_rate": 0.039847,
+        "absolute_mean_calibration_gap": 0.181911
+      }
+    },
+    "linear_svm_balanced": {
+      "development_training": {
+        "rows": 43426,
+        "late_count": 2453,
+        "average_precision": 0.146435,
+        "roc_auc": 0.709255
+      },
+      "development_selection": {
+        "rows": 7069,
+        "late_count": 403,
+        "average_precision": 0.14534,
+        "roc_auc": 0.693405
+      },
+      "development_calibration": {
+        "rows": 6555,
+        "late_count": 926,
+        "average_precision": 0.317014,
+        "roc_auc": 0.727521
+      },
+      "historical_stress_inspected": {
+        "rows": 7003,
+        "late_count": 1328,
+        "average_precision": 0.292567,
+        "roc_auc": 0.627481,
+        "february_calibration_brier": 0.148852,
+        "mean_calibrated_score": 0.164532,
+        "observed_late_rate": 0.189633,
+        "absolute_mean_calibration_gap": 0.025101
+      },
+      "historical_audit_inspected": {
+        "rows": 25799,
+        "late_count": 1028,
+        "average_precision": 0.074771,
+        "roc_auc": 0.67679,
+        "february_calibration_brier": 0.075414,
+        "mean_calibrated_score": 0.200602,
+        "observed_late_rate": 0.039847,
+        "absolute_mean_calibration_gap": 0.160756
+      }
+    },
+    "mlp_neural_net": {
+      "development_training": {
+        "rows": 43426,
+        "late_count": 2453,
+        "average_precision": 0.122442,
+        "roc_auc": 0.673064
+      },
+      "development_selection": {
+        "rows": 7069,
+        "late_count": 403,
+        "average_precision": 0.142801,
+        "roc_auc": 0.699121
+      },
+      "development_calibration": {
+        "rows": 6555,
+        "late_count": 926,
+        "average_precision": 0.30838,
+        "roc_auc": 0.710857
+      },
+      "historical_stress_inspected": {
+        "rows": 7003,
+        "late_count": 1328,
+        "average_precision": 0.298719,
+        "roc_auc": 0.641773,
+        "february_calibration_brier": 0.149734,
+        "mean_calibrated_score": 0.149217,
+        "observed_late_rate": 0.189633,
+        "absolute_mean_calibration_gap": 0.040416
+      },
+      "historical_audit_inspected": {
+        "rows": 25799,
+        "late_count": 1028,
+        "average_precision": 0.059621,
+        "roc_auc": 0.612548,
+        "february_calibration_brier": 0.056413,
+        "mean_calibrated_score": 0.168181,
+        "observed_late_rate": 0.039847,
+        "absolute_mean_calibration_gap": 0.128335
+      }
+    }
+  },
+  "paired_january_ap_uncertainty": {
+    "logistic_l1": {
+      "l2_minus_competitor_ap": 7.3e-05,
+      "stratified_bootstrap_95pct_interval": [
+        -0.001004,
+        0.001172
+      ],
+      "interval_caveat": "Selection data already reused to choose leader; not a claim of new independent statistical significance"
+    },
+    "linear_svm_balanced": {
+      "l2_minus_competitor_ap": 0.000512,
+      "stratified_bootstrap_95pct_interval": [
+        -0.005466,
+        0.005998
+      ],
+      "interval_caveat": "Selection data already reused to choose leader; not a claim of new independent statistical significance"
+    },
+    "mlp_neural_net": {
+      "l2_minus_competitor_ap": 0.003051,
+      "stratified_bootstrap_95pct_interval": [
+        -0.010714,
+        0.020278
+      ],
+      "interval_caveat": "Selection data already reused to choose leader; not a claim of new independent statistical significance"
+    }
+  },
+  "later_months_used_to_choose_model": false,
+  "later_months_have_been_inspected_by_researcher": true,
+  "operational_approval": "NOT_GRANTED",
+  "business_execution": "DISABLED"
+}

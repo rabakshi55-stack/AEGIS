@@ -1,0 +1,16 @@
+{
+  "audit_only": true,
+  "dataset_partition_certified": false,
+  "models_retrained": false,
+  "orders_with_changed_counts": 0,
+  "orders_with_changed_rates": 0,
+  "orders_with_either_feature_changed": 0,
+  "orders_with_prior_pending_exposure": 9476,
+  "original_generator_sha256": "fc5cadd745b00ab4b45700c5d11140c455a9db3feb440ed768a7c49f72beeb6c",
+  "pilot_orders_reconciled": 16,
+  "predictions_generated": false,
+  "reserved_data_used_for_model_fitting": false,
+  "source_orders": 12544,
+  "sourcing_optimized": false,
+  "step": 113
+}

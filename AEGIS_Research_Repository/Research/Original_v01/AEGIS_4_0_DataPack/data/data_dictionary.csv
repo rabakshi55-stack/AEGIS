@@ -1,0 +1,87 @@
+file,column,availability,description
+suppliers.csv,supplier_id,static master/reference,"Synthetic supplier master. Targets describe contract expectations, not observed actual delivery performance."
+suppliers.csv,supplier_name,static master/reference,"Synthetic supplier master. Targets describe contract expectations, not observed actual delivery performance."
+suppliers.csv,region,static master/reference,"Synthetic supplier master. Targets describe contract expectations, not observed actual delivery performance."
+suppliers.csv,contract_on_time_target,static master/reference,"Synthetic supplier master. Targets describe contract expectations, not observed actual delivery performance."
+suppliers.csv,quality_acceptance_target,static master/reference,"Synthetic supplier master. Targets describe contract expectations, not observed actual delivery performance."
+suppliers.csv,financial_risk_band,static master/reference,"Synthetic supplier master. Targets describe contract expectations, not observed actual delivery performance."
+suppliers.csv,qualified_flag,static master/reference,"Synthetic supplier master. Targets describe contract expectations, not observed actual delivery performance."
+components.csv,component_id,static master/reference,Synthetic raw-material master and holding cost assumptions.
+components.csv,component_family,static master/reference,Synthetic raw-material master and holding cost assumptions.
+components.csv,criticality,static master/reference,Synthetic raw-material master and holding cost assumptions.
+components.csv,standard_unit_cost_usd,static master/reference,Synthetic raw-material master and holding cost assumptions.
+components.csv,annual_holding_rate,static master/reference,Synthetic raw-material master and holding cost assumptions.
+components.csv,safety_stock_days,static master/reference,Synthetic raw-material master and holding cost assumptions.
+plants.csv,plant_id,static master/reference,Synthetic assembly plants with approximate daily capacity.
+plants.csv,plant_name,static master/reference,Synthetic assembly plants with approximate daily capacity.
+plants.csv,region,static master/reference,Synthetic assembly plants with approximate daily capacity.
+plants.csv,daily_capacity_finished_units,static master/reference,Synthetic assembly plants with approximate daily capacity.
+warehouses.csv,warehouse_id,static master/reference,Synthetic distribution centers and primary plant relationships.
+warehouses.csv,region,static master/reference,Synthetic distribution centers and primary plant relationships.
+warehouses.csv,primary_plant_id,static master/reference,Synthetic distribution centers and primary plant relationships.
+finished_products.csv,sku_id,static master/reference,Synthetic end-product catalog and selling prices.
+finished_products.csv,product_family,static master/reference,Synthetic end-product catalog and selling prices.
+finished_products.csv,selling_price_usd,static master/reference,Synthetic end-product catalog and selling prices.
+finished_products.csv,priority_tier,static master/reference,Synthetic end-product catalog and selling prices.
+bill_of_materials.csv,sku_id,static master/reference,Synthetic SKU-component quantity requirements.
+bill_of_materials.csv,component_id,static master/reference,Synthetic SKU-component quantity requirements.
+bill_of_materials.csv,units_per_finished_unit,static master/reference,Synthetic SKU-component quantity requirements.
+supplier_component_options.csv,supplier_id,static master/reference,"Synthetic supplier qualification, quotes, MOQ and per-option capacity."
+supplier_component_options.csv,component_id,static master/reference,"Synthetic supplier qualification, quotes, MOQ and per-option capacity."
+supplier_component_options.csv,quoted_unit_cost_usd,static master/reference,"Synthetic supplier qualification, quotes, MOQ and per-option capacity."
+supplier_component_options.csv,promised_lead_days,static master/reference,"Synthetic supplier qualification, quotes, MOQ and per-option capacity."
+supplier_component_options.csv,minimum_order_qty,static master/reference,"Synthetic supplier qualification, quotes, MOQ and per-option capacity."
+supplier_component_options.csv,monthly_capacity_units,static master/reference,"Synthetic supplier qualification, quotes, MOQ and per-option capacity."
+supplier_component_options.csv,approved_for_sourcing,static master/reference,"Synthetic supplier qualification, quotes, MOQ and per-option capacity."
+transport_lanes.csv,lane_id,static master/reference,Synthetic supplier-to-plant and plant-to-warehouse lanes.
+transport_lanes.csv,origin_type,static master/reference,Synthetic supplier-to-plant and plant-to-warehouse lanes.
+transport_lanes.csv,origin_id,static master/reference,Synthetic supplier-to-plant and plant-to-warehouse lanes.
+transport_lanes.csv,destination_type,static master/reference,Synthetic supplier-to-plant and plant-to-warehouse lanes.
+transport_lanes.csv,destination_id,static master/reference,Synthetic supplier-to-plant and plant-to-warehouse lanes.
+transport_lanes.csv,transit_days,static master/reference,Synthetic supplier-to-plant and plant-to-warehouse lanes.
+transport_lanes.csv,freight_cost_per_unit_usd,static master/reference,Synthetic supplier-to-plant and plant-to-warehouse lanes.
+transport_lanes.csv,route_region,static master/reference,Synthetic supplier-to-plant and plant-to-warehouse lanes.
+disruption_events.csv,event_id,published at alert date / scheduled or actual event,Synthetic regional shock events and published warning dates.
+disruption_events.csv,region,published at alert date / scheduled or actual event,Synthetic regional shock events and published warning dates.
+disruption_events.csv,event_type,published at alert date / scheduled or actual event,Synthetic regional shock events and published warning dates.
+disruption_events.csv,alert_published_date,published at alert date / scheduled or actual event,Synthetic regional shock events and published warning dates.
+disruption_events.csv,event_start_date,published at alert date / scheduled or actual event,Synthetic regional shock events and published warning dates.
+disruption_events.csv,event_end_date,known only at or after event end,Synthetic regional shock events and published warning dates.
+disruption_events.csv,realized_severity,known only at or after event end,Synthetic regional shock events and published warning dates.
+disruption_events.csv,source_type,published at alert date / scheduled or actual event,Synthetic regional shock events and published warning dates.
+purchase_orders.csv,purchase_order_id,known at order creation / point-in-time,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,order_date,known at order creation / point-in-time,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,supplier_id,known at order creation / point-in-time,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,component_id,known at order creation / point-in-time,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,plant_id,known at order creation / point-in-time,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,lane_id,known at order creation / point-in-time,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,order_quantity_units,known at order creation / point-in-time,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,quoted_unit_cost_usd,known at order creation / point-in-time,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,promised_lead_days,known at order creation / point-in-time,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,promised_receipt_date,known at order creation / point-in-time,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,urgent_order_flag,known at order creation / point-in-time,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,regional_alert_available_at_order,known at order creation / point-in-time,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,regional_alert_level_at_order,known at order creation / point-in-time,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,capacity_utilization_at_order,known at order creation / point-in-time,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,logistics_congestion_at_order,known at order creation / point-in-time,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,actual_receipt_date,outcome / ONLY after actual receipt,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,actual_lead_days,outcome / ONLY after actual receipt,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,days_late,outcome / ONLY after actual receipt,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,late_receipt_flag,outcome / ONLY after actual receipt,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,supplier_completed_orders_past_90d,known at order creation / point-in-time,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+purchase_orders.csv,supplier_late_rate_past_90d,known at order creation / point-in-time,Synthetic procurement orders with order-time signals and realized receipt outcomes.
+customer_demand_daily.csv,demand_date,known by or during demand day,Synthetic daily market demand by SKU and distribution center.
+customer_demand_daily.csv,warehouse_id,known by or during demand day,Synthetic daily market demand by SKU and distribution center.
+customer_demand_daily.csv,sku_id,known by or during demand day,Synthetic daily market demand by SKU and distribution center.
+customer_demand_daily.csv,promotion_announced_flag,known by or during demand day,Synthetic daily market demand by SKU and distribution center.
+customer_demand_daily.csv,weekend_flag,known by or during demand day,Synthetic daily market demand by SKU and distribution center.
+customer_demand_daily.csv,requested_units,realized at end of demand day,Synthetic daily market demand by SKU and distribution center.
+component_inventory_monthly.csv,month,known at month close (not at month start),Derived monthly component ledger from recorded receipts and BOM-based planned requirements.
+component_inventory_monthly.csv,plant_id,known at month close (not at month start),Derived monthly component ledger from recorded receipts and BOM-based planned requirements.
+component_inventory_monthly.csv,component_id,known at month close (not at month start),Derived monthly component ledger from recorded receipts and BOM-based planned requirements.
+component_inventory_monthly.csv,opening_inventory_units,known at month close (not at month start),Derived monthly component ledger from recorded receipts and BOM-based planned requirements.
+component_inventory_monthly.csv,receipts_units,known at month close (not at month start),Derived monthly component ledger from recorded receipts and BOM-based planned requirements.
+component_inventory_monthly.csv,planned_requirements_units,known at month close (not at month start),Derived monthly component ledger from recorded receipts and BOM-based planned requirements.
+component_inventory_monthly.csv,consumed_units,known at month close (not at month start),Derived monthly component ledger from recorded receipts and BOM-based planned requirements.
+component_inventory_monthly.csv,unmet_component_requirements_units,known at month close (not at month start),Derived monthly component ledger from recorded receipts and BOM-based planned requirements.
+component_inventory_monthly.csv,closing_inventory_units,known at month close (not at month start),Derived monthly component ledger from recorded receipts and BOM-based planned requirements.

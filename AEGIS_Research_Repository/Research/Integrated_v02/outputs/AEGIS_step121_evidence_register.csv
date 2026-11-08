@@ -1,0 +1,11 @@
+Control,Evidence,Status
+Historical supplier outcomes,Step 115 and full receipt replay,SUPPORTED
+Chronological development split,Step 118 independent reconciliation,PASSED
+Numerical operational consistency,Step 120 development checks,PASSED
+Daily event sequence,Original generator event ordering,SUPPORTED
+Direct target-column exclusion,Frozen 18-feature contract,PASSED
+Regional alert availability,Original publication-function source,MANUAL_SOURCE_REVIEW
+Demand and inventory timing,Original calculation context,MANUAL_SOURCE_REVIEW
+Counterfactual operational states,Dynamic candidate feature audits,NOT_CERTIFIED
+Exact fitted-model lineage,Training source and fitted objects,NOT_CERTIFIED
+Reserved-test isolation,Source-only review to date,NOT_CERTIFIED

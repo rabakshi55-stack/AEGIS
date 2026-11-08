@@ -1,0 +1,22 @@
+{
+  "alert_publication_timing_independently_verified": false,
+  "alert_supplier_date_consistency": true,
+  "allocations_modified": false,
+  "artifact_sha256": {
+    "AEGIS_step144_alert_consistency.csv": "778118ad6dde8e3a743b1060c0f5d4244df0e928ee4a7f0a765cfdb8cf98c453",
+    "AEGIS_step144_input_ranges.csv": "9153f66cd20b9e1fb78a4b6c327966814b11b9bfeb328a8efee1369639c55380",
+    "AEGIS_step144_path_summary.csv": "a056777060cf1d610de8bee89a77ae91fc395dd6848faa532470c397ba059160",
+    "AEGIS_step144_policy_comparison.csv": "b83bb685825b9a433d302c8a4a8863dd18389dcd5f9ec635a3d1f4d511e983dd"
+  },
+  "models_retrained": false,
+  "optimization_performed": false,
+  "policies": 6,
+  "policy_capacity_reconstruction_reused": true,
+  "production_authorized": false,
+  "reserved_test_accessed": false,
+  "scenario_records": 48000,
+  "source_equation_structure_verified": true,
+  "source_inspired_congestion_reconstruction": true,
+  "step": 144,
+  "supplier_switch_causal_validity": false
+}

@@ -1,0 +1,9 @@
+Control,Status
+Candidate replication,PASSED
+Original order attributes,PASSED
+Supplier attribute stability,PASSED
+Operational feature variation,MEASURED_NOT_CAUSALLY_CERTIFIED
+Model input extrapolation,DIAGNOSTIC_COMPLETED
+Paired stochastic draws,NOT_CERTIFIED
+Actual supplier-switch outcomes,NOT_OBSERVED
+Counterfactual causal validity,NOT_CERTIFIED

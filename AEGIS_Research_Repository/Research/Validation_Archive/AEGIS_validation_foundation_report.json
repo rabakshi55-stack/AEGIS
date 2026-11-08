@@ -1,0 +1,111 @@
+{
+  "product": "AEGIS",
+  "scope": "VALIDATION_FOUNDATIONS_STEPS_191_TO_196",
+  "software_gate_checks_passed": 34,
+  "all_software_fixtures_pass": true,
+  "step_191_synthetic_pair_coverage": {
+    "status": "VERIFIED_IN_NEW_SYNTHETIC_EXPERIMENT",
+    "orders": 16,
+    "pairs": 80,
+    "scenarios": 500,
+    "paired_rows": 40000,
+    "coverage_percent": 100.0,
+    "source_sha256": {
+      "purchase_orders.csv": "e899a6d377e5dedd2d39ca6e609cb284fbcd511c6c17dc1dbbb2e324f4263113",
+      "supplier_component_options.csv": "3ec00307b6da87eea82cbaf9ae543cf0a7a30b1992b0beae9e9153937ebb0921",
+      "transport_lanes.csv": "7ebc1b81974de27c74fe9e68586d6b523dfbf0000bd053aae5fabf2a46c3a2fd",
+      "suppliers.csv": "87447e263df56a9545ca713aca6ca14561d0a60df8cea7fafca4d693caef5fb7"
+    },
+    "model_retraining": false,
+    "real_world_supplier_benefit": "NOT_ESTABLISHED"
+  },
+  "other_steps": {
+    "step_192_asof": {
+      "product": "AEGIS",
+      "step": 192,
+      "fixture": "SOFTWARE_ONLY_NO_REAL_BUSINESS_RECORDS",
+      "checks": {
+        "valid_test_fixture_only": true,
+        "future_known_feature_blocked": true,
+        "expired_quote_blocked": true,
+        "future_capacity_blocked": true,
+        "unapproved_execution_detected": true,
+        "missing_table_blocked": true,
+        "timezone_naive_rejected": true,
+        "joint_capacity_overbooking_blocked": true,
+        "demand_shortfall_blocked": true
+      },
+      "all_pass": true,
+      "operational_approval": "NOT_GRANTED",
+      "automatic_business_action": "DISABLED"
+    },
+    "step_193_outcome_semantics": {
+      "step": 193,
+      "fixture": "SOFTWARE_ONLY_NOT_OLIST_SOURCE_EVIDENCE",
+      "checks": {
+        "only_confirmed_deliveries_compared": true,
+        "source_day_before_count_correct": true,
+        "source_day_after_count_correct": true,
+        "canceled_record_with_actual_excluded": true,
+        "shipped_unknown_never_on_time": true,
+        "delivery_before_purchase_blocked": true,
+        "all_source_rows_reconciled": true,
+        "contractual_kpi_not_certified": true
+      },
+      "all_pass": true,
+      "real_world_promise_definition_certified": false
+    },
+    "step_194_shadow_evaluation": {
+      "product": "AEGIS",
+      "step": 194,
+      "fixture": "SOFTWARE_ONLY_NOT_PROSPECTIVE_EVIDENCE",
+      "checks": {
+        "positive_control_auc_correct": true,
+        "positive_control_ap_correct": true,
+        "no_false_probability_calibration": true,
+        "no_operational_authorization": true,
+        "late_recorded_score_blocks_metrics": true,
+        "future_known_feature_blocks_metrics": true,
+        "feature_not_available_at_scoring_blocked": true,
+        "cancellation_never_counted_as_on_time": true,
+        "after_freeze_outcome_excluded": true,
+        "model_identity_mismatch_blocks": true
+      },
+      "all_pass": true,
+      "operational_approval": "NOT_GRANTED"
+    },
+    "step_196_intervention_evidence": {
+      "product": "AEGIS",
+      "step": 196,
+      "fixture": "SOFTWARE_ONLY_NO_REAL_INTERVENTION",
+      "checks": {
+        "four_row_synthetic_groups_only": true,
+        "descriptive_difference_not_causal": true,
+        "approval_never_granted": true,
+        "postdecision_assignment_rejected": true,
+        "missing_outcome_not_labeled_on_time": true,
+        "missing_operational_quotes_block": true,
+        "unknown_group_blocked": true
+      },
+      "all_pass": true,
+      "real_causal_effect_established": false,
+      "operational_approval": "NOT_GRANTED"
+    }
+  },
+  "limitations": {
+    "source_timestamp_truth_and_revision_history": "NEEDS_INDEPENDENT_SOURCE_OWNER_EVIDENCE",
+    "contractual_delivery_promise_and_timezone": "NEEDS_BUSINESS_DEFINITIONS",
+    "genuine_prospective_model_accuracy": "NEEDS_NEW_MATURE_REAL_OUTCOMES",
+    "calibrated_operational_probabilities": "NOT_ESTABLISHED",
+    "live_supplier_quotes_capacity_and_commercial_eligibility": "NEEDS_APPROVED_REAL_SOURCE_DATA",
+    "external_capacity_reservations_and_constraints": "NOT_CERTIFIED",
+    "supplier_causality": "NOT_ESTABLISHED",
+    "supplier_switch_intervention_effect": "NOT_ESTABLISHED",
+    "operational_security_and_business_approval": "NOT_GRANTED"
+  },
+  "new_ml_training": "NONE",
+  "original_data_modified": false,
+  "automatic_procurement": "DISABLED",
+  "operational_approval": "NOT_GRANTED",
+  "overall_interpretation": "These are software and synthetic research-control results, NOT full resolution of empirical validity limitations. Original company-side data, externally verified timestamps, a mature prospective study and independent intervention evaluation are prerequisites for any production claim."
+}

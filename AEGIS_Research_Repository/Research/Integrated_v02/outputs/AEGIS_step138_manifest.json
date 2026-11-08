@@ -1,0 +1,24 @@
+{
+  "artifact_sha256": {
+    "AEGIS_step138_feature_differences.csv": "4b973958b3ea888dfade6d96ca854f211b9d58738f857e9422bec0bade1acf66",
+    "AEGIS_step138_policy_overview.csv": "a89704417047be6abbac9670de813725489cb11bbd82b50d11e6d20ef5712b85",
+    "AEGIS_step138_sensitivity_results.csv": "56ad50ab6b79cb3f4ffcd06eb531ad97c769f5116b1e541036c1d486bbdf04ed",
+    "AEGIS_step138_source_references.csv": "3887f114d19b729aea731662451719f5fce4c2e8e81108b8af311b7d51ceb043"
+  },
+  "counterfactual_causal_validity_certified": false,
+  "feature_groups_tested": [
+    "Capacity_And_Congestion",
+    "Regional_Alerts",
+    "All_Four_Operational_Inputs"
+  ],
+  "feature_timing_certified": false,
+  "matched_records": 40000,
+  "models_retrained": false,
+  "new_optimization_performed": false,
+  "original_allocations_modified": false,
+  "policies": 5,
+  "reserved_test_accessed": false,
+  "sensitivity_test_completed": true,
+  "source_references_inspected": true,
+  "step": 138
+}

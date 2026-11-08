@@ -1,0 +1,29 @@
+Line,Source_Text
+2,Run: python generate_v02.py
+20,def load(name): return pd.read_csv(SRC/name)
+25,"with (DEST/name).open('w',newline='',encoding='utf-8') as f:"
+28,supplier = load('suppliers.csv')
+29,options = load('supplier_component_options.csv')
+43,"supplier_region = dict(zip(supplier.supplier_id,supplier.region))"
+49,"lane_ref={ (r.origin_id,r.destination_id): r for r in lanes.itertuples(index=False) if r.origin_type=='supplier'}"
+81,"# Supplier unobserved reliability, distinct from observed contract target."
+82,"latent={r.supplier_id:float(rng.normal(0,0.23)) for r in supplier.itertuples(index=False)}"
+90,"monthly_booking=defaultdict(int) # (supplier, component, order_month) for capacity restriction"
+91,historical=defaultdict(list) # completed supplier orders by date
+103,"history=last28[(pl,comp)]"
+105,forecast=(sum(history)+14*baseline)/(len(history)+14)
+110,"- 50.0*float(supplier.loc[supplier.supplier_id==x.supplier_id,'contract_on_time_target'].iloc[0])))"
+111,"shortest_lead=min(int(o.promised_lead_days)+int(lane_ref[(o.supplier_id,pl)].transit_days) for o in possible)"
+117,"# suppliers across weeks, to represent contractual diversification."
+120,suppliers_to_try=ranked[rotation:]+ranked[:rotation]
+121,for option in suppliers_to_try:
+123,sid=option.supplier_id
+136,"alert,level=published_alert(supplier_region[sid],today)"
+140,"# Supplier commitment load is observable at creation, not generated using future outcomes."
+145,"shock=future_shock(supplier_region[sid],due)"
+161,"'order_date':toiso(today), 'supplier_id':sid,'component_id':comp,'plant_id':pl,"
+168,"'supplier_completed_orders_past_90d':hist_count,"
+169,"'supplier_late_rate_past_90d':hist_rate,"
+192,"historical[order['supplier_id']].append((today,order['late_receipt_flag']))"
+238,with f.open(encoding='utf8') as inp: cols=next(csv.reader(inp))
+262,"'active_suppliers':len(set(x['supplier_id'] for x in orders)),"

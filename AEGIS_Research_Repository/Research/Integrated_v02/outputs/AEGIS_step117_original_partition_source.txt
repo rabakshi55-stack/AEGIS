@@ -1,0 +1,119 @@
+
+import pandas as pd
+from pathlib import Path
+
+print("=" * 60)
+print("AEGIS 4.0 - VERSION 0.2 TEMPORAL SPLIT")
+print("=" * 60)
+
+# Load Version 0.2 data
+data = pd.read_csv(
+    Path("data") / "purchase_orders.csv",
+    parse_dates=[
+        "order_date",
+        "promised_receipt_date",
+        "actual_receipt_date"
+    ]
+)
+
+# Fixed experimental boundaries
+validation_start = pd.Timestamp("2025-07-01")
+testing_start = pd.Timestamp("2026-01-01")
+
+embargo = pd.Timedelta(days=60)
+
+train_end = validation_start - embargo
+validation_end = testing_start - embargo
+
+# Partition using order dates only
+train_v02 = data[
+    data["order_date"] < train_end
+].copy()
+
+val_v02 = data[
+    (data["order_date"] >= validation_start) &
+    (data["order_date"] < validation_end)
+].copy()
+
+test_v02 = data[
+    data["order_date"] >= testing_start
+].copy()
+
+print("\n1. DATASET PARTITIONS")
+
+for name, subset in [
+    ("Training", train_v02),
+    ("Validation", val_v02),
+    ("Testing", test_v02)
+]:
+    print(f"\n{name}")
+    print("Records:", len(subset))
+    print(
+        "Late rate:",
+        round(subset["late_receipt_flag"].mean() * 100, 2),
+        "%"
+    )
+    print("First order:", subset["order_date"].min())
+    print("Last order:", subset["order_date"].max())
+
+print("\n2. OUTCOME AVAILABILITY")
+
+train_future = (
+    train_v02["actual_receipt_date"] >= validation_start
+).sum()
+
+val_future = (
+    val_v02["actual_receipt_date"] >= testing_start
+).sum()
+
+print("Unavailable training outcomes:", train_future)
+print("Unavailable validation outcomes:", val_future)
+
+print("\n3. DUPLICATE ORDER CHECK")
+
+all_ids = pd.concat([
+    train_v02["purchase_order_id"],
+    val_v02["purchase_order_id"],
+    test_v02["purchase_order_id"]
+])
+
+duplicate_count = all_ids.duplicated().sum()
+
+print("Overlapping order IDs:", duplicate_count)
+
+print("\n4. DATA RETENTION")
+
+retained = (
+    len(train_v02) +
+    len(val_v02) +
+    len(test_v02)
+)
+
+print("Original records:", len(data))
+print("Retained records:", retained)
+print("Embargo-period records:", len(data) - retained)
+
+print("\n5. DELIVERY HORIZON")
+
+print(
+    "Maximum actual lead time:",
+    data["actual_lead_days"].max(),
+    "days"
+)
+
+print(
+    "Latest test outcome:",
+    test_v02["actual_receipt_date"].max()
+)
+
+print("\n6. FINAL VERIFICATION")
+
+assert train_future == 0
+assert val_future == 0
+assert duplicate_count == 0
+assert data["purchase_order_id"].is_unique
+assert retained <= len(data)
+
+print("PASS: Temporal split checks completed.")
+print("No unavailable historical outcomes.")
+print("No overlapping purchase orders.")

@@ -1,0 +1,209 @@
+{
+  "product": "AEGIS",
+  "status": "POSTHOC_HISTORICAL_RESEARCH_NOT_PROSPECTIVE",
+  "selected_by": "2018-01 average precision then AUC on extended checkout candidate features; fixed predeclared hyperparameters",
+  "source_sha256": {
+    "orders_csv_sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+    "customers_csv_sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2",
+    "items_csv_sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279",
+    "sellers_csv_sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+  },
+  "feature_names": [
+    "hour",
+    "weekday",
+    "month",
+    "day_of_month",
+    "week_of_year",
+    "promise_days",
+    "item_count",
+    "unique_sellers",
+    "quoted_price_sum",
+    "quoted_freight_sum",
+    "state_AC",
+    "state_AL",
+    "state_AP",
+    "state_AM",
+    "state_BA",
+    "state_CE",
+    "state_DF",
+    "state_ES",
+    "state_GO",
+    "state_MA",
+    "state_MT",
+    "state_MS",
+    "state_MG",
+    "state_PA",
+    "state_PB",
+    "state_PR",
+    "state_PE",
+    "state_PI",
+    "state_RJ",
+    "state_RN",
+    "state_RS",
+    "state_RO",
+    "state_RR",
+    "state_SC",
+    "state_SP",
+    "state_SE",
+    "state_TO",
+    "supplier_customer_same_state",
+    "seller_state_AC",
+    "seller_state_AL",
+    "seller_state_AP",
+    "seller_state_AM",
+    "seller_state_BA",
+    "seller_state_CE",
+    "seller_state_DF",
+    "seller_state_ES",
+    "seller_state_GO",
+    "seller_state_MA",
+    "seller_state_MT",
+    "seller_state_MS",
+    "seller_state_MG",
+    "seller_state_PA",
+    "seller_state_PB",
+    "seller_state_PR",
+    "seller_state_PE",
+    "seller_state_PI",
+    "seller_state_RJ",
+    "seller_state_RN",
+    "seller_state_RS",
+    "seller_state_RO",
+    "seller_state_RR",
+    "seller_state_SC",
+    "seller_state_SP",
+    "seller_state_SE",
+    "seller_state_TO"
+  ],
+  "feature_availability_independently_proved": false,
+  "selection_results": [
+    {
+      "algorithm": "prior_baseline",
+      "january_ap": 0.057009,
+      "january_roc_auc": 0.5,
+      "fit_seconds": 0.02,
+      "status": "OK"
+    },
+    {
+      "algorithm": "logistic_l2",
+      "january_ap": 0.145852,
+      "january_roc_auc": 0.690373,
+      "fit_seconds": 0.14,
+      "status": "OK"
+    },
+    {
+      "algorithm": "logistic_balanced",
+      "january_ap": 0.144178,
+      "january_roc_auc": 0.692952,
+      "fit_seconds": 0.41,
+      "status": "OK"
+    },
+    {
+      "algorithm": "sgd_logistic",
+      "january_ap": 0.140198,
+      "january_roc_auc": 0.69374,
+      "fit_seconds": 0.16,
+      "status": "OK"
+    },
+    {
+      "algorithm": "gaussian_naive_bayes",
+      "january_ap": 0.063485,
+      "january_roc_auc": 0.54995,
+      "fit_seconds": 0.03,
+      "status": "OK"
+    },
+    {
+      "algorithm": "linear_discriminant",
+      "january_ap": 0.135549,
+      "january_roc_auc": 0.692099,
+      "fit_seconds": 0.06,
+      "status": "OK"
+    },
+    {
+      "algorithm": "quadratic_discriminant",
+      "january_ap": 0.102996,
+      "january_roc_auc": 0.664933,
+      "fit_seconds": 0.16,
+      "status": "OK"
+    },
+    {
+      "algorithm": "decision_tree",
+      "january_ap": 0.078088,
+      "january_roc_auc": 0.545,
+      "fit_seconds": 0.16,
+      "status": "OK"
+    },
+    {
+      "algorithm": "random_forest",
+      "january_ap": 0.086689,
+      "january_roc_auc": 0.584223,
+      "fit_seconds": 4.11,
+      "status": "OK"
+    },
+    {
+      "algorithm": "extra_trees",
+      "january_ap": 0.103187,
+      "january_roc_auc": 0.616487,
+      "fit_seconds": 3.25,
+      "status": "OK"
+    },
+    {
+      "algorithm": "hist_gradient_boosting",
+      "january_ap": 0.110736,
+      "january_roc_auc": 0.653542,
+      "fit_seconds": 1.29,
+      "status": "OK"
+    },
+    {
+      "algorithm": "gradient_boosting",
+      "january_ap": 0.114795,
+      "january_roc_auc": 0.664189,
+      "fit_seconds": 6.2,
+      "status": "OK"
+    },
+    {
+      "algorithm": "adaboost",
+      "january_ap": 0.099741,
+      "january_roc_auc": 0.656769,
+      "fit_seconds": 3.48,
+      "status": "OK"
+    },
+    {
+      "algorithm": "mlp_neural_net",
+      "january_ap": 0.142801,
+      "january_roc_auc": 0.699121,
+      "fit_seconds": 0.78,
+      "status": "OK"
+    },
+    {
+      "algorithm": "lightgbm",
+      "january_ap": 0.116237,
+      "january_roc_auc": 0.659864,
+      "fit_seconds": 0.41,
+      "status": "OK"
+    },
+    {
+      "algorithm": "xgboost",
+      "january_ap": 0.089906,
+      "january_roc_auc": 0.64237,
+      "fit_seconds": 0.44,
+      "status": "OK"
+    },
+    {
+      "algorithm": "catboost",
+      "january_ap": 0.113336,
+      "january_roc_auc": 0.656188,
+      "fit_seconds": 0.92,
+      "status": "OK"
+    }
+  ],
+  "winner": {
+    "algorithm": "logistic_l2",
+    "january_ap": 0.145852,
+    "january_roc_auc": 0.690373,
+    "fit_seconds": 0.14,
+    "status": "OK"
+  },
+  "hypothesis_test_warning": "January and later 2018 history already analyzed; this is not a pristine out-of-sample test",
+  "live_operational_authorization": false
+}

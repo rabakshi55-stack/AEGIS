@@ -1,0 +1,10 @@
+History_Cell,Line,Assignment_Like,Source_Text
+4,27,False,"""supplier_completed_orders_past_90d"","
+4,28,False,"""supplier_late_rate_past_90d"","
+18,28,False,"""supplier_completed_orders_past_90d"","
+18,29,False,"""supplier_late_rate_past_90d"""
+18,86,False,"original_choices[""supplier_completed_orders_past_90d""]"
+18,91,False,"original_choices[""supplier_late_rate_past_90d""]"
+18,106,False,"risk_candidates[""supplier_late_rate_past_90d""]"
+24,80,False,"""supplier_completed_orders_past_90d"","
+24,82,False,"""supplier_late_rate_past_90d"""

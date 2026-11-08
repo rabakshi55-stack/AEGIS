@@ -1,0 +1,11 @@
+Variable,Class,Module,Features_Expected
+Pipeline,ABCMeta,abc,<property object at 0x000002562A76E7F0>
+LogisticRegression,type,builtins,
+DummyClassifier,type,builtins,
+dummy_model,DummyClassifier,sklearn.dummy,18
+logistic_model,Pipeline,sklearn.pipeline,18
+RandomForestClassifier,ABCMeta,abc,
+rf_model,Pipeline,sklearn.pipeline,18
+rf_simple,Pipeline,sklearn.pipeline,18
+XGBClassifier,type,builtins,<property object at 0x000002562D94C9F0>
+xgb_model,Pipeline,sklearn.pipeline,18

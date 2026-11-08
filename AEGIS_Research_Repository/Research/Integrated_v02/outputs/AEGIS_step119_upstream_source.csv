@@ -1,0 +1,101 @@
+Symbol,Line,Source
+forecast,105,forecast=(sum(history)+14*baseline)/(len(history)+14)
+forecast,113,target=int(math.ceil(forecast*planning_horizon))
+target,113,target=int(math.ceil(forecast*planning_horizon))
+inventory_position,114,"inventory_position=stock[(pl,comp)]+onorder[(pl,comp)]"
+inventory_position,115,"required=max(0,target-inventory_position)"
+target,115,"required=max(0,target-inventory_position)"
+alert,136,"alert,level=published_alert(supplier_region[sid],today)"
+level,136,"alert,level=published_alert(supplier_region[sid],today)"
+congestion,138,"congestion=capped(.27+.14*math.sin(day_of_year*math.pi*2/365.25)
+                     +float(rng.normal(0,.085))+.12*alert+(0.10 if today.year==2026 else 0),.01,1.)"
+alert,138,"congestion=capped(.27+.14*math.sin(day_of_year*math.pi*2/365.25)
+                     +float(rng.normal(0,.085))+.12*alert+(0.10 if today.year==2026 else 0),.01,1.)"
+utilization,142,"utilization=capped(.48+load+.10*(today.year==2026)+float(rng.normal(0,.09)),.05,1.60)"
+forecast,143,"urgent=int(stock[(pl,comp)] < forecast*max(7,shortest_lead/2))"
+utilization,146,"lp=(-1.83+1.2*latent[sid]+1.35*(utilization-.6)
+                    +1.4*(congestion-.35)+.40*urgent+.48*alert
+                    +.30*(shock>0)+.35*(shock>=4))"
+congestion,146,"lp=(-1.83+1.2*latent[sid]+1.35*(utilization-.6)
+                    +1.4*(congestion-.35)+.40*urgent+.48*alert
+                    +.30*(shock>0)+.35*(shock>=4))"
+alert,146,"lp=(-1.83+1.2*latent[sid]+1.35*(utilization-.6)
+                    +1.4*(congestion-.35)+.40*urgent+.48*alert
+                    +.30*(shock>0)+.35*(shock>=4))"
+hist_count,156,hist_count=len(hist90)
+hist_count,157,"hist_rate=round((sum(hist90)+2)/(hist_count+10),4)"
+hist_rate,157,"hist_rate=round((sum(hist90)+2)/(hist_count+10),4)"
+forecast,159,"order={
+                    'purchase_order_id':f'PO2-{today_id:07d}',
+                    'order_date':toiso(today), 'supplier_id':sid,'component_id':comp,'plant_id':pl,
+                    'lane_id':lane.lane_id,'order_quantity_units':units,
+                    'quoted_unit_cost_usd':float(option.quoted_unit_cost_usd),
+                    'promised_lead_days':promised_lead,'promised_receipt_date':toiso(due),
+                    'urgent_order_flag':urgent,'regional_alert_available_at_order':alert,
+                    'regional_alert_level_at_order':level,'capacity_utilization_at_order':round("
+utilization,159,"order={
+                    'purchase_order_id':f'PO2-{today_id:07d}',
+                    'order_date':toiso(today), 'supplier_id':sid,'component_id':comp,'plant_id':pl,
+                    'lane_id':lane.lane_id,'order_quantity_units':units,
+                    'quoted_unit_cost_usd':float(option.quoted_unit_cost_usd),
+                    'promised_lead_days':promised_lead,'promised_receipt_date':toiso(due),
+                    'urgent_order_flag':urgent,'regional_alert_available_at_order':alert,
+                    'regional_alert_level_at_order':level,'capacity_utilization_at_order':round("
+congestion,159,"order={
+                    'purchase_order_id':f'PO2-{today_id:07d}',
+                    'order_date':toiso(today), 'supplier_id':sid,'component_id':comp,'plant_id':pl,
+                    'lane_id':lane.lane_id,'order_quantity_units':units,
+                    'quoted_unit_cost_usd':float(option.quoted_unit_cost_usd),
+                    'promised_lead_days':promised_lead,'promised_receipt_date':toiso(due),
+                    'urgent_order_flag':urgent,'regional_alert_available_at_order':alert,
+                    'regional_alert_level_at_order':level,'capacity_utilization_at_order':round("
+inventory_position,159,"order={
+                    'purchase_order_id':f'PO2-{today_id:07d}',
+                    'order_date':toiso(today), 'supplier_id':sid,'component_id':comp,'plant_id':pl,
+                    'lane_id':lane.lane_id,'order_quantity_units':units,
+                    'quoted_unit_cost_usd':float(option.quoted_unit_cost_usd),
+                    'promised_lead_days':promised_lead,'promised_receipt_date':toiso(due),
+                    'urgent_order_flag':urgent,'regional_alert_available_at_order':alert,
+                    'regional_alert_level_at_order':level,'capacity_utilization_at_order':round("
+target,159,"order={
+                    'purchase_order_id':f'PO2-{today_id:07d}',
+                    'order_date':toiso(today), 'supplier_id':sid,'component_id':comp,'plant_id':pl,
+                    'lane_id':lane.lane_id,'order_quantity_units':units,
+                    'quoted_unit_cost_usd':float(option.quoted_unit_cost_usd),
+                    'promised_lead_days':promised_lead,'promised_receipt_date':toiso(due),
+                    'urgent_order_flag':urgent,'regional_alert_available_at_order':alert,
+                    'regional_alert_level_at_order':level,'capacity_utilization_at_order':round("
+alert,159,"order={
+                    'purchase_order_id':f'PO2-{today_id:07d}',
+                    'order_date':toiso(today), 'supplier_id':sid,'component_id':comp,'plant_id':pl,
+                    'lane_id':lane.lane_id,'order_quantity_units':units,
+                    'quoted_unit_cost_usd':float(option.quoted_unit_cost_usd),
+                    'promised_lead_days':promised_lead,'promised_receipt_date':toiso(due),
+                    'urgent_order_flag':urgent,'regional_alert_available_at_order':alert,
+                    'regional_alert_level_at_order':level,'capacity_utilization_at_order':round("
+level,159,"order={
+                    'purchase_order_id':f'PO2-{today_id:07d}',
+                    'order_date':toiso(today), 'supplier_id':sid,'component_id':comp,'plant_id':pl,
+                    'lane_id':lane.lane_id,'order_quantity_units':units,
+                    'quoted_unit_cost_usd':float(option.quoted_unit_cost_usd),
+                    'promised_lead_days':promised_lead,'promised_receipt_date':toiso(due),
+                    'urgent_order_flag':urgent,'regional_alert_available_at_order':alert,
+                    'regional_alert_level_at_order':level,'capacity_utilization_at_order':round("
+hist_count,159,"order={
+                    'purchase_order_id':f'PO2-{today_id:07d}',
+                    'order_date':toiso(today), 'supplier_id':sid,'component_id':comp,'plant_id':pl,
+                    'lane_id':lane.lane_id,'order_quantity_units':units,
+                    'quoted_unit_cost_usd':float(option.quoted_unit_cost_usd),
+                    'promised_lead_days':promised_lead,'promised_receipt_date':toiso(due),
+                    'urgent_order_flag':urgent,'regional_alert_available_at_order':alert,
+                    'regional_alert_level_at_order':level,'capacity_utilization_at_order':round("
+hist_rate,159,"order={
+                    'purchase_order_id':f'PO2-{today_id:07d}',
+                    'order_date':toiso(today), 'supplier_id':sid,'component_id':comp,'plant_id':pl,
+                    'lane_id':lane.lane_id,'order_quantity_units':units,
+                    'quoted_unit_cost_usd':float(option.quoted_unit_cost_usd),
+                    'promised_lead_days':promised_lead,'promised_receipt_date':toiso(due),
+                    'urgent_order_flag':urgent,'regional_alert_available_at_order':alert,
+                    'regional_alert_level_at_order':level,'capacity_utilization_at_order':round("
+alert,247,"av=('Future realization, NOT available at order time' if col in {'event_end_date','realized_severity'}
+                else 'At or after published/observed date, subject to alert rules')"

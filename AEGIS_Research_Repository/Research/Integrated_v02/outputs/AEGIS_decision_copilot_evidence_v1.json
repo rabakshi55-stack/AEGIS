@@ -1,0 +1,162 @@
+{
+  "critical_limitations": [
+    "Predicted risk is not observed delivery performance.",
+    "Models were trained on synthetic data.",
+    "Model agreement is not causal validation.",
+    "Cross-supplier simulation pairing is not certified.",
+    "Counterfactual operational validity is not certified.",
+    "Same-day booking event order is not certified.",
+    "Documented routes do not prove route approval.",
+    "Quoted cost is not verified landed cost.",
+    "Reserved final evaluation is not certified.",
+    "Real-world benefits have not been demonstrated."
+  ],
+  "deployment_authorized": false,
+  "evidence_version": "129",
+  "experiment_type": "Retrospective synthetic development pilot",
+  "model_validation": [
+    {
+      "model": "Logistic_Regression",
+      "validation_average_precision": 0.283506,
+      "validation_brier_score": 0.151706,
+      "validation_observations": 1721,
+      "validation_roc_auc": 0.611852
+    },
+    {
+      "model": "XGBoost",
+      "validation_average_precision": 0.268332,
+      "validation_brier_score": 0.152696,
+      "validation_observations": 1721,
+      "validation_roc_auc": 0.595827
+    },
+    {
+      "model": "Random_Forest",
+      "validation_average_precision": 0.275342,
+      "validation_brier_score": 0.152397,
+      "validation_observations": 1721,
+      "validation_roc_auc": 0.59198
+    }
+  ],
+  "module": "AEGIS Decision Copilot",
+  "operational_evidence": {
+    "capacity_feasible_under_both_interpretations": 24,
+    "capacity_timing_comparisons": 24,
+    "documented_supplier_routes": 80,
+    "supplier_approval_moq_capacity": "Reconciled in synthetic pilot",
+    "total_supplier_routes": 80
+  },
+  "pilot_scope": {
+    "chronological_policies": 6,
+    "purchase_orders": 16,
+    "simulated_candidate_rows": 40000,
+    "supplier_alternatives": 80
+  },
+  "policy_results": [
+    {
+      "capacity_minus_10pct_feasible": false,
+      "capacity_minus_5pct_feasible": false,
+      "capacity_original_feasible": true,
+      "cost_premium_pct": 0.0,
+      "evidence_source": "step126_step127_verified_outputs",
+      "mean_predicted_late_risk_pct": 34.43675,
+      "models_showing_predicted_improvement": 0,
+      "orders_served": 16,
+      "policy": "Cost_Only",
+      "predicted_risk_reduction_pp": 0.0,
+      "quoted_cost_usd": 1659449.5
+    },
+    {
+      "capacity_minus_10pct_feasible": false,
+      "capacity_minus_5pct_feasible": false,
+      "capacity_original_feasible": true,
+      "cost_premium_pct": 0.14056,
+      "evidence_source": "step126_step127_verified_outputs",
+      "mean_predicted_late_risk_pct": 32.16654,
+      "models_showing_predicted_improvement": 3,
+      "orders_served": 16,
+      "policy": "AI_Plus_1pct",
+      "predicted_risk_reduction_pp": 2.27021,
+      "quoted_cost_usd": 1661782.0
+    },
+    {
+      "capacity_minus_10pct_feasible": false,
+      "capacity_minus_5pct_feasible": false,
+      "capacity_original_feasible": true,
+      "cost_premium_pct": 1.41178,
+      "evidence_source": "step126_step127_verified_outputs",
+      "mean_predicted_late_risk_pct": 28.56701,
+      "models_showing_predicted_improvement": 3,
+      "orders_served": 16,
+      "policy": "AI_Plus_3pct",
+      "predicted_risk_reduction_pp": 5.86974,
+      "quoted_cost_usd": 1682877.25
+    },
+    {
+      "capacity_minus_10pct_feasible": true,
+      "capacity_minus_5pct_feasible": true,
+      "capacity_original_feasible": true,
+      "cost_premium_pct": 2.64946,
+      "evidence_source": "step126_step127_verified_outputs",
+      "mean_predicted_late_risk_pct": 24.13409,
+      "models_showing_predicted_improvement": 3,
+      "orders_served": 16,
+      "policy": "AI_Plus_5pct",
+      "predicted_risk_reduction_pp": 10.30266,
+      "quoted_cost_usd": 1703416.0
+    },
+    {
+      "capacity_minus_10pct_feasible": true,
+      "capacity_minus_5pct_feasible": true,
+      "capacity_original_feasible": true,
+      "cost_premium_pct": 7.61701,
+      "evidence_source": "step126_step127_verified_outputs",
+      "mean_predicted_late_risk_pct": 21.33908,
+      "models_showing_predicted_improvement": 3,
+      "orders_served": 16,
+      "policy": "AI_Plus_10pct",
+      "predicted_risk_reduction_pp": 13.09767,
+      "quoted_cost_usd": 1785850.0
+    },
+    {
+      "capacity_minus_10pct_feasible": true,
+      "capacity_minus_5pct_feasible": true,
+      "capacity_original_feasible": true,
+      "cost_premium_pct": 16.03274,
+      "evidence_source": "step126_step127_verified_outputs",
+      "mean_predicted_late_risk_pct": 17.36178,
+      "models_showing_predicted_improvement": 3,
+      "orders_served": 16,
+      "policy": "AI_Plus_20pct",
+      "predicted_risk_reduction_pp": 17.07497,
+      "quoted_cost_usd": 1925504.75
+    }
+  ],
+  "selected_exploratory_model": "Logistic_Regression",
+  "source_registry": {
+    "capacity_stress": {
+      "file": "AEGIS_step127_capacity_stress.csv",
+      "sha256": "e88abecb0f40953239a1be0d89410e621816d340a3d49ff8135b1c59cf3eea13"
+    },
+    "capacity_timing": {
+      "file": "AEGIS_step128_capacity_timing.csv",
+      "sha256": "37ceb2bfa8a2326c89ccab0cb826c207312c20d09ee088cd1ba51235b18f4405"
+    },
+    "model_robustness": {
+      "file": "AEGIS_step127_model_robustness.csv",
+      "sha256": "373b90cbe06a9c34cfd3184a823b93519e15beecc5007de59841a6640a12aff7"
+    },
+    "policy_comparison": {
+      "file": "AEGIS_step126_policy_comparison.csv",
+      "sha256": "20afc8755cded9d6b9aba0a8d38f9556e8f209daa80128a946fa3af8306658ac"
+    },
+    "route_coverage": {
+      "file": "AEGIS_step128_route_coverage.csv",
+      "sha256": "b05f26f3f12c2999719a9731be7319637b4f81cd10ee6a4d6398c6814bec4544"
+    },
+    "validation_metrics": {
+      "file": "AEGIS_step123_validation_metrics.csv",
+      "sha256": "b26641875df0cadc22090156b40f9a0783c35f9c7b93ccc544d2cfa236cd28ac"
+    }
+  },
+  "system": "AEGIS 4.0"
+}

@@ -1,0 +1,3 @@
+Policy,Decision_Dates,Orders_Seen,Orders_Served,Unserved_Units,Procurement_Cost_USD
+Cost-Only,7,16,16,0,465535.75
+Refreshed-Stochastic,7,16,16,0,458874.26

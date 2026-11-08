@@ -1,0 +1,8 @@
+# Unpinned dependency names only; replace with actual locally tested locked versions.
+# These packages support optional historical benchmark reproduction.
+numpy
+pandas
+scikit-learn
+xgboost
+lightgbm
+catboost

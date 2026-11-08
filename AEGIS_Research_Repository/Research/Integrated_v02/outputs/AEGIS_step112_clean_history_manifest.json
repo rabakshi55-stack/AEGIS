@@ -1,0 +1,18 @@
+{
+  "candidate_pairs": 80,
+  "changed_late_rate_values": 0,
+  "dataset_partition_certified": false,
+  "historical_window_days": 90,
+  "ml_integration_authorized": false,
+  "models_retrained": false,
+  "original_features_modified": false,
+  "original_generator_sha256": "fc5cadd745b00ab4b45700c5d11140c455a9db3feb440ed768a7c49f72beeb6c",
+  "original_vs_clean_count_matches": 80,
+  "original_vs_clean_rate_matches": 80,
+  "predictions_generated": false,
+  "procurement_optimized": false,
+  "smoothing_prior_late": 2,
+  "smoothing_prior_total": 10,
+  "source_dataset_modified": false,
+  "step": 112
+}

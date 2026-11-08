@@ -1,0 +1,75 @@
+History_Cell,Line,Source_Text
+4,21,"    ""promised_lead_days"","
+4,22,"    ""urgent_order_flag"","
+4,23,"    ""regional_alert_available_at_order"","
+4,24,"    ""regional_alert_level_at_order"","
+4,25,"    ""capacity_utilization_at_order"","
+4,26,"    ""logistics_congestion_at_order"","
+4,27,"    ""supplier_completed_orders_past_90d"","
+4,28,"    ""supplier_late_rate_past_90d"","
+4,29,"    ""forecast_daily_requirements_at_order"","
+4,30,"    ""inventory_on_hand_at_order"","
+4,31,"    ""inventory_on_order_at_order"","
+4,32,"    ""reorder_target_units_at_order"","
+4,33,"    ""inventory_position_at_order"""
+4,34,]
+18,22,"    ""landed_cost_usd"""
+18,23,]].merge(
+18,24,    batch[[
+18,25,"        ""purchase_order_id"","
+18,26,"        ""order_date"","
+18,27,"        ""supplier_id"","
+18,28,"        ""supplier_completed_orders_past_90d"","
+18,29,"        ""supplier_late_rate_past_90d"""
+18,30,"    ]],"
+18,31,"    on=""purchase_order_id"","
+18,32,"    how=""left"","
+18,33,"    validate=""many_to_one"","
+18,34,"    suffixes=(""_candidate"", ""_original"")"
+18,35,)
+18,80,"    risk_candidates[""supplier_id_candidate""] =="
+18,81,"    risk_candidates[""supplier_id_original""]"
+18,82,].copy()
+18,83,
+18,84,count_mismatches = (
+18,85,"    original_choices[""candidate_history_count""] !="
+18,86,"    original_choices[""supplier_completed_orders_past_90d""]"
+18,87,).sum()
+18,88,
+18,89,rate_mismatches = (
+18,90,"    original_choices[""candidate_history_late_rate""] !="
+18,91,"    original_choices[""supplier_late_rate_past_90d""]"
+18,92,).sum()
+18,93,
+18,94,"print(""\n2. ORIGINAL SUPPLIER RECONCILIATION"")"
+18,95,"print(""Original supplier records:"", len(original_choices))"
+18,96,"print(""Historical count mismatches:"", count_mismatches)"
+18,97,"print(""Historical late-rate mismatches:"", rate_mismatches)"
+18,100,assert count_mismatches == 0
+18,101,assert rate_mismatches == 0
+18,102,
+18,103,# 5. Compare candidate risk against original supplier
+18,104,"risk_candidates[""historical_risk_difference""] = ("
+18,105,"    risk_candidates[""candidate_history_late_rate""] -"
+18,106,"    risk_candidates[""supplier_late_rate_past_90d""]"
+18,107,)
+18,108,
+18,109,"print(""\n3. ALTERNATIVE RISK COMPARISON"")"
+18,110,
+18,111,print(
+18,112,"    ""Combinations with lower historical risk:"","
+24,74,"        ""promised_lead_days"","
+24,75,"    ""candidate_alert"":"
+24,76,"        ""regional_alert_available_at_order"","
+24,77,"    ""candidate_alert_level"":"
+24,78,"        ""regional_alert_level_at_order"","
+24,79,"    ""candidate_history_count"":"
+24,80,"        ""supplier_completed_orders_past_90d"","
+24,81,"    ""candidate_history_late_rate"":"
+24,82,"        ""supplier_late_rate_past_90d"""
+24,83,})
+24,84,
+24,85,uncertain_features = [
+24,86,"    ""capacity_utilization_at_order"","
+24,87,"    ""logistics_congestion_at_order"""
+24,88,]

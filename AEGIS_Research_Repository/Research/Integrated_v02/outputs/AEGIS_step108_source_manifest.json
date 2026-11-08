@@ -1,0 +1,14 @@
+{
+  "step": 108,
+  "candidate_pairs": 80,
+  "historical_count_matches": 80,
+  "historical_late_rate_matches": 0,
+  "simple_proportion_compatible": 4,
+  "source_assignment_candidates": 0,
+  "feature_calculation_certified": false,
+  "point_in_time_certified": false,
+  "ml_sourcing_integration_authorized": false,
+  "models_retrained": false,
+  "predictions_generated": false,
+  "original_features_modified": false
+}

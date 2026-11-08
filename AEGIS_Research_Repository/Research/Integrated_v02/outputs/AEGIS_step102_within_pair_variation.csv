@@ -1,0 +1,5 @@
+Feature,Source,Candidate_Pairs_Varying,Total_Candidate_Pairs
+capacity_utilization_at_order,Scenario_Source,80,80
+capacity_utilization_at_order,Dynamic,80,80
+logistics_congestion_at_order,Scenario_Source,80,80
+logistics_congestion_at_order,Dynamic,80,80

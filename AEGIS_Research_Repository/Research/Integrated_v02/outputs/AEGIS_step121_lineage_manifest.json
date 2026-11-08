@@ -1,0 +1,20 @@
+{
+  "alert_source_found": true,
+  "complete_timing_certified": false,
+  "counterfactual_validity_certified": false,
+  "daily_sequence_supported": true,
+  "development_partition_passed": true,
+  "direct_target_screen_passed": true,
+  "fitted_model_lineage_certified": false,
+  "historical_timing_supported": true,
+  "ml_integration_authorized": false,
+  "model_features": 18,
+  "models_retrained": false,
+  "operational_integrity_passed": true,
+  "original_data_modified": false,
+  "predictions_generated": false,
+  "reserved_test_certified": false,
+  "step": 121,
+  "training_records": 6243,
+  "validation_records": 1721
+}

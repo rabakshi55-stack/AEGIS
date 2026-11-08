@@ -1,0 +1,24 @@
+{
+  "contract": {
+    "registered_at": "2026-11-06T09:00:00+05:30",
+    "decision_window_start": "2026-11-07T00:00:00+05:30",
+    "decision_window_end": "2026-11-08T23:59:00+05:30",
+    "predeclared_feature_names": ["supplier_region", "quoted_price_cents"]
+  },
+  "opportunities": [
+    {
+      "order_id": "FICTIONAL-001", "decision_at": "2026-11-07T11:00:00+05:30",
+      "features": {
+        "supplier_region": {"value": "West", "known_at": "2026-11-07T08:00:00+05:30", "source_recorded_at": "2026-11-07T08:05:00+05:30"},
+        "quoted_price_cents": {"value": 4200, "known_at": "2026-11-07T09:00:00+05:30", "source_recorded_at": "2026-11-07T09:05:00+05:30"}
+      }
+    },
+    {
+      "order_id": "FICTIONAL-002", "decision_at": "2026-11-07T11:00:00+05:30",
+      "features": {
+        "supplier_region": {"value": "East", "known_at": "2026-11-07T08:00:00+05:30", "source_recorded_at": "2026-11-07T08:05:00+05:30"},
+        "quoted_price_cents": {"value": 4000, "known_at": "2026-11-07T13:00:00+05:30", "source_recorded_at": "2026-11-07T13:05:00+05:30"}
+      }
+    }
+  ]
+}

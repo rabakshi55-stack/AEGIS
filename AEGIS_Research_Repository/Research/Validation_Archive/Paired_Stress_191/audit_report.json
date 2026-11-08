@@ -1,0 +1,44 @@
+{
+  "product": "AEGIS",
+  "experiment": "FULL_MENU_SHARED_SHOCK_SYNTHETIC_STRESS",
+  "research_only": true,
+  "historical_risk_model_used": false,
+  "model_trained_or_modified": false,
+  "real_supplier_causality_established": false,
+  "real_intervention_effect_established": false,
+  "joint_capacity_feasibility_retested": false,
+  "real_quotes_or_contracts_verified": false,
+  "late_delivery_probabilities_estimated": false,
+  "operational_approval": "NOT_GRANTED",
+  "permitted_business_action": "NONE",
+  "original_experiment_replaced": false,
+  "scenario_count": 500,
+  "seed": 191,
+  "order_count": 16,
+  "candidate_pair_count": 80,
+  "paired_rows": 40000,
+  "coverage_percent": 100.0,
+  "component": "CMP-007",
+  "month": "2025-07",
+  "formula": "Illustrative dimensionless stress index = (global_weight * common_shock + (1-global_weight) * region_shock) * (2 - synthetic_contract_on_time_target). The formula and weights are assumptions, not fitted or validated effects.",
+  "sensitivity_global_weights": [
+    0.25,
+    0.6,
+    0.85
+  ],
+  "source_sha256": {
+    "purchase_orders.csv": "e899a6d377e5dedd2d39ca6e609cb284fbcd511c6c17dc1dbbb2e324f4263113",
+    "supplier_component_options.csv": "3ec00307b6da87eea82cbaf9ae543cf0a7a30b1992b0beae9e9153937ebb0921",
+    "transport_lanes.csv": "7ebc1b81974de27c74fe9e68586d6b523dfbf0000bd053aae5fabf2a46c3a2fd",
+    "suppliers.csv": "87447e263df56a9545ca713aca6ca14561d0a60df8cea7fafca4d693caef5fb7"
+  },
+  "independent_checks": {
+    "all_menu_pairs_covered": true,
+    "unique_scenario_order_supplier_rows": true,
+    "identical_scenario_count_per_pair": true,
+    "one_baseline_per_order": true,
+    "baseline_compares_to_itself_exactly": true,
+    "all_scenarios_have_common_shock_vector": true
+  },
+  "interpretation": "This repairs the candidate-coverage gap only for a NEW illustrative stress experiment. It does not complete the original frozen-model simulation, provide observed delivery outcomes, calibrate predictions, prove causal supplier benefits, or justify procurement."
+}

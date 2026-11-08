@@ -1,0 +1,13 @@
+{
+  "dataset_generator_equivalence_certified": false,
+  "dataset_partition_certified": false,
+  "models_retrained": false,
+  "orders_audited": 12544,
+  "predictions_generated": false,
+  "procurement_optimized": false,
+  "reconstructions_differ": 11892,
+  "source_data_modified": false,
+  "source_generator_sha256": "fc5cadd745b00ab4b45700c5d11140c455a9db3feb440ed768a7c49f72beeb6c",
+  "step": 114,
+  "supplier_count": 57
+}

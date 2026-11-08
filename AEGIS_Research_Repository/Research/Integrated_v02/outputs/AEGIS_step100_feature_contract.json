@@ -1,0 +1,29 @@
+{
+  "training_feature_order": [
+    "supplier_id",
+    "component_id",
+    "plant_id",
+    "order_quantity_units",
+    "quoted_unit_cost_usd",
+    "promised_lead_days",
+    "urgent_order_flag",
+    "regional_alert_available_at_order",
+    "regional_alert_level_at_order",
+    "capacity_utilization_at_order",
+    "logistics_congestion_at_order",
+    "supplier_completed_orders_past_90d",
+    "supplier_late_rate_past_90d",
+    "forecast_daily_requirements_at_order",
+    "inventory_on_hand_at_order",
+    "inventory_on_order_at_order",
+    "reorder_target_units_at_order",
+    "inventory_position_at_order"
+  ],
+  "feature_sha256": "355b77ad30081569d34a5307f0eac873dfa7e40e84fae581a200105cfe92445f",
+  "structural_gate_passed": false,
+  "model_predictions_generated": false,
+  "models_retrained": false,
+  "reserved_test_accessed": false,
+  "point_in_time_safety_confirmed": false,
+  "counterfactual_validity_confirmed": false
+}

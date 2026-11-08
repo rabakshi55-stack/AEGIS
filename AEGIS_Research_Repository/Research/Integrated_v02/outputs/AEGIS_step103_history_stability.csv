@@ -1,0 +1,3 @@
+Feature,Candidate_Pairs,Pairs_With_Varying_History
+supplier_completed_orders_past_90d,80,0
+supplier_late_rate_past_90d,80,0

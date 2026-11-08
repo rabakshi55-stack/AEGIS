@@ -1,0 +1,26 @@
+{
+  "version": "v0.2",
+  "dataset_type": "100% synthetic",
+  "seed": 4202602,
+  "date_start": "2024-01-01",
+  "date_end": "2026-06-30",
+  "orders": 12544,
+  "late_receipt_rate": 0.22441,
+  "demand_records": 65664,
+  "inventory_monthly_records": 3600,
+  "components": 30,
+  "plants": 4,
+  "active_suppliers": 57,
+  "inventories_with_shortages": 2005,
+  "total_requirements": 7710553,
+  "total_receipts": 6240777,
+  "total_unmet": 1056361,
+  "inventory_conservation": "PASS",
+  "known_limitations": [
+    "No observed corporate data or calibrated business costs",
+    "Finished good order fulfillment is not fully simulated",
+    "Weekly planning uses assumed prior + trailing realized component requirements",
+    "Future disruption realization shapes outcomes but is never order-time feature",
+    "Demand simulation and delay generation are synthetic and may bias ML benchmarks"
+  ]
+}

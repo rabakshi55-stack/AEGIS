@@ -1,0 +1,2988 @@
+Source,Code_Unit,Line,Category,Source_Line,Context
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\AEGIS_step82.py,SCRIPT,47,Holdout_References,print('No test or reserved holdout used'),"print('Hypothetical paths:', paths_82)
+print('Original capacity:', initial_82)
+print('Daily premium allowance:', allowance_82)
+print('No test or reserved holdout used')
+
+# Exact full-path recourse at each decision state: planning approximation only.
+# Important: future_82 contains *simulated* orders, not true later actual_82 orders."
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\AEGIS_step82.py,SCRIPT,115,Chronological_Controls,today = today.sort_values('purchase_order_id'),"    baseline_cost = float(baseline['landed_cost_usd'].sum())
+    budget = baseline_cost * (1 + allowance_82) + 0.01
+
+    today = today.sort_values('purchase_order_id')
+    options = options.reset_index(drop=True)
+    ids = today['purchase_order_id'].tolist()
+    q_map = today.set_index('purchase_order_id')['order_quantity_units'].to_dict()"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\AEGIS_step83.py,SCRIPT,225,Holdout_References,print('This is NOT an independent holdout or real-world savings estimate.'),"print('Stochastic recourse assumes full knowledge of each simulated path.')
+print('The same three pre-generated planning paths are reused across dates.')
+print('Simulation beliefs are not refreshed with observed demand.')
+print('This is NOT an independent holdout or real-world savings estimate.')
+print('Delivery-risk ML is not yet integrated into the sourcing objective.')
+print('\nSTEP 83 COMPLETE')"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\AEGIS_step84.py,SCRIPT,3,Holdout_References,"# Diagnostic only. Does NOT retrain, retune, reoptimize or inspect any holdout.","# AEGIS 4.0 — Step 84: Full-horizon policy cost and capacity attribution
+# Run from the same live notebook with: %run -i AEGIS_step84.py
+# Diagnostic only. Does NOT retrain, retune, reoptimize or inspect any holdout.
+
+from pathlib import Path
+import hashlib"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\AEGIS_step84.py,SCRIPT,76,Chronological_Controls,).sort_values('Date'),"    Orders=('purchase_order_id','size'),
+    Changed_Assignments=('Supplier_Changed','sum'),
+    Cost_Only_Minus_Stochastic_USD=('Cost_Only_Minus_Stochastic_USD','sum')
+).sort_values('Date')
+daily_84['Cumulative_Advantage_USD'] = daily_84['Cost_Only_Minus_Stochastic_USD'].cumsum()
+assert len(daily_84)==7
+assert np.isclose(daily_84['Cumulative_Advantage_USD'].iloc[2],289.74,atol=.02)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\AEGIS_step84.py,SCRIPT,154,Chronological_Controls,"print(option_df_84.sort_values(['purchase_order_id','Policy','Landed_Cost_USD'])","option_df_84=pd.DataFrame(option_diagnostics_84)
+print('\n5. FINAL-DATE INDIVIDUAL OPTION AVAILABILITY')
+print('These options are checked individually, not as a joint allocation.')
+print(option_df_84.sort_values(['purchase_order_id','Policy','Landed_Cost_USD'])
+      .to_string(index=False,float_format=lambda x:f'{x:.2f}'))
+
+# 7. Integrity + reproducible outputs"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\AEGIS_step84.py,SCRIPT,181,Holdout_References,print('PASS: No reserved holdout or final ML test accessed.'),"print('PASS: Final-date option and capacity snapshots prepared.')
+print('PASS: No new supplier allocations optimized.')
+print('PASS: Original planning bank unchanged.')
+print('PASS: No reserved holdout or final ML test accessed.')
+print('\nLIMITATIONS')
+print('This is a retrospective synthetic development-case attribution.')
+print('Different capacity states can change daily feasible allocations.')"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\generate_v02.py,SCRIPT,20,Source_Loading,def load(name): return pd.read_csv(SRC/name),"DEST.mkdir(exist_ok=True)
+START, END = date(2024,1,1),date(2026,6,30)
+
+def load(name): return pd.read_csv(SRC/name)
+def toiso(d): return d.isoformat()
+def logistic(z): return 1/(1+math.exp(-z))
+def capped(z, lo, hi): return max(lo,min(hi,z))"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\verify_v02.py,SCRIPT,8,Source_Loading,read=lambda name: pd.read_csv(D/name),"import pandas as pd
+ROOT=Path(__file__).resolve().parent
+D=ROOT/'data'
+read=lambda name: pd.read_csv(D/name)
+orders=read('purchase_orders.csv')
+stock=read('component_inventory_monthly.csv')
+options=read('supplier_component_options.csv')"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\verify_v02.py,SCRIPT,58,Chronological_Controls,"by_sid={sid:g.sort_values('actual_receipt_date') for sid,g in orders.groupby('supplier_id')}","print('PASS: Delay labels, dates, inventory-position identity, positive replenishment triggers')
+
+# Independently reconstruct historical supplier data with *completed* deliveries only.
+by_sid={sid:g.sort_values('actual_receipt_date') for sid,g in orders.groupby('supplier_id')}
+mismatches=0
+for sid, group in by_sid.items():
+    completed=group.actual_receipt_date.to_numpy(dtype='datetime64[ns]')"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_3,10,Source_Loading,data = pd.read_csv(,"print(""="" * 60)
+
+# Load Version 0.2 data
+data = pd.read_csv(
+    Path(""data"") / ""purchase_orders.csv"",
+    parse_dates=[
+        ""order_date"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_3,25,Chronological_Controls,train_end = validation_start - embargo,"
+embargo = pd.Timedelta(days=60)
+
+train_end = validation_start - embargo
+validation_end = testing_start - embargo
+
+# Partition using order dates only"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_3,30,Chronological_Controls,"data[""order_date""] < train_end","
+# Partition using order dates only
+train_v02 = data[
+    data[""order_date""] < train_end
+].copy()
+
+val_v02 = data["
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_3,38,Holdout_References,test_v02 = data[,"    (data[""order_date""] < validation_end)
+].copy()
+
+test_v02 = data[
+    data[""order_date""] >= testing_start
+].copy()
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_3,47,Holdout_References,"(""Testing"", test_v02)","for name, subset in [
+    (""Training"", train_v02),
+    (""Validation"", val_v02),
+    (""Testing"", test_v02)
+]:
+    print(f""\n{name}"")
+    print(""Records:"", len(subset))"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_3,77,Holdout_References,"test_v02[""purchase_order_id""]","all_ids = pd.concat([
+    train_v02[""purchase_order_id""],
+    val_v02[""purchase_order_id""],
+    test_v02[""purchase_order_id""]
+])
+
+duplicate_count = all_ids.duplicated().sum()"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_3,89,Holdout_References,len(test_v02),"retained = (
+    len(train_v02) +
+    len(val_v02) +
+    len(test_v02)
+)
+
+print(""Original records:"", len(data))"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_3,106,Holdout_References,"test_v02[""actual_receipt_date""].max()","
+print(
+    ""Latest test outcome:"",
+    test_v02[""actual_receipt_date""].max()
+)
+
+print(""\n6. FINAL VERIFICATION"")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_4,10,Source_Loading,dictionary = pd.read_csv(,"print(""="" * 60)
+
+# Load the Version 0.2 data dictionary
+dictionary = pd.read_csv(
+    Path(""data"") / ""data_dictionary.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_4,71,Holdout_References,"(""Testing"", test_v02)","for name, subset in [
+    (""Training"", train_v02),
+    (""Validation"", val_v02),
+    (""Testing"", test_v02)
+]:
+    missing = subset[candidate_features].isna().sum().sum()
+    print(f""{name}: {missing}"")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_4,98,Holdout_References,test_values = set(test_v02[col]),"for col in categorical:
+    train_values = set(train_v02[col])
+    val_values = set(val_v02[col])
+    test_values = set(test_v02[col])
+
+    print(
+        col,"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_4,126,Holdout_References,"(""Testing"", test_v02)","for name, subset in [
+    (""Training"", train_v02),
+    (""Validation"", val_v02),
+    (""Testing"", test_v02)
+]:
+    print(
+        name,"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_5,44,Partition_Variables,X_train = train_v02[candidate_features].copy(),"    if col not in categorical_features
+]
+
+X_train = train_v02[candidate_features].copy()
+X_val = val_v02[candidate_features].copy()
+
+y_train = train_v02[target].astype(int)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_5,45,Partition_Variables,X_val = val_v02[candidate_features].copy(),"]
+
+X_train = train_v02[candidate_features].copy()
+X_val = val_v02[candidate_features].copy()
+
+y_train = train_v02[target].astype(int)
+y_val = val_v02[target].astype(int)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_5,47,Partition_Variables,y_train = train_v02[target].astype(int),"X_train = train_v02[candidate_features].copy()
+X_val = val_v02[candidate_features].copy()
+
+y_train = train_v02[target].astype(int)
+y_val = val_v02[target].astype(int)
+
+assert X_train.shape[0] == 6243"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_5,48,Partition_Variables,y_val = val_v02[target].astype(int),"X_val = val_v02[candidate_features].copy()
+
+y_train = train_v02[target].astype(int)
+y_val = val_v02[target].astype(int)
+
+assert X_train.shape[0] == 6243
+assert X_val.shape[0] == 1721"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_5,50,Partition_Variables,assert X_train.shape[0] == 6243,"y_train = train_v02[target].astype(int)
+y_val = val_v02[target].astype(int)
+
+assert X_train.shape[0] == 6243
+assert X_val.shape[0] == 1721
+assert set(y_train.unique()) == {0, 1}
+assert set(y_val.unique()) == {0, 1}"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_5,51,Partition_Variables,assert X_val.shape[0] == 1721,"y_val = val_v02[target].astype(int)
+
+assert X_train.shape[0] == 6243
+assert X_val.shape[0] == 1721
+assert set(y_train.unique()) == {0, 1}
+assert set(y_val.unique()) == {0, 1}
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_5,52,Partition_Variables,"assert set(y_train.unique()) == {0, 1}","
+assert X_train.shape[0] == 6243
+assert X_val.shape[0] == 1721
+assert set(y_train.unique()) == {0, 1}
+assert set(y_val.unique()) == {0, 1}
+
+print(""\n1. DATA CONFIGURATION"")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_5,53,Partition_Variables,"assert set(y_val.unique()) == {0, 1}","assert X_train.shape[0] == 6243
+assert X_val.shape[0] == 1721
+assert set(y_train.unique()) == {0, 1}
+assert set(y_val.unique()) == {0, 1}
+
+print(""\n1. DATA CONFIGURATION"")
+print(""Training records:"", len(X_train))"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_5,56,Partition_Variables,"print(""Training records:"", len(X_train))","assert set(y_val.unique()) == {0, 1}
+
+print(""\n1. DATA CONFIGURATION"")
+print(""Training records:"", len(X_train))
+print(""Validation records:"", len(X_val))
+print(""Categorical features:"", len(categorical_features))
+print(""Numerical features:"", len(numerical_features))"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_5,57,Partition_Variables,"print(""Validation records:"", len(X_val))","
+print(""\n1. DATA CONFIGURATION"")
+print(""Training records:"", len(X_train))
+print(""Validation records:"", len(X_val))
+print(""Categorical features:"", len(categorical_features))
+print(""Numerical features:"", len(numerical_features))
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_5,89,Partition_Variables,"dummy_model.fit(X_train, y_train)","    strategy=""prior""
+)
+
+dummy_model.fit(X_train, y_train)
+
+dummy_prob = dummy_model.predict_proba(X_val)[:, 1]
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_5,89,Model_Fitting,"dummy_model.fit(X_train, y_train)","    strategy=""prior""
+)
+
+dummy_model.fit(X_train, y_train)
+
+dummy_prob = dummy_model.predict_proba(X_val)[:, 1]
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_5,91,Partition_Variables,"dummy_prob = dummy_model.predict_proba(X_val)[:, 1]","
+dummy_model.fit(X_train, y_train)
+
+dummy_prob = dummy_model.predict_proba(X_val)[:, 1]
+
+# -------------------------------------------------
+# 4. Baseline B: Logistic Regression"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_5,110,Partition_Variables,"logistic_model.fit(X_train, y_train)","    ]
+)
+
+logistic_model.fit(X_train, y_train)
+
+logistic_prob = logistic_model.predict_proba(X_val)[:, 1]
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_5,110,Model_Fitting,"logistic_model.fit(X_train, y_train)","    ]
+)
+
+logistic_model.fit(X_train, y_train)
+
+logistic_prob = logistic_model.predict_proba(X_val)[:, 1]
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_5,112,Partition_Variables,"logistic_prob = logistic_model.predict_proba(X_val)[:, 1]","
+logistic_model.fit(X_train, y_train)
+
+logistic_prob = logistic_model.predict_proba(X_val)[:, 1]
+
+# -------------------------------------------------
+# 5. Model evaluation"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_5,165,Partition_Variables,y_val,"    evaluate_model(
+        ""Dummy Classifier"",
+        dummy_prob,
+        y_val
+    ),
+    evaluate_model(
+        ""Logistic Regression"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_5,170,Partition_Variables,y_val,"    evaluate_model(
+        ""Logistic Regression"",
+        logistic_prob,
+        y_val
+    )
+])
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_5,203,Partition_Variables,"print(""Actual late receipt rate:"", round(y_val.mean(), 4))","    )
+
+print(""\n4. VALIDATION CLASS PREVALENCE"")
+print(""Actual late receipt rate:"", round(y_val.mean(), 4))
+
+print(""\n5. DATA LEAKAGE CONTROL"")
+print(""Preprocessing fitted on training data only."")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_6,16,Partition_Variables,actual = y_val.to_numpy(),"print(""AEGIS 4.0 - RISK THRESHOLD AND SIGNAL AUDIT"")
+print(""="" * 65)
+
+actual = y_val.to_numpy()
+probabilities = np.asarray(logistic_prob)
+
+assert len(actual) == len(probabilities) == 1721"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_7,38,Partition_Variables,"rf_model.fit(X_train, y_train)","])
+
+# Train using training data only
+rf_model.fit(X_train, y_train)
+
+rf_train_prob = rf_model.predict_proba(X_train)[:, 1]
+rf_val_prob = rf_model.predict_proba(X_val)[:, 1]"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_7,38,Model_Fitting,"rf_model.fit(X_train, y_train)","])
+
+# Train using training data only
+rf_model.fit(X_train, y_train)
+
+rf_train_prob = rf_model.predict_proba(X_train)[:, 1]
+rf_val_prob = rf_model.predict_proba(X_val)[:, 1]"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_7,40,Partition_Variables,"rf_train_prob = rf_model.predict_proba(X_train)[:, 1]","# Train using training data only
+rf_model.fit(X_train, y_train)
+
+rf_train_prob = rf_model.predict_proba(X_train)[:, 1]
+rf_val_prob = rf_model.predict_proba(X_val)[:, 1]
+
+# 2. Compare ranking and probability quality"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_7,41,Partition_Variables,"rf_val_prob = rf_model.predict_proba(X_val)[:, 1]","rf_model.fit(X_train, y_train)
+
+rf_train_prob = rf_model.predict_proba(X_train)[:, 1]
+rf_val_prob = rf_model.predict_proba(X_val)[:, 1]
+
+# 2. Compare ranking and probability quality
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_7,57,Partition_Variables,"y_val, logistic_prob","
+comparison = pd.DataFrame({
+    ""Logistic Regression"": probability_metrics(
+        y_val, logistic_prob
+    ),
+    ""Random Forest"": probability_metrics(
+        y_val, rf_val_prob"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_7,60,Partition_Variables,"y_val, rf_val_prob","        y_val, logistic_prob
+    ),
+    ""Random Forest"": probability_metrics(
+        y_val, rf_val_prob
+    )
+}).T
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_7,71,Partition_Variables,"train_auc = roc_auc_score(y_train, rf_train_prob)","
+print(""\n2. OVERFITTING DIAGNOSTIC"")
+
+train_auc = roc_auc_score(y_train, rf_train_prob)
+val_auc = roc_auc_score(y_val, rf_val_prob)
+
+print(""Random Forest training ROC-AUC:"", round(train_auc, 4))"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_7,72,Partition_Variables,"val_auc = roc_auc_score(y_val, rf_val_prob)","print(""\n2. OVERFITTING DIAGNOSTIC"")
+
+train_auc = roc_auc_score(y_train, rf_train_prob)
+val_auc = roc_auc_score(y_val, rf_val_prob)
+
+print(""Random Forest training ROC-AUC:"", round(train_auc, 4))
+print(""Random Forest validation ROC-AUC:"", round(val_auc, 4))"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_7,91,Partition_Variables,"y_val, pred, labels=[0, 1]","    pred = (prob >= threshold).astype(int)
+
+    tn, fp, fn, tp = confusion_matrix(
+        y_val, pred, labels=[0, 1]
+    ).ravel()
+
+    print(f""\n{name}"")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_7,100,Partition_Variables,"precision_score(y_val, pred, zero_division=0), 4","    print(""False positives:"", fp)
+    print(""False negatives:"", fn)
+    print(""Precision:"", round(
+        precision_score(y_val, pred, zero_division=0), 4
+    ))
+    print(""Recall:"", round(
+        recall_score(y_val, pred, zero_division=0), 4"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_7,103,Partition_Variables,"recall_score(y_val, pred, zero_division=0), 4","        precision_score(y_val, pred, zero_division=0), 4
+    ))
+    print(""Recall:"", round(
+        recall_score(y_val, pred, zero_division=0), 4
+    ))
+    print(""F1:"", round(
+        f1_score(y_val, pred, zero_division=0), 4"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_7,106,Partition_Variables,"f1_score(y_val, pred, zero_division=0), 4","        recall_score(y_val, pred, zero_division=0), 4
+    ))
+    print(""F1:"", round(
+        f1_score(y_val, pred, zero_division=0), 4
+    ))
+
+# 5. Compare highest-risk 20% of orders"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_7,113,Partition_Variables,actual = y_val.to_numpy(),"
+print(""\n4. TOP 20% RISK CONCENTRATION"")
+
+actual = y_val.to_numpy()
+top_n = round(len(actual) * 0.20)
+
+for name, prob in ["
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_7,150,Partition_Variables,"print(""Actual late rate:"", round(float(y_val.mean()), 4))","print(""Minimum predicted risk:"", round(rf_val_prob.min(), 4))
+print(""Maximum predicted risk:"", round(rf_val_prob.max(), 4))
+print(""Mean predicted risk:"", round(rf_val_prob.mean(), 4))
+print(""Actual late rate:"", round(float(y_val.mean()), 4))
+
+print(""\nRandom Forest experiment completed."")
+print(""Validation only. Test set untouched."")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_8,36,Partition_Variables,"rf_simple.fit(X_train, y_train)","    ))
+])
+
+rf_simple.fit(X_train, y_train)
+
+simple_train_prob = rf_simple.predict_proba(
+    X_train"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_8,36,Model_Fitting,"rf_simple.fit(X_train, y_train)","    ))
+])
+
+rf_simple.fit(X_train, y_train)
+
+simple_train_prob = rf_simple.predict_proba(
+    X_train"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_8,39,Partition_Variables,X_train,"rf_simple.fit(X_train, y_train)
+
+simple_train_prob = rf_simple.predict_proba(
+    X_train
+)[:, 1]
+
+simple_val_prob = rf_simple.predict_proba("
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_8,43,Partition_Variables,X_val,")[:, 1]
+
+simple_val_prob = rf_simple.predict_proba(
+    X_val
+)[:, 1]
+
+# ---------------------------------------------------"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_8,52,Partition_Variables,"train_prob = model.predict_proba(X_train)[:, 1]","
+def get_metrics(name, model, val_prob):
+
+    train_prob = model.predict_proba(X_train)[:, 1]
+
+    train_auc = roc_auc_score(y_train, train_prob)
+    val_auc = roc_auc_score(y_val, val_prob)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_8,54,Partition_Variables,"train_auc = roc_auc_score(y_train, train_prob)","
+    train_prob = model.predict_proba(X_train)[:, 1]
+
+    train_auc = roc_auc_score(y_train, train_prob)
+    val_auc = roc_auc_score(y_val, val_prob)
+
+    return {"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_8,55,Partition_Variables,"val_auc = roc_auc_score(y_val, val_prob)","    train_prob = model.predict_proba(X_train)[:, 1]
+
+    train_auc = roc_auc_score(y_train, train_prob)
+    val_auc = roc_auc_score(y_val, val_prob)
+
+    return {
+        ""Model"": name,"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_8,63,Partition_Variables,"y_val, val_prob","        ""Val AUC"": val_auc,
+        ""AUC Gap"": train_auc - val_auc,
+        ""PR-AUC"": average_precision_score(
+            y_val, val_prob
+        ),
+        ""Brier"": brier_score_loss(
+            y_val, val_prob"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_8,66,Partition_Variables,"y_val, val_prob","            y_val, val_prob
+        ),
+        ""Brier"": brier_score_loss(
+            y_val, val_prob
+        ),
+        ""Log Loss"": log_loss(
+            y_val, val_prob,"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_8,69,Partition_Variables,"y_val, val_prob,","            y_val, val_prob
+        ),
+        ""Log Loss"": log_loss(
+            y_val, val_prob,
+            labels=[0, 1]
+        )
+    }"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_8,101,Partition_Variables,actual = y_val.to_numpy(),"
+print(""\n2. TOP 20% RISK CONCENTRATION"")
+
+actual = y_val.to_numpy()
+top_n = round(len(actual) * 0.20)
+
+models = {"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_8,156,Partition_Variables,"print(""Training records:"", len(X_train))","    ))
+
+print(""\n4. VALIDATION CONTROLS"")
+print(""Training records:"", len(X_train))
+print(""Validation records:"", len(X_val))
+print(""Test data not used."")
+print(""Preprocessing fitted on training only."")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_8,157,Partition_Variables,"print(""Validation records:"", len(X_val))","
+print(""\n4. VALIDATION CONTROLS"")
+print(""Training records:"", len(X_train))
+print(""Validation records:"", len(X_val))
+print(""Test data not used."")
+print(""Preprocessing fitted on training only."")
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_9,56,Partition_Variables,"xgb_model.fit(X_train, y_train)","])
+
+# Train exclusively on training records
+xgb_model.fit(X_train, y_train)
+
+xgb_train_prob = xgb_model.predict_proba(
+    X_train"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_9,56,Model_Fitting,"xgb_model.fit(X_train, y_train)","])
+
+# Train exclusively on training records
+xgb_model.fit(X_train, y_train)
+
+xgb_train_prob = xgb_model.predict_proba(
+    X_train"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_9,59,Partition_Variables,X_train,"xgb_model.fit(X_train, y_train)
+
+xgb_train_prob = xgb_model.predict_proba(
+    X_train
+)[:, 1]
+
+xgb_val_prob = xgb_model.predict_proba("
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_9,63,Partition_Variables,X_val,")[:, 1]
+
+xgb_val_prob = xgb_model.predict_proba(
+    X_val
+)[:, 1]
+
+# ---------------------------------------------------"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_9,72,Partition_Variables,"train_prob = model.predict_proba(X_train)[:, 1]","
+def compare_probabilities(name, model, val_prob):
+
+    train_prob = model.predict_proba(X_train)[:, 1]
+
+    train_auc = roc_auc_score(y_train, train_prob)
+    val_auc = roc_auc_score(y_val, val_prob)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_9,74,Partition_Variables,"train_auc = roc_auc_score(y_train, train_prob)","
+    train_prob = model.predict_proba(X_train)[:, 1]
+
+    train_auc = roc_auc_score(y_train, train_prob)
+    val_auc = roc_auc_score(y_val, val_prob)
+
+    return {"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_9,75,Partition_Variables,"val_auc = roc_auc_score(y_val, val_prob)","    train_prob = model.predict_proba(X_train)[:, 1]
+
+    train_auc = roc_auc_score(y_train, train_prob)
+    val_auc = roc_auc_score(y_val, val_prob)
+
+    return {
+        ""Model"": name,"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_9,83,Partition_Variables,"y_val, val_prob","        ""Val AUC"": val_auc,
+        ""AUC Gap"": train_auc - val_auc,
+        ""PR-AUC"": average_precision_score(
+            y_val, val_prob
+        ),
+        ""Brier"": brier_score_loss(
+            y_val, val_prob"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_9,86,Partition_Variables,"y_val, val_prob","            y_val, val_prob
+        ),
+        ""Brier"": brier_score_loss(
+            y_val, val_prob
+        ),
+        ""Log Loss"": log_loss(
+            y_val, val_prob,"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_9,89,Partition_Variables,"y_val, val_prob,","            y_val, val_prob
+        ),
+        ""Log Loss"": log_loss(
+            y_val, val_prob,
+            labels=[0, 1]
+        )
+    }"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_9,121,Partition_Variables,actual = y_val.to_numpy(),"
+print(""\n2. TOP 20% RISK COMPARISON"")
+
+actual = y_val.to_numpy()
+top_n = round(len(actual) * 0.20)
+
+model_probabilities = {"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_9,177,Partition_Variables,"print(""Actual validation late rate:"", round(y_val.mean(), 4))","print(""Maximum:"", round(xgb_val_prob.max(), 4))
+print(""Mean:"", round(xgb_val_prob.mean(), 4))
+print(""Standard deviation:"", round(xgb_val_prob.std(), 4))
+print(""Actual validation late rate:"", round(y_val.mean(), 4))
+
+# ---------------------------------------------------
+# 5. Experiment integrity"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_9,185,Partition_Variables,"print(""Training records:"", len(X_train))","
+print(""\n4. EXPERIMENT VALIDATION"")
+
+print(""Training records:"", len(X_train))
+print(""Validation records:"", len(X_val))
+print(""Test data not used."")
+print(""Preprocessing fitted using training records only."")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_9,186,Partition_Variables,"print(""Validation records:"", len(X_val))","print(""\n4. EXPERIMENT VALIDATION"")
+
+print(""Training records:"", len(X_train))
+print(""Validation records:"", len(X_val))
+print(""Test data not used."")
+print(""Preprocessing fitted using training records only."")
+print(""No validation-based hyperparameter tuning performed."")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_10,9,Partition_Variables,actual = y_val.to_numpy(dtype=int),"print(""AEGIS 4.0 - BOOTSTRAP MODEL RELIABILITY AUDIT"")
+print(""="" * 65)
+
+actual = y_val.to_numpy(dtype=int)
+lr_prob = np.asarray(logistic_prob, dtype=float)
+xgb_prob = np.asarray(xgb_val_prob, dtype=float)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_11,29,Source_Loading,"sample = pd.read_csv(file, nrows=5)","
+for file in csv_files:
+
+    sample = pd.read_csv(file, nrows=5)
+
+    matched_columns = [
+        col for col in sample.columns"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_11,51,Source_Loading,orders = pd.read_csv(,"
+print(""\n3. PURCHASE ORDER COST AVAILABILITY"")
+
+orders = pd.read_csv(
+    data_dir / ""purchase_orders.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_12,12,Source_Loading,orders = pd.read_csv(,"
+data_dir = Path(""data"")
+
+orders = pd.read_csv(
+    data_dir / ""purchase_orders.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_12,16,Source_Loading,options = pd.read_csv(,"    data_dir / ""purchase_orders.csv""
+)
+
+options = pd.read_csv(
+    data_dir / ""supplier_component_options.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_12,20,Source_Loading,lanes = pd.read_csv(,"    data_dir / ""supplier_component_options.csv""
+)
+
+lanes = pd.read_csv(
+    data_dir / ""transport_lanes.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_13,11,Source_Loading,options = pd.read_csv(,"
+data_dir = Path(""data"")
+
+options = pd.read_csv(
+    data_dir / ""supplier_component_options.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_13,15,Source_Loading,lanes = pd.read_csv(,"    data_dir / ""supplier_component_options.csv""
+)
+
+lanes = pd.read_csv(
+    data_dir / ""transport_lanes.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_14,12,Source_Loading,all_orders = pd.read_csv(,"
+data_dir = Path(""data"")
+
+all_orders = pd.read_csv(
+    data_dir / ""purchase_orders.csv"",
+    parse_dates=[""order_date""]
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_14,17,Source_Loading,supplier_options = pd.read_csv(,"    parse_dates=[""order_date""]
+)
+
+supplier_options = pd.read_csv(
+    data_dir / ""supplier_component_options.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_16,15,Source_Loading,orders = pd.read_csv(,"
+data_dir = Path(""data"")
+
+orders = pd.read_csv(
+    data_dir / ""purchase_orders.csv"",
+    parse_dates=[""order_date""]
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_16,20,Source_Loading,options = pd.read_csv(,"    parse_dates=[""order_date""]
+)
+
+options = pd.read_csv(
+    data_dir / ""supplier_component_options.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_16,24,Source_Loading,lanes = pd.read_csv(,"    data_dir / ""supplier_component_options.csv""
+)
+
+lanes = pd.read_csv(
+    data_dir / ""transport_lanes.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_16,43,Chronological_Controls,"].sort_values(""purchase_order_id"").reset_index(drop=True)","        .dt.to_period(""M"")
+        .astype(str) == month
+    )
+].sort_values(""purchase_order_id"").reset_index(drop=True)
+
+batch[""order_idx""] = np.arange(len(batch))
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_18,11,Source_Loading,history = pd.read_csv(,"print(""="" * 65)
+
+# 1. Load historical purchase-order outcomes
+history = pd.read_csv(
+    Path(""data"") / ""purchase_orders.csv"",
+    parse_dates=[""order_date"", ""actual_receipt_date""]
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_18,52,Chronological_Controls,cutoff = row.order_date,"
+for row in risk_candidates.itertuples(index=False):
+
+    cutoff = row.order_date
+
+    supplier_history = history[
+        (history[""supplier_id""] =="
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_18,57,Chronological_Controls,"(history[""actual_receipt_date""] < cutoff) &","    supplier_history = history[
+        (history[""supplier_id""] ==
+         row.supplier_id_candidate) &
+        (history[""actual_receipt_date""] < cutoff) &
+        (
+            history[""actual_receipt_date""] >=
+            cutoff - pd.Timedelta(days=90)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_18,60,Chronological_Controls,cutoff - pd.Timedelta(days=90),"        (history[""actual_receipt_date""] < cutoff) &
+        (
+            history[""actual_receipt_date""] >=
+            cutoff - pd.Timedelta(days=90)
+        )
+    ]
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_20,11,Source_Loading,suppliers_28 = pd.read_csv(,"
+data_dir = Path(""data"")
+
+suppliers_28 = pd.read_csv(
+    data_dir / ""suppliers.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_20,15,Source_Loading,events_28 = pd.read_csv(,"    data_dir / ""suppliers.csv""
+)
+
+events_28 = pd.read_csv(
+    data_dir / ""disruption_events.csv"",
+    parse_dates=[""alert_published_date""]
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_21,11,Source_Loading,order_book = pd.read_csv(,"print(""="" * 65)
+
+# 1. Load the original purchase-order sequence
+order_book = pd.read_csv(
+    Path(""data"") / ""purchase_orders.csv"",
+    parse_dates=[""order_date""]
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_21,30,Chronological_Controls,order_book = order_book.sort_values(,"
+assert order_book[""order_sequence""].is_unique
+
+order_book = order_book.sort_values(
+    ""order_sequence""
+).copy()
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_21,78,Chronological_Controls,"group = group.sort_values(""order_sequence"")","
+for key, group in order_book.groupby(keys):
+
+    group = group.sort_values(""order_sequence"")
+
+    booking_lookup[key] = (
+        group[""order_sequence""].to_numpy(),"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_22,14,Source_Loading,contracts_30 = pd.read_csv(,"# 1. Reconstruct observable conditions in training
+# --------------------------------------------------
+
+contracts_30 = pd.read_csv(
+    Path(""data"") / ""supplier_component_options.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_29,29,Source_Loading,supplier_master_37 = pd.read_csv(,"print(""SHA256:"", generator_hash)
+
+# 2. Load the original synthetic environment
+supplier_master_37 = pd.read_csv(
+    data_dir / ""suppliers.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_29,33,Source_Loading,events_37 = pd.read_csv(,"    data_dir / ""suppliers.csv""
+)
+
+events_37 = pd.read_csv(
+    data_dir / ""disruption_events.csv"",
+    parse_dates=[
+        ""event_start_date"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_32,15,Source_Loading,all_orders_40 = pd.read_csv(,"# 1. Verify the full July component order calendar
+# --------------------------------------------------
+
+all_orders_40 = pd.read_csv(
+    Path(""data"") / ""purchase_orders.csv"",
+    parse_dates=[""order_date""]
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_32,97,Chronological_Controls,selected = selected.sort_values(,"        .astype(int)
+    )
+
+    selected = selected.sort_values(
+        [""order_date"", ""sequence""]
+    )
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_39,34,Source_Loading,options_47 = pd.read_csv(,"assert orders_47[""purchase_order_id""].is_unique
+
+# 2. Approved suppliers and transport connections
+options_47 = pd.read_csv(
+    data_dir / ""supplier_component_options.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_39,38,Source_Loading,lanes_47 = pd.read_csv(,"    data_dir / ""supplier_component_options.csv""
+)
+
+lanes_47 = pd.read_csv(
+    data_dir / ""transport_lanes.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_39,192,Chronological_Controls,].sort_values(,"
+qualifying_47 = cohorts_47.loc[
+    cohorts_47[""Candidate_Cohort""]
+].sort_values(
+    [""month"", ""component_id""]
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_40,13,Source_Loading,supplier_master_48 = pd.read_csv(,"data_dir = Path(""data"")
+
+# 1. Load source records
+supplier_master_48 = pd.read_csv(
+    data_dir / ""suppliers.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_40,17,Source_Loading,agreements_48 = pd.read_csv(,"    data_dir / ""suppliers.csv""
+)
+
+agreements_48 = pd.read_csv(
+    data_dir / ""supplier_component_options.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_40,21,Source_Loading,dictionary_48 = pd.read_csv(,"    data_dir / ""supplier_component_options.csv""
+)
+
+dictionary_48 = pd.read_csv(
+    data_dir / ""data_dictionary.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_40,25,Source_Loading,orders_48 = pd.read_csv(,"    data_dir / ""data_dictionary.csv""
+)
+
+orders_48 = pd.read_csv(
+    data_dir / ""purchase_orders.csv"",
+    parse_dates=[""order_date""]
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_41,16,Chronological_Controls,].sort_values(,"# 1. Use the previously verified validation population
+qualifying_49 = cohorts_47.loc[
+    cohorts_47[""Candidate_Cohort""]
+].sort_values(
+    [""month"", ""component_id""]
+).copy()
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_41,275,Chronological_Controls,].sort_values(,"
+shortages_49 = enterprise_results_49.loc[
+    enterprise_results_49[""Unserved Units""] > 0
+].sort_values(
+    ""Unserved Units"",
+    ascending=False
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_42,36,Source_Loading,agreements_50 = pd.read_csv(,"# Build landed costs from supplier agreements and lanes
+data_dir = Path(""data"")
+
+agreements_50 = pd.read_csv(
+    data_dir / ""supplier_component_options.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_42,40,Source_Loading,lanes_50 = pd.read_csv(,"    data_dir / ""supplier_component_options.csv""
+)
+
+lanes_50 = pd.read_csv(
+    data_dir / ""transport_lanes.csv""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_42,270,Chronological_Controls,qualifying_keys_50.sort_values(,"daily_records_50 = []
+
+cohort_keys_50 = list(
+    qualifying_keys_50.sort_values(
+        [""month"", ""component_id""]
+    ).itertuples(index=False, name=None)
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_42,453,Chronological_Controls,].sort_values(,"
+shortage_cohorts_50 = cohort_summary_50.loc[
+    cohort_summary_50[""Unserved_Units""] > 0
+].sort_values(
+    ""Unserved_Units"",
+    ascending=False
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_45,11,Source_Loading,source_53 = pd.read_csv(,"print(""="" * 70)
+
+# 1. Load original order dates and delivery outcomes
+source_53 = pd.read_csv(
+    Path(""data"") / ""purchase_orders.csv"",
+    parse_dates=[
+        ""order_date"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_46,191,Chronological_Controls,].sort_values(,"
+focus_54 = supplier_pressure_54.loc[
+    supplier_pressure_54[""Date""] == focus_date_54
+].sort_values(
+    ""Constrained_Order_Pressure"",
+    ascending=False
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_47,182,Chronological_Controls,supplier_criticality_55.sort_values(,"print(""\n4. STRUCTURAL SUPPLIER IMPORTANCE"")
+
+print(
+    supplier_criticality_55.sort_values(
+        [""Limited_Choice_Probes"", ""supplier_id""],
+        ascending=[False, True]
+    ).to_string(index=False)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_50,270,Chronological_Controls,qualifying_keys_50.sort_values(,"cohort_records_58 = []
+
+cohort_keys_58 = list(
+    qualifying_keys_50.sort_values(
+        [""month"", ""component_id""]
+    ).itertuples(index=False, name=None)
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_53,35,Chronological_Controls,"print(""Validation cutoff:"", cutoff_61.date())","assert (historical_61[""order_date""] < cutoff_61).all()
+
+print(""\n1. HISTORICAL DATA CONFIGURATION"")
+print(""Validation cutoff:"", cutoff_61.date())
+print(""Historical orders:"", len(historical_61))
+print(""Components:"", historical_61[""component_id""].nunique())
+print(""First historical order:"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_53,166,Chronological_Controls,component_history_61.sort_values(,"print(""\n3. COMPONENT-LEVEL HISTORICAL SCARCITY"")
+
+print(
+    component_history_61.sort_values(
+        ""component_id""
+    ).round(2).to_string(index=False)
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_53,263,Chronological_Controls,].sort_values(,"print(
+    supplier_exposure_61.loc[
+        supplier_exposure_61[""component_id""] == ""CMP-012""
+    ].sort_values(
+        ""supplier_id""
+    ).round(2).to_string(index=False)
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_54,329,Chronological_Controls,component_performance_62.sort_values(,"print(""\n6. COMPONENT-LEVEL FORECAST DIAGNOSTICS"")
+
+print(
+    component_performance_62.sort_values(
+        ""Mean_Component_Forecast"",
+        ascending=False
+    ).round(4).to_string(index=False)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_55,40,Chronological_Controls,"print(""Training cutoff:"", cutoff_63.date())","print(""Evaluation orders:"", len(evaluation_63))
+print(""Components:"", evaluation_63[""component_id""].nunique())
+
+print(""Training cutoff:"", cutoff_63.date())
+print(""Smoothing strength:"", prior_strength_63)
+
+# -----------------------------------------------"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_55,289,Chronological_Controls,component_eval_63.sort_values(,"print(""\n6. COMPONENT FORECAST DIAGNOSTICS"")
+
+print(
+    component_eval_63.sort_values(
+        ""Forecast_Probability"",
+        ascending=False
+    ).round(4).to_string(index=False)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_55,375,Holdout_References,"print(""Results are not a new blind holdout test."")","
+print(""\nIMPORTANT LIMITATIONS"")
+print(""This validation period has already been explored."")
+print(""Results are not a new blind holdout test."")
+print(""The catalog is assumed time-invariant."")
+print(""Predictions do not estimate actual shortages."")
+print(""No policy-selection thresholds fitted."")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_56,49,Chronological_Controls,"print(""Forecast cutoff:"", cutoff_64.date())","print(""Historical orders:"", len(history_64))
+print(""Historical months:"", historical_months_64)
+print(""Enterprise cohorts:"", 106)
+print(""Forecast cutoff:"", cutoff_64.date())
+print(""Quantity smoothing strength: 10"")
+
+# --------------------------------------------------"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_57,196,Chronological_Controls,"].sort_values(""Date"")","pilot_65 = validation_65.loc[
+    (validation_65[""Month""] == ""2025-09"") &
+    (validation_65[""Component""] == ""CMP-012"")
+].sort_values(""Date"")
+
+print(""\n4. SEPTEMBER CMP-012 FORWARD DEMAND"")
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_58,21,Chronological_Controls,".sort_values([""Month"", ""Component"", ""Date""])","
+first_66 = (
+    validation_65
+    .sort_values([""Month"", ""Component"", ""Date""])
+    .groupby([""Month"", ""Component""], sort=False)
+    .head(1)
+    .reset_index(drop=True)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_58,488,Holdout_References,"print(""These 106 cohorts are not a blind holdout."")","
+print(""\nIMPORTANT LIMITATIONS"")
+
+print(""These 106 cohorts are not a blind holdout."")
+print(""Months for the same component may be correlated."")
+print(""Component bootstrap does not address every"")
+print(""source of synthetic-data dependence."")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_60,414,Holdout_References,"print(""Reserved holdout marked as not generated."")","print(""\n7. FROZEN EXPERIMENT VERIFICATION"")
+print(""Development dataset hash verified."")
+print(""Frozen scenario manifest verified."")
+print(""Reserved holdout marked as not generated."")
+
+# --------------------------------------------------
+# 9. Final integrity checks"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_61,501,Chronological_Controls,].sort_values(,"    offline_summary_69[
+        ""Shortage_Above_Aggregate_LB""
+    ] > 0
+].sort_values(
+    ""Shortage_Above_Aggregate_LB"",
+    ascending=False
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_61,637,Holdout_References,"print(""PASS: Reserved holdout was not accessed."")","print(""PASS: No duplicate assignments."")
+print(""PASS: Individual-fit failure reconciled."")
+print(""PASS: Procurement costs reconciled."")
+print(""PASS: Reserved holdout was not accessed."")
+
+# --------------------------------------------------
+# 9. Save outputs"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_62,485,Chronological_Controls,].sort_values(,"
+worse_70 = comparison_70.loc[
+    comparison_70[""Additional_Rolling_Shortage""] > 0
+].sort_values(
+    ""Additional_Rolling_Shortage"",
+    ascending=False
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_65,77,Chronological_Controls,orders_70.sort_values(,"# hypothetical future-demand generator.
+
+first_decisions_73 = (
+    orders_70.sort_values(
+        [""scenario_id"", ""order_date""]
+    )
+    .groupby(""scenario_id"", sort=True)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_65,514,Holdout_References,"print(""No final holdout scenarios generated."")","print(""Weekly planning-cycle structure is assumed."")
+print(""Supplier network remains synthetic and static."")
+print(""No stochastic optimization performed yet."")
+print(""No final holdout scenarios generated."")
+print(""No financial savings established."")
+
+print(""\nSTEP 73 COMPLETE"")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_66,42,Chronological_Controls,].sort_values(,"        pd.to_datetime(choices_70[""order_date""])
+        == decision_date_74
+    )
+].sort_values(
+    [""purchase_order_id"", ""supplier_id""]
+).reset_index(drop=True)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_66,74,Chronological_Controls,future_74 = future_74.sort_values(,"    future_74[""order_date""]
+)
+
+future_74 = future_74.sort_values(
+    [""Path_ID"", ""order_date"", ""Future_Order_ID""]
+).reset_index(drop=True)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_66,122,Chronological_Controls,future_choices_74 = future_choices_74.sort_values(,"    )
+)
+
+future_choices_74 = future_choices_74.sort_values(
+    [""Path_ID"", ""Future_Order_ID"", ""supplier_id""]
+).reset_index(drop=True)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_67,296,Chronological_Controls,corrected_bank_75 = corrected_bank_75.sort_values(,"    ignore_index=True
+)
+
+corrected_bank_75 = corrected_bank_75.sort_values(
+    [
+        ""Scenario_ID"",
+        ""Path_ID"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_68,61,Chronological_Controls,].sort_values(,"
+today_76 = pilot_orders_76.loc[
+    pilot_orders_76[""order_date""] == decision_date_76
+].sort_values(
+    ""purchase_order_id""
+).reset_index(drop=True)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_68,71,Chronological_Controls,].sort_values(,"        pd.to_datetime(choices_70[""order_date""])
+        == decision_date_76
+    )
+].sort_values(
+    [""purchase_order_id"", ""supplier_id""]
+).reset_index(drop=True)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_68,106,Chronological_Controls,future_76 = future_76.sort_values(,"    future_76[""order_date""]
+)
+
+future_76 = future_76.sort_values(
+    [""Path_ID"", ""order_date"", ""Future_Order_ID""]
+).reset_index(drop=True)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_68,150,Chronological_Controls,future_choices_76 = future_choices_76.sort_values(,"    )
+)
+
+future_choices_76 = future_choices_76.sort_values(
+    [""Path_ID"", ""Future_Order_ID"", ""supplier_id""]
+).reset_index(drop=True)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_70,42,Chronological_Controls,"].sort_values(""purchase_order_id"").copy()","    today = scenario.loc[
+        pd.to_datetime(scenario[""order_date""])
+        == first_date
+    ].sort_values(""purchase_order_id"").copy()
+
+    options = choices_70.loc[
+        (choices_70[""scenario_id""] == scenario_id) &"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_70,252,Chronological_Controls,].sort_values(,"# not future shortage outcomes.
+candidates_77 = readiness_77.loc[
+    readiness_77[""Multiple_Choices""]
+].sort_values(
+    [""Feasible_Assignments"", ""Scenario_ID""],
+    ascending=[False, True]
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_71,42,Chronological_Controls,].sort_values(,"
+today_78 = orders_78.loc[
+    orders_78[""order_date""] == decision_date_78
+].sort_values(
+    ""purchase_order_id""
+).reset_index(drop=True)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_71,52,Chronological_Controls,].sort_values(,"        pd.to_datetime(choices_70[""order_date""])
+        == decision_date_78
+    )
+].sort_values(
+    [""purchase_order_id"", ""supplier_id""]
+).reset_index(drop=True)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_71,84,Chronological_Controls,future_78 = future_78.sort_values(,"    future_78[""order_date""]
+)
+
+future_78 = future_78.sort_values(
+    [""Path_ID"", ""order_date"", ""Future_Order_ID""]
+).reset_index(drop=True)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_73,100,Chronological_Controls,future_all_80 = future_all_80.sort_values(,"    future_all_80[""order_date""]
+)
+
+future_all_80 = future_all_80.sort_values(
+    [""Path_ID"", ""Future_Order_ID""]
+).reset_index(drop=True)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_73,611,Holdout_References,"print(""They are not an independent real-world holdout."")","
+print(""\nIMPORTANT LIMITATIONS"")
+print(""Unused paths originate from the same simulator."")
+print(""They are not an independent real-world holdout."")
+print(""Future recourse still knows each complete path."")
+print(""No first-stage decisions were revised."")
+print(""No actual operational savings are established."")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_78,46,Chronological_Controls,"].sort_values(""supplier_id"").to_dict(""records"")","order_options_85 = [
+    options_85.loc[
+        options_85[""purchase_order_id""].eq(oid)
+    ].sort_values(""supplier_id"").to_dict(""records"")
+    for oid in order_ids_85
+]
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_79,427,Chronological_Controls,"print(""Historical cutoff:"", cutoff_86.date())","print(""Scenario:"", scenario_86)
+print(""Decision batches:"", len(decision_dates_86))
+print(""Paths per batch:"", paths_per_date_86)
+print(""Historical cutoff:"", cutoff_86.date())
+print(""Scarcity regimes: 6 low / 6 high"")
+
+print(""\n2. DECISION-TIME SCENARIO COVERAGE"")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_81,324,Chronological_Controls,"].sort_values(""purchase_order_id"")","
+last_orders_88 = orders_87.loc[
+    orders_87[""order_date""].eq(last_date_88)
+].sort_values(""purchase_order_id"")
+
+last_options_88 = options_87.loc[
+    options_87[""order_date""].eq(last_date_88)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_82,95,Chronological_Controls,"].sort_values(""Selection_Key"")","        group = pool_89.loc[
+            pool_89[""Profile""].eq(profile) &
+            pool_89[""Decision_Stratum""].eq(stratum)
+        ].sort_values(""Selection_Key"")
+
+        assert not group.empty, (
+            f""Missing stratum: {profile}/{stratum}"""
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_82,425,Holdout_References,"""holdout evaluation run.""","
+print(
+    ""PASS: No new optimization or"",
+    ""holdout evaluation run.""
+)
+
+print(""\n5. OUTPUTS"")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_83,83,Chronological_Controls,decisions_90 = decisions_90.sort_values(,"    decisions_90[""order_date""]
+)
+
+decisions_90 = decisions_90.sort_values(
+    [""scenario_id"", ""order_date""]
+).reset_index(drop=True)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_83,637,Chronological_Controls,"print(""PASS: Historical demand cutoff enforced."")","
+print(""PASS: Step 89 protocol unchanged."")
+print(""PASS: Independent decision-time futures generated."")
+print(""PASS: Historical demand cutoff enforced."")
+print(""PASS: Supplier eligibility, MOQ and routes reconciled."")
+print(""PASS: No realized future quantities or outcomes used."")
+print(""PASS: Empty future paths retained in manifest."")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_84,480,Chronological_Controls,"].sort_values(""purchase_order_id"")","
+        today = scenario_orders.loc[
+            scenario_orders[""order_date""].eq(date)
+        ].sort_values(""purchase_order_id"")
+
+        options = scenario_choices.loc[
+            scenario_choices[""order_date""].eq(date)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_84,1063,Holdout_References,"print(""Selected cohorts are not a blind holdout."")","
+print(""\nIMPORTANT LIMITATIONS"")
+print(""Synthetic development-only evaluation."")
+print(""Selected cohorts are not a blind holdout."")
+print(""Future recourse assumes complete path information."")
+print(""Hypothetical demand distributions remain assumed."")
+print(""No ML delivery-risk predictions integrated yet."")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_86,196,Chronological_Controls,nonempty_93.sort_values([,"# Keep one earliest forecast per selected scenario
+# for a less repetitive diagnostic.
+first_93 = (
+    nonempty_93.sort_values([
+        ""Scenario_ID"", ""Decision_Date""
+    ])
+    .groupby(""Scenario_ID"", as_index=False)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_86,420,Holdout_References,"print(""PASS: Reserved holdout and final ML test unused."")","print(""PASS: Zero-horizon cases separated."")
+print(""PASS: Count and unit errors independently calculated."")
+print(""PASS: No optimization policy changed or rerun."")
+print(""PASS: Reserved holdout and final ML test unused."")
+
+print(""\nIMPORTANT LIMITATIONS"")
+print(""All realized outcomes are synthetic development data."")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_87,212,Chronological_Controls,benchmark_94.sort_values([,"# 6. Separate first decisions
+
+first_dates_94 = (
+    benchmark_94.sort_values([
+        ""Scenario_ID"",
+        ""Decision_Date""
+    ])"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_87,294,Chronological_Controls,"""Historical data cutoff: before 2025-07-01""",")
+
+print(
+    ""Historical data cutoff: before 2025-07-01""
+)
+
+print("
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_87,315,Chronological_Controls,].sort_values(,"            ""Historical_Order_Count"",
+            ""Historical_Units_Per_Order""
+        ]
+    ].sort_values(
+        ""component_id""
+    ).round(2).to_string(index=False)
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_87,408,Holdout_References,"print(""PASS: Reserved holdout and ML test not accessed."")","print(""PASS: Original stochastic forecasts unchanged."")
+print(""PASS: No forecasting or sourcing model retuned."")
+print(""PASS: Frozen scenario bank unchanged."")
+print(""PASS: Reserved holdout and ML test not accessed."")
+
+print(""\nIMPORTANT LIMITATIONS"")
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_110,33,Partition_Variables,"assert isinstance(X_train, pd.DataFrame)","    generator_path_110.read_bytes()
+).hexdigest() == source_hash_110
+
+assert isinstance(X_train, pd.DataFrame)
+assert len(training_features_100) == 18
+assert list(X_train.columns) == training_features_100
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_110,35,Partition_Variables,assert list(X_train.columns) == training_features_100,"
+assert isinstance(X_train, pd.DataFrame)
+assert len(training_features_100) == 18
+assert list(X_train.columns) == training_features_100
+
+model_names_116 = [
+    ""rf_model"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_110,54,Partition_Variables,"print(""Training matrix:"", X_train.shape)","
+print(""\n1. FROZEN ML CONFIGURATION"")
+
+print(""Training matrix:"", X_train.shape)
+print(""Expected features:"", len(training_features_100))
+print(""Fitted classifiers:"", len(models_116))
+print(""Historical supplier timing: RECONCILED"")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_110,449,Holdout_References,"""training or holdout isolation.""","
+print(
+    ""NOTE: Source references alone cannot establish ""
+    ""training or holdout isolation.""
+)
+
+# ============================================================"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_110,487,Partition_Variables,"""training_records"": int(len(X_train)),","manifest_116 = {
+    ""step"": 116,
+    ""fitted_models"": 3,
+    ""training_records"": int(len(X_train)),
+    ""training_features"": 18,
+    ""split_code_references_found"": split_code_found_116,
+    ""fit_code_references_found"": fit_code_found_116,"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_110,536,Holdout_References,"print(""PASS: Training and holdout references catalogued."")","print(""PASS: Three fitted classifiers reconciled."")
+print(""PASS: Training feature schema preserved."")
+print(""PASS: Available partition source code inspected."")
+print(""PASS: Training and holdout references catalogued."")
+print(""PASS: No reserved test rows explicitly loaded."")
+print(""PASS: No training or prediction executed."")
+print(""PASS: No source datasets modified."")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_111,15,Partition_Variables,"assert ""X_train"" in globals()","# 1. Recover the original saved training notebook.
+
+assert ""files_audit_109"" in globals()
+assert ""X_train"" in globals()
+
+notebook_paths_117 = [
+    Path(str(p))"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_111,43,Partition_Variables,"print(""Training matrix:"", X_train.shape)","print(""Notebook:"", notebook_path_117.name)
+print(""Total notebook cells:"", len(cells_117))
+print(""Source SHA256:"", sha_117)
+print(""Training matrix:"", X_train.shape)
+print(""Source execution: DISABLED"")
+
+# 2. Read saved code-cell source only."
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_111,97,Holdout_References,"""Reserved_Test"":","    ""Validation_Partition"":
+        r""\bvalidation_v02\b|\bX_val\b|\by_val\b"",
+
+    ""Reserved_Test"":
+        r""\btest_v02\b|\bX_test\b|\by_test\b"",
+
+    ""Model_Fitting"":"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_111,169,Holdout_References,"""Reserved_Test"",","training_categories_117 = [
+    ""Training_Partition"",
+    ""Validation_Partition"",
+    ""Reserved_Test"",
+    ""Model_Fitting""
+]
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_111,228,Chronological_Controls,"""train_end"" in partition_source_117","partition_checks_117 = {
+    ""Training boundary referenced"":
+        bool(
+            ""train_end"" in partition_source_117
+        ),
+
+    ""Validation boundary referenced"":"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_111,247,Partition_Variables,"isinstance(X_train, pd.DataFrame),","        ),
+
+    ""Training matrix loaded"":
+        isinstance(X_train, pd.DataFrame),
+
+    ""Chronological partition independently certified"":
+        False,"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_111,283,Partition_Variables,"""training_records"": int(len(X_train)),","    ""step"": 117,
+    ""source_notebook"": notebook_path_117.name,
+    ""source_sha256"": sha_117,
+    ""training_records"": int(len(X_train)),
+    ""training_features"": int(X_train.shape[1]),
+    ""partition_checks"": partition_checks_117,
+    ""partition_certified"": False,"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_111,284,Partition_Variables,"""training_features"": int(X_train.shape[1]),","    ""source_notebook"": notebook_path_117.name,
+    ""source_sha256"": sha_117,
+    ""training_records"": int(len(X_train)),
+    ""training_features"": int(X_train.shape[1]),
+    ""partition_checks"": partition_checks_117,
+    ""partition_certified"": False,
+    ""reserved_test_isolation_certified"": False,"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_111,320,Holdout_References,"print(""PASS: Holdout references catalogued."")","print(""PASS: Partition construction source recovered."")
+print(""PASS: Chronological boundary references identified."")
+print(""PASS: Model-fitting source references examined."")
+print(""PASS: Holdout references catalogued."")
+print(""PASS: Original models unchanged."")
+print(""PASS: No training code executed."")
+print(""PASS: No test-set rows or labels accessed."")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_112,19,Partition_Variables,"""X_train"",","required_118 = [
+    ""train_v02"",
+    ""val_v02"",
+    ""X_train"",
+    ""training_features_100"",
+    ""partition_source_117"",
+    ""generator_path_110"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_112,37,Partition_Variables,"assert isinstance(X_train, pd.DataFrame)","
+assert isinstance(train_v02, pd.DataFrame)
+assert isinstance(val_v02, pd.DataFrame)
+assert isinstance(X_train, pd.DataFrame)
+
+assert len(training_features_100) == 18
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_112,86,Chronological_Controls,"""train_end = validation_start - embargo""","        ""days=60"" in partition_source_117
+    ),
+    ""Training_End_Formula"": (
+        ""train_end = validation_start - embargo""
+        in partition_source_117
+    ),
+    ""Validation_End_Formula"": ("
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_112,213,Chronological_Controls,"""Training orders respect cutoff:"",","print(""\n3. ACTUAL PARTITION DATE VERIFICATION"")
+
+print(
+    ""Training orders respect cutoff:"",
+    train_order_safe_118
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_112,339,Partition_Variables,"X_train,","
+train_matrix_match_118, train_note_118 = (
+    matrix_equal_118(
+        X_train,
+        expected_train_118
+    )
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_112,344,Partition_Variables,"X_val_118 = globals().get(""X_val"")","    )
+)
+
+X_val_118 = globals().get(""X_val"")
+
+val_matrix_match_118, val_note_118 = (
+    matrix_equal_118("
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_112,355,Partition_Variables,"print(""Training feature matrix:"", X_train.shape)","
+print(""\n5. ORIGINAL MODEL INPUT RECONCILIATION"")
+
+print(""Training feature matrix:"", X_train.shape)
+
+print(
+    ""Training feature values match source:"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_112,426,Partition_Variables,"""y_train"",","
+train_label_match_118, train_label_note_118 = (
+    target_check_118(
+        ""y_train"",
+        train_118
+    )
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_112,433,Partition_Variables,"""y_val"",","
+val_label_match_118, val_label_note_118 = (
+    target_check_118(
+        ""y_val"",
+        val_118
+    )
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_113,286,Chronological_Controls,"].sort_values(""Line"")","
+    subset = upstream_119.loc[
+        upstream_119[""Symbol""].eq(name)
+    ].sort_values(""Line"")
+
+    print(f""\n{name}:"")
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_114,346,Holdout_References,"print(""Reserved holdout isolation: NOT CERTIFIED"")","print(""Development partition isolation: PASSED"")
+print(""Complete predictor timing: NOT YET CERTIFIED"")
+print(""Counterfactual feature validity: NOT CERTIFIED"")
+print(""Reserved holdout isolation: NOT CERTIFIED"")
+print(""Exact fitted-model lineage: NOT CERTIFIED"")
+print(""ML sourcing deployment authorized: NO"")
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_115,386,Holdout_References,"print(""Reserved holdout isolation: NOT CERTIFIED"")","
+print(""Complete feature timing: NOT CERTIFIED"")
+print(""Counterfactual ML validity: NOT CERTIFIED"")
+print(""Reserved holdout isolation: NOT CERTIFIED"")
+
+print(
+    ""Controlled ML sourcing evaluation:"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_116,12,Holdout_References,"print(""AEGIS 4.0 - STEP 122: HOLDOUT AND MODEL LINEAGE AUDIT"")","from sklearn.utils.validation import check_is_fitted
+
+print(""="" * 70)
+print(""AEGIS 4.0 - STEP 122: HOLDOUT AND MODEL LINEAGE AUDIT"")
+print(""="" * 70)
+
+# ============================================================"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_116,24,Partition_Variables,assert len(X_train) == 6243,"assert integrity_pass_120
+assert sequence_120
+
+assert len(X_train) == 6243
+assert len(X_val) == 1721
+assert len(training_features_100) == 18
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_116,25,Partition_Variables,assert len(X_val) == 1721,"assert sequence_120
+
+assert len(X_train) == 6243
+assert len(X_val) == 1721
+assert len(training_features_100) == 18
+
+assert hashlib.sha256("
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_116,225,Partition_Variables,"arguments_clean == ""X_train,y_train""","            )
+
+            training_only = (
+                arguments_clean == ""X_train,y_train""
+            )
+
+            line_number = ("
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_116,403,Holdout_References,"r""test_v02\s*\[\s*""","        label_signal = bool(
+            re.search(
+                r""\by_test\b|""
+                r""test_v02\s*\[\s*""
+                r""['\""]late_receipt_flag['\""]"",
+                line,
+                flags=re.IGNORECASE"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_116,442,Holdout_References,"print(""\n4. ORIGINAL HOLDOUT SOURCE REFERENCES"")","    ]
+)
+
+print(""\n4. ORIGINAL HOLDOUT SOURCE REFERENCES"")
+
+print(""Total references:"", len(test_refs_122))
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_116,460,Holdout_References,# 7. CLASSIFY HOLDOUT-USAGE SIGNALS,"    print(""No direct references found."")
+
+# ============================================================
+# 7. CLASSIFY HOLDOUT-USAGE SIGNALS
+# ============================================================
+
+direct_access_122 = int("
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_116,481,Holdout_References,"print(""\n5. HOLDOUT USAGE ASSESSMENT"")","    ].sum()
+)
+
+print(""\n5. HOLDOUT USAGE ASSESSMENT"")
+
+print(
+    ""Direct test-data access references:"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_116,504,Holdout_References,"""Holdout fully isolated:"",",")
+
+print(
+    ""Holdout fully isolated:"",
+    ""NOT CERTIFIED""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_116,523,Partition_Variables,"X_train.reset_index(drop=True),",")
+
+pd.testing.assert_frame_equal(
+    X_train.reset_index(drop=True),
+    expected_train_122,
+    check_dtype=False,
+    check_exact=False,"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_116,532,Partition_Variables,"X_val.reset_index(drop=True),",")
+
+pd.testing.assert_frame_equal(
+    X_val.reset_index(drop=True),
+    expected_val_122,
+    check_dtype=False,
+    check_exact=False,"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_116,550,Holdout_References,"print(""\n7. MODEL AND HOLDOUT READINESS"")","# 9. CONSOLIDATED READINESS
+# ============================================================
+
+print(""\n7. MODEL AND HOLDOUT READINESS"")
+
+print(
+    ""Original development code preserved:"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_116,571,Holdout_References,"print(""Complete holdout isolation: NOT CERTIFIED"")","print(""Historical supplier timing: SUPPORTED"")
+
+print(""Exact fitted-model origin: NOT CERTIFIED"")
+print(""Complete holdout isolation: NOT CERTIFIED"")
+print(""Counterfactual ML validity: NOT CERTIFIED"")
+print(""Production ML integration authorized: NO"")
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_116,667,Holdout_References,"print(""PASS: Holdout references catalogued."")","print(""PASS: Notebook metadata changes tolerated."")
+print(""PASS: Model-fitting source inspected."")
+print(""PASS: Fitted model structure inspected."")
+print(""PASS: Holdout references catalogued."")
+print(""PASS: Development matrices reconciled."")
+print(""PASS: Generator source fingerprint preserved."")
+print(""PASS: Reserved test rows not loaded in this step."")"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_117,33,Partition_Variables,"assert X_val.shape == (1721, 18)","features_123 = list(training_features_100)
+
+assert len(features_123) == 18
+assert X_val.shape == (1721, 18)
+assert X_dynamic.shape == (40000, 18)
+assert scenario_features.shape == (40000, 21)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_117,37,Partition_Variables,assert list(X_val.columns) == features_123,"assert X_dynamic.shape == (40000, 18)
+assert scenario_features.shape == (40000, 21)
+
+assert list(X_val.columns) == features_123
+assert list(X_dynamic.columns) == features_123
+assert scenario_features.index.equals(X_dynamic.index)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_117,46,Partition_Variables,"pd.Series(np.asarray(y_val).reshape(-1)),",").hexdigest() == source_hash_110
+
+y_123 = pd.to_numeric(
+    pd.Series(np.asarray(y_val).reshape(-1)),
+    errors=""raise""
+).to_numpy(dtype=int)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_117,97,Partition_Variables,"prob = positive_probability_123(model, X_val)","
+for name, model in models_123.items():
+
+    prob = positive_probability_123(model, X_val)
+
+    validation_rows_123.append({
+        ""Model"": name,"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_117,125,Chronological_Controls,validation_results_123.sort_values(,")
+
+validation_results_123 = (
+    validation_results_123.sort_values(
+        [""ROC_AUC"", ""Brier_Score""],
+        ascending=[False, True]
+    ).reset_index(drop=True)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_117,162,Partition_Variables,X_train[feature].dropna().astype(str),"]:
+
+    training_values = set(
+        X_train[feature].dropna().astype(str)
+    )
+
+    candidate_values = ("
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_117,300,Chronological_Controls,cost_choice = group.sort_values(,"    ""purchase_order_id""
+):
+
+    cost_choice = group.sort_values(
+        [
+            ""Quoted_Order_Cost_USD"",
+            ""Mean_Predicted_Risk"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_117,308,Chronological_Controls,risk_choice = group.sort_values(,"        ]
+    ).iloc[0]
+
+    risk_choice = group.sort_values(
+        [
+            ""Mean_Predicted_Risk"",
+            ""Quoted_Order_Cost_USD"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_117,326,Chronological_Controls,guard_choice = eligible.sort_values(,"        <= ceiling + 1e-9
+    ]
+
+    guard_choice = eligible.sort_values(
+        [
+            ""Mean_Predicted_Risk"",
+            ""Quoted_Order_Cost_USD"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_118,44,Chronological_Controls,options_124 = options_124.sort_values(,"    deep=True
+)
+
+options_124 = options_124.sort_values(
+    [""purchase_order_id"", ""supplier_id""]
+).reset_index(drop=True)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_118,106,Chronological_Controls,options_124.sort_values([,"# ============================================================
+
+baseline_124 = (
+    options_124.sort_values([
+        ""purchase_order_id"",
+        ""Quoted_Order_Cost_USD"",
+        ""Mean_Predicted_Risk"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_118,498,Chronological_Controls,].sort_values(,"            improvements_124[
+                ""Budget_Premium_Pct""
+            ].notna()
+        ].sort_values(
+            ""Budget_Premium_Pct""
+        )
+    )"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_119,227,Source_Loading,frame = pd.read_csv(candidate_path),"
+    if available:
+
+        frame = pd.read_csv(candidate_path)
+
+        columns = list(map(str, frame.columns))
+        rows = len(frame)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_123,85,Source_Loading,saved_policies_129 = pd.read_csv(,"# Independently reconcile saved policy costs
+# and risks with the live Step 126 results.
+
+saved_policies_129 = pd.read_csv(
+    out_129 / sources_129[""policy_comparison""]
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_137,238,Holdout_References,"# training-data ranges, without loading holdout data.","# ============================================================
+
+# Compare candidate numeric features against
+# training-data ranges, without loading holdout data.
+#
+# The 1st-99th percentile reference interval is
+# a diagnostic, not a causal validity threshold."
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_137,248,Partition_Variables,"X_train[feature],","for feature in training_features_100:
+
+    original = pd.to_numeric(
+        X_train[feature],
+        errors=""coerce""
+    )
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_139,421,Partition_Variables,"X_train[feature],","for feature in changing_features_135:
+
+    training = pd.to_numeric(
+        X_train[feature],
+        errors=""raise""
+    )
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_144,223,Chronological_Controls,).sort_values(,"        ""Source_Line"",
+        ""Expression""
+    ]
+).sort_values(
+    [""Variable"", ""Source_Line""]
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_146,117,Chronological_Controls,policy_orders = policy_orders.sort_values(,"    ""Policy"", sort=True
+):
+
+    policy_orders = policy_orders.sort_values(
+        [""Order_Date"", ""purchase_order_id""],
+        kind=""stable""
+    )"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_146,333,Partition_Variables,"X_train[""capacity_utilization_at_order""],","# ============================================================
+
+training_util_142 = pd.to_numeric(
+    X_train[""capacity_utilization_at_order""],
+    errors=""raise""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_147,151,Partition_Variables,"X_train[""capacity_utilization_at_order""],","# ============================================================
+
+training_143 = pd.to_numeric(
+    X_train[""capacity_utilization_at_order""],
+    errors=""raise""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_148,367,Partition_Variables,"X_train[""logistics_congestion_at_order""],","# ============================================================
+
+training_congestion_144 = pd.to_numeric(
+    X_train[""logistics_congestion_at_order""],
+    errors=""raise""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_148,372,Partition_Variables,"X_train[""capacity_utilization_at_order""],",")
+
+training_capacity_144 = pd.to_numeric(
+    X_train[""capacity_utilization_at_order""],
+    errors=""raise""
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_149,39,Partition_Variables,"""X_train""","    ""conflicts_144"",
+    ""manifest_144"",
+    ""manifest_path_144"",
+    ""X_train""
+]
+
+missing_145 = ["
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_149,148,Partition_Variables,"X_train[column],","for label, (column, values) in training_features_145.items():
+
+    training = pd.to_numeric(
+        X_train[column],
+        errors=""raise""
+    ).to_numpy(dtype=float)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_149,404,Holdout_References,"""Next_Action"": ""Audit split, preprocessing, fitting and reserved holdout""","        ""Gate"": ""Independent ML evaluation"",
+        ""Status"": ""NOT_CERTIFIED"",
+        ""Evidence"": ""Earlier validation is not full execution-lineage proof"",
+        ""Next_Action"": ""Audit split, preprocessing, fitting and reserved holdout""
+    },
+    {
+        ""Gate"": ""Supplier-switch causal validity"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_149,533,Holdout_References,"""Condition"": ""No reserved holdout access without protocol""","        ""Priority"": 4,
+        ""Workstream"": ""Independent ML evaluation"",
+        ""Action"": ""Audit data partition and fitted-model lineage"",
+        ""Condition"": ""No reserved holdout access without protocol""
+    },
+    {
+        ""Priority"": 5,"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_150,85,Holdout_References,"r""(^|_)(test|holdout|reserved|train|validation|val)($|_)"",","print(""\n3. SEARCHING NOTEBOOK DATAFRAMES"")
+
+restricted_146 = re.compile(
+    r""(^|_)(test|holdout|reserved|train|validation|val)($|_)"",
+    re.IGNORECASE
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_152,25,Holdout_References,"r""(^|_)(test|holdout|reserved|train|validation|val)($|_)"",","print(""\n1. SEARCHING FOR COMPLETE SUPPLIER MENUS"")
+
+restricted_148 = re.compile(
+    r""(^|_)(test|holdout|reserved|train|validation|val)($|_)"",
+    re.IGNORECASE
+)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_154,307,Chronological_Controls,].drop_duplicates().sort_values(,"
+snapshots_150r = ledger_150r[
+    snapshot_keys_150r + baseline_fields_150r
+].drop_duplicates().sort_values(
+    snapshot_keys_150r
+).reset_index(drop=True)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_154,344,Chronological_Controls,group_150r = group_150r.sort_values(,"    [""Supplier"", ""Component""]
+):
+
+    group_150r = group_150r.sort_values(
+        ""Decision_Date""
+    )
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_154,643,Chronological_Controls,].sort_values(,"print(
+    recommendations_150r[
+        output_fields_150r
+    ].sort_values(
+        [""order_date"", ""purchase_order_id""]
+    ).to_string(index=False)
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_155,85,Chronological_Controls,].drop_duplicates().sort_values(keys_150d),"
+snapshots_150d = ledger_150d[
+    required_150d
+].drop_duplicates().sort_values(keys_150d)
+
+print(""Original ledger rows:"", len(ledger_150d))
+print(""Distinct snapshots:"", len(snapshots_150d))"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_155,156,Chronological_Controls,group_150d = group_150d.sort_values(,"    [""Supplier"", ""Component""]
+):
+
+    group_150d = group_150d.sort_values(
+        ""Decision_Date""
+    )
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_156,296,Chronological_Controls,".sort_values(""Date"")","
+final_snapshots_151 = (
+    optimized_capacity_151
+    .sort_values(""Date"")
+    .groupby([""Supplier"", ""Component""])
+    .tail(1)
+    .copy()"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_157,97,Chronological_Controls,".sort_values(""Decision_Date"")","
+final_capacity_152 = (
+    snapshots_152
+    .sort_values(""Decision_Date"")
+    .groupby([""Supplier"", ""Component""])
+    .tail(1)
+    .copy()"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_161,323,Chronological_Controls,ranking_156 = results_156.sort_values(,"    * results_156[""Diversification_Score""]
+) * 100
+
+ranking_156 = results_156.sort_values(
+    [
+        ""Balanced_Score"",
+        ""Landed_Cost"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_161,419,Chronological_Controls,temp_156 = temp_156.sort_values(,"            scores_156
+        )
+
+        temp_156 = temp_156.sort_values(
+            [
+                ""Sensitivity_Score"",
+                ""Landed_Cost"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_161,456,Chronological_Controls,sensitivity_156 = sensitivity_156.sort_values(,"    for scenario, wins in scenario_wins_156.items()
+])
+
+sensitivity_156 = sensitivity_156.sort_values(
+    ""Winning_Weight_Combinations"",
+    ascending=False
+)"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_162,215,Chronological_Controls,tradeoffs_157 = tradeoffs_157.sort_values(,"    }
+)
+
+tradeoffs_157 = tradeoffs_157.sort_values(
+    ""Reserve_Pct""
+).reset_index(drop=True)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_162,250,Chronological_Controls,source_157 = source_157.sort_values(,"# 3. OBSERVED PARETO DOMINANCE
+# ------------------------------------------------------------
+
+source_157 = source_157.sort_values(
+    ""Scenario""
+).reset_index(drop=True)
+"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_162,383,Chronological_Controls,return local.sort_values(,"        + local[""Supplier_Score""]
+    ) * (100.0 / 3.0)
+
+    return local.sort_values(
+        [
+            ""Research_Score"",
+            ""Landed_Cost"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_162,411,Chronological_Controls,rank_source_156 = rank_source_156.sort_values(,"    )
+
+if ""Rank"" in rank_source_156.columns:
+    rank_source_156 = rank_source_156.sort_values(
+        ""Rank""
+    )
+elif ""Balanced_Score"" in rank_source_156.columns:"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_162,415,Chronological_Controls,rank_source_156 = rank_source_156.sort_values(,"        ""Rank""
+    )
+elif ""Balanced_Score"" in rank_source_156.columns:
+    rank_source_156 = rank_source_156.sort_values(
+        ""Balanced_Score"",
+        ascending=False
+    )"
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_162,538,Chronological_Controls,selected = eligible.sort_values(,"            result = ""NONE""
+
+        else:
+            selected = eligible.sort_values(
+                [
+                    ""Actual_Reserve_Pct"",
+                    ""Landed_Cost"","
+C:\Users\VISHAL\OneDrive\Desktop\AEGIS\AEGIS_4_0_Integrated_Dataset_v0_2\AEGIS_4_0_v0_2\Version 2 Validation.ipynb,CELL_165,376,Chronological_Controls,variation_summary_160.sort_values(,"    })
+
+    variation_summary_160 = (
+        variation_summary_160.sort_values(
+            ""Repeated_Keys_With_Different_Values"",
+            ascending=False
+        ).reset_index(drop=True)"
+JUPYTER_EXECUTION_HISTORY,EXEC_3,10,Source_Loading,data = pd.read_csv(,"print(""="" * 60)
+
+# Load Version 0.2 data
+data = pd.read_csv(
+    Path(""data"") / ""purchase_orders.csv"",
+    parse_dates=[
+        ""order_date"","
+JUPYTER_EXECUTION_HISTORY,EXEC_3,25,Chronological_Controls,train_end = validation_start - embargo,"
+embargo = pd.Timedelta(days=60)
+
+train_end = validation_start - embargo
+validation_end = testing_start - embargo
+
+# Partition using order dates only"
+JUPYTER_EXECUTION_HISTORY,EXEC_3,30,Chronological_Controls,"data[""order_date""] < train_end","
+# Partition using order dates only
+train_v02 = data[
+    data[""order_date""] < train_end
+].copy()
+
+val_v02 = data["
+JUPYTER_EXECUTION_HISTORY,EXEC_3,38,Holdout_References,test_v02 = data[,"    (data[""order_date""] < validation_end)
+].copy()
+
+test_v02 = data[
+    data[""order_date""] >= testing_start
+].copy()
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_3,47,Holdout_References,"(""Testing"", test_v02)","for name, subset in [
+    (""Training"", train_v02),
+    (""Validation"", val_v02),
+    (""Testing"", test_v02)
+]:
+    print(f""\n{name}"")
+    print(""Records:"", len(subset))"
+JUPYTER_EXECUTION_HISTORY,EXEC_3,77,Holdout_References,"test_v02[""purchase_order_id""]","all_ids = pd.concat([
+    train_v02[""purchase_order_id""],
+    val_v02[""purchase_order_id""],
+    test_v02[""purchase_order_id""]
+])
+
+duplicate_count = all_ids.duplicated().sum()"
+JUPYTER_EXECUTION_HISTORY,EXEC_3,89,Holdout_References,len(test_v02),"retained = (
+    len(train_v02) +
+    len(val_v02) +
+    len(test_v02)
+)
+
+print(""Original records:"", len(data))"
+JUPYTER_EXECUTION_HISTORY,EXEC_3,106,Holdout_References,"test_v02[""actual_receipt_date""].max()","
+print(
+    ""Latest test outcome:"",
+    test_v02[""actual_receipt_date""].max()
+)
+
+print(""\n6. FINAL VERIFICATION"")"
+JUPYTER_EXECUTION_HISTORY,EXEC_4,10,Source_Loading,dictionary = pd.read_csv(,"print(""="" * 60)
+
+# Load the Version 0.2 data dictionary
+dictionary = pd.read_csv(
+    Path(""data"") / ""data_dictionary.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_4,71,Holdout_References,"(""Testing"", test_v02)","for name, subset in [
+    (""Training"", train_v02),
+    (""Validation"", val_v02),
+    (""Testing"", test_v02)
+]:
+    missing = subset[candidate_features].isna().sum().sum()
+    print(f""{name}: {missing}"")"
+JUPYTER_EXECUTION_HISTORY,EXEC_4,98,Holdout_References,test_values = set(test_v02[col]),"for col in categorical:
+    train_values = set(train_v02[col])
+    val_values = set(val_v02[col])
+    test_values = set(test_v02[col])
+
+    print(
+        col,"
+JUPYTER_EXECUTION_HISTORY,EXEC_4,126,Holdout_References,"(""Testing"", test_v02)","for name, subset in [
+    (""Training"", train_v02),
+    (""Validation"", val_v02),
+    (""Testing"", test_v02)
+]:
+    print(
+        name,"
+JUPYTER_EXECUTION_HISTORY,EXEC_5,44,Partition_Variables,X_train = train_v02[candidate_features].copy(),"    if col not in categorical_features
+]
+
+X_train = train_v02[candidate_features].copy()
+X_val = val_v02[candidate_features].copy()
+
+y_train = train_v02[target].astype(int)"
+JUPYTER_EXECUTION_HISTORY,EXEC_5,45,Partition_Variables,X_val = val_v02[candidate_features].copy(),"]
+
+X_train = train_v02[candidate_features].copy()
+X_val = val_v02[candidate_features].copy()
+
+y_train = train_v02[target].astype(int)
+y_val = val_v02[target].astype(int)"
+JUPYTER_EXECUTION_HISTORY,EXEC_5,47,Partition_Variables,y_train = train_v02[target].astype(int),"X_train = train_v02[candidate_features].copy()
+X_val = val_v02[candidate_features].copy()
+
+y_train = train_v02[target].astype(int)
+y_val = val_v02[target].astype(int)
+
+assert X_train.shape[0] == 6243"
+JUPYTER_EXECUTION_HISTORY,EXEC_5,48,Partition_Variables,y_val = val_v02[target].astype(int),"X_val = val_v02[candidate_features].copy()
+
+y_train = train_v02[target].astype(int)
+y_val = val_v02[target].astype(int)
+
+assert X_train.shape[0] == 6243
+assert X_val.shape[0] == 1721"
+JUPYTER_EXECUTION_HISTORY,EXEC_5,50,Partition_Variables,assert X_train.shape[0] == 6243,"y_train = train_v02[target].astype(int)
+y_val = val_v02[target].astype(int)
+
+assert X_train.shape[0] == 6243
+assert X_val.shape[0] == 1721
+assert set(y_train.unique()) == {0, 1}
+assert set(y_val.unique()) == {0, 1}"
+JUPYTER_EXECUTION_HISTORY,EXEC_5,51,Partition_Variables,assert X_val.shape[0] == 1721,"y_val = val_v02[target].astype(int)
+
+assert X_train.shape[0] == 6243
+assert X_val.shape[0] == 1721
+assert set(y_train.unique()) == {0, 1}
+assert set(y_val.unique()) == {0, 1}
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_5,52,Partition_Variables,"assert set(y_train.unique()) == {0, 1}","
+assert X_train.shape[0] == 6243
+assert X_val.shape[0] == 1721
+assert set(y_train.unique()) == {0, 1}
+assert set(y_val.unique()) == {0, 1}
+
+print(""\n1. DATA CONFIGURATION"")"
+JUPYTER_EXECUTION_HISTORY,EXEC_5,53,Partition_Variables,"assert set(y_val.unique()) == {0, 1}","assert X_train.shape[0] == 6243
+assert X_val.shape[0] == 1721
+assert set(y_train.unique()) == {0, 1}
+assert set(y_val.unique()) == {0, 1}
+
+print(""\n1. DATA CONFIGURATION"")
+print(""Training records:"", len(X_train))"
+JUPYTER_EXECUTION_HISTORY,EXEC_5,56,Partition_Variables,"print(""Training records:"", len(X_train))","assert set(y_val.unique()) == {0, 1}
+
+print(""\n1. DATA CONFIGURATION"")
+print(""Training records:"", len(X_train))
+print(""Validation records:"", len(X_val))
+print(""Categorical features:"", len(categorical_features))
+print(""Numerical features:"", len(numerical_features))"
+JUPYTER_EXECUTION_HISTORY,EXEC_5,57,Partition_Variables,"print(""Validation records:"", len(X_val))","
+print(""\n1. DATA CONFIGURATION"")
+print(""Training records:"", len(X_train))
+print(""Validation records:"", len(X_val))
+print(""Categorical features:"", len(categorical_features))
+print(""Numerical features:"", len(numerical_features))
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_5,89,Partition_Variables,"dummy_model.fit(X_train, y_train)","    strategy=""prior""
+)
+
+dummy_model.fit(X_train, y_train)
+
+dummy_prob = dummy_model.predict_proba(X_val)[:, 1]
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_5,89,Model_Fitting,"dummy_model.fit(X_train, y_train)","    strategy=""prior""
+)
+
+dummy_model.fit(X_train, y_train)
+
+dummy_prob = dummy_model.predict_proba(X_val)[:, 1]
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_5,91,Partition_Variables,"dummy_prob = dummy_model.predict_proba(X_val)[:, 1]","
+dummy_model.fit(X_train, y_train)
+
+dummy_prob = dummy_model.predict_proba(X_val)[:, 1]
+
+# -------------------------------------------------
+# 4. Baseline B: Logistic Regression"
+JUPYTER_EXECUTION_HISTORY,EXEC_5,110,Partition_Variables,"logistic_model.fit(X_train, y_train)","    ]
+)
+
+logistic_model.fit(X_train, y_train)
+
+logistic_prob = logistic_model.predict_proba(X_val)[:, 1]
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_5,110,Model_Fitting,"logistic_model.fit(X_train, y_train)","    ]
+)
+
+logistic_model.fit(X_train, y_train)
+
+logistic_prob = logistic_model.predict_proba(X_val)[:, 1]
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_5,112,Partition_Variables,"logistic_prob = logistic_model.predict_proba(X_val)[:, 1]","
+logistic_model.fit(X_train, y_train)
+
+logistic_prob = logistic_model.predict_proba(X_val)[:, 1]
+
+# -------------------------------------------------
+# 5. Model evaluation"
+JUPYTER_EXECUTION_HISTORY,EXEC_5,165,Partition_Variables,y_val,"    evaluate_model(
+        ""Dummy Classifier"",
+        dummy_prob,
+        y_val
+    ),
+    evaluate_model(
+        ""Logistic Regression"","
+JUPYTER_EXECUTION_HISTORY,EXEC_5,170,Partition_Variables,y_val,"    evaluate_model(
+        ""Logistic Regression"",
+        logistic_prob,
+        y_val
+    )
+])
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_5,203,Partition_Variables,"print(""Actual late receipt rate:"", round(y_val.mean(), 4))","    )
+
+print(""\n4. VALIDATION CLASS PREVALENCE"")
+print(""Actual late receipt rate:"", round(y_val.mean(), 4))
+
+print(""\n5. DATA LEAKAGE CONTROL"")
+print(""Preprocessing fitted on training data only."")"
+JUPYTER_EXECUTION_HISTORY,EXEC_6,16,Partition_Variables,actual = y_val.to_numpy(),"print(""AEGIS 4.0 - RISK THRESHOLD AND SIGNAL AUDIT"")
+print(""="" * 65)
+
+actual = y_val.to_numpy()
+probabilities = np.asarray(logistic_prob)
+
+assert len(actual) == len(probabilities) == 1721"
+JUPYTER_EXECUTION_HISTORY,EXEC_7,38,Partition_Variables,"rf_model.fit(X_train, y_train)","])
+
+# Train using training data only
+rf_model.fit(X_train, y_train)
+
+rf_train_prob = rf_model.predict_proba(X_train)[:, 1]
+rf_val_prob = rf_model.predict_proba(X_val)[:, 1]"
+JUPYTER_EXECUTION_HISTORY,EXEC_7,38,Model_Fitting,"rf_model.fit(X_train, y_train)","])
+
+# Train using training data only
+rf_model.fit(X_train, y_train)
+
+rf_train_prob = rf_model.predict_proba(X_train)[:, 1]
+rf_val_prob = rf_model.predict_proba(X_val)[:, 1]"
+JUPYTER_EXECUTION_HISTORY,EXEC_7,40,Partition_Variables,"rf_train_prob = rf_model.predict_proba(X_train)[:, 1]","# Train using training data only
+rf_model.fit(X_train, y_train)
+
+rf_train_prob = rf_model.predict_proba(X_train)[:, 1]
+rf_val_prob = rf_model.predict_proba(X_val)[:, 1]
+
+# 2. Compare ranking and probability quality"
+JUPYTER_EXECUTION_HISTORY,EXEC_7,41,Partition_Variables,"rf_val_prob = rf_model.predict_proba(X_val)[:, 1]","rf_model.fit(X_train, y_train)
+
+rf_train_prob = rf_model.predict_proba(X_train)[:, 1]
+rf_val_prob = rf_model.predict_proba(X_val)[:, 1]
+
+# 2. Compare ranking and probability quality
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_7,57,Partition_Variables,"y_val, logistic_prob","
+comparison = pd.DataFrame({
+    ""Logistic Regression"": probability_metrics(
+        y_val, logistic_prob
+    ),
+    ""Random Forest"": probability_metrics(
+        y_val, rf_val_prob"
+JUPYTER_EXECUTION_HISTORY,EXEC_7,60,Partition_Variables,"y_val, rf_val_prob","        y_val, logistic_prob
+    ),
+    ""Random Forest"": probability_metrics(
+        y_val, rf_val_prob
+    )
+}).T
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_7,71,Partition_Variables,"train_auc = roc_auc_score(y_train, rf_train_prob)","
+print(""\n2. OVERFITTING DIAGNOSTIC"")
+
+train_auc = roc_auc_score(y_train, rf_train_prob)
+val_auc = roc_auc_score(y_val, rf_val_prob)
+
+print(""Random Forest training ROC-AUC:"", round(train_auc, 4))"
+JUPYTER_EXECUTION_HISTORY,EXEC_7,72,Partition_Variables,"val_auc = roc_auc_score(y_val, rf_val_prob)","print(""\n2. OVERFITTING DIAGNOSTIC"")
+
+train_auc = roc_auc_score(y_train, rf_train_prob)
+val_auc = roc_auc_score(y_val, rf_val_prob)
+
+print(""Random Forest training ROC-AUC:"", round(train_auc, 4))
+print(""Random Forest validation ROC-AUC:"", round(val_auc, 4))"
+JUPYTER_EXECUTION_HISTORY,EXEC_7,91,Partition_Variables,"y_val, pred, labels=[0, 1]","    pred = (prob >= threshold).astype(int)
+
+    tn, fp, fn, tp = confusion_matrix(
+        y_val, pred, labels=[0, 1]
+    ).ravel()
+
+    print(f""\n{name}"")"
+JUPYTER_EXECUTION_HISTORY,EXEC_7,100,Partition_Variables,"precision_score(y_val, pred, zero_division=0), 4","    print(""False positives:"", fp)
+    print(""False negatives:"", fn)
+    print(""Precision:"", round(
+        precision_score(y_val, pred, zero_division=0), 4
+    ))
+    print(""Recall:"", round(
+        recall_score(y_val, pred, zero_division=0), 4"
+JUPYTER_EXECUTION_HISTORY,EXEC_7,103,Partition_Variables,"recall_score(y_val, pred, zero_division=0), 4","        precision_score(y_val, pred, zero_division=0), 4
+    ))
+    print(""Recall:"", round(
+        recall_score(y_val, pred, zero_division=0), 4
+    ))
+    print(""F1:"", round(
+        f1_score(y_val, pred, zero_division=0), 4"
+JUPYTER_EXECUTION_HISTORY,EXEC_7,106,Partition_Variables,"f1_score(y_val, pred, zero_division=0), 4","        recall_score(y_val, pred, zero_division=0), 4
+    ))
+    print(""F1:"", round(
+        f1_score(y_val, pred, zero_division=0), 4
+    ))
+
+# 5. Compare highest-risk 20% of orders"
+JUPYTER_EXECUTION_HISTORY,EXEC_7,113,Partition_Variables,actual = y_val.to_numpy(),"
+print(""\n4. TOP 20% RISK CONCENTRATION"")
+
+actual = y_val.to_numpy()
+top_n = round(len(actual) * 0.20)
+
+for name, prob in ["
+JUPYTER_EXECUTION_HISTORY,EXEC_7,150,Partition_Variables,"print(""Actual late rate:"", round(float(y_val.mean()), 4))","print(""Minimum predicted risk:"", round(rf_val_prob.min(), 4))
+print(""Maximum predicted risk:"", round(rf_val_prob.max(), 4))
+print(""Mean predicted risk:"", round(rf_val_prob.mean(), 4))
+print(""Actual late rate:"", round(float(y_val.mean()), 4))
+
+print(""\nRandom Forest experiment completed."")
+print(""Validation only. Test set untouched."")"
+JUPYTER_EXECUTION_HISTORY,EXEC_8,36,Partition_Variables,"rf_simple.fit(X_train, y_train)","    ))
+])
+
+rf_simple.fit(X_train, y_train)
+
+simple_train_prob = rf_simple.predict_proba(
+    X_train"
+JUPYTER_EXECUTION_HISTORY,EXEC_8,36,Model_Fitting,"rf_simple.fit(X_train, y_train)","    ))
+])
+
+rf_simple.fit(X_train, y_train)
+
+simple_train_prob = rf_simple.predict_proba(
+    X_train"
+JUPYTER_EXECUTION_HISTORY,EXEC_8,39,Partition_Variables,X_train,"rf_simple.fit(X_train, y_train)
+
+simple_train_prob = rf_simple.predict_proba(
+    X_train
+)[:, 1]
+
+simple_val_prob = rf_simple.predict_proba("
+JUPYTER_EXECUTION_HISTORY,EXEC_8,43,Partition_Variables,X_val,")[:, 1]
+
+simple_val_prob = rf_simple.predict_proba(
+    X_val
+)[:, 1]
+
+# ---------------------------------------------------"
+JUPYTER_EXECUTION_HISTORY,EXEC_8,52,Partition_Variables,"train_prob = model.predict_proba(X_train)[:, 1]","
+def get_metrics(name, model, val_prob):
+
+    train_prob = model.predict_proba(X_train)[:, 1]
+
+    train_auc = roc_auc_score(y_train, train_prob)
+    val_auc = roc_auc_score(y_val, val_prob)"
+JUPYTER_EXECUTION_HISTORY,EXEC_8,54,Partition_Variables,"train_auc = roc_auc_score(y_train, train_prob)","
+    train_prob = model.predict_proba(X_train)[:, 1]
+
+    train_auc = roc_auc_score(y_train, train_prob)
+    val_auc = roc_auc_score(y_val, val_prob)
+
+    return {"
+JUPYTER_EXECUTION_HISTORY,EXEC_8,55,Partition_Variables,"val_auc = roc_auc_score(y_val, val_prob)","    train_prob = model.predict_proba(X_train)[:, 1]
+
+    train_auc = roc_auc_score(y_train, train_prob)
+    val_auc = roc_auc_score(y_val, val_prob)
+
+    return {
+        ""Model"": name,"
+JUPYTER_EXECUTION_HISTORY,EXEC_8,63,Partition_Variables,"y_val, val_prob","        ""Val AUC"": val_auc,
+        ""AUC Gap"": train_auc - val_auc,
+        ""PR-AUC"": average_precision_score(
+            y_val, val_prob
+        ),
+        ""Brier"": brier_score_loss(
+            y_val, val_prob"
+JUPYTER_EXECUTION_HISTORY,EXEC_8,66,Partition_Variables,"y_val, val_prob","            y_val, val_prob
+        ),
+        ""Brier"": brier_score_loss(
+            y_val, val_prob
+        ),
+        ""Log Loss"": log_loss(
+            y_val, val_prob,"
+JUPYTER_EXECUTION_HISTORY,EXEC_8,69,Partition_Variables,"y_val, val_prob,","            y_val, val_prob
+        ),
+        ""Log Loss"": log_loss(
+            y_val, val_prob,
+            labels=[0, 1]
+        )
+    }"
+JUPYTER_EXECUTION_HISTORY,EXEC_8,101,Partition_Variables,actual = y_val.to_numpy(),"
+print(""\n2. TOP 20% RISK CONCENTRATION"")
+
+actual = y_val.to_numpy()
+top_n = round(len(actual) * 0.20)
+
+models = {"
+JUPYTER_EXECUTION_HISTORY,EXEC_8,156,Partition_Variables,"print(""Training records:"", len(X_train))","    ))
+
+print(""\n4. VALIDATION CONTROLS"")
+print(""Training records:"", len(X_train))
+print(""Validation records:"", len(X_val))
+print(""Test data not used."")
+print(""Preprocessing fitted on training only."")"
+JUPYTER_EXECUTION_HISTORY,EXEC_8,157,Partition_Variables,"print(""Validation records:"", len(X_val))","
+print(""\n4. VALIDATION CONTROLS"")
+print(""Training records:"", len(X_train))
+print(""Validation records:"", len(X_val))
+print(""Test data not used."")
+print(""Preprocessing fitted on training only."")
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_9,56,Partition_Variables,"xgb_model.fit(X_train, y_train)","])
+
+# Train exclusively on training records
+xgb_model.fit(X_train, y_train)
+
+xgb_train_prob = xgb_model.predict_proba(
+    X_train"
+JUPYTER_EXECUTION_HISTORY,EXEC_9,56,Model_Fitting,"xgb_model.fit(X_train, y_train)","])
+
+# Train exclusively on training records
+xgb_model.fit(X_train, y_train)
+
+xgb_train_prob = xgb_model.predict_proba(
+    X_train"
+JUPYTER_EXECUTION_HISTORY,EXEC_9,59,Partition_Variables,X_train,"xgb_model.fit(X_train, y_train)
+
+xgb_train_prob = xgb_model.predict_proba(
+    X_train
+)[:, 1]
+
+xgb_val_prob = xgb_model.predict_proba("
+JUPYTER_EXECUTION_HISTORY,EXEC_9,63,Partition_Variables,X_val,")[:, 1]
+
+xgb_val_prob = xgb_model.predict_proba(
+    X_val
+)[:, 1]
+
+# ---------------------------------------------------"
+JUPYTER_EXECUTION_HISTORY,EXEC_9,72,Partition_Variables,"train_prob = model.predict_proba(X_train)[:, 1]","
+def compare_probabilities(name, model, val_prob):
+
+    train_prob = model.predict_proba(X_train)[:, 1]
+
+    train_auc = roc_auc_score(y_train, train_prob)
+    val_auc = roc_auc_score(y_val, val_prob)"
+JUPYTER_EXECUTION_HISTORY,EXEC_9,74,Partition_Variables,"train_auc = roc_auc_score(y_train, train_prob)","
+    train_prob = model.predict_proba(X_train)[:, 1]
+
+    train_auc = roc_auc_score(y_train, train_prob)
+    val_auc = roc_auc_score(y_val, val_prob)
+
+    return {"
+JUPYTER_EXECUTION_HISTORY,EXEC_9,75,Partition_Variables,"val_auc = roc_auc_score(y_val, val_prob)","    train_prob = model.predict_proba(X_train)[:, 1]
+
+    train_auc = roc_auc_score(y_train, train_prob)
+    val_auc = roc_auc_score(y_val, val_prob)
+
+    return {
+        ""Model"": name,"
+JUPYTER_EXECUTION_HISTORY,EXEC_9,83,Partition_Variables,"y_val, val_prob","        ""Val AUC"": val_auc,
+        ""AUC Gap"": train_auc - val_auc,
+        ""PR-AUC"": average_precision_score(
+            y_val, val_prob
+        ),
+        ""Brier"": brier_score_loss(
+            y_val, val_prob"
+JUPYTER_EXECUTION_HISTORY,EXEC_9,86,Partition_Variables,"y_val, val_prob","            y_val, val_prob
+        ),
+        ""Brier"": brier_score_loss(
+            y_val, val_prob
+        ),
+        ""Log Loss"": log_loss(
+            y_val, val_prob,"
+JUPYTER_EXECUTION_HISTORY,EXEC_9,89,Partition_Variables,"y_val, val_prob,","            y_val, val_prob
+        ),
+        ""Log Loss"": log_loss(
+            y_val, val_prob,
+            labels=[0, 1]
+        )
+    }"
+JUPYTER_EXECUTION_HISTORY,EXEC_9,121,Partition_Variables,actual = y_val.to_numpy(),"
+print(""\n2. TOP 20% RISK COMPARISON"")
+
+actual = y_val.to_numpy()
+top_n = round(len(actual) * 0.20)
+
+model_probabilities = {"
+JUPYTER_EXECUTION_HISTORY,EXEC_9,177,Partition_Variables,"print(""Actual validation late rate:"", round(y_val.mean(), 4))","print(""Maximum:"", round(xgb_val_prob.max(), 4))
+print(""Mean:"", round(xgb_val_prob.mean(), 4))
+print(""Standard deviation:"", round(xgb_val_prob.std(), 4))
+print(""Actual validation late rate:"", round(y_val.mean(), 4))
+
+# ---------------------------------------------------
+# 5. Experiment integrity"
+JUPYTER_EXECUTION_HISTORY,EXEC_9,185,Partition_Variables,"print(""Training records:"", len(X_train))","
+print(""\n4. EXPERIMENT VALIDATION"")
+
+print(""Training records:"", len(X_train))
+print(""Validation records:"", len(X_val))
+print(""Test data not used."")
+print(""Preprocessing fitted using training records only."")"
+JUPYTER_EXECUTION_HISTORY,EXEC_9,186,Partition_Variables,"print(""Validation records:"", len(X_val))","print(""\n4. EXPERIMENT VALIDATION"")
+
+print(""Training records:"", len(X_train))
+print(""Validation records:"", len(X_val))
+print(""Test data not used."")
+print(""Preprocessing fitted using training records only."")
+print(""No validation-based hyperparameter tuning performed."")"
+JUPYTER_EXECUTION_HISTORY,EXEC_10,9,Partition_Variables,actual = y_val.to_numpy(dtype=int),"print(""AEGIS 4.0 - BOOTSTRAP MODEL RELIABILITY AUDIT"")
+print(""="" * 65)
+
+actual = y_val.to_numpy(dtype=int)
+lr_prob = np.asarray(logistic_prob, dtype=float)
+xgb_prob = np.asarray(xgb_val_prob, dtype=float)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_11,29,Source_Loading,"sample = pd.read_csv(file, nrows=5)","
+for file in csv_files:
+
+    sample = pd.read_csv(file, nrows=5)
+
+    matched_columns = [
+        col for col in sample.columns"
+JUPYTER_EXECUTION_HISTORY,EXEC_11,51,Source_Loading,orders = pd.read_csv(,"
+print(""\n3. PURCHASE ORDER COST AVAILABILITY"")
+
+orders = pd.read_csv(
+    data_dir / ""purchase_orders.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_12,12,Source_Loading,orders = pd.read_csv(,"
+data_dir = Path(""data"")
+
+orders = pd.read_csv(
+    data_dir / ""purchase_orders.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_12,16,Source_Loading,options = pd.read_csv(,"    data_dir / ""purchase_orders.csv""
+)
+
+options = pd.read_csv(
+    data_dir / ""supplier_component_options.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_12,20,Source_Loading,lanes = pd.read_csv(,"    data_dir / ""supplier_component_options.csv""
+)
+
+lanes = pd.read_csv(
+    data_dir / ""transport_lanes.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_13,11,Source_Loading,options = pd.read_csv(,"
+data_dir = Path(""data"")
+
+options = pd.read_csv(
+    data_dir / ""supplier_component_options.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_13,15,Source_Loading,lanes = pd.read_csv(,"    data_dir / ""supplier_component_options.csv""
+)
+
+lanes = pd.read_csv(
+    data_dir / ""transport_lanes.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_14,12,Source_Loading,all_orders = pd.read_csv(,"
+data_dir = Path(""data"")
+
+all_orders = pd.read_csv(
+    data_dir / ""purchase_orders.csv"",
+    parse_dates=[""order_date""]
+)"
+JUPYTER_EXECUTION_HISTORY,EXEC_14,17,Source_Loading,supplier_options = pd.read_csv(,"    parse_dates=[""order_date""]
+)
+
+supplier_options = pd.read_csv(
+    data_dir / ""supplier_component_options.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_16,15,Source_Loading,orders = pd.read_csv(,"
+data_dir = Path(""data"")
+
+orders = pd.read_csv(
+    data_dir / ""purchase_orders.csv"",
+    parse_dates=[""order_date""]
+)"
+JUPYTER_EXECUTION_HISTORY,EXEC_16,20,Source_Loading,options = pd.read_csv(,"    parse_dates=[""order_date""]
+)
+
+options = pd.read_csv(
+    data_dir / ""supplier_component_options.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_16,24,Source_Loading,lanes = pd.read_csv(,"    data_dir / ""supplier_component_options.csv""
+)
+
+lanes = pd.read_csv(
+    data_dir / ""transport_lanes.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_16,43,Chronological_Controls,"].sort_values(""purchase_order_id"").reset_index(drop=True)","        .dt.to_period(""M"")
+        .astype(str) == month
+    )
+].sort_values(""purchase_order_id"").reset_index(drop=True)
+
+batch[""order_idx""] = np.arange(len(batch))
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_18,11,Source_Loading,history = pd.read_csv(,"print(""="" * 65)
+
+# 1. Load historical purchase-order outcomes
+history = pd.read_csv(
+    Path(""data"") / ""purchase_orders.csv"",
+    parse_dates=[""order_date"", ""actual_receipt_date""]
+)"
+JUPYTER_EXECUTION_HISTORY,EXEC_18,52,Chronological_Controls,cutoff = row.order_date,"
+for row in risk_candidates.itertuples(index=False):
+
+    cutoff = row.order_date
+
+    supplier_history = history[
+        (history[""supplier_id""] =="
+JUPYTER_EXECUTION_HISTORY,EXEC_18,57,Chronological_Controls,"(history[""actual_receipt_date""] < cutoff) &","    supplier_history = history[
+        (history[""supplier_id""] ==
+         row.supplier_id_candidate) &
+        (history[""actual_receipt_date""] < cutoff) &
+        (
+            history[""actual_receipt_date""] >=
+            cutoff - pd.Timedelta(days=90)"
+JUPYTER_EXECUTION_HISTORY,EXEC_18,60,Chronological_Controls,cutoff - pd.Timedelta(days=90),"        (history[""actual_receipt_date""] < cutoff) &
+        (
+            history[""actual_receipt_date""] >=
+            cutoff - pd.Timedelta(days=90)
+        )
+    ]
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_20,11,Source_Loading,suppliers_28 = pd.read_csv(,"
+data_dir = Path(""data"")
+
+suppliers_28 = pd.read_csv(
+    data_dir / ""suppliers.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_20,15,Source_Loading,events_28 = pd.read_csv(,"    data_dir / ""suppliers.csv""
+)
+
+events_28 = pd.read_csv(
+    data_dir / ""disruption_events.csv"",
+    parse_dates=[""alert_published_date""]
+)"
+JUPYTER_EXECUTION_HISTORY,EXEC_21,11,Source_Loading,order_book = pd.read_csv(,"print(""="" * 65)
+
+# 1. Load the original purchase-order sequence
+order_book = pd.read_csv(
+    Path(""data"") / ""purchase_orders.csv"",
+    parse_dates=[""order_date""]
+)"
+JUPYTER_EXECUTION_HISTORY,EXEC_21,30,Chronological_Controls,order_book = order_book.sort_values(,"
+assert order_book[""order_sequence""].is_unique
+
+order_book = order_book.sort_values(
+    ""order_sequence""
+).copy()
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_21,78,Chronological_Controls,"group = group.sort_values(""order_sequence"")","
+for key, group in order_book.groupby(keys):
+
+    group = group.sort_values(""order_sequence"")
+
+    booking_lookup[key] = (
+        group[""order_sequence""].to_numpy(),"
+JUPYTER_EXECUTION_HISTORY,EXEC_22,14,Source_Loading,contracts_30 = pd.read_csv(,"# 1. Reconstruct observable conditions in training
+# --------------------------------------------------
+
+contracts_30 = pd.read_csv(
+    Path(""data"") / ""supplier_component_options.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_29,29,Source_Loading,supplier_master_37 = pd.read_csv(,"print(""SHA256:"", generator_hash)
+
+# 2. Load the original synthetic environment
+supplier_master_37 = pd.read_csv(
+    data_dir / ""suppliers.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_29,33,Source_Loading,events_37 = pd.read_csv(,"    data_dir / ""suppliers.csv""
+)
+
+events_37 = pd.read_csv(
+    data_dir / ""disruption_events.csv"",
+    parse_dates=[
+        ""event_start_date"","
+JUPYTER_EXECUTION_HISTORY,EXEC_32,15,Source_Loading,all_orders_40 = pd.read_csv(,"# 1. Verify the full July component order calendar
+# --------------------------------------------------
+
+all_orders_40 = pd.read_csv(
+    Path(""data"") / ""purchase_orders.csv"",
+    parse_dates=[""order_date""]
+)"
+JUPYTER_EXECUTION_HISTORY,EXEC_32,97,Chronological_Controls,selected = selected.sort_values(,"        .astype(int)
+    )
+
+    selected = selected.sort_values(
+        [""order_date"", ""sequence""]
+    )
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_39,34,Source_Loading,options_47 = pd.read_csv(,"assert orders_47[""purchase_order_id""].is_unique
+
+# 2. Approved suppliers and transport connections
+options_47 = pd.read_csv(
+    data_dir / ""supplier_component_options.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_39,38,Source_Loading,lanes_47 = pd.read_csv(,"    data_dir / ""supplier_component_options.csv""
+)
+
+lanes_47 = pd.read_csv(
+    data_dir / ""transport_lanes.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_39,192,Chronological_Controls,].sort_values(,"
+qualifying_47 = cohorts_47.loc[
+    cohorts_47[""Candidate_Cohort""]
+].sort_values(
+    [""month"", ""component_id""]
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_40,13,Source_Loading,supplier_master_48 = pd.read_csv(,"data_dir = Path(""data"")
+
+# 1. Load source records
+supplier_master_48 = pd.read_csv(
+    data_dir / ""suppliers.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_40,17,Source_Loading,agreements_48 = pd.read_csv(,"    data_dir / ""suppliers.csv""
+)
+
+agreements_48 = pd.read_csv(
+    data_dir / ""supplier_component_options.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_40,21,Source_Loading,dictionary_48 = pd.read_csv(,"    data_dir / ""supplier_component_options.csv""
+)
+
+dictionary_48 = pd.read_csv(
+    data_dir / ""data_dictionary.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_40,25,Source_Loading,orders_48 = pd.read_csv(,"    data_dir / ""data_dictionary.csv""
+)
+
+orders_48 = pd.read_csv(
+    data_dir / ""purchase_orders.csv"",
+    parse_dates=[""order_date""]
+)"
+JUPYTER_EXECUTION_HISTORY,EXEC_41,16,Chronological_Controls,].sort_values(,"# 1. Use the previously verified validation population
+qualifying_49 = cohorts_47.loc[
+    cohorts_47[""Candidate_Cohort""]
+].sort_values(
+    [""month"", ""component_id""]
+).copy()
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_41,275,Chronological_Controls,].sort_values(,"
+shortages_49 = enterprise_results_49.loc[
+    enterprise_results_49[""Unserved Units""] > 0
+].sort_values(
+    ""Unserved Units"",
+    ascending=False
+)"
+JUPYTER_EXECUTION_HISTORY,EXEC_42,36,Source_Loading,agreements_50 = pd.read_csv(,"# Build landed costs from supplier agreements and lanes
+data_dir = Path(""data"")
+
+agreements_50 = pd.read_csv(
+    data_dir / ""supplier_component_options.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_42,40,Source_Loading,lanes_50 = pd.read_csv(,"    data_dir / ""supplier_component_options.csv""
+)
+
+lanes_50 = pd.read_csv(
+    data_dir / ""transport_lanes.csv""
+)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_42,270,Chronological_Controls,qualifying_keys_50.sort_values(,"daily_records_50 = []
+
+cohort_keys_50 = list(
+    qualifying_keys_50.sort_values(
+        [""month"", ""component_id""]
+    ).itertuples(index=False, name=None)
+)"
+JUPYTER_EXECUTION_HISTORY,EXEC_42,453,Chronological_Controls,].sort_values(,"
+shortage_cohorts_50 = cohort_summary_50.loc[
+    cohort_summary_50[""Unserved_Units""] > 0
+].sort_values(
+    ""Unserved_Units"",
+    ascending=False
+)"
+JUPYTER_EXECUTION_HISTORY,EXEC_45,11,Source_Loading,source_53 = pd.read_csv(,"print(""="" * 70)
+
+# 1. Load original order dates and delivery outcomes
+source_53 = pd.read_csv(
+    Path(""data"") / ""purchase_orders.csv"",
+    parse_dates=[
+        ""order_date"","
+JUPYTER_EXECUTION_HISTORY,EXEC_46,191,Chronological_Controls,].sort_values(,"
+focus_54 = supplier_pressure_54.loc[
+    supplier_pressure_54[""Date""] == focus_date_54
+].sort_values(
+    ""Constrained_Order_Pressure"",
+    ascending=False
+)"
+JUPYTER_EXECUTION_HISTORY,EXEC_47,182,Chronological_Controls,supplier_criticality_55.sort_values(,"print(""\n4. STRUCTURAL SUPPLIER IMPORTANCE"")
+
+print(
+    supplier_criticality_55.sort_values(
+        [""Limited_Choice_Probes"", ""supplier_id""],
+        ascending=[False, True]
+    ).to_string(index=False)"
+JUPYTER_EXECUTION_HISTORY,EXEC_50,270,Chronological_Controls,qualifying_keys_50.sort_values(,"cohort_records_58 = []
+
+cohort_keys_58 = list(
+    qualifying_keys_50.sort_values(
+        [""month"", ""component_id""]
+    ).itertuples(index=False, name=None)
+)"
+JUPYTER_EXECUTION_HISTORY,EXEC_53,35,Chronological_Controls,"print(""Validation cutoff:"", cutoff_61.date())","assert (historical_61[""order_date""] < cutoff_61).all()
+
+print(""\n1. HISTORICAL DATA CONFIGURATION"")
+print(""Validation cutoff:"", cutoff_61.date())
+print(""Historical orders:"", len(historical_61))
+print(""Components:"", historical_61[""component_id""].nunique())
+print(""First historical order:"","
+JUPYTER_EXECUTION_HISTORY,EXEC_53,166,Chronological_Controls,component_history_61.sort_values(,"print(""\n3. COMPONENT-LEVEL HISTORICAL SCARCITY"")
+
+print(
+    component_history_61.sort_values(
+        ""component_id""
+    ).round(2).to_string(index=False)
+)"
+JUPYTER_EXECUTION_HISTORY,EXEC_53,263,Chronological_Controls,].sort_values(,"print(
+    supplier_exposure_61.loc[
+        supplier_exposure_61[""component_id""] == ""CMP-012""
+    ].sort_values(
+        ""supplier_id""
+    ).round(2).to_string(index=False)
+)"
+JUPYTER_EXECUTION_HISTORY,EXEC_54,329,Chronological_Controls,component_performance_62.sort_values(,"print(""\n6. COMPONENT-LEVEL FORECAST DIAGNOSTICS"")
+
+print(
+    component_performance_62.sort_values(
+        ""Mean_Component_Forecast"",
+        ascending=False
+    ).round(4).to_string(index=False)"
+JUPYTER_EXECUTION_HISTORY,EXEC_55,40,Chronological_Controls,"print(""Training cutoff:"", cutoff_63.date())","print(""Evaluation orders:"", len(evaluation_63))
+print(""Components:"", evaluation_63[""component_id""].nunique())
+
+print(""Training cutoff:"", cutoff_63.date())
+print(""Smoothing strength:"", prior_strength_63)
+
+# -----------------------------------------------"
+JUPYTER_EXECUTION_HISTORY,EXEC_55,289,Chronological_Controls,component_eval_63.sort_values(,"print(""\n6. COMPONENT FORECAST DIAGNOSTICS"")
+
+print(
+    component_eval_63.sort_values(
+        ""Forecast_Probability"",
+        ascending=False
+    ).round(4).to_string(index=False)"
+JUPYTER_EXECUTION_HISTORY,EXEC_55,375,Holdout_References,"print(""Results are not a new blind holdout test."")","
+print(""\nIMPORTANT LIMITATIONS"")
+print(""This validation period has already been explored."")
+print(""Results are not a new blind holdout test."")
+print(""The catalog is assumed time-invariant."")
+print(""Predictions do not estimate actual shortages."")
+print(""No policy-selection thresholds fitted."")"
+JUPYTER_EXECUTION_HISTORY,EXEC_56,49,Chronological_Controls,"print(""Forecast cutoff:"", cutoff_64.date())","print(""Historical orders:"", len(history_64))
+print(""Historical months:"", historical_months_64)
+print(""Enterprise cohorts:"", 106)
+print(""Forecast cutoff:"", cutoff_64.date())
+print(""Quantity smoothing strength: 10"")
+
+# --------------------------------------------------"
+JUPYTER_EXECUTION_HISTORY,EXEC_57,196,Chronological_Controls,"].sort_values(""Date"")","pilot_65 = validation_65.loc[
+    (validation_65[""Month""] == ""2025-09"") &
+    (validation_65[""Component""] == ""CMP-012"")
+].sort_values(""Date"")
+
+print(""\n4. SEPTEMBER CMP-012 FORWARD DEMAND"")
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_58,21,Chronological_Controls,".sort_values([""Month"", ""Component"", ""Date""])","
+first_66 = (
+    validation_65
+    .sort_values([""Month"", ""Component"", ""Date""])
+    .groupby([""Month"", ""Component""], sort=False)
+    .head(1)
+    .reset_index(drop=True)"
+JUPYTER_EXECUTION_HISTORY,EXEC_58,488,Holdout_References,"print(""These 106 cohorts are not a blind holdout."")","
+print(""\nIMPORTANT LIMITATIONS"")
+
+print(""These 106 cohorts are not a blind holdout."")
+print(""Months for the same component may be correlated."")
+print(""Component bootstrap does not address every"")
+print(""source of synthetic-data dependence."")"
+JUPYTER_EXECUTION_HISTORY,EXEC_60,414,Holdout_References,"print(""Reserved holdout marked as not generated."")","print(""\n7. FROZEN EXPERIMENT VERIFICATION"")
+print(""Development dataset hash verified."")
+print(""Frozen scenario manifest verified."")
+print(""Reserved holdout marked as not generated."")
+
+# --------------------------------------------------
+# 9. Final integrity checks"
+JUPYTER_EXECUTION_HISTORY,EXEC_61,501,Chronological_Controls,].sort_values(,"    offline_summary_69[
+        ""Shortage_Above_Aggregate_LB""
+    ] > 0
+].sort_values(
+    ""Shortage_Above_Aggregate_LB"",
+    ascending=False
+)"
+JUPYTER_EXECUTION_HISTORY,EXEC_61,637,Holdout_References,"print(""PASS: Reserved holdout was not accessed."")","print(""PASS: No duplicate assignments."")
+print(""PASS: Individual-fit failure reconciled."")
+print(""PASS: Procurement costs reconciled."")
+print(""PASS: Reserved holdout was not accessed."")
+
+# --------------------------------------------------
+# 9. Save outputs"
+JUPYTER_EXECUTION_HISTORY,EXEC_62,485,Chronological_Controls,].sort_values(,"
+worse_70 = comparison_70.loc[
+    comparison_70[""Additional_Rolling_Shortage""] > 0
+].sort_values(
+    ""Additional_Rolling_Shortage"",
+    ascending=False
+)"
+JUPYTER_EXECUTION_HISTORY,EXEC_65,77,Chronological_Controls,orders_70.sort_values(,"# hypothetical future-demand generator.
+
+first_decisions_73 = (
+    orders_70.sort_values(
+        [""scenario_id"", ""order_date""]
+    )
+    .groupby(""scenario_id"", sort=True)"
+JUPYTER_EXECUTION_HISTORY,EXEC_65,514,Holdout_References,"print(""No final holdout scenarios generated."")","print(""Weekly planning-cycle structure is assumed."")
+print(""Supplier network remains synthetic and static."")
+print(""No stochastic optimization performed yet."")
+print(""No final holdout scenarios generated."")
+print(""No financial savings established."")
+
+print(""\nSTEP 73 COMPLETE"")"
+JUPYTER_EXECUTION_HISTORY,EXEC_66,42,Chronological_Controls,].sort_values(,"        pd.to_datetime(choices_70[""order_date""])
+        == decision_date_74
+    )
+].sort_values(
+    [""purchase_order_id"", ""supplier_id""]
+).reset_index(drop=True)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_66,74,Chronological_Controls,future_74 = future_74.sort_values(,"    future_74[""order_date""]
+)
+
+future_74 = future_74.sort_values(
+    [""Path_ID"", ""order_date"", ""Future_Order_ID""]
+).reset_index(drop=True)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_66,122,Chronological_Controls,future_choices_74 = future_choices_74.sort_values(,"    )
+)
+
+future_choices_74 = future_choices_74.sort_values(
+    [""Path_ID"", ""Future_Order_ID"", ""supplier_id""]
+).reset_index(drop=True)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_67,296,Chronological_Controls,corrected_bank_75 = corrected_bank_75.sort_values(,"    ignore_index=True
+)
+
+corrected_bank_75 = corrected_bank_75.sort_values(
+    [
+        ""Scenario_ID"",
+        ""Path_ID"","
+JUPYTER_EXECUTION_HISTORY,EXEC_68,61,Chronological_Controls,].sort_values(,"
+today_76 = pilot_orders_76.loc[
+    pilot_orders_76[""order_date""] == decision_date_76
+].sort_values(
+    ""purchase_order_id""
+).reset_index(drop=True)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_68,71,Chronological_Controls,].sort_values(,"        pd.to_datetime(choices_70[""order_date""])
+        == decision_date_76
+    )
+].sort_values(
+    [""purchase_order_id"", ""supplier_id""]
+).reset_index(drop=True)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_68,106,Chronological_Controls,future_76 = future_76.sort_values(,"    future_76[""order_date""]
+)
+
+future_76 = future_76.sort_values(
+    [""Path_ID"", ""order_date"", ""Future_Order_ID""]
+).reset_index(drop=True)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_68,150,Chronological_Controls,future_choices_76 = future_choices_76.sort_values(,"    )
+)
+
+future_choices_76 = future_choices_76.sort_values(
+    [""Path_ID"", ""Future_Order_ID"", ""supplier_id""]
+).reset_index(drop=True)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_70,42,Chronological_Controls,"].sort_values(""purchase_order_id"").copy()","    today = scenario.loc[
+        pd.to_datetime(scenario[""order_date""])
+        == first_date
+    ].sort_values(""purchase_order_id"").copy()
+
+    options = choices_70.loc[
+        (choices_70[""scenario_id""] == scenario_id) &"
+JUPYTER_EXECUTION_HISTORY,EXEC_70,252,Chronological_Controls,].sort_values(,"# not future shortage outcomes.
+candidates_77 = readiness_77.loc[
+    readiness_77[""Multiple_Choices""]
+].sort_values(
+    [""Feasible_Assignments"", ""Scenario_ID""],
+    ascending=[False, True]
+)"
+JUPYTER_EXECUTION_HISTORY,EXEC_71,42,Chronological_Controls,].sort_values(,"
+today_78 = orders_78.loc[
+    orders_78[""order_date""] == decision_date_78
+].sort_values(
+    ""purchase_order_id""
+).reset_index(drop=True)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_71,52,Chronological_Controls,].sort_values(,"        pd.to_datetime(choices_70[""order_date""])
+        == decision_date_78
+    )
+].sort_values(
+    [""purchase_order_id"", ""supplier_id""]
+).reset_index(drop=True)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_71,84,Chronological_Controls,future_78 = future_78.sort_values(,"    future_78[""order_date""]
+)
+
+future_78 = future_78.sort_values(
+    [""Path_ID"", ""order_date"", ""Future_Order_ID""]
+).reset_index(drop=True)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_73,100,Chronological_Controls,future_all_80 = future_all_80.sort_values(,"    future_all_80[""order_date""]
+)
+
+future_all_80 = future_all_80.sort_values(
+    [""Path_ID"", ""Future_Order_ID""]
+).reset_index(drop=True)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_73,611,Holdout_References,"print(""They are not an independent real-world holdout."")","
+print(""\nIMPORTANT LIMITATIONS"")
+print(""Unused paths originate from the same simulator."")
+print(""They are not an independent real-world holdout."")
+print(""Future recourse still knows each complete path."")
+print(""No first-stage decisions were revised."")
+print(""No actual operational savings are established."")"
+JUPYTER_EXECUTION_HISTORY,EXEC_78,46,Chronological_Controls,"].sort_values(""supplier_id"").to_dict(""records"")","order_options_85 = [
+    options_85.loc[
+        options_85[""purchase_order_id""].eq(oid)
+    ].sort_values(""supplier_id"").to_dict(""records"")
+    for oid in order_ids_85
+]
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_79,427,Chronological_Controls,"print(""Historical cutoff:"", cutoff_86.date())","print(""Scenario:"", scenario_86)
+print(""Decision batches:"", len(decision_dates_86))
+print(""Paths per batch:"", paths_per_date_86)
+print(""Historical cutoff:"", cutoff_86.date())
+print(""Scarcity regimes: 6 low / 6 high"")
+
+print(""\n2. DECISION-TIME SCENARIO COVERAGE"")"
+JUPYTER_EXECUTION_HISTORY,EXEC_81,324,Chronological_Controls,"].sort_values(""purchase_order_id"")","
+last_orders_88 = orders_87.loc[
+    orders_87[""order_date""].eq(last_date_88)
+].sort_values(""purchase_order_id"")
+
+last_options_88 = options_87.loc[
+    options_87[""order_date""].eq(last_date_88)"
+JUPYTER_EXECUTION_HISTORY,EXEC_82,95,Chronological_Controls,"].sort_values(""Selection_Key"")","        group = pool_89.loc[
+            pool_89[""Profile""].eq(profile) &
+            pool_89[""Decision_Stratum""].eq(stratum)
+        ].sort_values(""Selection_Key"")
+
+        assert not group.empty, (
+            f""Missing stratum: {profile}/{stratum}"""
+JUPYTER_EXECUTION_HISTORY,EXEC_82,425,Holdout_References,"""holdout evaluation run.""","
+print(
+    ""PASS: No new optimization or"",
+    ""holdout evaluation run.""
+)
+
+print(""\n5. OUTPUTS"")"
+JUPYTER_EXECUTION_HISTORY,EXEC_83,83,Chronological_Controls,decisions_90 = decisions_90.sort_values(,"    decisions_90[""order_date""]
+)
+
+decisions_90 = decisions_90.sort_values(
+    [""scenario_id"", ""order_date""]
+).reset_index(drop=True)
+"
+JUPYTER_EXECUTION_HISTORY,EXEC_83,637,Chronological_Controls,"print(""PASS: Historical demand cutoff enforced."")","
+print(""PASS: Step 89 protocol unchanged."")
+print(""PASS: Independent decision-time futures generated."")
+print(""PASS: Historical demand cutoff enforced."")
+print(""PASS: Supplier eligibility, MOQ and routes reconciled."")
+print(""PASS: No realized future quantities or outcomes used."")
+print(""PASS: Empty future paths retained in manifest."")"
+JUPYTER_EXECUTION_HISTORY,EXEC_84,480,Chronological_Controls,"].sort_values(""purchase_order_id"")","
+        today = scenario_orders.loc[
+            scenario_orders[""order_date""].eq(date)
+        ].sort_values(""purchase_order_id"")
+
+        options = scenario_choices.loc[
+            scenario_choices[""order_date""].eq(date)"
+JUPYTER_EXECUTION_HISTORY,EXEC_84,1063,Holdout_References,"print(""Selected cohorts are not a blind holdout."")","
+print(""\nIMPORTANT LIMITATIONS"")
+print(""Synthetic development-only evaluation."")
+print(""Selected cohorts are not a blind holdout."")
+print(""Future recourse assumes complete path information."")
+print(""Hypothetical demand distributions remain assumed."")
+print(""No ML delivery-risk predictions integrated yet."")"
+JUPYTER_EXECUTION_HISTORY,EXEC_86,196,Chronological_Controls,nonempty_93.sort_values([,"# Keep one earliest forecast per selected scenario
+# for a less repetitive diagnostic.
+first_93 = (
+    nonempty_93.sort_values([
+        ""Scenario_ID"", ""Decision_Date""
+    ])
+    .groupby(""Scenario_ID"", as_index=False)"
+JUPYTER_EXECUTION_HISTORY,EXEC_86,420,Holdout_References,"print(""PASS: Reserved holdout and final ML test unused."")","print(""PASS: Zero-horizon cases separated."")
+print(""PASS: Count and unit errors independently calculated."")
+print(""PASS: No optimization policy changed or rerun."")
+print(""PASS: Reserved holdout and final ML test unused."")
+
+print(""\nIMPORTANT LIMITATIONS"")
+print(""All realized outcomes are synthetic development data."")"
+JUPYTER_EXECUTION_HISTORY,EXEC_87,212,Chronological_Controls,benchmark_94.sort_values([,"# 6. Separate first decisions
+
+first_dates_94 = (
+    benchmark_94.sort_values([
+        ""Scenario_ID"",
+        ""Decision_Date""
+    ])"
+JUPYTER_EXECUTION_HISTORY,EXEC_87,294,Chronological_Controls,"""Historical data cutoff: before 2025-07-01""",")
+
+print(
+    ""Historical data cutoff: before 2025-07-01""
+)
+
+print("
+JUPYTER_EXECUTION_HISTORY,EXEC_87,315,Chronological_Controls,].sort_values(,"            ""Historical_Order_Count"",
+            ""Historical_Units_Per_Order""
+        ]
+    ].sort_values(
+        ""component_id""
+    ).round(2).to_string(index=False)
+)"
+JUPYTER_EXECUTION_HISTORY,EXEC_87,408,Holdout_References,"print(""PASS: Reserved holdout and ML test not accessed."")","print(""PASS: Original stochastic forecasts unchanged."")
+print(""PASS: No forecasting or sourcing model retuned."")
+print(""PASS: Frozen scenario bank unchanged."")
+print(""PASS: Reserved holdout and ML test not accessed."")
+
+print(""\nIMPORTANT LIMITATIONS"")
+"

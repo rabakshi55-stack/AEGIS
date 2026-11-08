@@ -1,0 +1,6 @@
+supplier_id,Candidate_Pairs,Original_Mean_Rate,Clean_Mean_Rate,Mean_Rate_Change,Mean_Absolute_Change,Maximum_Absolute_Change,Changed_Candidates
+SUP-014,16,0.148225,0.148225,0.0,0.0,0.0,0
+SUP-038,16,0.298775,0.298775,0.0,0.0,0.0,0
+SUP-042,16,0.283875,0.283875,0.0,0.0,0.0,0
+SUP-045,16,0.448425,0.448425,0.0,0.0,0.0,0
+SUP-048,16,0.23267500000000002,0.23267500000000002,0.0,0.0,0.0,0

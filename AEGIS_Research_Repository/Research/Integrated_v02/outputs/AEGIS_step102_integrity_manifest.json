@@ -1,0 +1,12 @@
+{
+  "candidate_rows": 40000,
+  "unique_orders": 16,
+  "unique_candidate_pairs": 80,
+  "structural_consistency": true,
+  "point_in_time_provenance_certified": false,
+  "counterfactual_validity_certified": false,
+  "ml_sourcing_integration_authorized": false,
+  "models_retrained": false,
+  "predictions_generated": false,
+  "source_matrices_modified": false
+}

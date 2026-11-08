@@ -1,0 +1,19 @@
+{
+  "candidate_options": 80,
+  "capacity_scenarios": 3,
+  "chronological_policies": 6,
+  "counterfactual_validity_certified": false,
+  "cross_model_comparison_completed": true,
+  "fixed_capacity_stress_completed": true,
+  "models_evaluated": 3,
+  "models_retrained": false,
+  "new_milp_optimization_performed": false,
+  "original_allocations_modified": false,
+  "original_capacity_reconciliation": true,
+  "pilot_orders": 16,
+  "plant_route_certified": false,
+  "production_deployment_authorized": false,
+  "reserved_test_accessed": false,
+  "same_day_timing_certified": false,
+  "step": 127
+}

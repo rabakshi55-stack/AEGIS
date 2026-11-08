@@ -1,0 +1,13 @@
+Scope,Signal,Forecast_Method,Decision_Batches,MAE,WAPE_Pct,Mean_Error
+All_69_Overlapping_Horizons,Orders,Frozen_Stochastic,69,0.9166666666666665,12.30544747081712,0.03985507246376806
+All_69_Overlapping_Horizons,Orders,Fixed_Arrival_Rate,69,0.5217391304347824,7.003891050583655,0.18357487922705273
+All_69_Overlapping_Horizons,Orders,Historical_Monthly_Rate,69,0.8053542673107892,10.811175961954174,-0.05012077294685985
+All_69_Overlapping_Horizons,Units,Frozen_Stochastic,69,554.7342995169082,22.59957056289325,133.13285024154587
+All_69_Overlapping_Horizons,Units,Frozen_Count_x_Historical_Size,69,634.8744813085254,25.864437535964818,407.59699406512794
+All_69_Overlapping_Horizons,Units,Historical_Monthly_Units,69,597.5734702093397,24.344814838869237,468.291968599034
+First_8_Scenario_Decisions,Orders,Frozen_Stochastic,8,1.34375,9.862385321100918,0.23958333333333348
+First_8_Scenario_Decisions,Orders,Fixed_Arrival_Rate,8,0.958333333333333,7.033639143730884,0.3749999999999991
+First_8_Scenario_Decisions,Orders,Historical_Monthly_Rate,8,1.2494936342592604,9.17059548080191,-0.014539930555555358
+First_8_Scenario_Decisions,Units,Frozen_Stochastic,8,1030.7083333333333,21.839354451389625,62.3958333333332
+First_8_Scenario_Decisions,Units,Frozen_Count_x_Historical_Size,8,1247.0143242810418,26.42259400955698,552.724706794703
+First_8_Scenario_Decisions,Units,Historical_Monthly_Units,8,1151.8997395833335,24.407241012466013,820.3551793981485

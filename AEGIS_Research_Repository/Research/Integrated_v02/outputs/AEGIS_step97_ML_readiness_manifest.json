@@ -1,0 +1,17 @@
+{
+  "decision_batches": 75,
+  "evaluated_components": 8,
+  "frozen_protocol_sha256": "3926416791837138bbc4345423b289f51876a0c9d969f99bbe6c90735eb4c6e1",
+  "historical_cutoff_exclusive": "2025-07-01",
+  "maximum_horizon_months": 19,
+  "minimum_horizon_months": 19,
+  "models_retrained": false,
+  "one_step_ready": false,
+  "order_ml_stability_indicator": true,
+  "procurement_optimized": false,
+  "purpose": "ML deployment horizon verification",
+  "readiness_status": "REQUIRES_FURTHER_VALIDATION",
+  "reserved_test_accessed": false,
+  "source_scenario_sha256": "e2c3b8ceb8d6101e898cd9744efe58a9482b7ee7551b68873fd41f9f025b7da5",
+  "unit_ml_stability_indicator": false
+}

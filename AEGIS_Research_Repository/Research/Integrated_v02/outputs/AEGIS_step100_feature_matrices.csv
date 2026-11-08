@@ -1,0 +1,5 @@
+Matrix,Loaded,Rows,Columns,Missing_vs_Training,Extra_vs_Training,Exact_Order_Match,Null_Cells,Outcome_Like_Columns
+X_train,True,6243.0,18.0,NONE,NONE,True,0.0,NONE
+X_scenario,False,,,NOT_LOADED,NOT_LOADED,False,,
+X_dynamic,True,40000.0,18.0,NONE,NONE,True,0.0,NONE
+scenario_features,True,40000.0,21.0,NONE,"baseline_congestion, baseline_utilization, purchase_order_id",False,0.0,NONE

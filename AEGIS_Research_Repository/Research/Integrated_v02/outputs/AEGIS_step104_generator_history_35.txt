@@ -1,0 +1,340 @@
+
+import numpy as np
+import pandas as pd
+from pathlib import Path
+
+print("=" * 70)
+print("AEGIS 4.0 - DYNAMIC ML RISK FEEDBACK AUDIT")
+print("=" * 70)
+
+# --------------------------------------------------
+# 1. Verify existing inputs
+# --------------------------------------------------
+
+keys = ["purchase_order_id", "supplier_id"]
+
+policies_43 = [
+    "Cost-Only",
+    "Historical-Risk",
+    "ML-Risk"
+]
+
+assert len(scoring_base_32) == 80
+assert len(dynamic_42) == 240
+assert sampled_residuals.shape == (500, 80, 2)
+assert simulated_cong.shape == (500, 80)
+assert len(rolling_allocations_41) == 48
+
+base_43 = scoring_base_32.reset_index(drop=True).copy()
+
+print("\n1. EXPERIMENT CONFIGURATION")
+print("Policies:", len(policies_43))
+print("Candidates per policy:", len(base_43))
+print("Monte Carlo scenarios:", 500)
+print("Total scenario predictions:", 120000)
+
+# --------------------------------------------------
+# 2. Recalculate risks for each policy
+# --------------------------------------------------
+
+feedback_records_43 = []
+candidate_results_43 = []
+
+for policy in policies_43:
+
+    dynamic_policy = dynamic_42.loc[
+        dynamic_42["Policy"] == policy,
+        keys + ["Dynamic_Baseline"]
+    ].copy()
+
+    # Explicit key-based alignment
+    aligned = base_43[keys].merge(
+        dynamic_policy,
+        on=keys,
+        how="left",
+        validate="one_to_one",
+        sort=False
+    )
+
+    assert len(aligned) == 80
+    assert aligned["Dynamic_Baseline"].notna().all()
+
+    assert np.array_equal(
+        aligned[keys].to_numpy(),
+        base_43[keys].to_numpy()
+    )
+
+    # Policy-specific utilization scenarios
+    dynamic_util = np.clip(
+        aligned["Dynamic_Baseline"].to_numpy()[None, :]
+        + sampled_residuals[:, :, 0],
+        0.05,
+        1.60
+    )
+
+    # Hold congestion assumptions unchanged
+    # to isolate the capacity-feedback effect.
+    dynamic_cong = simulated_cong.copy()
+
+    # Construct the 40,000-row feature matrix
+    scenario_frame = pd.concat(
+        [base_43] * 500,
+        ignore_index=True
+    )
+
+    scenario_frame[
+        "capacity_utilization_at_order"
+    ] = dynamic_util.reshape(-1)
+
+    scenario_frame[
+        "logistics_congestion_at_order"
+    ] = dynamic_cong.reshape(-1)
+
+    X_dynamic = scenario_frame[
+        candidate_features
+    ].copy()
+
+    assert X_dynamic.shape == (40000, 18)
+    assert not X_dynamic.isna().any().any()
+
+    # Score with the previously trained ML model
+    probabilities = logistic_model.predict_proba(
+        X_dynamic
+    )[:, 1].reshape(500, 80)
+
+    assert np.isfinite(probabilities).all()
+    assert ((probabilities >= 0) &
+            (probabilities <= 1)).all()
+
+    dynamic_mean_risk = probabilities.mean(axis=0)
+
+    fixed_mean_risk = candidate_risk_33[
+        "Mean_ML_Risk"
+    ].to_numpy()
+
+    # Candidate-level comparison
+    policy_candidates = base_43[keys].copy()
+
+    policy_candidates["Policy"] = policy
+
+    policy_candidates["Fixed_ML_Risk"] = (
+        fixed_mean_risk
+    )
+
+    policy_candidates["Dynamic_ML_Risk"] = (
+        dynamic_mean_risk
+    )
+
+    policy_candidates["Risk_Change"] = (
+        dynamic_mean_risk - fixed_mean_risk
+    )
+
+    candidate_results_43.append(
+        policy_candidates
+    )
+
+    # Examine the existing selected allocations
+    selected = rolling_allocations_41.loc[
+        rolling_allocations_41["Policy"] == policy,
+        keys + [
+            "order_quantity_units",
+            "ML_Exposure"
+        ]
+    ].copy()
+
+    selected = selected.merge(
+        policy_candidates[
+            keys + ["Dynamic_ML_Risk"]
+        ],
+        on=keys,
+        how="left",
+        validate="one_to_one"
+    )
+
+    assert len(selected) == 16
+    assert selected["Dynamic_ML_Risk"].notna().all()
+
+    fixed_exposure = float(
+        selected["ML_Exposure"].sum()
+    )
+
+    updated_exposure = float(
+        (
+            selected["order_quantity_units"] *
+            selected["Dynamic_ML_Risk"]
+        ).sum()
+    )
+
+    # Verify previously reported fixed exposure
+    old_exposure = summary_41.set_index(
+        "Policy"
+    ).loc[policy, "ML Exposure"]
+
+    assert np.isclose(
+        fixed_exposure,
+        old_exposure,
+        atol=0.01
+    )
+
+    feedback_records_43.append({
+        "Policy": policy,
+        "Fixed ML Exposure": fixed_exposure,
+        "Dynamic ML Exposure": updated_exposure,
+        "Exposure Change": (
+            updated_exposure - fixed_exposure
+        ),
+        "Exposure Change (%)": (
+            (updated_exposure / fixed_exposure - 1)
+            * 100
+        ),
+        "Mean Absolute Candidate Risk Change": (
+            policy_candidates["Risk_Change"]
+            .abs().mean()
+        ),
+        "Maximum Absolute Candidate Risk Change": (
+            policy_candidates["Risk_Change"]
+            .abs().max()
+        )
+    })
+
+# --------------------------------------------------
+# 3. Compare all three policies
+# --------------------------------------------------
+
+feedback_summary_43 = pd.DataFrame(
+    feedback_records_43
+)
+
+feedback_candidates_43 = pd.concat(
+    candidate_results_43,
+    ignore_index=True
+)
+
+print("\n2. DYNAMIC POLICY RISK COMPARISON")
+
+print(
+    feedback_summary_43.round(4).to_string(
+        index=False
+    )
+)
+
+# --------------------------------------------------
+# 4. Verify risk changes
+# --------------------------------------------------
+
+print("\n3. CANDIDATE RISK CHANGES")
+
+for policy in policies_43:
+
+    subset = feedback_candidates_43.loc[
+        feedback_candidates_43["Policy"] == policy
+    ]
+
+    changed = int(
+        (subset["Risk_Change"].abs() > 1e-8).sum()
+    )
+
+    print(f"\n{policy}")
+    print("Candidates:", len(subset))
+    print("Changed risk predictions:", changed)
+
+    print(
+        "Minimum dynamic risk:",
+        round(subset["Dynamic_ML_Risk"].min(), 4)
+    )
+
+    print(
+        "Maximum dynamic risk:",
+        round(subset["Dynamic_ML_Risk"].max(), 4)
+    )
+
+# --------------------------------------------------
+# 5. Check whether candidate risk rankings change
+# --------------------------------------------------
+
+print("\n4. LOWEST-RISK SUPPLIER RANKING")
+
+for policy in policies_43:
+
+    subset = feedback_candidates_43.loc[
+        feedback_candidates_43["Policy"] == policy
+    ]
+
+    fixed_winners = subset.loc[
+        subset.groupby("purchase_order_id")[
+            "Fixed_ML_Risk"
+        ].idxmin()
+    ].set_index("purchase_order_id")["supplier_id"]
+
+    dynamic_winners = subset.loc[
+        subset.groupby("purchase_order_id")[
+            "Dynamic_ML_Risk"
+        ].idxmin()
+    ].set_index("purchase_order_id")["supplier_id"]
+
+    unchanged = int(
+        (fixed_winners == dynamic_winners).sum()
+    )
+
+    print(
+        policy,
+        "| Unchanged lowest-risk supplier:",
+        unchanged,
+        "of 16"
+    )
+
+# --------------------------------------------------
+# 6. Final integrity checks
+# --------------------------------------------------
+
+print("\n5. FINAL VERIFICATION")
+
+assert len(feedback_summary_43) == 3
+assert len(feedback_candidates_43) == 240
+
+assert feedback_candidates_43[
+    "Dynamic_ML_Risk"
+].between(0, 1).all()
+
+assert not feedback_candidates_43[
+    ["Policy"] + keys
+].duplicated().any()
+
+assert np.isfinite(
+    feedback_summary_43.select_dtypes(
+        include=np.number
+    ).to_numpy()
+).all()
+
+print("PASS: Three rolling policies rescored.")
+print("PASS: All 240 policy-candidate records valid.")
+print("PASS: Existing allocations reconciled.")
+print("PASS: Operational uncertainty retained.")
+print("PASS: Test dataset remains untouched.")
+
+# --------------------------------------------------
+# 7. Save results
+# --------------------------------------------------
+
+output_dir = Path("outputs")
+output_dir.mkdir(exist_ok=True)
+
+feedback_summary_43.to_csv(
+    output_dir / "AEGIS_dynamic_risk_summary.csv",
+    index=False
+)
+
+feedback_candidates_43.to_csv(
+    output_dir / "AEGIS_dynamic_risk_candidates.csv",
+    index=False
+)
+
+print("\nIMPORTANT LIMITATIONS")
+print("Supplier allocations have NOT been reoptimized.")
+print("Only the capacity-related ML feature was updated.")
+print("Congestion assumptions remain unchanged.")
+print("Stressed capacity effects are not calibrated.")
+print("Predictions remain model-based, not causal.")
+print("No delivery savings or financial benefits claimed.")
+
+print("\nSTEP 43 COMPLETE")

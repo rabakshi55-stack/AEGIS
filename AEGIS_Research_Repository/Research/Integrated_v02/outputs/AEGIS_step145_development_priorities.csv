@@ -1,0 +1,7 @@
+Priority,Workstream,Action,Condition
+1,Adaptive cost-capacity optimizer,Build isolated feasible-allocation and headroom model,Do not rely on unvalidated ML risk
+2,Model domain validation,Investigate unsupported capacity input ranges,No artificial clipping of risky inputs
+3,Feature timing,Verify alerts and intraday commitment chronology,Preserve point-in-time information
+4,Independent ML evaluation,Audit data partition and fitted-model lineage,No reserved holdout access without protocol
+5,Risk-aware optimizer,Integrate validated risk and uncertainty,Activate only after scientific evidence gates
+6,Governed decision interface,Update Copilot and human approval workflow,No automatic external procurement action

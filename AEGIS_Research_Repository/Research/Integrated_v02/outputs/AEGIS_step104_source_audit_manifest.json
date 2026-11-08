@@ -1,0 +1,17 @@
+{
+  "candidate_orders": 16,
+  "candidate_pairs": 80,
+  "counterfactual_validity_certified": false,
+  "draw_pairing_certified": false,
+  "generator_history_cells": [
+    25,
+    35
+  ],
+  "historical_window_certified": false,
+  "models_retrained": false,
+  "predictions_generated": false,
+  "simulation_rows": 40000,
+  "source_code_executed": false,
+  "sourcing_policies_modified": false,
+  "step": 104
+}

@@ -1,0 +1,16 @@
+{
+  "corrected_bank_sha256": "c30a41f6a7c814b49622ca366f41cd89347f8439d31173c4e2c6ca6d23b491ca",
+  "historical_cutoff_exclusive": "2025-07-01",
+  "holdout_generated": false,
+  "modelled_first_week_days": [
+    1,
+    2,
+    3
+  ],
+  "original_future_paths": 2688,
+  "original_orders_preserved": true,
+  "purpose": "First-wave horizon correction",
+  "reserved_evaluation_seed": 202668,
+  "source_bank_sha256": "e909cda5ff0582ea4a218b3eec61f96b4cddb80f71a889e4d0dd7293692d6dfb",
+  "supplement_seed": 202675
+}
