@@ -18,3 +18,7 @@ AEGIS_App/BENCHMARK_REPRO.json
 AEGIS_App/BENCHMARK_EXTENDED_REPRO.json
 AEGIS_App/DIAGNOSTICS_REPRO.json
 Reproduction_Stress_New/
+
+# API credentials: keep only in Streamlit Secrets, never Git
+**/.streamlit/secrets.toml
+**/runtime/

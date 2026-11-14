@@ -2,7 +2,9 @@
 import streamlit as st
 import plotly.graph_objects as go
 import html
+import os
 from cloud_engine import CloudWorkspace, SAMPLE, ROLES
+from hosted_copilot import GroqClient
 from adaptive_charts import recommend
 from custom_charts import CHART_TYPES, AGGREGATIONS, DATE_GRAINS, SORTS
 from app import STORE, research_answer, get_joint_evidence
@@ -16,7 +18,24 @@ w = st.session_state.aegis_workspace
 st.sidebar.title('AEGIS')
 st.sidebar.caption('SUPPLY CHAIN DECISION INTELLIGENCE')
 page=st.sidebar.radio('Workspace',['Data','Visualizations','Decision Copilot','Research evidence'])
-st.sidebar.info('Online research demonstration · Standard evidence-grounded engine. Qwen and local SQLite are available in the local edition only.')
+st.sidebar.info('Online research demonstration · AEGIS hosted AI or standard evidence-grounded analytics. Local SQLite and private Ollama remain in the local edition.')
+try:
+    hosted_key = str(st.secrets.get('GROQ_API_KEY', os.getenv('GROQ_API_KEY', ''))).strip()
+except Exception:
+    hosted_key = os.getenv('GROQ_API_KEY','').strip()
+mode = st.sidebar.radio('Copilot mode', ['AEGIS AI (GPT-OSS)','Standard analytics'], index=0 if hosted_key else 1)
+consent = False
+if mode == 'AEGIS AI (GPT-OSS)':
+    if not hosted_key:
+        st.sidebar.warning('Hosted AI is not configured. The app owner must add GROQ_API_KEY in Streamlit Secrets.')
+    else:
+        consent = st.sidebar.checkbox('I agree to send my questions, column names, conversation and bounded calculation results to Groq. I will use only public or authorized non-sensitive data.', value=False)
+client = GroqClient(hosted_key) if hosted_key and consent and mode == 'AEGIS AI (GPT-OSS)' else None
+
+def active_client():
+    if mode == 'AEGIS AI (GPT-OSS)' and client is None:
+        raise ValueError('Configure hosted AI and accept its data-sharing notice, or select Standard analytics.')
+    return client
 st.sidebar.caption('© 2026 Arin Bakshi. All Rights Reserved.')
 st.title('AEGIS')
 st.caption('Explore data. Understand evidence. Support human decisions.')
@@ -77,7 +96,7 @@ elif page=='Visualizations':
             q=st.text_input('What do you want to find out?',max_chars=1500)
             if st.button('Recommend a chart',disabled=not q):
                 try:
-                    r=w.ask('Which chart should I use for this objective: '+q[:1430]); st.session_state['last_recommendation']=r
+                    r=w.ask('Which chart should I use for this objective: '+q[:1430],hosted_client=active_client()); st.session_state['last_recommendation']=r
                 except Exception as e: st.error(str(e))
             r=st.session_state.get('last_recommendation',{}); s=r.get('chart_suggestion')
             if s and s['dataset_revision']==w.store.revision:
@@ -110,7 +129,7 @@ elif page=='Visualizations':
                 w.charts.pop(i); st.rerun()
 elif page=='Decision Copilot':
     st.header('3 · Decision Copilot')
-    if not w.store.dataset: st.info('Load data first.')
+    if not w.store.dataset and mode == 'Standard analytics': st.info('Load data first, or select AEGIS AI for general conversation.')
     else:
         if st.button('New chat'): w.history.clear(); st.rerun()
         cat=w.catalog(); focus=st.selectbox('Optional chart context',['']+[c['key'] for c in cat],format_func=lambda x: 'No specific chart' if not x else x)
@@ -118,13 +137,14 @@ elif page=='Decision Copilot':
             with st.chat_message('user'): st.text(turn['question'])
             with st.chat_message('assistant'):
                 st.text(turn['answer']); s=turn.get('chart_suggestion')
+                if turn.get('routing_mode') == 'HOSTED_LLM_TOOL_AGENT': st.caption('Hosted AI explanation · calculated evidence is separately displayed; verify interpretations.')
                 if s and s['dataset_revision']==w.store.revision:
                     if st.button('Create this chart',key='chat_chart_'+str(i)):
                         try: render(w.use_suggestion(s),s['kind']=='automatic')
                         except Exception as e: st.error(str(e))
-        q=st.chat_input('Ask about your dataset',max_chars=1500)
+        q=st.chat_input('Ask AEGIS about your dataset or a general question',max_chars=1500)
         if q:
-            try: w.ask(q,focus or None); st.rerun()
+            try: w.ask(q,focus or None,hosted_client=active_client()); st.rerun()
             except Exception as e: st.error(str(e))
 else:
     st.header('Research evidence')

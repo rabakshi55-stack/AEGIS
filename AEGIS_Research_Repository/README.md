@@ -36,3 +36,7 @@ This folder is a **local repository starter, not a published GitHub repository**
 ## Research boundaries
 
 A test passing does not imply calibrated predictive accuracy, historical feature timestamp certification, real-world capacity feasibility, business value, or AI response faithfulness. Supplier actions are disabled.
+
+
+## Hosted AEGIS AI
+See [HOSTED_AI_GUIDE.md](HOSTED_AI_GUIDE.md) for the new independent GPT-OSS reasoning agent, configuration, safety boundaries and live acceptance procedure.

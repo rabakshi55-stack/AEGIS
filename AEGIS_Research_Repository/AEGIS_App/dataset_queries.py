@@ -235,7 +235,8 @@ def execute(dataset, plan):
     elif op == "count":
         evidence["result"] = hit
     elif op == "count_distinct":
-        evidence.update({"field": col, "result": len(count_distinct), "missing_values_excluded": True})
+        evidence.update({"field": col, "result": len(count_distinct), "missing_values_excluded": True,
+                         "missing_count": sum(1 for row in dataset.rows if _matched(row, filt) and not row[selected_col])})
     elif op in {"sum", "average", "min", "max", "median", "stddev"}:
         n = len(numeric_values)
         evidence.update({"field": col, "valid_numeric_rows": n, "non_numeric_or_missing_rows": invalid_numeric})
@@ -294,6 +295,19 @@ def explain(outputs):
             lines.append(f"I can query all {details['rows']:,} uploaded rows across {len(details['columns'])} columns: "
                          + ", ".join(str(c['name']) for c in details['columns']) + ".")
             continue
+        if op == "count_distinct":
+            lines.append(f"There are {e['result']:,} distinct non-empty values in '{e['field']}'. "
+                         f"Checked {e['matched_rows']:,} matching rows out of {e['total_rows']:,} uploaded records.")
+            if e.get("missing_count"):
+                lines.append(f"{e['missing_count']:,} matching rows have a blank '{e['field']}' value and are excluded from the distinct count.")
+            continue
+        if op == "group_count":
+            lines.append("Record counts by " + ", ".join(e['group_by']) + ":")
+            lines.extend("• " + " / ".join(str(v) for v in row['group'].values()) + f": {row['value']:,} rows" for row in e['result'])
+            if e.get('result_truncated'):
+                lines.append(f"Showing {len(e['result'])} of {e['distinct_groups']} groups.")
+            lines.append(f"Checked {e['matched_rows']:,} matching rows out of {e['total_rows']:,} uploaded records.")
+            continue
         label = f"{op.replace('_',' ')}" + (f" of '{e['field']}'" if e.get('field') else "")
         lines.append(f"{label.capitalize()}: {e['result']}. Checked {e['matched_rows']:,} matching rows "
                      f"out of {e['total_rows']:,} uploaded records.")
@@ -305,11 +319,96 @@ def explain(outputs):
     return "\n".join(lines)[:MAX_RESPONSE_CHARS]
 
 
+def _field_phrase(text):
+    return re.sub(r"[^a-z0-9]+", " ", str(text).casefold()).strip()
+
+
+def _entity_column(dataset, phrase):
+    """Resolve explicit whole field names or unambiguous common entity aliases."""
+    term = _field_phrase(phrase)
+    if not term:
+        return None
+    forms = {term}
+    if term.endswith("ies"):
+        forms.add(term[:-3] + "y")
+    elif term.endswith("s"):
+        forms.add(term[:-1])
+    else:
+        forms.add(term + "s")
+    exact = [c for c in dataset.columns if _field_phrase(c) == term]
+    if len(exact) == 1:
+        return exact[0]
+    matches = [c for c in dataset.columns if _field_phrase(c) in forms]
+    if len(matches) == 1:
+        return matches[0]
+    if len(matches) > 1:
+        return None
+    aliases = {
+        "supplier_id": {"supplier", "suppliers", "vendor", "vendors", "seller", "sellers"},
+        "order_id": {"order", "orders"},
+        "item_id": {"item", "items", "product", "products"},
+        "destination_state": {"destination state", "destination states"},
+    }
+    for role, words in aliases.items():
+        if term in words and dataset.mapping.get(role) in dataset.columns:
+            return dataset.mapping[role]
+    entity_names = ["supplier", "vendor", "seller", "customer", "order", "item", "product"]
+    for entity in entity_names:
+        if term in {entity, entity + "s"}:
+            names = {entity + " id", entity + " name", entity + " reference", entity + " code"}
+            candidates = [c for c in dataset.columns if _field_phrase(c) in names]
+            return candidates[0] if len(candidates) == 1 else None
+    return None
+
+
+def _entity_plan(question, dataset, history=None):
+    """Handle complete, unfiltered cardinality/list requests; never drop qualifiers."""
+    q = _field_phrase(question)
+    tail = r"(?: (?:are there|do we have|are in (?:the|this|my|our) (?:data|dataset|file|upload)|in (?:the|this|my|our) (?:uploaded )?(?:data|dataset|file|upload)))?"
+    m = re.fullmatch(r"(?:how many (?:distinct|unique) values (?:in|of)|(?:number of )?unique values (?:in|of)) (.+)", q)
+    if m:
+        col = _entity_column(dataset, m.group(1))
+        if col:
+            return {"operation": "count_distinct", "column": col}
+    m = re.fullmatch(r"(?:how many|(?:what is the |what s the |tell me the )?number of|count) (?:distinct |unique |different )?(.+?)" + tail, q)
+    if m:
+        term = m.group(1)
+        if term in {"rows", "records", "entries", "data rows"}:
+            return {"operation": "count"}
+        col = _entity_column(dataset, term)
+        if col:
+            return {"operation": "count_distinct", "column": col}
+    # A field-only follow-up or list request gets a checked profile, not a guess.
+    m = re.fullmatch(r"(?:list|show(?: me)?|what are) (?:all |the |unique |distinct )?(.+?)" + tail, q)
+    term = m.group(1) if m else q
+    col = _entity_column(dataset, term)
+    if col:
+        return {"plans": [
+            {"operation": "count_distinct", "column": col},
+            {"operation": "group_count", "group_by": [col], "filters": [{"column": col, "op": "present"}], "limit": 20}
+        ]}
+    # A bare request for names can inherit the specific previous count question.
+    if q in {"list them", "show them", "what are their names", "which ones", "name them"} and history:
+        prior = _entity_plan(history[-1].get("question", ""), dataset)
+        if prior and prior.get("operation") == "count_distinct":
+            col = prior["column"]
+        elif prior and prior.get("plans") and prior["plans"][0].get("operation") == "count_distinct":
+            col = prior["plans"][0]["column"]
+        else:
+            col = None
+        if col:
+            return {"operation": "group_count", "group_by": [col], "filters": [{"column": col, "op": "present"}], "limit": 20}
+    return None
+
+
 def basic_plan(question, dataset, history=None):
     """Best-effort offline interpretation. Local Qwen handles complex phrasings."""
     q = str(question or "").lower().strip()
     if not q:
         return None
+    entity_plan = _entity_plan(question, dataset, history)
+    if entity_plan is not None:
+        return entity_plan
     def col_ref():
         metric_phrase = q.split(' by ', 1)[0]
         matches = [c for c in dataset.columns if c.lower() in metric_phrase]
@@ -323,6 +422,9 @@ def basic_plan(question, dataset, history=None):
                 return exact[0]
         return None
     col = col_ref()
+    # Do not silently discard qualifiers on unrecognized entity-count requests.
+    if re.match(r"^(?:how many|(?:what is the |tell me the )?number of|count)\b", q) and not any(p in q for p in (" by ", "how many records", "how many rows", "number of entries")):
+        return None
     if any(p in q for p in ("show the columns", "list the fields", "what fields", "what columns", "show schema")):
         return {"operation": "schema"}
     if any(p in q for p in ("how many records", "total rows", "how many rows", "number of entries")):

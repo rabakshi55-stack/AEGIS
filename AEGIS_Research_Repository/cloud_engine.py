@@ -1,5 +1,5 @@
 """Session-specific adapter to the original AEGIS read-only calculations.
-No global upload state, local filesystem connectors, or remote LLM calls.
+No global upload state or local filesystem connectors. Hosted AI is explicit opt-in.
 """
 from pathlib import Path
 import sys
@@ -9,6 +9,7 @@ from adaptive_charts import recommend
 from chart_recommendations import recommend_for_question, is_recommendation_question
 from chart_copilot import answer_for_charts, is_chart_question, MAX_CHARTS
 from app import block_execution, block_cross_source
+from hosted_copilot import ask_hosted, HostedUnavailable
 
 MAX_CLOUD_BYTES = 5 * 1024 * 1024
 MAX_CLOUD_ROWS = 25000
@@ -54,12 +55,22 @@ class CloudWorkspace:
         custom = [{'key':'c:'+str(i),'kind':'custom','options':o} for i,o in enumerate(self.charts)]
         return (auto+custom)[:16]
 
-    def ask(self, question, focus=None):
+    def ask(self, question, focus=None, hosted_client=None):
         q=str(question).strip()
         if not q or len(q)>1500: raise ValueError('Enter a question of 1–1,500 characters.')
         ds=self.store.dataset
-        if ds is None: raise ValueError('Upload data or load the fictional example first.')
+        if ds is None and hosted_client is None: raise ValueError('Upload data or load the fictional example first.')
         h=self.history[-6:]
+        if hosted_client is not None and not (block_execution(q) or block_cross_source(q)):
+            try:
+                result=ask_hosted(ds,q,h,self.store.revision,hosted_client,focus,self.catalog())
+                self.history.append({'question':q,'answer':result['answer'],'chart_suggestion':result.get('chart_suggestion'),'routing_mode':result['routing_mode']})
+                self.history=self.history[-12:]
+                return result
+            except (HostedUnavailable,ValueError) as exc:
+                # Never silently substitute a rules-based response as AI.
+                raise ValueError(str(exc)) from None
+        if ds is None: raise ValueError('No business actions are available. Load a dataset for analytical research.')
         operational = block_execution(q) or block_cross_source(q) or any(x in q.lower() for x in ('switch supplier','switching suppliers','recommend supplier','reallocate suppliers','who caused','whose fault','responsible for the delay','why did the supplier','field mapping','map the fields','mapping based','which field maps','what should the mapping'))
         if operational:
             result, _ = self.store.explain(q, history=h)
