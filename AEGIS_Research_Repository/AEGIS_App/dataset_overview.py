@@ -87,31 +87,42 @@ def build_overview(dataset):
         original = [v for v in values if str(v.get('label', '')).casefold() not in {'other categories', 'other values'}]
         if not original:
             continue
-        # Do not misrepresent a sorted-by-time line as a highest first chart.
+        # Describe all visible periods, and do not invent a unique peak.
+        # Charts can be bounded: conclusions apply only to the displayed groups.
+        peak = max(v['count'] for v in original)
+        leaders = [v for v in original if v['count'] == peak]
+        lead_labels = ', '.join(_safe(v['label']) for v in leaders)
         if chart['id'] in {'activity_over_time', 'recorded_amount_trend'}:
-            first, last = original[0], original[-1]
-            highest = max(original, key=lambda v: v['count'])
-            text = (f"{title}: in the displayed periods, {_safe(first['label'])} has "
-                    f"{_format_count(first['count'])} {metric.lower()}, while {_safe(last['label'])} has "
-                    f"{_format_count(last['count'])}; the highest displayed period is "
-                    f"{_safe(highest['label'])} ({_format_count(highest['count'])}).")
+            series = [v['count'] for v in original]
+            first, last = series[0], series[-1]
+            if len(series) == 1:
+                movement = 'Only one displayed period; no trend can be assessed.'
+            elif all(x == first for x in series):
+                movement = 'Flat across all displayed periods; no increase or decrease is observed.'
+            elif all(x <= y for x,y in zip(series,series[1:])):
+                movement = 'Non-decreasing across the displayed periods.'
+            elif all(x >= y for x,y in zip(series,series[1:])):
+                movement = 'Non-increasing across the displayed periods.'
+            else:
+                movement = ('Fluctuates; the last displayed value is '+('higher' if last>first else 'lower' if last<first else 'equal to the first')+'.')
+            peak_note = (f"Highest displayed period: {lead_labels} ({_format_count(peak)})." if len(leaders)==1 else
+                         f"{len(leaders)} displayed periods tie for the highest value ({_format_count(peak)}): {lead_labels}.")
+            text = (f"{title}: " + '; '.join(f"{_safe(v['label'])}: {_format_count(v['count'])}" for v in original)
+                    + f" ({metric.lower()}). {movement} {peak_note} Periods without usable records are not inferred to be zero.")
         elif chart['id'] == 'numeric_distribution':
-            top = max(original, key=lambda v: v['count'])
-            text = (f"{title}: the most populated displayed numeric range is "
-                    f"{_safe(top['label'])} with {_format_count(top['count'])} rows.")
+            text = (f"{title}: " + (f"the most populated displayed numeric range is {lead_labels}" if len(leaders)==1 else
+                    f"{len(leaders)} displayed ranges tie for most populated: {lead_labels}") + f" with {_format_count(peak)} rows each.")
         elif chart['id'] == 'date_comparison':
             pairs = sum(float(v.get('count', 0)) for v in original)
             after = next((v['count'] for v in original if 'after' in str(v.get('label','')).lower()), 0)
             text = (f"{title}: {_format_count(after)} of {_format_count(pairs)} comparable rows "
                     f"({_format_count(100 * after / pairs if pairs else 0)}%) have delivery dates after the mapped comparison date.")
         else:
-            top = max(original, key=lambda v: v['count'])
-            runner = sorted(original, key=lambda v: (-v['count'], str(v['label'])))[:3]
-            text = (f"{title}: highest displayed category is '{_safe(top['label'])}' "
-                    f"with {_format_count(top['count'])} {metric.lower()}. "
-                    + ("Other leading categories: " + "; ".join(
-                        f"{_safe(v['label'])} ({_format_count(v['count'])})" for v in runner[1:]) + "."
-                       if len(runner) > 1 else ""))
+            runner = sorted((v for v in original if v['count'] != peak), key=lambda v: (-v['count'], str(v['label'])))[:3]
+            text = (f"{title}: " + (f"highest displayed category is '{lead_labels}'" if len(leaders)==1 else
+                    f"{len(leaders)} displayed categories tie for highest: {lead_labels}") +
+                    f" with {_format_count(peak)} {metric.lower()}" + (" each. " if len(leaders)>1 else ". ") +
+                    ("Other leading categories: " + "; ".join(f"{_safe(v['label'])} ({_format_count(v['count'])})" for v in runner) + "." if runner else ""))
         facts.append(text)
         if len(facts) >= 3:
             break
