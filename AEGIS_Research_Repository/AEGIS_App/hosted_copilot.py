@@ -43,7 +43,7 @@ class GroqClient:
         _quota()
         payload={'model':MODEL,'messages':messages,'temperature':0.2,'max_completion_tokens':2200,'reasoning_effort':'low','include_reasoning':False}
         if json_mode: payload['response_format']={'type':'json_object'}
-        req=urllib.request.Request(URL,data=json.dumps(payload).encode(),headers={'Authorization':'Bearer '+self.key,'Content-Type':'application/json'},method='POST')
+        req=urllib.request.Request(URL,data=json.dumps(payload).encode(),headers={'Authorization':'Bearer '+self.key,'Content-Type':'application/json','Accept':'application/json','User-Agent':'AEGIS-Decision-Intelligence/1.1'},method='POST')
         try:
             with urllib.request.build_opener(_NoRedirect()).open(req,timeout=45) as response:
                 raw=response.read(250000)
@@ -51,8 +51,37 @@ class GroqClient:
             if not isinstance(content,str) or not content.strip(): raise ValueError('empty response')
             return content
         except urllib.error.HTTPError as e:
-            status=e.code; e.close()
-            raise HostedUnavailable(f'Hosted AI returned HTTP {status}; check provider key, quota or service status.') from None
+            status=e.code
+            # Inspect a bounded error body, never display it or provider credentials.
+            try:
+                body=e.read(16384).decode('utf-8',errors='replace')
+            except (OSError, ValueError):
+                body=''
+            finally:
+                e.close()
+            code=''
+            try:
+                error=json.loads(body).get('error',{})
+                if isinstance(error,dict): code=error.get('code','')
+            except (ValueError, TypeError, AttributeError):
+                pass
+            if status==403 and code=='model_permission_blocked_org':
+                message='Groq has blocked GPT-OSS 120B in your organization model permissions. The app owner must enable it in Groq organization settings.'
+            elif status==403 and code=='model_permission_blocked_project':
+                message='Groq has blocked GPT-OSS 120B in your project model permissions. The app owner must enable it in Groq project settings.'
+            elif status==403 and re.search(r'error\s+code\s*:\s*1010\b',body,re.I):
+                message='Groq edge security rejected the HTTP client (403 / 1010). The app owner should check the provider transport or contact Groq support.'
+            elif status==403:
+                message='Groq refused this request (HTTP 403). The app owner should check organization and project model permissions, account restrictions, or provider security.'
+            elif status==401:
+                message='Groq rejected authentication (HTTP 401). The app owner should verify the configured API key.'
+            elif status==429:
+                message='Groq rate limit reached (HTTP 429). Use standard analytics or retry later.'
+            elif status==400:
+                message='Groq rejected the AI request format (HTTP 400). The app owner should check model compatibility.'
+            else:
+                message=f'Hosted AI returned HTTP {status}; the app owner should check provider service status and configuration.'
+            raise HostedUnavailable(message) from None
         except (OSError,ValueError,KeyError,TypeError,IndexError):
             raise HostedUnavailable('Hosted AI could not complete the request. Standard offline analytics remain available.') from None
 
