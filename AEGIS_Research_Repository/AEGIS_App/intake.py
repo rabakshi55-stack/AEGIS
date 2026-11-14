@@ -929,6 +929,20 @@ class IntakeStore:
             dataset = self.dataset
         if dataset is None:
             raise ValueError("Upload a dataset first.")
+        from focused_analysis import focused_analysis
+        focused = focused_analysis(dataset, question)
+        if focused is not None:
+            with self.lock:
+                if self.dataset is not dataset:
+                    raise ValueError("The active dataset changed; please ask again.")
+            result = {"answer": focused["answer"], "context": "local_dataset",
+                      "evidence_source": "CURRENT_UPLOADED_DATASET_FOCUSED_ANALYSIS",
+                      "routing_mode": "OFFLINE_RECOMPUTED_FOCUSED_ANALYSIS",
+                      "operational_approval": "NOT_GRANTED", "permitted_action": "NONE",
+                      "human_review": "REQUIRED", "safety_gate": False,
+                      "focused_analysis": focused}
+            return result, {**dataset.model_facts(), "checked_focused_analysis": focused["answer"],
+                            "business_semantics_certified": False, "no_procurement_actions": True}
         # A broad question needs a data-backed managerial reading, not an LLM
         # plan for an arbitrary metric. Both modes use the identical evidence.
         if asks_for_overview(question):

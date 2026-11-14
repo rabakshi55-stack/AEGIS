@@ -37,6 +37,11 @@ def asks_for_overview(question):
                 r'field mapping|map the field|column mapping)\b')
     if re.search(directed, q):
         return False
+    # Field-specific and delivery-specific analyses need their own evidence,
+    # not an overall activity summary. The focused analysis tool handles
+    # unqualified descriptions; the AI planner handles additional qualifiers.
+    if re.search(r'\b(?:delivery|deliveries|lateness|column|field)\b', q):
+        return False
     return any(re.search(p, q) for p in OVERVIEW_RE)
 
 

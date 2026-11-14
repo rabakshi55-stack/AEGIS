@@ -74,6 +74,8 @@ class CloudWorkspace:
         operational = block_execution(q) or block_cross_source(q) or any(x in q.lower() for x in ('switch supplier','switching suppliers','recommend supplier','reallocate suppliers','who caused','whose fault','responsible for the delay','why did the supplier','field mapping','map the fields','mapping based','which field maps','what should the mapping'))
         if operational:
             result, _ = self.store.explain(q, history=h)
+        elif not focus and __import__('focused_analysis').focused_analysis(ds,q) is not None:
+            result,_ = self.store.query_analysis(q,history=h,use_local_llm=False)
         elif is_recommendation_question(q,h):
             result,_ = recommend_for_question(ds,q,revision=self.store.revision,history=h)
         else:
@@ -84,7 +86,7 @@ class CloudWorkspace:
             response = answer_for_charts(ds,q,catalog[:MAX_CHARTS],focus, dataset_revision=self.store.revision,current_revision=self.store.revision,history=h) if catalog and is_chart_question(q,focus,h) else None
             if response is None: response=self.store.query_analysis(q,history=h,use_local_llm=False)
             result,_= response if response is not None else self.store.explain(q,history=h)
-        self.history.append({'question':q,'answer':result['answer'],'chart_suggestion':result.get('chart_suggestion')})
+        self.history.append({'question':q,'answer':result['answer'],'chart_suggestion':result.get('chart_suggestion'),'routing_mode':result.get('routing_mode')})
         self.history=self.history[-12:]
         return result
 

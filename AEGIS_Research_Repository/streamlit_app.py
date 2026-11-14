@@ -11,9 +11,11 @@ from app import STORE, research_answer, get_joint_evidence
 from model_registry import collect_report
 
 st.set_page_config(page_title='AEGIS | Decision Intelligence', page_icon='🛡️', layout='wide')
-if 'aegis_workspace' not in st.session_state:
+# Do not reuse objects instantiated from older backend code after a deployment.
+if 'aegis_workspace' not in st.session_state or st.session_state.get('aegis_workspace_version') != 'focused-analysis-1':
     st.session_state.aegis_workspace = CloudWorkspace()
     st.session_state.upload_epoch = 0
+    st.session_state.aegis_workspace_version = 'focused-analysis-1'
 w = st.session_state.aegis_workspace
 st.sidebar.title('AEGIS')
 st.sidebar.caption('SUPPLY CHAIN DECISION INTELLIGENCE')
@@ -138,6 +140,9 @@ elif page=='Decision Copilot':
             with st.chat_message('assistant'):
                 st.text(turn['answer']); s=turn.get('chart_suggestion')
                 if turn.get('routing_mode') == 'HOSTED_LLM_TOOL_AGENT': st.caption('Hosted AI explanation · calculated evidence is separately displayed; verify interpretations.')
+                elif turn.get('routing_mode') == 'HOSTED_LLM_PARTIAL_EVIDENCE': st.caption('Checked calculations only · hosted explanation incomplete.')
+                elif turn.get('routing_mode') == 'HOSTED_LLM_CHECKED_FOCUSED_ANALYSIS': st.caption('AEGIS AI · focused, independently calculated answer.')
+                elif turn.get('routing_mode') == 'OFFLINE_RECOMPUTED_FOCUSED_ANALYSIS': st.caption('Standard analytics · focused calculations from the active dataset.')
                 if s and s['dataset_revision']==w.store.revision:
                     if st.button('Create this chart',key='chat_chart_'+str(i)):
                         try: render(w.use_suggestion(s),s['kind']=='automatic')
