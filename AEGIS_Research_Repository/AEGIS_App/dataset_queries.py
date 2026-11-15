@@ -54,6 +54,30 @@ def _resolve(column, names):
     raise ValueError(f"Unknown or ambiguous field: {column[:80]!r}.")
 
 
+class UnsafeMeasureError(ValueError):
+    """Known source semantics make requested arithmetic unsafe."""
+
+
+def identifier_field(dataset, column):
+    return (column in {dataset.mapping.get(r) for r in ('order_id','supplier_id','item_id','destination_state')}
+            or bool(re.search(r'(^|[^a-z])(id|code|sku|zip|postal|phone|account|identifier|reference)([^a-z]|$)',column.casefold())))
+
+
+def monetary_field(dataset, column):
+    return (column == dataset.mapping.get('unit_cost') or bool(re.search(
+        r'\b(cost|price|spend|spending|expenditure|revenue|sales|amount|value|freight|invoice|charge|charges|profit|margin)\b',
+        re.sub(r'[^a-z0-9]+',' ',column.casefold()))))
+
+
+def check_measure(dataset, column):
+    if identifier_field(dataset,column):
+        raise UnsafeMeasureError(f"'{column}' is an identifier, not an established numeric measure. Count or group its recorded values instead.")
+    if monetary_field(dataset,column):
+        from cohort_analysis import _currency, _roles
+        if not _currency(dataset,_roles(dataset))[1]:
+            raise UnsafeMeasureError('Monetary arithmetic across mixed, missing or ambiguous currencies is not supported. Use a verified single-currency dataset or convert values with verified exchange rates first.')
+
+
 def schema(dataset):
     """Tell the model about every column, without copying the full dataset."""
     specs = []
@@ -62,8 +86,8 @@ def schema(dataset):
         count = len(present)
         nnum = sum(numeric(x) is not None for x in present)
         ndate = sum(date_key(x) is not None for x in present)
-        data_type = ("numeric" if count and nnum / count >= .95 else
-                     "date" if count and ndate / count >= .95 else "text")
+        data_type = ("numeric" if count and not identifier_field(dataset,name) and nnum / count >= .95 else
+                     "date" if count and not identifier_field(dataset,name) and ndate / count >= .95 else "text")
         entries = {x for x in present[:3000]}
         specs.append({"name": name, "kind": data_type, "present": count,
                       "missing": len(dataset.rows) - count,
@@ -104,6 +128,12 @@ def _compile_filters(filters, names):
             raise ValueError("A list filter requires at most 25 scalar values.")
         if op == "date_between" and (date_key(val) is None or date_key(second) is None):
             raise ValueError("A date range requires ISO dates.")
+        if op == "between" and numeric(val) > numeric(second):
+            raise ValueError("Numeric range bounds must be in ascending order.")
+        if op == "date_between" and date_key(val) > date_key(second):
+            raise ValueError("Date range bounds must be in ascending order.")
+        if op in {"eq", "ne", "contains"} and not isinstance(val,(str,int,float)):
+            raise ValueError("Text comparisons require a scalar value; use missing/present for blanks.")
         compiled.append((names.index(col), op, val, second))
     return compiled
 
@@ -139,9 +169,22 @@ def _matched(raw, compiled):
     return True
 
 
+def display_number(value):
+    """Readable numeric labels without rounding nonzero values to zero."""
+    d = Decimal(str(value))
+    if not d.is_finite(): raise ValueError('Nonfinite measure.')
+    if d == d.to_integral_value(): return f'{int(d):,}'
+    if abs(d) < Decimal('0.0001'): return format(d.normalize(), 'E')
+    return format(d, ',f').rstrip('0').rstrip('.')
+
+
 def _formatted(x):
     if isinstance(x, Decimal):
-        return float(round(x, 6)) if abs(x) < Decimal("1E15") else str(x)
+        if x == x.to_integral_value(): return int(x)
+        # Retain precision when a JSON floating-point number would collapse
+        # different source values. Exact decimals are returned as strings.
+        f = float(x)
+        return f if math.isfinite(f) and Decimal(str(f)) == x else str(x)
     return x
 
 
@@ -177,6 +220,8 @@ def execute(dataset, plan):
         col = _resolve(col, names)
     elif col is not None:
         col = _resolve(col, names)
+    if op in {"sum", "average", "min", "max", "median", "stddev", "group_sum", "group_average"}:
+        check_measure(dataset,col)
     if op.startswith("group_") and not group_by:
         raise ValueError("Grouped analysis requires group_by fields.")
     if not op.startswith("group_") and group_by:
@@ -190,11 +235,12 @@ def execute(dataset, plan):
     if op == "schema":
         return {"operation": "schema", "source": dataset.filename, "result": schema(dataset), "business_action": "NONE"}
     hit = 0
+    nonblank_count = 0
     preview = []
     count_distinct = set()
     numeric_values = []
     invalid_numeric = 0
-    groups = defaultdict(lambda: {"rows": 0, "numeric_sum": Decimal(0), "numeric_count": 0, "invalid_numeric": 0})
+    groups = defaultdict(lambda: {"rows": 0, "nonblank": 0, "numeric_sum": Decimal(0), "numeric_count": 0, "invalid_numeric": 0})
     selected_col = names.index(col) if col is not None else None
     group_indices = [names.index(c) for c in group_by]
     out_cols = cols if cols else names[:min(len(names), 12)]
@@ -203,6 +249,8 @@ def execute(dataset, plan):
         if not _matched(row, filt):
             continue
         hit += 1
+        if selected_col is not None and row[selected_col]:
+            nonblank_count += 1
         if op == "preview" and len(preview) < min(limit, MAX_RECORD_PREVIEW):
             preview.append({c: row[i][:500] for c, i in zip(out_cols, out_indices)})
         if op == "count_distinct":
@@ -220,6 +268,8 @@ def execute(dataset, plan):
                         for i in group_indices)
             info = groups[key]
             info["rows"] += 1
+            if selected_col is not None and row[selected_col]:
+                info["nonblank"] += 1
             if op in {"group_sum", "group_average"}:
                 if number is None:
                     info["invalid_numeric"] += 1
@@ -235,7 +285,9 @@ def execute(dataset, plan):
         evidence["displayed_rows"] = len(preview)
         evidence["limited_preview"] = hit > len(preview)
     elif op == "count":
-        evidence["result"] = hit
+        evidence["result"] = hit if col is None else nonblank_count
+        if col is not None:
+            evidence.update(field=col, missing_count=hit-nonblank_count, count_basis="nonblank values")
     elif op == "count_distinct":
         evidence.update({"field": col, "result": len(count_distinct), "missing_values_excluded": True,
                          "missing_count": sum(1 for row in dataset.rows if _matched(row, filt) and not row[selected_col])})
@@ -256,23 +308,38 @@ def execute(dataset, plan):
             vals = sorted(numeric_values)
             evidence["result"] = _formatted(vals[n//2] if n%2 else (vals[n//2-1] + vals[n//2])/2)
         else:
-            avg = float(sum(numeric_values, Decimal(0)) / n)
-            evidence["result"] = round(math.sqrt(sum((float(v) - avg) ** 2 for v in numeric_values) / n), 6)
+            avg = sum(numeric_values, Decimal(0)) / n
+            variance = sum(((v - avg) ** 2 for v in numeric_values), Decimal(0)) / n
+            evidence["result"] = _formatted(variance.sqrt())
     elif op.startswith("group_"):
         result = []
         for key, grp in groups.items():
-            metric = (grp["rows"] if op == "group_count" else
-                      (_formatted(grp["numeric_sum"]) if grp["numeric_count"] else None) if op == "group_sum" else
-                      (_formatted(grp["numeric_sum"] / grp["numeric_count"]) if grp["numeric_count"] else None))
+            metric = ((grp["rows"] if col is None else grp["nonblank"]) if op == "group_count" else
+                      (grp["numeric_sum"] if grp["numeric_count"] else None) if op == "group_sum" else
+                      (grp["numeric_sum"] / grp["numeric_count"] if grp["numeric_count"] else None))
             result.append({"group": dict(zip(group_by, key)), "value": metric,
                            "rows": grp["rows"], "numeric_rows": grp["numeric_count"] if op != "group_count" else None})
         if order.startswith("key"):
             result.sort(key=lambda x: tuple(str(x["group"][c]) for c in group_by), reverse=order == "key_desc")
         else:
             result.sort(key=lambda x: (x["value"] is None, -Decimal(str(x["value"] or 0)) if order == "desc" else Decimal(str(x["value"] or 0))))
-        evidence.update({"result": result[:limit], "group_by": group_by, "field": col,
-                         "distinct_groups": len(result), "result_truncated": len(result) > limit,
+        shown = min(limit,len(result))
+        if order in {"asc","desc"} and shown and shown < len(result) and result[shown-1]["value"] is not None:
+            boundary = result[shown-1]["value"]
+            ties = sum(r["value"] == boundary for r in result)
+            end = shown
+            while end < len(result) and result[end]["value"] == boundary:
+                end += 1
+            if end > shown:
+                evidence["ranking_boundary"] = {"value":_formatted(boundary),"tied_groups":ties,"additional_tied_groups":end-shown}
+                shown = min(end,MAX_OUTPUT_GROUPS)
+        for entry in result[:shown]:
+            entry['value'] = _formatted(entry['value'])
+        evidence.update({"result": result[:shown], "group_by": group_by, "field": col,
+                         "distinct_groups": len(result), "result_truncated": len(result) > shown,
                          "non_numeric_or_missing_rows": invalid_numeric if op != "group_count" else 0})
+        if op == "group_count" and col is not None:
+            evidence["count_basis"] = "nonblank values"
     return evidence
 
 
@@ -303,14 +370,22 @@ def explain(outputs):
             if e.get("missing_count"):
                 lines.append(f"{e['missing_count']:,} matching rows have a blank '{e['field']}' value and are excluded from the distinct count.")
             continue
+        if op == "count" and e.get("field"):
+            lines.append(f"{e['result']:,} nonblank values in '{e['field']}' across {e['matched_rows']:,} matching rows; {e['missing_count']:,} blanks.")
+            continue
         if op == "group_count":
-            lines.append("Record counts by " + ", ".join(e['group_by']) + ":")
-            lines.extend("• " + " / ".join("(missing or invalid)" if v is None else str(v) for v in row['group'].values()) + f": {row['value']:,} rows" for row in e['result'])
+            counted = f"nonblank '{e['field']}' values" if e.get('field') else "rows"
+            lines.append((f"Counts of {counted} by " if e.get('field') else "Record counts by ") + ", ".join(e['group_by']) + ":")
+            lines.extend("• " + " / ".join("(missing or invalid)" if v is None else str(v) for v in row['group'].values()) + f": {row['value']:,} {counted}" for row in e['result'])
+            if e.get('ranking_boundary'):
+                lines.append(f"{e['ranking_boundary']['tied_groups']:,} groups share the cutoff value {e['ranking_boundary']['value']}; ties are included up to the display cap.")
             if e.get('result_truncated'):
                 lines.append(f"Showing {len(e['result'])} of {e['distinct_groups']} groups.")
             lines.append(f"Checked {e['matched_rows']:,} matching rows out of {e['total_rows']:,} uploaded records.")
             continue
-        label = f"{op.replace('_',' ')}" + (f" of '{e['field']}'" if e.get('field') else "")
+        if e.get('ranking_boundary'):
+            lines.append(f"{e['ranking_boundary']['tied_groups']:,} groups share the ranking cutoff; ties are included up to the display cap.")
+        label = f"{('population standard deviation' if op == 'stddev' else op.replace('_',' '))}" + (f" of '{e['field']}'" if e.get('field') else "")
         lines.append(f"{label.capitalize()}: {e['result']}. Checked {e['matched_rows']:,} matching rows "
                      f"out of {e['total_rows']:,} uploaded records.")
         if e.get("result_truncated"):
@@ -408,6 +483,14 @@ def basic_plan(question, dataset, history=None):
     q = str(question or "").lower().strip()
     if not q:
         return None
+    explicit = re.fullmatch(r"(?:how many|count(?: of)?|number of) (?:nonblank|non blank|nonempty|non empty|populated|present) (?:values|entries|cells) (?:in|of) (.+?)(?: by (.+))?", _field_phrase(question))
+    if explicit:
+        col = _entity_column(dataset,explicit.group(1))
+        if col:
+            if explicit.group(2):
+                group = _entity_column(dataset,explicit.group(2))
+                if group and group != col: return {"operation":"group_count","column":col,"group_by":[group]}
+            else: return {"operation":"count","column":col}
     entity_plan = _entity_plan(question, dataset, history)
     if entity_plan is not None:
         return entity_plan

@@ -3,6 +3,8 @@ No global upload state or local filesystem connectors. Hosted AI is explicit opt
 """
 from pathlib import Path
 import sys
+import zipfile
+from io import BytesIO
 sys.path.insert(0, str(Path(__file__).resolve().parent / 'AEGIS_App'))
 from intake import IntakeStore, LocalDataset, ROLES
 from adaptive_charts import recommend
@@ -10,7 +12,7 @@ from chart_recommendations import recommend_for_question, is_recommendation_ques
 from chart_copilot import answer_for_charts, is_chart_question, MAX_CHARTS
 from app import block_execution, block_cross_source
 from hosted_copilot import ask_hosted, HostedUnavailable, PlanFormatError
-from cohort_analysis import requested_cohort, checked_cohort
+from cohort_analysis import requested_cohort, checked_cohort, cohort_relationship, build_cohort_scatter
 
 MAX_CLOUD_BYTES = 5 * 1024 * 1024
 MAX_CLOUD_ROWS = 25000
@@ -22,32 +24,41 @@ class CloudWorkspace:
         self.store = IntakeStore()
         self.history = []
         self.charts = []
+        self.derived_charts = []
         self.chart_revision = 0
 
     def upload(self, filename, raw):
         if len(raw) > MAX_CLOUD_BYTES:
             raise ValueError('Public demo uploads are limited to 5 MiB.')
+        if str(filename).lower().endswith('.xlsx'):
+            try:
+                with zipfile.ZipFile(BytesIO(raw)) as workbook:
+                    members=workbook.infolist()
+                    if len(members)>2000 or sum(m.file_size for m in members)>20*1024*1024:
+                        raise ValueError('Public demo spreadsheet expands beyond the 20 MiB inspection limit. Reduce the workbook or use local AEGIS.')
+            except zipfile.BadZipFile:
+                raise ValueError('Invalid Excel workbook.') from None
         ds = LocalDataset(filename, raw)
         if len(ds.rows) > MAX_CLOUD_ROWS or len(ds.rows)*len(ds.columns) > MAX_CLOUD_CELLS:
             raise ValueError('Public demo limit: 25,000 rows and 500,000 cells. Use the local edition for larger data.')
         with self.store.lock:
             self.store.dataset = ds
             self.store.revision += 1
-        self.history.clear(); self.charts.clear(); self.chart_revision += 1
+        self.history.clear(); self.charts.clear(); self.derived_charts.clear(); self.chart_revision += 1
         return self.store.status()
 
     def clear(self):
-        self.store.clear(); self.history.clear(); self.charts.clear(); self.chart_revision += 1
+        self.store.clear(); self.history.clear(); self.charts.clear(); self.derived_charts.clear(); self.chart_revision += 1
 
     def map(self, fields):
         result = self.store.mapping(fields)
-        self.history.clear(); self.charts.clear(); self.chart_revision += 1
+        self.history.clear(); self.charts.clear(); self.derived_charts.clear(); self.chart_revision += 1
         return result
 
     def add_chart(self, options):
         result = self.store.chart(options)
         opts = {k: result[k] for k in ('chart_type','x','y','aggregation','date_grain','sort','limit')}
-        if len(self.charts) >= 8: raise ValueError('Maximum eight custom charts per online session. Remove one first.')
+        if len(self.charts)+len(self.derived_charts) >= 8: raise ValueError('Maximum eight custom charts per online session. Remove one first.')
         self.charts.append(opts); self.chart_revision += 1
         return result
 
@@ -66,7 +77,8 @@ class CloudWorkspace:
         if self.store.dataset is None: return []
         auto = [{'key': 'a:'+c['id'], 'kind':'automatic','id':c['id']} for c in recommend(self.store.dataset)['charts']]
         custom = [{'key':'c:'+str(i),'kind':'custom','options':o} for i,o in enumerate(self.charts)]
-        return (auto+custom)[:16]
+        derived=[{'key':'d:'+str(i),'kind':'cohort_scatter','options':o} for i,o in enumerate(self.derived_charts)]
+        return (auto+custom+derived)[:MAX_CHARTS]
 
     def ask(self, question, focus=None, hosted_client=None):
         q=str(question).strip()
@@ -82,6 +94,20 @@ class CloudWorkspace:
             if self.store.dataset is not ds or self.store.revision!=revision or (focus and self.chart_revision!=chart_revision):
                 raise ValueError('Dataset or selected chart changed during analysis. Ask again.')
         if focus and not any(c['key']==focus for c in self.catalog()): raise ValueError('Select a chart from the current dataset.')
+        # For a verified derived objective, use the shared checked chart guidance;
+        # do not spend quota or permit a model to substitute a raw count chart.
+        if ds is not None and not focus and not (block_execution(q) or block_cross_source(q)) and is_recommendation_question(q,h):
+            guide=cohort_relationship(ds,q,online_chart=True)
+            if guide is not None:
+                answer=guide['answer'] if isinstance(guide,dict) else guide
+                result={'answer':answer,'context':'local_dataset','evidence_source':'VERIFIED_CHART_RECOMMENDATION','routing_mode':'CHECKED_DERIVED_CHART_GUIDANCE','permitted_action':'NONE','operational_approval':'NOT_GRANTED','human_review':'REQUIRED','safety_gate':False}
+                if isinstance(guide,dict):
+                    spec=guide['options'];chart=build_cohort_scatter(ds,spec)
+                    result['chart_suggestion']={'kind':'cohort_scatter','options':spec,'title':chart['title'],'dataset_revision':revision}
+                current()
+                self.history.append({'question':q,'answer':answer,'routing_mode':result['routing_mode'],'chart_suggestion':result.get('chart_suggestion')})
+                self.history=self.history[-12:]
+                return result
         if hosted_client is not None and not (block_execution(q) or block_cross_source(q)):
             try:
                 result=ask_hosted(ds,q,h,self.store.revision,hosted_client,focus,self.catalog())
@@ -142,5 +168,12 @@ class CloudWorkspace:
 
     def use_suggestion(self, suggestion):
         if self.store.dataset is None or suggestion.get('dataset_revision') != self.store.revision: raise ValueError('This recommendation belongs to an older dataset.')
+        if suggestion['kind']=='cohort_scatter':
+            result=build_cohort_scatter(self.store.dataset,suggestion['options'])
+            spec=dict(suggestion['options'])
+            if spec not in self.derived_charts:
+                if len(self.charts)+len(self.derived_charts)>=8: raise ValueError('Maximum eight custom and derived charts per online session.')
+                self.derived_charts.append(spec);self.chart_revision+=1
+            return result
         if suggestion['kind']=='custom': return self.add_chart(suggestion['options'])
         return next(c for c in recommend(self.store.dataset)['charts'] if c['id']==suggestion['chart_id'])

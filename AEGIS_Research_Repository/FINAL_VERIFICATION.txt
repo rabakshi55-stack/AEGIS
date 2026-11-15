@@ -1,0 +1,9 @@
+AEGIS CHART PRECISION AND ANALYTICAL CONSISTENCY REVIEW
+Baseline: AEGIS_Online_Integrity.zip / AEGIS_Windows_Integrity.zip
+Environment: Linux, Python, AEGIS_OFFLINE_TEST_MODE=1, PYTHONUTF8=1.
+Fresh-extraction test results: online application 349/349 passed; cloud adapter 91/91 passed; Windows application source 352/352 passed. No skips. 15 new shared tests.
+Both archives passed ZIP integrity and byte-for-byte extraction checks. JavaScript syntax checks passed.
+Online research files 415/415 unchanged; Windows research files 423/423 unchanged. Windows protected source manifest 418/418 matched; release manifest 558/558 matched.
+The standalone AEGIS_Chart_Precision_Audit.md documents the changes and scope.
+No live Groq inference, Streamlit browser rendering, Windows batch execution or Windows runtime provisioning performed.
+Research only; no guarantee of arbitrary AI answer accuracy or operational certification.

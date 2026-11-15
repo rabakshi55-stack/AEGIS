@@ -7,6 +7,7 @@ unaggregated sensitive values are returned. No predictions or supplier actions.
 from collections import Counter, defaultdict
 from datetime import datetime
 from math import isfinite
+from decimal import Decimal
 import re
 
 CHART_LIMIT = 5
@@ -20,7 +21,7 @@ def _norm(value):
 def _num(value):
     from dataset_queries import numeric
     n=numeric(value)
-    return float(n) if n is not None else None
+    return n
 
 
 def _date(value):
@@ -44,8 +45,8 @@ def _source(columns, mapping, role, aliases, *, forbid=()):
             continue
         if norm in aliases:
             matches.append((aliases.index(norm), col))
-    if matches:
-        return min(matches)[1], "header-inferred"
+    if len(matches) == 1:
+        return matches[0][1], "header-inferred"
     return None, None
 
 
@@ -55,8 +56,15 @@ def _top_counts(rows, ix, limit=7):
     main = [{"label": str(key), "count": count} for key, count in items[:limit]]
     other = sum(count for _, count in items[limit:])
     if other:
-        main.append({"label": "Other categories", "count": other, "remainder": True})
+        main.append({"label": _remainder_label(tally), "count": other, "remainder": True})
     return main, len(tally), sum(tally.values())
+
+
+def _remainder_label(groups):
+    label = 'Other categories'
+    while label in groups:
+        label += ' (remainder)'
+    return label
 
 
 def _result(identifier, priority, kind, title, reason, source_columns, data, *, caution,
@@ -142,7 +150,7 @@ def recommend(dataset):
                              for group in pair_counts if pair_counts[group] >= 10]
                 if len(qualified) >= 2:
                     qualified.sort(key=lambda x: (-x[2]/x[1], -x[1], x[0]))
-                    bar_values = [{"label":str(group), "count":round(100 * late / total, 2),
+                    bar_values = [{"label":str(group), "count":100 * late / total,
                                    "comparable_rows":total, "after_date_rows":late}
                                   for group,total,late in qualified[:8]]
                     charts.append(_result("recorded_date_exceptions_by_supplier", 112, "bar",
@@ -158,14 +166,20 @@ def recommend(dataset):
                 caution=f"{missing:,} rows lacked one or both dates; {n-comparable-missing:,} had nonblank invalid date pairs. Calendar-day comparison only; not contractual lateness or supplier fault.",
                 provenance="manager-mapped" if prom_origin == actual_origin == "manager-mapped" else "header-inferred"))
 
-    if purchase and amount and purchase != amount:
+    from dataset_queries import check_measure, display_number
+    def safe_measure(col):
+        if not col: return False
+        try: check_measure(dataset, col); return True
+        except ValueError: return False
+    # Every monetary and identifier-sensitive chart path uses the shared guard.
+    if purchase and amount and purchase != amount and safe_measure(amount):
         p, a = lookup[purchase], lookup[amount]
-        monthly = defaultdict(float)
+        monthly = defaultdict(Decimal)
         valid = invalid = 0
         for row in rows:
             dt, number = _date(row[p]), _num(row[a])
             if dt and number is not None:
-                monthly[dt.strftime("%Y-%m")] += number
+                monthly[f"{dt.year:04d}-{dt.month:02d}"] += number
                 valid += 1
             elif row[p] and row[a]:
                 invalid += 1
@@ -173,7 +187,7 @@ def recommend(dataset):
             labels = sorted(monthly)[-12:]
             charts.append(_result("recorded_amount_trend", 105, "line", "Recorded amount over time",
                 f"Sum of '{amount}' across {valid:,} rows with valid recorded dates; last {len(labels)} months.",
-                [purchase, amount], [{"label":label, "count":round(monthly[label], 2)} for label in labels],
+                [purchase, amount], [{"label":label, "count":monthly[label]} for label in labels],
                 caution="Amounts are recorded as supplied. Currency, returns and net revenue definitions are not certified.",
                 provenance="header-inferred", value_label="Recorded amount"))
 
@@ -185,7 +199,7 @@ def recommend(dataset):
             date = _date(row[idx])
             if date:
                 valid += 1
-                months[date.strftime("%Y-%m")] += 1
+                months[f"{date.year:04d}-{date.month:02d}"] += 1
         nonblank = n - dataset.blank_counts[idx]
         if valid >= 3 and len(months) >= 2 and valid / max(nonblank, 1) >= .8:
             labels = sorted(months)[-12:]
@@ -222,9 +236,9 @@ def recommend(dataset):
                 caution="Counts are source rows, not unique business entities or a measure of category performance.",
                 provenance=grouping_origin))
 
-    if amount and grouping and amount != grouping:
+    if amount and grouping and amount != grouping and safe_measure(amount):
         i, j = lookup[amount], lookup[grouping]
-        amounts = defaultdict(float)
+        amounts = defaultdict(Decimal)
         valid = invalid = 0
         for row in rows:
             if not row[i] or not row[j]:
@@ -237,18 +251,18 @@ def recommend(dataset):
                 invalid += 1
         if valid >= 4 and len(amounts) >= 2 and valid / max(valid + invalid, 1) >= .9 and min(amounts.values()) >= 0:
             top = sorted(amounts.items(), key=lambda t:(-t[1], t[0]))
-            values = [{"label":str(k),"count":round(v,2)} for k,v in top[:7]]
+            values = [{"label":str(k),"count":v} for k,v in top[:7]]
             extra = sum(v for _,v in top[7:])
             if extra:
-                values.append({"label":"Other categories","count":round(extra,2),"remainder":True})
+                values.append({"label":_remainder_label(amounts),"count":extra,"remainder":True})
             charts.append(_result("recorded_amount_by_group", 99, "bar", f"Recorded amount by {grouping}",
                 f"Sum of '{amount}' across {valid:,} categorized rows.", [amount, grouping], values,
                 caution=f"{invalid:,} nonnumeric populated rows excluded. Currency, transaction definition and business meaning unverified.",
                 provenance="header-inferred", value_label="Recorded amount"))
 
-    if qty and grouping and qty != grouping:
+    if qty and grouping and qty != grouping and safe_measure(qty):
         i, j = lookup[qty], lookup[grouping]
-        sums = defaultdict(float)
+        sums = defaultdict(Decimal)
         valid = invalid = 0
         for row in rows:
             if not row[i] or not row[j]:
@@ -261,10 +275,10 @@ def recommend(dataset):
                 invalid += 1
         if valid >= 3 and len(sums) >= 2 and (invalid == 0 or valid / (valid + invalid) >= .9):
             leaders = sorted(sums.items(), key=lambda item: (-item[1], item[0]))
-            output = [{"label": str(k), "count": round(v, 2)} for k, v in leaders[:7]]
+            output = [{"label": str(k), "count": v} for k, v in leaders[:7]]
             rest = sum(v for _, v in leaders[7:])
             if rest:
-                output.append({"label": "Other categories", "count": round(rest, 2), "remainder": True})
+                output.append({"label": _remainder_label(sums), "count": rest, "remainder": True})
             charts.append(_result("units_by_group", 94, "bar",
                 f"Recorded units by {grouping}",
                 f"Sum of nonnegative '{qty}' values across {valid:,} grouped rows.",
@@ -280,6 +294,7 @@ def recommend(dataset):
             norm = _norm(col)
             if any(part in norm for part in ("id", "ref", "code", "zip", "postal", "year", "date", "timestamp", "phone")):
                 continue
+            if not safe_measure(col): continue
             nonblank = [row[i] for row in rows if row[i]]
             parsed = [x for x in (_num(v) for v in nonblank) if x is not None]
             if (len(parsed) >= 5 and len(parsed) / max(len(nonblank), 1) >= .9
@@ -287,7 +302,7 @@ def recommend(dataset):
                 price, price_origin = col, "numeric-value-inferred"
                 break
 
-    if price:
+    if price and safe_measure(price):
         idx = lookup[price]
         nums = [_num(row[idx]) for row in rows if row[idx]]
         numbers = [v for v in nums if v is not None]
@@ -298,7 +313,7 @@ def recommend(dataset):
                 buckets = [0] * 5
                 for v in numbers:
                     buckets[min(4, int((v - mn) / width))] += 1
-                labels = [f"{mn+width*i:.2f}–{mn+width*(i+1):.2f}" for i in range(5)]
+                labels = [f"{display_number(mn+width*i)}–{display_number(mn+width*(i+1))}" for i in range(5)]
                 charts.append(_result("numeric_distribution", 67, "histogram",
                     f"Distribution of {price}",
                     f"{len(numbers):,} parseable numeric values, split into five equal-width ranges.",
@@ -324,6 +339,27 @@ def recommend(dataset):
             caution="Only nonblank source cell counts are shown. Map fields to unlock additional views.",
             provenance="observed-values", value_label="Populated rows"))
 
+    # Numeric chart renderers cannot represent every exact decimal. Suppress
+    # an automatic chart rather than report false ties or nonzero values as zero.
+    safe_charts = []
+    for chart in charts:
+        values = chart['values']
+        decimals = [v['count'] for v in values if isinstance(v['count'], Decimal)]
+        if (len({float(v) for v in decimals}) != len(set(decimals)) or
+                any(v != 0 and float(v) == 0 for v in decimals)):
+            warnings.append(f"Chart {chart['id']} omitted: distinct source totals exceed numeric display precision.")
+            continue
+        for v in values:
+            if isinstance(v['count'],Decimal):
+                v['exact_value'] = str(v['count'])
+                v['count'] = float(v['count'])
+        safe_charts.append(chart)
+    charts = safe_charts
+    if not charts:
+        charts.append(_result('records_overview',10,'bar','Records and populated values',
+            'Numeric chart precision or source semantics require review.', columns[:8],
+            [{'label': name, 'count': n-dataset.blank_counts[i]} for i,name in enumerate(columns[:8])],
+            caution='Only nonblank source cell counts are shown.',provenance='observed-values',value_label='Populated rows'))
     charts.sort(key=lambda c: (-c["rank"], c["id"]))
     for chart in charts:
         del chart["rank"]

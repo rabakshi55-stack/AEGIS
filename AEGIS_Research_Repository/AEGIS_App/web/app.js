@@ -11,7 +11,7 @@ const state = {
 };
 const titles = {intake:"Data", visualizations:"Visualizations", copilot:"Decision Copilot"};
 let toastTimeout;
-const fmt = (n) => Number(n).toLocaleString("en-US");
+const fmt = (n) => Number(n) !== 0 && Math.abs(Number(n)) < 0.0001 ? Number(n).toExponential() : Number(n).toLocaleString("en-US", {maximumSignificantDigits: 16});
 const fixed = (n, places = 2) => Number(n).toLocaleString("en-US", {minimumFractionDigits:places,maximumFractionDigits:places});
 const html = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[char]));
 const humanDate = (iso) => {
@@ -412,7 +412,7 @@ function customizeRecommendedChart(chartId) {
 function customChartNumber(value) {
   const n = Number(value);
   if (!Number.isFinite(n)) return "—";
-  return n.toLocaleString("en-US", {maximumFractionDigits: 6});
+  return n !== 0 && Math.abs(n) < 0.0001 ? n.toExponential() : n.toLocaleString("en-US", {maximumSignificantDigits: 16});
 }
 function customChartSVG(spec) {
   const typ = spec.chart_type;
@@ -465,7 +465,7 @@ function customChartSVG(spec) {
     const band = (right - left) / values.length;
     const width = Math.max(1, band * .72);
     shapes += values.map((p, i) => { const x = left + i * band + (band - width) / 2; const y = yPos(p.value);
-      return `<rect x="${x.toFixed(2)}" y="${Math.min(y,baseline).toFixed(2)}" width="${width.toFixed(2)}" height="${Math.max(1, Math.abs(y-baseline)).toFixed(2)}" rx="2" fill="${p.value < 0 ? "#ee9d80" : "#39beb8"}"><title>${html(p.label)}: ${customChartNumber(p.value)}</title></rect>`; }).join("");
+      return `<rect x="${x.toFixed(2)}" y="${Math.min(y,baseline).toFixed(2)}" width="${width.toFixed(2)}" height="${(p.value === 0 ? 0 : Math.abs(y-baseline)).toFixed(2)}" rx="2" fill="${p.value < 0 ? "#ee9d80" : "#39beb8"}"><title>${html(p.label)}: ${customChartNumber(p.value)}</title></rect>`; }).join("");
   }
   const every = Math.max(1, Math.ceil(values.length / 8));
   shapes += values.map((p, i) => i % every === 0 || i === values.length - 1 ? `<text x="${coords[i][0].toFixed(2)}" y="239" text-anchor="middle" fill="#b0c5d2" font-size="10">${html(p.label.slice(0, 13))}</text>` : "").join("");

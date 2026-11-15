@@ -63,7 +63,7 @@ class CustomChartEngineTests(unittest.TestCase):
 
     def test_count_nonblank_y_and_reject_ignored_y(self):
         r = ch(self.ds,y='Amount',aggregation='count_nonblank')
-        self.assertEqual({p['label']:p['value'] for p in r['values']}, {'A':2,'B':2})
+        self.assertEqual({p['label']:p['value'] for p in r['values']}, {'A':2,'B':2,'C':0})
         self.assertEqual(r['excluded_y_rows'],1)
         with self.assertRaisesRegex(ValueError,'Count rows does not use a Y field'):
             ch(self.ds,y='Amount',aggregation='count')

@@ -103,7 +103,8 @@ def _read_csv(raw):
 
 def _xml(root, member):
     data = root.read(member)
-    if b"<!DOCTYPE" in data.upper() or b"<!ENTITY" in data.upper():
+    markup = data.replace(b"\x00", b"").upper()  # also detect UTF-16/32 declarations
+    if b"<!DOCTYPE" in markup or b"<!ENTITY" in markup:
         raise ValueError("Unsafe XML declaration in spreadsheet.")
     try:
         return ET.fromstring(data)
@@ -141,12 +142,12 @@ def _formatted_excel_date(value, use_1904):
         serial = float(value)
         if not 0 <= serial <= 2_958_465:
             return value
-        if not use_1904 and serial == 60:
+        if not use_1904 and 60 <= serial < 61:
             return value  # Excel's fictitious 1900-02-29 cannot be represented.
         origin = datetime(1904, 1, 1) if use_1904 else datetime(1899, 12, 30)
         adjusted = serial + 1 if not use_1904 and 0 < serial < 60 else serial
         stamp = origin + timedelta(days=adjusted)
-        return stamp.strftime("%Y-%m-%dT%H:%M:%S") if serial % 1 else stamp.strftime("%Y-%m-%d")
+        return stamp.isoformat(timespec="seconds") if serial % 1 else stamp.date().isoformat()
     except (ValueError, OverflowError):
         return value
 
@@ -162,6 +163,10 @@ def _xlsx_cells(raw):
         if sum(info.file_size for info in members) > EXCEL_MAX_UNCOMPRESSED:
             raise ValueError("Spreadsheet expands beyond the safe inspection limit.")
         names = set(archive.namelist())
+        if len(names) != len(members):
+            raise ValueError("Spreadsheet contains duplicate archive member names.")
+        if len(members)>10000:
+            raise ValueError("Spreadsheet contains too many archive members.")
         if "xl/workbook.xml" not in names or "xl/_rels/workbook.xml.rels" not in names:
             raise ValueError("This is not a supported .xlsx workbook.")
         workbook = _xml(archive, "xl/workbook.xml")
@@ -195,6 +200,9 @@ def _xlsx_cells(raw):
             raise ValueError("The selected worksheet contains no table.")
         rows = []
         formula_without_cache = 0
+        formula_cached = 0
+        error_cells = 0
+        invalid_styled_dates = 0
         for record in sheet_data.findall(f"{namespace}row"):
             cells = {}
             position = 0
@@ -210,21 +218,28 @@ def _xlsx_cells(raw):
                     raise ValueError(f"The worksheet exceeds the {MAX_COLUMNS}-column safety limit.")
                 v = cell.find(f"{namespace}v")
                 kind = cell.get("t", "")
+                if cell.find(f"{namespace}f") is not None and v is not None and v.text not in (None, ""):
+                    formula_cached += 1
                 if kind == "inlineStr":
                     inline = cell.find(f"{namespace}is")
                     value = "" if inline is None else "".join(n.text or "" for n in inline.iter(f"{namespace}t"))
-                elif v is None:
+                elif v is None or (cell.find(f"{namespace}f") is not None and v.text in (None, "")):
                     value = ""
                     if cell.find(f"{namespace}f") is not None:
                         formula_without_cache += 1
                 elif kind == "s":
                     try:
-                        value = shared[int(v.text or "-1")]
+                        idx = int(v.text or "-1")
+                        if idx < 0: raise IndexError("negative shared string index")
+                        value = shared[idx]
                     except (ValueError, IndexError) as error:
                         raise ValueError("Worksheet contains an invalid shared-string index.") from error
                 elif kind == "b":
+                    if v.text not in ("0", "1"):
+                        raise ValueError("Worksheet contains an invalid Boolean cell.")
                     value = "TRUE" if v.text == "1" else "FALSE"
                 elif kind == "e":
+                    error_cells += 1
                     value = ""
                 else:
                     value = v.text or ""
@@ -234,6 +249,11 @@ def _xlsx_cells(raw):
                         style = -1
                     if kind not in ("s", "str", "e", "b") and style in date_styles:
                         value = _formatted_excel_date(value, use_1904)
+                        if value and _date(value) is None:
+                            invalid_styled_dates += 1
+                            value = ""
+                if position in cells:
+                    raise ValueError("Worksheet contains duplicate cell references.")
                 cells[position] = value
                 position += 1
             if cells:
@@ -247,6 +267,12 @@ def _xlsx_cells(raw):
             warnings.append("Other worksheets were not imported; upload them separately if needed.")
         if formula_without_cache:
             warnings.append(f"{formula_without_cache:,} formula cells had no cached value and were treated as blank. Excel formulas were not executed.")
+        if formula_cached:
+            warnings.append(f"{formula_cached:,} formula cells used saved cached results, which may be stale. Excel formulas were not recalculated.")
+        if error_cells:
+            warnings.append(f"{error_cells:,} Excel error cells were treated as blank; inspect the original workbook for calculation errors.")
+        if invalid_styled_dates:
+            warnings.append(f"{invalid_styled_dates:,} invalid styled Excel date cells were treated as blank, including unrepresentable calendar dates. Inspect the original workbook.")
         warnings.append("Styled Excel dates are converted to ISO display values; unstyled numbers stay unchanged. Date semantics are not certified.")
         return headers, data_rows, warnings
 
@@ -924,7 +950,7 @@ class IntakeStore:
         Only the authenticated local upload currently in memory is queried;
         no filesystem access or SQL statement from the model is accepted.
         """
-        from dataset_queries import schema, basic_plan, execute_many, explain
+        from dataset_queries import schema, basic_plan, execute_many, explain, UnsafeMeasureError
         from dataset_overview import asks_for_overview, build_overview
         with self.lock:
             dataset = self.dataset
@@ -980,9 +1006,9 @@ class IntakeStore:
                      "business_semantics_certified": False,
                      "no_procurement_actions": True}
             return result, facts
-        plan = None
+        plan = basic_plan(question,dataset,history)
         planner_used = False
-        if use_local_llm:
+        if use_local_llm and plan is None:
             try:
                 from conversation import plan_dataset_with_local_qwen, LocalModelUnavailable
                 plan = plan_dataset_with_local_qwen(question, schema(dataset), history)
@@ -998,6 +1024,8 @@ class IntakeStore:
                 raise ValueError("Dataset was replaced during this analysis. Please ask again.")
             try:
                 outputs = execute_many(dataset, plan)
+            except UnsafeMeasureError as exc:
+                return ({"answer": str(exc), "context":"local_dataset", "routing_mode":"CHECKED_MEASURE_UNAVAILABLE", "evidence_source":"CURRENT_LOCAL_UPLOADED_DATASET", "permitted_action":"NONE", "operational_approval":"NOT_GRANTED", "human_review":"REQUIRED", "safety_gate":False}, {"no_procurement_actions":True})
             except ValueError:
                 if planner_used:
                     fallback_plan = basic_plan(question, dataset, history)
@@ -1027,6 +1055,11 @@ class IntakeStore:
         with self.lock:
             if self.dataset is None:
                 raise ValueError("Upload a dataset before building custom charts.")
+            if isinstance(options,dict) and options.get('kind')=='cohort_scatter':
+                if set(options)!={'kind','options','dataset_revision'} or options['dataset_revision']!=self.revision:
+                    raise ValueError('Derived chart request belongs to an older dataset or has invalid fields.')
+                from cohort_analysis import build_cohort_scatter
+                return {**build_cohort_scatter(self.dataset,options['options']), 'derived_options':dict(options['options']), 'date_grain':'none','dataset_revision':self.revision}
             return {**build_chart(self.dataset, options), "dataset_revision": self.revision}
 
     def clear(self):

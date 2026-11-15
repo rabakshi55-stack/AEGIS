@@ -22,7 +22,7 @@ def is_chart_question(question, focus=None, history=None):
             return False
         return True
     if history and any(re.search(r'\b(chart|visuali[sz]ation|plot|graph)\b', str(h.get('question','')).casefold()) for h in history[-2:]):
-        return bool(re.search(r'\b(it|this|that|why|how|which|what|more|explain|compare|difference)\b', q))
+        return bool(re.search(r'\b(?:this|that|the previous|the same) (?:chart|graph|plot|figure|visual|axis|bar|line)\b|\b(?:explain|interpret|describe) (?:it|that|this)\b|^(?:why|how)\s+(?:is|does|was|did)\s+(?:it|that|this)\b|^(?:what|how) about (?:it|that|this)\b', q))
     return False
 
 
@@ -55,7 +55,9 @@ def _load_catalog(dataset, catalog):
                     'selection_basis':source['selection_basis'],
                     'values':[{'label':str(v['label']), 'value':v['count'],
                                **({'comparable_rows':v['comparable_rows']} if 'comparable_rows' in v else {}),
-                               **({'after_date_rows':v['after_date_rows']} if 'after_date_rows' in v else {})}
+                               **({'after_date_rows':v['after_date_rows']} if 'after_date_rows' in v else {}),
+                               **({'remainder':True} if v.get('remainder') else {}),
+                               **({'exact_value':v['exact_value']} if 'exact_value' in v else {})}
                               for v in source['values']],
                     'source_rows':len(dataset.rows), 'truncated': False,
                     'source_note':'This chart is a bounded, automatically selected display; category grouping and time windows can omit other groups.',
@@ -74,6 +76,11 @@ def _load_catalog(dataset, catalog):
                     'excluded_x_rows':data.get('excluded_x_rows',0),
                     'excluded_y_rows':data.get('excluded_y_rows',0),
                     'truncated':data.get('truncated',False), 'is_percent':False}
+        elif kind == 'cohort_scatter':
+            if set(entry) - {'key','kind','options'}: raise ValueError('Derived chart references accept a specification only.')
+            from cohort_analysis import build_cohort_scatter
+            data=build_cohort_scatter(dataset,entry.get('options'))
+            item={'key':key,'kind':kind,'title':data['title'],'type':'scatter','x':[data['x']], 'y':data['y'],'aggregation':'grouped measures','points':data['points'],'values':[],'source_rows':data['source_rows'],'source_note':data['note'],'caution':data['caution'],'truncated':False,'is_percent':False}
         else:
             raise ValueError('Unsupported chart reference.')
         charts.append(item)
@@ -84,12 +91,14 @@ def _fmt(value):
     n = float(value)
     if not isfinite(n):
         raise ValueError('Chart contains invalid numeric values.')
-    return f'{n:,.0f}' if n.is_integer() else f'{n:,.4f}'.rstrip('0').rstrip('.')
+    from dataset_queries import display_number
+    return display_number(value)
 
 
 def _measure(chart):
     if chart['kind'] == 'automatic':
         return str(chart['y'])
+    if chart['kind']=='cohort_scatter': return str(chart['y'])
     agg = str(chart['aggregation']).replace('_',' ')
     y = chart['y']
     return f'{agg} of {y}' if y != 'record count' else 'count of source records'
@@ -111,14 +120,21 @@ def _overview(chart, question):
         ys = [float(p['y']) for p in coords]
         detail = (f'The {len(coords):,} displayed numeric pairs range from {_fmt(min(xs))} to {_fmt(max(xs))} on X '
                   f'and {_fmt(min(ys))} to {_fmt(max(ys))} on Y. ')
+        if chart['kind']=='cohort_scatter':
+            detail += 'Each point represents a group, not a source row. ' + '; '.join(f"{p['label']}: X={_fmt(p['x'])}, late={p['late']}/{p['comparable']}, total records={p['total']}" for p in coords[:12]) + ('. Additional groups not listed. ' if len(coords)>12 else '. ')
         if chart['truncated']:
             detail += 'These are the first bounded valid pairs, not a random sample; do not infer a dataset-wide relationship. '
         return prelude + ' ' + detail + source + ' ' + caution
     values = chart.get('values') or []
     if not values:
         return prelude + ' No displayable groups are present. ' + source + ' ' + caution
-    points = [(str(v['label']),float(v['value'])) for v in values]
-    high_label, high = max(points, key=lambda x:x[1]); low_label, low = min(points, key=lambda x:x[1])
+    from decimal import Decimal
+    points = [(str(v['label']),Decimal(str(v.get('exact_value',v['value'])))) for v in values if not v.get('remainder')]
+    if not points: return prelude + ' No individually displayed groups. ' + source + ' ' + caution
+    high=max(v for _,v in points); low=min(v for _,v in points)
+    highs=[k for k,v in points if v==high]; lows=[k for k,v in points if v==low]
+    high_label=', '.join(highs[:8])+(' and additional tied groups' if len(highs)>8 else '')
+    low_label=', '.join(lows[:8])+(' and additional tied groups' if len(lows)>8 else '')
     vals = {key.casefold():(key,value) for key,value in points}
     explicit = next(((key,val) for key,val in points if key.casefold() in q and len(key) >= 2), None)
     if explicit:
@@ -131,6 +147,8 @@ def _overview(chart, question):
     else:
         detail = (f'Of the {len(points)} displayed groups, **{high_label}** is highest at {_fmt(high)} '
                   f'and **{low_label}** lowest at {_fmt(low)}. ')
+    if any(v.get('remainder') for v in values):
+        detail += 'The remainder bar combines multiple categories; it is not a single group and is excluded from the individual extrema. '
     if len(points) > 1:
         detail += (f'The difference between those displayed values is {_fmt(high-low)} ' + ('percentage points' if chart['is_percent'] else 'in the displayed measure') + '. ')
     if chart['type'] in {'line','area'} and len(points)>1:
@@ -140,16 +158,16 @@ def _overview(chart, question):
                    f'{last[0]} is {_fmt(last[1])} (change {_fmt(delta)}). ')
         if chart['kind']=='custom' and chart.get('sort') not in ('x_asc','x_desc'):
             detail += 'This chart is not sorted by date; do not interpret that change as a chronological trend. '
-    if chart['kind']=='automatic' and chart['is_percent']:
+    if chart['kind']=='automatic' and chart['is_percent'] and len(highs)==1:
         high_record=next((v for v in values if v['label']==high_label),{})
         if 'comparable_rows' in high_record and 'after_date_rows' in high_record:
             detail+=(f'That largest displayed percentage represents {_fmt(high_record["after_date_rows"])} '
                      f'out of {_fmt(high_record["comparable_rows"])} comparable source records. ')
     if 'percent' in q or 'share' in q:
-        if not chart['is_percent'] and all(v >= 0 for _,v in points):
-            visible_sum = sum(v for _,v in points)
+        if not chart['is_percent'] and chart.get('aggregation') in ('count','sum','count_nonblank') and all(v >= 0 for _,v in points):
+            visible_sum = sum(Decimal(str(v.get('exact_value',v['value']))) for v in values)
             if visible_sum:
-                detail += (f'{high_label} accounts for {_fmt(100*high/visible_sum)}% of the sum of *displayed* values; '
+                detail += (f'{high_label} '+('each account' if len(highs)>1 else 'accounts')+f' for {_fmt(100*high/visible_sum)}% of the sum of *displayed* values; '
                            'that is not necessarily the whole dataset share. ')
     if chart.get('truncated'):
         detail += 'Some chart groups or rows are not displayed; do not treat the visible extremes as full-dataset extremes. '
@@ -219,10 +237,13 @@ def answer_for_charts(dataset, question, catalog, focus=None, *, dataset_revisio
         used=charts[:MAX_CHARTS]
         summaries=[]
         for item in used:
-            vals=item.get('values') or []
+            vals=[v for v in item.get('values',[]) if not v.get('remainder')]
             if vals:
-                lead=max(vals,key=lambda x:float(x['value']))
-                summaries.append(f"**{item['title']}** ({item['kind']} {item['type']}): top displayed group {lead['label']} = {_fmt(lead['value'])}{'%' if item['is_percent'] else ''}")
+                from decimal import Decimal
+                peak=max(Decimal(str(v.get('exact_value',v['value']))) for v in vals)
+                leaders=[str(v['label']) for v in vals if Decimal(str(v.get('exact_value',v['value'])))==peak]
+                names=', '.join(leaders[:8])+(' and additional tied groups' if len(leaders)>8 else '')
+                summaries.append(f"**{item['title']}** ({item['kind']} {item['type']}): {'tied top displayed groups' if len(leaders)>1 else 'top displayed group'} {names} = {_fmt(peak)}{'%' if item['is_percent'] else ''}")
             else:
                 summaries.append(f"**{item['title']}** ({item['kind']} {item['type']}): {len(item.get('points',[]))} displayed points")
         message=(f'Your current uploaded dataset has {len(used)} charts available for discussion. '

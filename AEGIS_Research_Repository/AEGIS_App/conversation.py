@@ -302,7 +302,7 @@ def plan_dataset_with_local_qwen(question, dataset_schema, history, http_open=ur
         "A plan has operation, optional column, optional group_by array of 1-2 "
         "EXACT existing column names, optional filters (array), order, limit, date_grain. "
         "Operations: schema,count,count_distinct,sum,average,min,max,median,stddev,"
-        "group_count,group_sum,group_average,preview. "
+        "group_count,group_sum,group_average,preview. Count without column counts rows; count or group_count with column counts populated values. count_distinct counts distinct nonblank values. stddev is population standard deviation. "
         "Filters: {column,op,value,value2?}, ops eq,ne,contains,in,gt,gte,lt,lte," 
         "between,missing,present,date_between (ISO dates). "
         "For ranking choose a grouped operation, order desc or asc, and limit <=30. "

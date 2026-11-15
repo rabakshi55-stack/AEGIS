@@ -48,12 +48,8 @@ def asks_for_overview(question):
 
 def _format_count(value):
     try:
-        number = float(value)
-        if abs(number) >= 1e14:
-            return f'{number:.3g}'
-        if number.is_integer():
-            return f'{int(number):,}'
-        return f'{number:,.2f}'
+        from dataset_queries import display_number
+        return display_number(value)
     except (TypeError, ValueError, OverflowError):
         return str(value)[:65]
 

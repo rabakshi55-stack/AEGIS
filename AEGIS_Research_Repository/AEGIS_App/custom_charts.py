@@ -7,6 +7,7 @@ from collections import defaultdict
 from datetime import datetime
 from math import floor, isfinite
 from statistics import median
+from decimal import Decimal
 import re
 
 CHART_TYPES = ("bar", "horizontal_bar", "line", "area", "pie", "donut", "scatter", "histogram", "table")
@@ -20,7 +21,7 @@ MAX_SCATTER_POINTS = 300
 def _number(value):
     from dataset_queries import numeric
     n=numeric(value)
-    return float(n) if n is not None else None
+    return n
 
 
 def _date(value):
@@ -35,16 +36,16 @@ def _period(value, grain):
     if day is None:
         return None
     if grain == "day":
-        return day.strftime("%Y-%m-%d")
+        return day.date().isoformat()
     if grain == "week":
         y, w, _ = day.isocalendar()
         return f"{y:04d}-W{w:02d}"
     if grain == "month":
-        return day.strftime("%Y-%m")
+        return f"{day.year:04d}-{day.month:02d}"
     if grain == "quarter":
         return f"{day.year}-Q{(day.month - 1) // 3 + 1}"
     if grain == "year":
-        return str(day.year)
+        return f"{day.year:04d}"
     raise ValueError("Unsupported date grouping.")
 
 
@@ -80,6 +81,21 @@ def _validated(dataset, options):
         raise ValueError("Count rows does not use a Y field. Clear Y or choose Count nonblank Y / another calculation.")
     if typ not in {"scatter", "histogram"} and agg != "count" and y == x and grain == "none":
         raise ValueError("To aggregate the same field as X and Y, use a grouped date period or choose different fields.")
+    from dataset_queries import check_measure
+    if typ == "scatter":
+        check_measure(dataset,x); check_measure(dataset,y)
+    elif typ == "histogram":
+        check_measure(dataset,x)
+    elif agg in {"sum", "average", "minimum", "maximum", "median"} and y:
+        check_measure(dataset,y)
+    if typ not in {"scatter", "histogram"} and agg in {"sum", "average", "minimum", "maximum", "median"} and y:
+        from cohort_analysis import _currency, _roles
+        normalized = re.sub(r"[^a-z0-9]+", " ", y.casefold())
+        monetary = y == dataset.mapping.get("unit_cost") or bool(re.search(r"\b(cost|price|spend|spending|expenditure|revenue|sales|amount|value|freight|invoice|charge|charges|profit|margin)\b", normalized))
+        if monetary and not _currency(dataset, _roles(dataset))[1]:
+            raise ValueError("Monetary aggregation across mixed, missing or ambiguous currency values is not supported. Use a single-currency dataset or convert values with verified exchange rates first.")
+    if typ in {"pie", "donut"} and agg not in {"count", "count_nonblank", "sum"}:
+        raise ValueError("Pie and donut charts require additive counts or sums; averages, extrema, medians and distinct counts are not additive shares. Use a bar or table instead.")
     limit = options.get("limit", 20)
     if isinstance(limit, bool) or not isinstance(limit, int) or not 2 <= limit <= MAX_CHART_POINTS:
         raise ValueError(f"Show between 2 and {MAX_CHART_POINTS} groups or bins.")
@@ -107,6 +123,7 @@ def build_chart(dataset, options):
     if typ == "scatter":
         points = []
         valid = 0
+        x_seen = {}; y_seen = {}
         for row in dataset.rows:
             xv = _number(row[xi]); yv = _number(row[yi])
             if xv is None:
@@ -116,7 +133,11 @@ def build_chart(dataset, options):
             else:
                 valid += 1
                 if len(points) < MAX_SCATTER_POINTS:
-                    points.append({"x": xv, "y": yv})
+                    xf,yf=float(xv),float(yv)
+                    if (xv != 0 and xf == 0) or (yv != 0 and yf == 0) or (xf in x_seen and x_seen[xf]!=xv) or (yf in y_seen and y_seen[yf]!=yv):
+                        raise ValueError('Distinct scatter values exceed chart numeric precision; use checked numeric analysis instead.')
+                    x_seen[xf]=xv; y_seen[yf]=yv
+                    points.append({"x": xf, "y": yf})
         if not valid:
             raise ValueError("Scatter requires numeric values in both fields; no valid pairs were found.")
         return {**source, **conf, "points": points, "plotted_points": len(points),
@@ -140,13 +161,15 @@ def build_chart(dataset, options):
         buckets = min(conf["limit"], max(2, floor(len(values) ** 0.5)))
         if high == low:
             counts = [len(values)]
-            output = [{"label": f"{low:g}", "value": len(values)}]
+            from dataset_queries import display_number
+            output = [{"label": display_number(low), "value": len(values)}]
         else:
             counts = [0] * buckets
             for v in values:
                 ix = min(buckets - 1, int((v - low) / (high - low) * buckets))
                 counts[ix] += 1
-            output = [{"label": f"{low + i*(high-low)/buckets:.5g} – {low + (i+1)*(high-low)/buckets:.5g}",
+            from dataset_queries import display_number
+            output = [{"label": f"{display_number(low + i*(high-low)/buckets)} – {display_number(low + (i+1)*(high-low)/buckets)}",
                        "value": c} for i, c in enumerate(counts)]
         return {**source, **conf, "values": output, "total_groups": len(output),
                 "valid_rows": len(values), "excluded_x_rows": excluded_x,
@@ -167,11 +190,13 @@ def build_chart(dataset, options):
         if agg == "count":
             raw_counts[key] += 1
         elif agg == "count_nonblank":
+            raw_counts[key] += 0  # observed group with no populated Y has count zero
             if not row[yi]:
                 invalid_y += 1
             else:
                 raw_counts[key] += 1
         elif agg == "distinct_count":
+            grouped[key]  # preserve observed groups with zero distinct nonblank values
             value = row[yi]
             if not value:
                 invalid_y += 1
@@ -211,7 +236,12 @@ def build_chart(dataset, options):
     truncated = len(ordered) > conf["limit"]
     view = ordered[:conf["limit"]]
     valid_rows = n - excluded_x - invalid_y
-    return {**source, **conf, "values": [{"label": key, "value": round(v, 8)} for key,v in view],
+    # Rendering libraries use binary floats. Keep an exact value for evidence,
+    # and reject a chart if distinct group values would display as a false tie.
+    rendered = [float(v) for _, v in view]
+    if len(set(rendered)) != len({v for _,v in view}) or any(v != 0 and float(v) == 0 for _,v in view):
+        raise ValueError('Distinct group values exceed chart numeric precision; use the checked numeric analysis instead.')
+    return {**source, **conf, "values": [{"label": key, "value": float(v) if isinstance(v,Decimal) else v, **({"exact_value": str(v)} if isinstance(v,Decimal) else {})} for key,v in view],
             "total_groups": len(values), "valid_rows": valid_rows,
             "excluded_x_rows": excluded_x, "excluded_y_rows": invalid_y,
             "truncated": truncated,

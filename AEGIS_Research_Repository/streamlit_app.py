@@ -13,11 +13,11 @@ from chat_presentation import renderable_answer
 
 st.set_page_config(page_title='AEGIS | Decision Intelligence', page_icon='🛡️', layout='wide')
 # Do not reuse objects instantiated from older backend code after a deployment.
-if 'aegis_workspace' not in st.session_state or st.session_state.get('aegis_workspace_version') != 'audited-runtime-5':
+if 'aegis_workspace' not in st.session_state or st.session_state.get('aegis_workspace_version') != 'final-runtime-10':
     st.session_state.aegis_workspace = CloudWorkspace()
     st.session_state.upload_epoch = 0
     st.session_state.pop('last_recommendation',None)
-    st.session_state.aegis_workspace_version = 'audited-runtime-5'
+    st.session_state.aegis_workspace_version = 'final-runtime-10'
 w = st.session_state.aegis_workspace
 st.sidebar.title('AEGIS')
 st.sidebar.caption('SUPPLY CHAIN DECISION INTELLIGENCE')
@@ -49,10 +49,14 @@ render_counter = 0
 def render(c, auto=False):
     global render_counter
     render_counter += 1
-    typ=c['type'] if auto else c['chart_type']; title=c['title'] if auto else (f"{c['y']} versus {c['x']}" if typ=='scatter' else f"Distribution of {c['x']}" if typ=='histogram' else f"{c['aggregation']} · {c['y'] or 'records'} by {c['x']}")
+    typ=c['type'] if auto else c['chart_type']; title=c['title'] if auto or c.get('title') else (f"{c['y']} versus {c['x']}" if typ=='scatter' else f"Distribution of {c['x']}" if typ=='histogram' else f"{c['aggregation']} · {c['y'] or 'records'} by {c['x']}")
     st.subheader(title)
     if c.get('points'):
-        p=c['points']; fig=go.Figure(go.Scatter(x=[v['x'] for v in p],y=[v['y'] for v in p],mode='markers'))
+        p=c['points']
+        if all('label' in v and 'comparable' in v for v in p):
+            fig=go.Figure(go.Scatter(x=[v['x'] for v in p],y=[v['y'] for v in p],mode='markers+text',text=[html.escape(v['label']) for v in p],textposition='top center',customdata=[[v['late'],v['comparable'],v['total']] for v in p],hovertemplate='%{text}<br>X: %{x}<br>Late rate: %{y:.1f}%<br>Late/comparable: %{customdata[0]}/%{customdata[1]}<br>Total records: %{customdata[2]}<extra></extra>'))
+            fig.update_yaxes(range=[0,105])
+        else: fig=go.Figure(go.Scatter(x=[v['x'] for v in p],y=[v['y'] for v in p],mode='markers'))
     else:
         v=c.get('values',[]); labels=[html.escape(str(x['label'])) for x in v]; ys=[x.get('count',x.get('value')) for x in v]
         if not labels: st.info('No values available.'); return
@@ -69,7 +73,7 @@ def render(c, auto=False):
 
 if page=='Data':
     st.header('1 · Data')
-    f=st.file_uploader('Upload CSV or Excel (.xlsx), up to 5 MiB',type=['csv','xlsx'],key='upload_'+str(st.session_state.upload_epoch))
+    f=st.file_uploader('Upload CSV or Excel (.xlsx), up to 5 MiB',type=['csv','xlsx'],key='upload_final7_'+str(st.session_state.upload_epoch))
     a,b,c=st.columns(3)
     if a.button('Load uploaded file',disabled=f is None):
         try: w.upload(f.name,f.getvalue()); st.session_state.pop('last_recommendation',None); st.success('Dataset loaded.')
@@ -105,14 +109,21 @@ elif page=='Visualizations':
                 except Exception as e: st.error(str(e))
             r=st.session_state.get('last_recommendation',{}); s=r.get('chart_suggestion')
             if s and s['dataset_revision']==w.store.revision:
-                st.text(r['answer'])
+                st.markdown(r['answer'],unsafe_allow_html=False)
                 if st.button('Create recommended chart'):
                     try:
                         c=w.use_suggestion(s); render(c,s['kind']=='automatic')
                     except Exception as e: st.error(str(e))
-            elif r.get('answer') and not s: st.text(r['answer'])
+            elif r.get('answer') and not s: st.markdown(r['answer'],unsafe_allow_html=False)
         st.header('Automatic charts')
         for c in charts: render(c,True)
+        if w.derived_charts:
+            st.header('Derived comparison charts')
+            from cohort_analysis import build_cohort_scatter
+            for i,opts in enumerate(w.derived_charts):
+                render(build_cohort_scatter(ds,opts))
+                if st.button('Remove derived chart',key=f'remove_derived_{i}'):
+                    w.derived_charts.pop(i); w.chart_revision+=1; st.rerun()
         st.header('Custom charts')
         with st.form('build_'+str(w.store.revision)):
             t=st.selectbox('Chart type',CHART_TYPES); x=st.selectbox('X field',ds.columns); y=st.selectbox('Y field (optional)',['']+ds.columns); agg=st.selectbox('Aggregation',AGGREGATIONS); grain=st.selectbox('Date grouping',DATE_GRAINS); sort=st.selectbox('Sort',SORTS); limit=st.slider('Max groups/bins',2,100,20)
@@ -136,7 +147,7 @@ elif page=='Decision Copilot':
     if not w.store.dataset and mode == 'Standard analytics': st.info('Load data first, or select AEGIS AI for general conversation.')
     else:
         if st.button('New chat'): w.history.clear(); st.rerun()
-        cat=w.catalog(); focus=st.selectbox('Optional chart context',['']+[c['key'] for c in cat],format_func=lambda x: 'No specific chart' if not x else x,key=f'focus_{w.store.revision}_{w.chart_revision}')
+        cat=w.catalog(); focus=st.selectbox('Optional chart context',['']+[c['key'] for c in cat],format_func=lambda x: 'No specific chart' if not x else next((('Derived · '+c['options']['dimension'].title()+' '+c['options']['measure']+' vs late rate') if c['kind']=='cohort_scatter' else ('Automatic · '+c['id'].replace('_',' ')) if c['kind']=='automatic' else ('Custom · '+str(c['options'].get('y') or 'record count')+' by '+str(c['options']['x'])) for c in cat if c['key']==x),x),key=f'focus_{w.store.revision}_{w.chart_revision}')
         for i,turn in enumerate(w.history):
             with st.chat_message('user'): st.text(turn['question'])
             with st.chat_message('assistant'):
@@ -149,6 +160,7 @@ elif page=='Decision Copilot':
                 if turn.get('routing_mode') == 'HOSTED_LLM_TOOL_AGENT': st.caption('Hosted AI explanation · calculated evidence is separately displayed; verify interpretations.')
                 elif turn.get('routing_mode') == 'HOSTED_LLM_CHECKED_COHORT': st.caption('AEGIS AI · verified cohort metrics and conservative review guidance; not unrestricted model-generated claims.')
                 elif turn.get('routing_mode') == 'HOSTED_COHORT_FALLBACK': st.caption('Verified cohort analysis · hosted explanation unavailable.')
+                elif turn.get('routing_mode') == 'CHECKED_DERIVED_CHART_GUIDANCE': st.caption('AEGIS checked chart recommendation · no hosted request required.')
                 elif turn.get('routing_mode') == 'OFFLINE_CHECKED_COHORT': st.caption('Standard analytics · independently checked cohort metrics.')
                 elif turn.get('routing_mode') == 'HOSTED_LLM_PARTIAL_EVIDENCE': st.caption('Checked calculations only · hosted explanation incomplete.')
                 elif turn.get('routing_mode') == 'HOSTED_CHECKED_SCALAR': st.caption('Independently checked calculation · model prose cannot override the result.')

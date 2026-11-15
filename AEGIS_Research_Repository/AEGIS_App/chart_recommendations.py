@@ -18,7 +18,7 @@ ROLE_ALIASES = {
     'customer': ('customer','client','buyer','account'),
     'date': ('date','day','month','quarter','year','time','timestamp','period','calendar'),
     'quantity': ('quantity','qty','units','volume','stock','inventory','pieces','count'),
-    'amount': ('amount','revenue','sales','spend','spending','cost','value','price','freight','charges','expense','money','budget'),
+    'amount': ('expenditure','expenditures','amount','revenue','sales','spend','spending','cost','value','price','freight','charges','expense','money','budget'),
     'status': ('status','state','stage','outcome','result','type','classification'),
     'orders': ('orders','order','deliveries','shipments','transactions','records'),
 }
@@ -128,6 +128,11 @@ def _pick(fields, roles, *, require=None, question='', avoid=None):
     return best[1] if best else None
 
 
+def has_specific_chart_objective(ds, question):
+    q=_norm(question)
+    return bool(_explicit_columns(question,_column_candidates(ds)) or _semantic_intents(question) or re.search(r'\b(average|mean|sum|total|distinct|unique|count|trend|monthly|weekly|yearly|distribution|relationship|correlation)\b',q))
+
+
 def _basic_plan(ds, question, history=None):
     # A short follow-up should inherit the previous business objective, not
     # silently choose another field just because the current turn says 'it'.
@@ -138,6 +143,10 @@ def _basic_plan(ds, question, history=None):
             if is_recommendation_question(prior):
                 question=prior+'; '+str(question)
                 break
+    # The ordinary chart builder has no row-filter parameter. Never substitute
+    # a whole-source chart when the question specifies a filter or threshold.
+    if re.search(r'\b(where|excluding|except|only|filtered|filter by|at least|at most|greater than|less than|above|below|last month|last year|last quarter|this month|this year|this quarter|since|during|before|after|20\d{2}|january|february|march|april|june|july|august|september|october|november|december)\b',_norm(question)):
+        return None, 'This chart requires a filtered dataset. The current chart builder cannot apply that row filter; no whole-dataset chart has been substituted.'
     fields=_column_candidates(ds)
     intent=_semantic_intents(question)
     q=_norm(question)
@@ -145,7 +154,7 @@ def _basic_plan(ds, question, history=None):
     by_time = ('date' in intent and bool(re.search(r'\b(over time|trend|monthly|weekly|yearly|by month|by year|by quarter|over months|over years|time series|through time|month|quarter)\b',q)))
     if any(term in q for term in ('trend','over time','through time','monthly')):by_time=True
     distribution=bool(re.search(r'\b(distribution|spread|frequency|histogram|range of|how are .*distributed)\b',q))
-    relationship=bool(re.search(r'\b(relationship|correlation|scatter|vs|versus|against|between .* and )\b',q))
+    relationship=bool(re.search(r'\b(relationship|correlation|associated|association|correlated|scatter|vs|versus|against|between .* and )\b',q))
     average=bool(re.search(r'\b(average|mean|typical|avg)\b',q))
     distinct=bool(re.search(r'\b(unique|distinct)\b',q))
     count=bool(re.search(r'\b(number of|how many|count|frequency|volume of orders|most orders|fewest orders)\b',q))
@@ -161,6 +170,16 @@ def _basic_plan(ds, question, history=None):
             return None, f'This file has no confirmed {required} field. Sales or spending alone cannot answer a {required} question.' 
     if any(a in q for a in SPECIAL_UNSUPPORTED['causal']):
         return None, 'A chart alone cannot establish supplier fault or causal effects; a descriptive comparison may help identify records to investigate.'
+    # Unit prices are not total expenditure; duration and on-time metrics
+    # are not interchangeable with the late-delivery percentage.
+    if re.search(r'\b(?:on time|early|average (?:delivery )?delay|mean (?:delivery )?delay|lead time|delivery time|delay duration|days late)\b',q) and re.search(r'\b(delivery|deliveries|delay|late|supplier|suppliers|vendor|vendors|lead time|on time)\b',q):
+        return None, 'The requested delivery metric needs a separately calculated measure. The current chart builder cannot derive that exact metric; a late-rate or record-count chart would not answer it.'
+    totals=[]
+    if re.search(r'\b(?:total (?:purchase |purchasing )?(?:cost|spend|expenditure|value)|purchase value|purchasing expenditure|purchase expenditure|total spending|how much spent)\b',q):
+        totals=[f for f in fields if f['kind']=='numeric' and re.search(r'\b(?:total cost|total purchase cost|total amount|purchase value|order total|line total|extended cost|purchase amount|spend|expenditure|invoice amount)\b',_norm(f['name']))]
+        if not totals:
+            return None, 'Total purchasing expenditure requires summing quantity × unit cost (or an explicit recorded line-total field). A sum of unit prices is not total expenditure; no misleading chart was created.'
+        if len(totals)==1: explicit=[n for n in explicit if n!=totals[0]['name']]+[totals[0]['name']]
     # Distinct supplier late-rate views are special derived metrics that the custom
     # chart builder cannot reconstruct from one arbitrary X/Y aggregation.
     if re.search(r'\b(late|delayed|delays?|delay rates?|on time|on time rates?|punctual|reliable|reliability)\b',q) and ('supplier' in intent or 'vendor' in q):
@@ -201,6 +220,11 @@ def _basic_plan(ds, question, history=None):
     y=None
     numeric=[f for f in explicit_fields if f['kind']=='numeric' and f['name']!=x['name']]
     if numeric:y=numeric[0]
+    if totals:
+        eligible=[f for f in totals if f['name']!=x['name']]
+        if len(eligible)!=1:
+            return None, 'Choose the exact recorded total field and a separate grouping field; expenditure fields are ambiguous.'
+        y=eligible[0]
     if y is None and amount_requested:y=_pick(fields, {'amount'},require='numeric',question=question, avoid={x['name']})
     if y is None and quantity_requested:y=_pick(fields, {'quantity'},require='numeric',question=question, avoid={x['name']})
     if y is None and (average or minimum or maximum or 'total' in q or 'sum' in q):
@@ -214,15 +238,28 @@ def _basic_plan(ds, question, history=None):
         pair=[f for f in explicit_fields if f['kind']=='numeric']
         if len(pair)>=2:
             return {'kind':'custom','options':dict(chart_type='scatter',x=pair[0]['name'],y=pair[1]['name'],aggregation='count',date_grain='none',sort='x_asc',limit=20)},None
+    if relationship:
+        return None, 'A relationship chart needs two identifiable numeric measures at the same grain. Specify the two variables; a record-count chart would not answer the question.'
     if distribution and x['kind']=='numeric' and not y:
         return {'kind':'custom','options':dict(chart_type='histogram',x=x['name'],y=None,aggregation='count',date_grain='none',sort='x_asc',limit=20)},None
+    if distinct:
+        split=re.split(r'\b(?:by|per|for each)\b',q,maxsplit=1)
+        if len(split)==2:
+            left=[f for f in explicit_fields if f['name'] in _explicit_columns(split[0],fields)]
+            right=[f for f in explicit_fields if f['name'] in _explicit_columns(split[1],fields)]
+            if len(left)==1 and len(right)==1 and left[0]['name']!=right[0]['name']:
+                x=right[0]; y=left[0]
+        target=y if y and y['name']!=x['name'] and len(split)==2 and len(left)==1 and len(right)==1 else next((f for f in explicit_fields if f['name']!=x['name']),None)
+        if target is None:
+            return None, 'A distinct-count chart needs an identifiable field to count uniquely and a separate grouping field; no record-count chart was substituted.'
+        y=target
     if y is None:agg='count'
     elif average:agg='average'
     elif distinct:agg='distinct_count'
     elif minimum:agg='minimum'
     elif maximum:agg='maximum'
     else:agg='sum'
-    if count and not (amount_requested or quantity_requested or average):agg='count';y=None
+    if count and not (amount_requested or quantity_requested or average or distinct):agg='count';y=None
     typ='line' if by_time else 'bar'
     if share and not by_time:typ='donut'
     if re.search(r'\b(horizontal|horizontally|horizontal bar)\b',q):typ='horizontal_bar'
@@ -270,6 +307,16 @@ def validate_proposal(ds, proposal):
 
 def recommend_for_question(ds, question, *, revision, history=None, llm_proposal=None):
     """Return an actionable, server-recomputed recommendation or a grounded refusal."""
+    from cohort_analysis import cohort_relationship
+    checked=cohort_relationship(ds,question,online_chart=True)
+    if checked is not None:
+        text=checked['answer'] if isinstance(checked,dict) else checked
+        result={'answer':text,'context':'local_dataset','evidence_source':'VERIFIED_CHART_RECOMMENDATION','routing_mode':'CHECKED_DERIVED_CHART_GUIDANCE','permitted_action':'NONE','operational_approval':'NOT_GRANTED','human_review':'REQUIRED','safety_gate':False}
+        if isinstance(checked,dict):
+            from cohort_analysis import build_cohort_scatter
+            spec=checked['options']; chart=build_cohort_scatter(ds,spec)
+            result['chart_suggestion']={'kind':'cohort_scatter','options':spec,'title':chart['title'],'dataset_revision':revision}
+        return result, {'dataset_name':ds.filename,'file_rows':len(ds.rows),'verified_description':text,'permitted_business_action':'NONE'}
     plan, reason=_basic_plan(ds,question,history)
     mode='LOCAL_RULES'
     if llm_proposal is not None and reason is None:
@@ -282,6 +329,8 @@ def recommend_for_question(ds, question, *, revision, history=None, llm_proposal
             if plan and plan['kind']=='custom' and candidate['kind']=='custom':
                 # Explicit fields must not be substituted in local-model plans.
                 explicit=_explicit_columns(question,_column_candidates(ds))
+                if has_specific_chart_objective(ds,question) and any(candidate['options'][k]!=plan['options'][k] for k in ('x','y','aggregation','date_grain')):
+                    raise ValueError('The suggested chart changes the checked measure, grouping or aggregation.')
                 if explicit and any(column not in (candidate['options']['x'],candidate['options']['y'])
                                     for column in explicit[:2]):
                     raise ValueError('The suggested axes omit a user-requested field.')

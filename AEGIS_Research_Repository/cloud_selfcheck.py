@@ -24,6 +24,11 @@ def run_selfcheck(hosted_client=None):
         try: return sorted(x[0] for x in db.query('SELECT c2 AS supplier, COUNT(*) AS n FROM dataset GROUP BY c2 ORDER BY n DESC LIMIT 1')['rows'])
         finally: db.close()
     check('Tie-aware supplier ranking',['Alpha','Beta','Gamma'],ties)
+    def derived():
+        from cohort_analysis import build_cohort_scatter
+        c=build_cohort_scatter(ds,{'dimension':'supplier','measure':'cost'})
+        return {v['label']:(v['x'],v['y'],v['comparable']) for v in c['points']}
+    check('Derived chart X, Y and denominator',{'Alpha':(492.0,0.0,2),'Beta':(728.0,50.0,2),'Gamma':(473.0,100.0,1)},derived)
     check('Separate session does not see upload',True,lambda:CloudWorkspace().store.dataset is None)
     if hosted_client is not None:
         def live():

@@ -17,7 +17,8 @@ def _label(s):
 
 
 def _fmt(x):
-    return f'{x:,.2f}'.rstrip('0').rstrip('.') if x % 1 else f'{int(x):,}'
+    from dataset_queries import display_number
+    return display_number(x)
 
 
 def _pct(n,d):
@@ -110,21 +111,31 @@ def _delivery(ds, trend=False, requested="within"):
 
 def _field(ds,col):
     from intake import _date
-    from dataset_queries import numeric
+    from dataset_queries import numeric, check_measure, identifier_field
     values=[r[ds.col_indexes[col]] for r in ds.rows]; present=[v for v in values if v]; n=len(values)
     lines=[f"'{_label(col)}': {len(present):,} populated of {n:,} source rows; {n-len(present):,} blanks ({_pct(n-len(present),n)})."]
     if not present: return {'kind':'field_profile','answer':lines[0]+' No nonblank values are available to analyze.'}
     dates=[_date(v) for v in present]
     numbers=[numeric(v) for v in present]
     # Mapped identifiers are not numeric measures even if their text consists of digits.
-    identifier=col in {ds.mapping.get(k) for k in ('order_id','supplier_id','item_id')} or bool(re.search(r'\b(id|code|reference|identifier)\b',_norm(col)))
+    identifier=identifier_field(ds,col)
     if all(d is not None for d in dates):
-        days=[d.date() for d in dates]; counts=Counter(d.strftime('%Y-%m') for d in dates); shown=sorted(counts)[-24:]
+        days=[d.date() for d in dates]; counts=Counter(f'{d.year:04d}-{d.month:02d}' for d in dates); shown=sorted(counts)[-24:]
         lines.append(f'Valid recorded dates range from {min(days).isoformat()} to {max(days).isoformat()}.')
         lines.append('Records by this date field’s observed month: '+ '; '.join(f'{m}: {counts[m]:,}' for m in shown)+'. Missing months are not inferred to be zero.')
         if len(shown)<len(counts): lines.append('Only the last 24 observed months are shown.')
     elif not identifier and all(v is not None for v in numbers):
-        lines.append(f'Numeric values: minimum {_fmt(min(numbers))}; maximum {_fmt(max(numbers))}; mean {_fmt(sum(numbers)/len(numbers))}; median {_fmt(median(numbers))}. Units and business meaning are not independently verified.')
+        try: check_measure(ds,col)
+        except ValueError as exc:
+            return {'kind':'field_profile','answer':'\n\n'.join(lines+[str(exc)])}
+        mean = sum(numbers)/len(numbers)
+        # Keep full precision for measured extrema. Round a long repeating
+        # average for readability, explicitly label it, and never round a
+        # nonzero value to zero.
+        mean_text = _fmt(mean)
+        if len(mean.as_tuple().digits)>16 and abs(mean)>=1 and abs(mean)<10**12:
+            mean_text=f'{mean:,.2f} (rounded)'
+        lines.append(f'Numeric values: minimum {_fmt(min(numbers))}; maximum {_fmt(max(numbers))}; mean {mean_text}; median {_fmt(median(numbers))}. Units and business meaning are not independently verified.')
     else:
         counts=Counter(present); high=max(counts.values()); leaders=sorted(k for k,v in counts.items() if v==high)
         lines.append(f'{len(counts):,} distinct nonblank recorded values. Highest frequency: {high:,} each, shared by {len(leaders):,} value(s). '+ '; '.join(_label(v) for v in leaders[:8])+('. Additional tied values are not displayed.' if len(leaders)>8 else '.'))

@@ -40,3 +40,7 @@ A test passing does not imply calibrated predictive accuracy, historical feature
 
 ## Hosted AEGIS AI
 See [HOSTED_AI_GUIDE.md](HOSTED_AI_GUIDE.md) for the new independent GPT-OSS reasoning agent, configuration, safety boundaries and live acceptance procedure.
+
+
+## Latest reliability release
+See `FINAL_RELIABILITY_REVIEW.md` for the cumulative corrections, installation and remaining verification limits.
