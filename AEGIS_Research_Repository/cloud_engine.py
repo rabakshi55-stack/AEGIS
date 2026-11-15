@@ -9,7 +9,7 @@ from adaptive_charts import recommend
 from chart_recommendations import recommend_for_question, is_recommendation_question
 from chart_copilot import answer_for_charts, is_chart_question, MAX_CHARTS
 from app import block_execution, block_cross_source
-from hosted_copilot import ask_hosted, HostedUnavailable
+from hosted_copilot import ask_hosted, HostedUnavailable, PlanFormatError
 
 MAX_CLOUD_BYTES = 5 * 1024 * 1024
 MAX_CLOUD_ROWS = 25000
@@ -61,12 +61,23 @@ class CloudWorkspace:
         ds=self.store.dataset
         if ds is None and hosted_client is None: raise ValueError('Upload data or load the fictional example first.')
         h=self.history[-6:]
+        plan_failure=False
         if hosted_client is not None and not (block_execution(q) or block_cross_source(q)):
             try:
                 result=ask_hosted(ds,q,h,self.store.revision,hosted_client,focus,self.catalog())
                 self.history.append({'question':q,'answer':result['answer'],'chart_suggestion':result.get('chart_suggestion'),'routing_mode':result['routing_mode']})
                 self.history=self.history[-12:]
                 return result
+            except PlanFormatError:
+                # A malformed provider response is not a user input error.
+                # Never execute it. Use the existing verified standard path,
+                # explicitly labeled, instead of losing the user's question.
+                plan_failure=True
+                if ds is None:
+                    result={'answer':'The hosted AI could not produce a valid response after retrying. No calculation or action was performed. Try a new question.', 'routing_mode':'HOSTED_PLAN_RECOVERY_NO_DATA', 'context':'general','evidence_source':'NO_DATASET_CALCULATION','permitted_action':'NONE','operational_approval':'NOT_GRANTED','human_review':'REQUIRED','safety_gate':False}
+                    self.history.append({'question':q,'answer':result['answer'],'routing_mode':result['routing_mode']})
+                    self.history=self.history[-12:]
+                    return result
             except (HostedUnavailable,ValueError) as exc:
                 # Never silently substitute a rules-based response as AI.
                 raise ValueError(str(exc)) from None
@@ -86,6 +97,10 @@ class CloudWorkspace:
             response = answer_for_charts(ds,q,catalog[:MAX_CHARTS],focus, dataset_revision=self.store.revision,current_revision=self.store.revision,history=h) if catalog and is_chart_question(q,focus,h) else None
             if response is None: response=self.store.query_analysis(q,history=h,use_local_llm=False)
             result,_= response if response is not None else self.store.explain(q,history=h)
+        if plan_failure:
+            result=dict(result)
+            result['answer']='Hosted AI could not complete a valid plan after retrying. Standard analytics (not a hosted AI answer):\n\n'+result['answer']
+            result['routing_mode']='HOSTED_PLAN_RECOVERY_STANDARD'
         self.history.append({'question':q,'answer':result['answer'],'chart_suggestion':result.get('chart_suggestion'),'routing_mode':result.get('routing_mode')})
         self.history=self.history[-12:]
         return result

@@ -58,12 +58,21 @@ def _validate_provider_plan(content):
     except (TypeError,ValueError): raise PlanFormatError('Hosted AI returned invalid JSON.') from None
     if not _matches_schema(obj,PLAN_SCHEMA): raise PlanFormatError('Hosted AI returned a plan that did not match the required schema.')
     kind=obj['kind']; sql=obj['sql']; options=obj['options']; answer=obj['answer']; basis=obj['basis']
-    valid=(kind=='query' and bool(sql and sql.strip()) and len(sql)<=MAX_SQL and options is None and answer is None and basis is None or
-           kind=='chart' and options is not None and sql is None and answer is None and basis is None or
-           kind=='overview' and all(x is None for x in (sql,options,answer,basis)) or
-           kind=='answer' and bool(answer and answer.strip()) and len(answer)<=8000 and basis is not None and sql is None and options is None)
-    if not valid: raise PlanFormatError('Hosted AI returned inconsistent analytical plan fields.')
-    return content
+    # The transport schema cannot express the cross-field action contract. A
+    # model may include speculative prose/basis alongside a valid tool action.
+    # Discard that prose, never execute a second action or trust a premature
+    # answer. Ambiguous action payloads are still rejected and repaired.
+    if kind=='query' and bool(sql and sql.strip()) and len(sql)<=MAX_SQL and options is None:
+        obj['answer']=obj['basis']=None
+    elif kind=='chart' and options is not None and sql is None:
+        obj['answer']=obj['basis']=None
+    elif kind=='overview' and sql is None and options is None:
+        obj['answer']=obj['basis']=None
+    elif kind=='answer' and bool(answer and answer.strip()) and len(answer)<=8000 and basis is not None and sql is None and options is None:
+        pass
+    else:
+        raise PlanFormatError('Hosted AI returned inconsistent analytical plan fields.')
+    return json.dumps(obj,ensure_ascii=True)
 
 # Process-wide guard, including all sessions. Free-tier limits may be lower.
 _rate_lock = Lock()
@@ -87,10 +96,10 @@ class GroqClient:
             return self._request(messages, 'text')
         try:
             return _validate_provider_plan(self._request(messages, 'strict'))
-        except PlanFormatError:
+        except PlanFormatError as exc:
             # One bounded recovery attempt. No tool is executed until the response
             # passes the same local schema/semantic validation as the strict plan.
-            repair=list(messages)+[{'role':'user','content':'Return only one JSON object with ALL five keys kind, sql, options, answer, basis. Set inactive fields to null. Here is the exact schema: '+json.dumps(PLAN_SCHEMA,ensure_ascii=True)+'. If evidence is already provided, return kind=answer; do not repeat completed calculations.'}]
+            repair=list(messages)+[{'role':'user','content':'The previous plan failed validation: '+str(exc)+' Return exactly one action, not a calculation and final answer together. For query use only kind and sql; chart only kind and options; overview only kind; answer only kind, answer and basis. Include ALL five keys and set unused fields to null. Here is the exact schema: '+json.dumps(PLAN_SCHEMA,ensure_ascii=True)+'. If evidence is already provided, return kind=answer; do not repeat completed calculations.'}]
             return _validate_provider_plan(self._request(repair, 'object'))
     def _request(self,messages, mode):
         if os.getenv('AEGIS_OFFLINE_TEST_MODE')=='1':
