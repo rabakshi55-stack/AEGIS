@@ -896,6 +896,7 @@ class IntakeStore:
             if self.dataset is None:
                 raise ValueError("Upload a dataset first.")
             self.dataset.map(fields)
+            self.revision += 1
         return self.status()
 
     def question_is_about_upload(self, question):
@@ -927,13 +928,28 @@ class IntakeStore:
         from dataset_overview import asks_for_overview, build_overview
         with self.lock:
             dataset = self.dataset
+            revision = self.revision
         if dataset is None:
             raise ValueError("Upload a dataset first.")
+        from cohort_analysis import requested_cohort, checked_cohort
+        req = requested_cohort(dataset, question, history or [])
+        if req:
+            with self.lock:
+                if self.dataset is not dataset or self.revision != revision:
+                    raise ValueError("The active dataset changed; please ask again.")
+                cohort = checked_cohort(dataset, *req)
+            if cohort is not None:
+                return ({"answer":cohort["answer"], "context":"local_dataset",
+                         "evidence_source":"CURRENT_UPLOADED_DATASET_COHORT",
+                         "routing_mode":"OFFLINE_CHECKED_COHORT", "operational_approval":"NOT_GRANTED",
+                         "permitted_action":"NONE", "human_review":"REQUIRED", "safety_gate":False,
+                         "cohort_dimension":cohort["dimension"], "cohort_analysis":cohort},
+                        {"checked_cohort":cohort["groups"], "no_procurement_actions":True})
         from focused_analysis import focused_analysis
         focused = focused_analysis(dataset, question)
         if focused is not None:
             with self.lock:
-                if self.dataset is not dataset:
+                if self.dataset is not dataset or self.revision != revision:
                     raise ValueError("The active dataset changed; please ask again.")
             result = {"answer": focused["answer"], "context": "local_dataset",
                       "evidence_source": "CURRENT_UPLOADED_DATASET_FOCUSED_ANALYSIS",
@@ -947,7 +963,7 @@ class IntakeStore:
         # plan for an arbitrary metric. Both modes use the identical evidence.
         if asks_for_overview(question):
             with self.lock:
-                if self.dataset is not dataset:
+                if self.dataset is not dataset or self.revision != revision:
                     raise ValueError("The active dataset changed; please ask again.")
                 overview = build_overview(dataset)
             result = {"answer": overview["answer"], "context": "local_dataset",
@@ -978,7 +994,7 @@ class IntakeStore:
         if plan is None:
             return None
         with self.lock:
-            if self.dataset is not dataset:
+            if self.dataset is not dataset or self.revision != revision:
                 raise ValueError("Dataset was replaced during this analysis. Please ask again.")
             try:
                 outputs = execute_many(dataset, plan)

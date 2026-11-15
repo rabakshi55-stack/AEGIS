@@ -20,23 +20,25 @@ MAX_RESPONSE_CHARS = 12_000
 
 
 def numeric(value):
-    text = str(value or "").strip().replace(",", "")
+    text = str(value if value is not None else "").strip()
+    # Never reinterpret a locale decimal comma or malformed grouping as a
+    # larger number. Accept conventional thousands grouping only.
+    if "," in text:
+        if not re.fullmatch(r"[+-]?\d{1,3}(?:,\d{3})+(?:\.\d+)?",text): return None
+        text=text.replace(",", "")
     if not text or not re.fullmatch(r"[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d{1,2})?", text):
         return None
     try:
         n = Decimal(text)
-        return n if n.is_finite() else None
+        return n if n.is_finite() and abs(n)<=Decimal("1e15") else None
     except InvalidOperation:
         return None
 
 
 def date_key(value, grain="day"):
     text = str(value or "").strip()
-    if not re.match(r"^\d{4}-\d{2}-\d{2}(?:$|[T ])", text):
-        return None
-    try:
-        datetime.fromisoformat(text[:10])
-    except ValueError:
+    from intake import _date
+    if _date(text) is None:
         return None
     return text[:4] if grain == "year" else text[:7] if grain == "month" else text[:10]
 
@@ -214,7 +216,7 @@ def execute(dataset, plan):
                 if op in {"sum", "average", "min", "max", "median", "stddev"}:
                     numeric_values.append(number)
         if op.startswith("group_"):
-            key = tuple((date_key(row[i], date_grain) if date_grain != "raw" else row[i]) or "[missing/invalid]"
+            key = tuple((date_key(row[i], date_grain) if date_grain != "raw" else row[i]) or None
                         for i in group_indices)
             info = groups[key]
             info["rows"] += 1
@@ -260,14 +262,14 @@ def execute(dataset, plan):
         result = []
         for key, grp in groups.items():
             metric = (grp["rows"] if op == "group_count" else
-                      _formatted(grp["numeric_sum"]) if op == "group_sum" else
+                      (_formatted(grp["numeric_sum"]) if grp["numeric_count"] else None) if op == "group_sum" else
                       (_formatted(grp["numeric_sum"] / grp["numeric_count"]) if grp["numeric_count"] else None))
             result.append({"group": dict(zip(group_by, key)), "value": metric,
                            "rows": grp["rows"], "numeric_rows": grp["numeric_count"] if op != "group_count" else None})
         if order.startswith("key"):
             result.sort(key=lambda x: tuple(str(x["group"][c]) for c in group_by), reverse=order == "key_desc")
         else:
-            result.sort(key=lambda x: (x["value"] is None, -(x["value"] or 0) if order == "desc" else (x["value"] or 0)))
+            result.sort(key=lambda x: (x["value"] is None, -Decimal(str(x["value"] or 0)) if order == "desc" else Decimal(str(x["value"] or 0))))
         evidence.update({"result": result[:limit], "group_by": group_by, "field": col,
                          "distinct_groups": len(result), "result_truncated": len(result) > limit,
                          "non_numeric_or_missing_rows": invalid_numeric if op != "group_count" else 0})
@@ -303,7 +305,7 @@ def explain(outputs):
             continue
         if op == "group_count":
             lines.append("Record counts by " + ", ".join(e['group_by']) + ":")
-            lines.extend("• " + " / ".join(str(v) for v in row['group'].values()) + f": {row['value']:,} rows" for row in e['result'])
+            lines.extend("• " + " / ".join("(missing or invalid)" if v is None else str(v) for v in row['group'].values()) + f": {row['value']:,} rows" for row in e['result'])
             if e.get('result_truncated'):
                 lines.append(f"Showing {len(e['result'])} of {e['distinct_groups']} groups.")
             lines.append(f"Checked {e['matched_rows']:,} matching rows out of {e['total_rows']:,} uploaded records.")
@@ -409,43 +411,28 @@ def basic_plan(question, dataset, history=None):
     entity_plan = _entity_plan(question, dataset, history)
     if entity_plan is not None:
         return entity_plan
-    def col_ref():
-        metric_phrase = q.split(' by ', 1)[0]
-        matches = [c for c in dataset.columns if c.lower() in metric_phrase]
-        if not matches:
-            matches = [c for c in dataset.columns if c.lower() in q]
-        if matches:
-            return max(matches, key=len)
-        for word in re.findall(r"[a-z][a-z_]+", q):
-            exact = [c for c in dataset.columns if c.lower() == word]
-            if exact:
-                return exact[0]
-        return None
-    col = col_ref()
-    # Do not silently discard qualifiers on unrecognized entity-count requests.
-    if re.match(r"^(?:how many|(?:what is the |tell me the )?number of|count)\b", q) and not any(p in q for p in (" by ", "how many records", "how many rows", "number of entries")):
-        return None
-    if any(p in q for p in ("show the columns", "list the fields", "what fields", "what columns", "show schema")):
-        return {"operation": "schema"}
-    if any(p in q for p in ("how many records", "total rows", "how many rows", "number of entries")):
-        return {"operation": "count"}
-    ops = [("count_distinct", ("how many distinct", "unique values", "number of unique")),
-           ("average", ("average", "mean")), ("sum", ("total", "sum of", "sum ")),
-           ("max", ("maximum", "highest value", "largest value")),
-           ("min", ("minimum", "lowest value", "smallest value")),
-           ("median", ("median",)), ("stddev", ("standard deviation", "std dev"))]
-    for op, phrases in ops:
-        if any(phrase in q for phrase in phrases) and col:
-            if " by " in q:
-                group = [name for name in dataset.columns if name != col and name.lower() in q.split(" by ", 1)[1]]
-                if group and op in {"average", "sum"}:
-                    return {"operation": "group_average" if op == "average" else "group_sum",
-                            "column": col, "group_by": [max(group, key=len)], "limit": 10}
-            return {"operation": op, "column": col}
-    if " by " in q and any(x in q for x in ("number", "count", "most", "fewest", "breakdown", "distribution")):
-        group = [c for c in dataset.columns if c.lower() in q.split(" by ", 1)[1]]
-        if group:
-            return {"operation": "group_count", "group_by": [max(group, key=len)], "limit": 10}
-    if any(x in q for x in ("show records", "show rows", "show examples", "sample records")):
-        return {"operation": "preview", "limit": 5}
+    q = _field_phrase(question)
+    q = re.sub(r"^(?:(?:please|tell me|show me|what is|what s|give me|calculate|can you tell me) )+", "", q)
+    q = re.sub(r"(?: please| in (?:the|this|my|our) (?:uploaded )?(?:dataset|data|file|upload))$", "", q)
+    if q in {"show the columns", "list the fields", "what fields", "what columns", "show schema", "columns", "schema"}:
+        return {"operation":"schema"}
+    if q in {"total rows", "how many records", "how many rows", "number of entries", "count rows", "count records"}:
+        return {"operation":"count"}
+    m=re.fullmatch(r"(?:the )?(average|mean|total|sum(?: of)?|maximum|highest value(?: of)?|largest value(?: of)?|minimum|lowest value(?: of)?|smallest value(?: of)?|median|standard deviation|std dev) (?:of )?(.+?)(?: by (.+))?",q)
+    if m:
+        op={"average":"average","mean":"average","total":"sum","sum":"sum","sum of":"sum","maximum":"max","highest value":"max","highest value of":"max","largest value":"max","largest value of":"max","minimum":"min","lowest value":"min","lowest value of":"min","smallest value":"min","smallest value of":"min","median":"median","standard deviation":"stddev","std dev":"stddev"}[m.group(1)]
+        col=_entity_column(dataset,m.group(2))
+        if col is None: return None
+        if m.group(3):
+            group=_entity_column(dataset,m.group(3))
+            if group and group!=col and op in {"average","sum"}:
+                return {"operation":"group_average" if op=="average" else "group_sum","column":col,"group_by":[group],"limit":10}
+            return None
+        return {"operation":op,"column":col}
+    m=re.fullmatch(r"(?:number of (?:records|rows)|count(?: of)?(?: records| rows)?|record counts|breakdown|distribution) by (.+)",q)
+    if m:
+        col=_entity_column(dataset,m.group(1))
+        if col: return {"operation":"group_count","group_by":[col],"limit":10}
+    if q in {"show records","show rows","show examples","sample records","records","rows"}:
+        return {"operation":"preview","limit":5}
     return None

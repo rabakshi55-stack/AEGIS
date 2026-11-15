@@ -25,8 +25,9 @@ class HostedWorkspace(unittest.TestCase):
     def test_provider_error_not_hidden(self):
         class Down:
             def complete(self,messages): raise HostedUnavailable('quota')
-        with self.assertRaisesRegex(ValueError,'quota'):self.w.ask('How many suppliers?',hosted_client=Down())
-        self.assertEqual(self.w.history,[])
+        r=self.w.ask('How many suppliers?',hosted_client=Down())
+        self.assertIn('quota',r['answer']);self.assertIn('Standard analytics',r['answer']);self.assertEqual(r['routing_mode'],'HOSTED_SERVICE_FALLBACK_STANDARD')
+        self.assertEqual(len(self.w.history),1)
     def test_chart_context(self):
         self.w.add_chart(dict(chart_type='bar',x='supplier',y='quantity',aggregation='sum',date_grain='none',sort='value_desc',limit=20))
         f=Fake({'kind':'answer','answer':'Beta leads.','basis':'evidence'})

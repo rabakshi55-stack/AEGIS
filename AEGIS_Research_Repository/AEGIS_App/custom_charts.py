@@ -18,24 +18,14 @@ MAX_SCATTER_POINTS = 300
 
 
 def _number(value):
-    try:
-        text = str(value).strip().replace(",", "")
-        if not text or text.startswith(("=", "+=")):
-            return None
-        result = float(text)
-        return result if isfinite(result) and abs(result) <= 1e15 else None
-    except (TypeError, ValueError):
-        return None
+    from dataset_queries import numeric
+    n=numeric(value)
+    return float(n) if n is not None else None
 
 
 def _date(value):
-    text = str(value).strip()
-    if not re.match(r"^\d{4}-\d{2}-\d{2}(?:[T\s].*)?$", text):
-        return None
-    try:
-        return datetime.strptime(text[:10], "%Y-%m-%d")
-    except ValueError:
-        return None
+    from intake import _date as parse_date
+    return parse_date(value)
 
 
 def _period(value, grain):

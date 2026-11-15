@@ -18,11 +18,9 @@ def _norm(value):
 
 
 def _num(value):
-    try:
-        number = float(str(value).replace(",", "").strip())
-        return number if isfinite(number) and abs(number) <= 1e15 else None
-    except (ValueError, TypeError, OverflowError):
-        return None
+    from dataset_queries import numeric
+    n=numeric(value)
+    return float(n) if n is not None else None
 
 
 def _date(value):
@@ -54,10 +52,10 @@ def _source(columns, mapping, role, aliases, *, forbid=()):
 def _top_counts(rows, ix, limit=7):
     tally = Counter(r[ix].strip() for r in rows if r[ix].strip())
     items = sorted(tally.items(), key=lambda v: (-v[1], v[0]))
-    main = [{"label": str(key)[:50], "count": count} for key, count in items[:limit]]
+    main = [{"label": str(key), "count": count} for key, count in items[:limit]]
     other = sum(count for _, count in items[limit:])
     if other:
-        main.append({"label": "Other categories", "count": other})
+        main.append({"label": "Other categories", "count": other, "remainder": True})
     return main, len(tally), sum(tally.values())
 
 
@@ -144,7 +142,7 @@ def recommend(dataset):
                              for group in pair_counts if pair_counts[group] >= 10]
                 if len(qualified) >= 2:
                     qualified.sort(key=lambda x: (-x[2]/x[1], -x[1], x[0]))
-                    bar_values = [{"label":str(group)[:50], "count":round(100 * late / total, 2),
+                    bar_values = [{"label":str(group), "count":round(100 * late / total, 2),
                                    "comparable_rows":total, "after_date_rows":late}
                                   for group,total,late in qualified[:8]]
                     charts.append(_result("recorded_date_exceptions_by_supplier", 112, "bar",
@@ -157,7 +155,7 @@ def recommend(dataset):
                 f"{comparable:,} of {n:,} rows have comparable recorded dates.",
                 [promise, actual], [{"label":"Before mapped date", "count":before},
                 {"label":"On mapped date", "count":same}, {"label":"After mapped date", "count":after}],
-                caution=f"{missing:,} rows lacked one or both dates. Calendar-day comparison only; not contractual lateness or supplier fault.",
+                caution=f"{missing:,} rows lacked one or both dates; {n-comparable-missing:,} had nonblank invalid date pairs. Calendar-day comparison only; not contractual lateness or supplier fault.",
                 provenance="manager-mapped" if prom_origin == actual_origin == "manager-mapped" else "header-inferred"))
 
     if purchase and amount and purchase != amount:
@@ -239,10 +237,10 @@ def recommend(dataset):
                 invalid += 1
         if valid >= 4 and len(amounts) >= 2 and valid / max(valid + invalid, 1) >= .9 and min(amounts.values()) >= 0:
             top = sorted(amounts.items(), key=lambda t:(-t[1], t[0]))
-            values = [{"label":str(k)[:50],"count":round(v,2)} for k,v in top[:7]]
+            values = [{"label":str(k),"count":round(v,2)} for k,v in top[:7]]
             extra = sum(v for _,v in top[7:])
             if extra:
-                values.append({"label":"Other categories","count":round(extra,2)})
+                values.append({"label":"Other categories","count":round(extra,2),"remainder":True})
             charts.append(_result("recorded_amount_by_group", 99, "bar", f"Recorded amount by {grouping}",
                 f"Sum of '{amount}' across {valid:,} categorized rows.", [amount, grouping], values,
                 caution=f"{invalid:,} nonnumeric populated rows excluded. Currency, transaction definition and business meaning unverified.",
@@ -263,10 +261,10 @@ def recommend(dataset):
                 invalid += 1
         if valid >= 3 and len(sums) >= 2 and (invalid == 0 or valid / (valid + invalid) >= .9):
             leaders = sorted(sums.items(), key=lambda item: (-item[1], item[0]))
-            output = [{"label": str(k)[:50], "count": round(v, 2)} for k, v in leaders[:7]]
+            output = [{"label": str(k), "count": round(v, 2)} for k, v in leaders[:7]]
             rest = sum(v for _, v in leaders[7:])
             if rest:
-                output.append({"label": "Other categories", "count": round(rest, 2)})
+                output.append({"label": "Other categories", "count": round(rest, 2), "remainder": True})
             charts.append(_result("units_by_group", 94, "bar",
                 f"Recorded units by {grouping}",
                 f"Sum of nonnegative '{qty}' values across {valid:,} grouped rows.",
@@ -314,7 +312,7 @@ def recommend(dataset):
         charts.append(_result("field_completeness", 75, "bar", "Fields needing data-quality review",
             f"{len(missing)} of {len(columns)} columns contain blank cells.",
             [name for name, _ in missing[:8]],
-            [{"label": str(name)[:50], "count": count} for name, count in missing[:8]],
+            [{"label": str(name), "count": count} for name, count in missing[:8]],
             caution="These are empty cells only; special missing-value codes are not recognized automatically.",
             provenance="observed-values", value_label="Blank cells"))
 

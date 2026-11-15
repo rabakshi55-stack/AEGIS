@@ -40,9 +40,10 @@ def asks_for_overview(question):
     # Field-specific and delivery-specific analyses need their own evidence,
     # not an overall activity summary. The focused analysis tool handles
     # unqualified descriptions; the AI planner handles additional qualifiers.
-    if re.search(r'\b(?:delivery|deliveries|lateness|column|field)\b', q):
+    if re.search(r'\b(?:delivery|deliveries|lateness|column|field|chart|plot|scatter|correlation|forecast|predict|supplier|suppliers|region|regions|product|products|quantity|quantities|cost|costs|revenue|profit|price|prices|inventory|stock|where|excluding|except|only|between|since|during|before|after|filtered|filter)\b', q):
         return False
-    return any(re.search(p, q) for p in OVERVIEW_RE)
+    # Overview verbs alone must not swallow a conceptual question.
+    return (bool(re.search(r'\b(?:data|dataset|spreadsheet|file|records|figures|numbers|upload|table|results|here)\b',q)) and any(re.search(p,q) for p in OVERVIEW_RE)) or bool(re.fullmatch(r'(?:(?:please|just) )?(?:give me (?:the )?|any (?:interesting )?)?(?:summari[sz]e|overview|insights|highlights|main findings|findings|big picture|overall picture|what stands out|what is going on|what is happening)[?.!]*',q))
 
 
 def _format_count(value):
@@ -89,7 +90,7 @@ def build_overview(dataset):
             continue
         title = _safe(chart.get('title'), 90)
         metric = _safe(chart.get('value_label', 'Recorded values'), 65)
-        original = [v for v in values if str(v.get('label', '')).casefold() not in {'other categories', 'other values'}]
+        original = [v for v in values if not v.get('remainder')]
         if not original:
             continue
         # Describe all visible periods, and do not invent a unique peak.

@@ -9,13 +9,15 @@ from adaptive_charts import recommend
 from custom_charts import CHART_TYPES, AGGREGATIONS, DATE_GRAINS, SORTS
 from app import STORE, research_answer, get_joint_evidence
 from model_registry import collect_report
+from chat_presentation import renderable_answer
 
 st.set_page_config(page_title='AEGIS | Decision Intelligence', page_icon='🛡️', layout='wide')
 # Do not reuse objects instantiated from older backend code after a deployment.
-if 'aegis_workspace' not in st.session_state or st.session_state.get('aegis_workspace_version') != 'plan-recovery-2':
+if 'aegis_workspace' not in st.session_state or st.session_state.get('aegis_workspace_version') != 'audited-runtime-5':
     st.session_state.aegis_workspace = CloudWorkspace()
     st.session_state.upload_epoch = 0
-    st.session_state.aegis_workspace_version = 'plan-recovery-2'
+    st.session_state.pop('last_recommendation',None)
+    st.session_state.aegis_workspace_version = 'audited-runtime-5'
 w = st.session_state.aegis_workspace
 st.sidebar.title('AEGIS')
 st.sidebar.caption('SUPPLY CHAIN DECISION INTELLIGENCE')
@@ -47,7 +49,7 @@ render_counter = 0
 def render(c, auto=False):
     global render_counter
     render_counter += 1
-    typ=c['type'] if auto else c['chart_type']; title=c['title'] if auto else f"{c['y'] or 'Record count'} by {c['x']}"
+    typ=c['type'] if auto else c['chart_type']; title=c['title'] if auto else (f"{c['y']} versus {c['x']}" if typ=='scatter' else f"Distribution of {c['x']}" if typ=='histogram' else f"{c['aggregation']} · {c['y'] or 'records'} by {c['x']}")
     st.subheader(title)
     if c.get('points'):
         p=c['points']; fig=go.Figure(go.Scatter(x=[v['x'] for v in p],y=[v['y'] for v in p],mode='markers'))
@@ -59,6 +61,7 @@ def render(c, auto=False):
         elif typ in ('line','area'): fig=go.Figure(go.Scatter(x=labels,y=ys,mode='lines+markers',fill='tozeroy' if typ=='area' else None))
         elif typ=='horizontal_bar': fig=go.Figure(go.Bar(x=ys,y=labels,orientation='h'))
         else: fig=go.Figure(go.Bar(x=labels,y=ys))
+    if not auto and typ=='scatter': fig.update_xaxes(title_text=c['x']); fig.update_yaxes(title_text=c['y'])
     fig.update_layout(height=350,margin=dict(l=20,r=20,t=20,b=35),showlegend=typ in ('pie','donut'),xaxis=dict(automargin=True),yaxis=dict(automargin=True))
     st.plotly_chart(fig,use_container_width=True,key=f"chart_{render_counter}")
     st.text(c.get('note',c.get('reason','')))
@@ -119,30 +122,40 @@ elif page=='Visualizations':
         for i,opts in enumerate(w.charts):
             render(w.store.chart(opts))
             with st.expander(f'Edit custom chart {i+1}'):
-                with st.form(f'edit_{w.store.revision}_{i}'):
+                with st.form(f'edit_{w.store.revision}_{w.chart_revision}_{i}'):
                     et=st.selectbox('Chart type',CHART_TYPES,index=CHART_TYPES.index(opts['chart_type'])); ex=st.selectbox('X field',ds.columns,index=ds.columns.index(opts['x'])); ey=st.selectbox('Y field (optional)',['']+ds.columns,index=(['']+ds.columns).index(opts['y'] or '')); ea=st.selectbox('Aggregation',AGGREGATIONS,index=AGGREGATIONS.index(opts['aggregation'])); eg=st.selectbox('Date grouping',DATE_GRAINS,index=DATE_GRAINS.index(opts['date_grain'])); eo=st.selectbox('Sort',SORTS,index=SORTS.index(opts['sort'])); el=st.slider('Max groups/bins',2,100,opts['limit'])
                     if st.form_submit_button('Save chart changes'):
                         try:
                             cfg=dict(chart_type=et,x=ex,y=ey or None,aggregation=ea,date_grain=eg,sort=eo,limit=el)
-                            checked=w.store.chart(cfg)
-                            w.charts[i]={k:checked[k] for k in cfg}; st.rerun()
+                            w.edit_chart(i,cfg); st.rerun()
                         except Exception as e: st.error(str(e))
             if st.button('Remove chart',key='remove_'+str(i)):
-                w.charts.pop(i); st.rerun()
+                w.remove_chart(i); st.rerun()
 elif page=='Decision Copilot':
     st.header('3 · Decision Copilot')
     if not w.store.dataset and mode == 'Standard analytics': st.info('Load data first, or select AEGIS AI for general conversation.')
     else:
         if st.button('New chat'): w.history.clear(); st.rerun()
-        cat=w.catalog(); focus=st.selectbox('Optional chart context',['']+[c['key'] for c in cat],format_func=lambda x: 'No specific chart' if not x else x)
+        cat=w.catalog(); focus=st.selectbox('Optional chart context',['']+[c['key'] for c in cat],format_func=lambda x: 'No specific chart' if not x else x,key=f'focus_{w.store.revision}_{w.chart_revision}')
         for i,turn in enumerate(w.history):
             with st.chat_message('user'): st.text(turn['question'])
             with st.chat_message('assistant'):
-                st.text(turn['answer']); s=turn.get('chart_suggestion')
+                narrative,calculated=renderable_answer(turn['answer'])
+                st.markdown(narrative,unsafe_allow_html=False)
+                if calculated:
+                    with st.expander('Calculation details (read-only evidence)'):
+                        st.text(calculated)
+                s=turn.get('chart_suggestion')
                 if turn.get('routing_mode') == 'HOSTED_LLM_TOOL_AGENT': st.caption('Hosted AI explanation · calculated evidence is separately displayed; verify interpretations.')
+                elif turn.get('routing_mode') == 'HOSTED_LLM_CHECKED_COHORT': st.caption('AEGIS AI · verified cohort metrics and conservative review guidance; not unrestricted model-generated claims.')
+                elif turn.get('routing_mode') == 'HOSTED_COHORT_FALLBACK': st.caption('Verified cohort analysis · hosted explanation unavailable.')
+                elif turn.get('routing_mode') == 'OFFLINE_CHECKED_COHORT': st.caption('Standard analytics · independently checked cohort metrics.')
                 elif turn.get('routing_mode') == 'HOSTED_LLM_PARTIAL_EVIDENCE': st.caption('Checked calculations only · hosted explanation incomplete.')
+                elif turn.get('routing_mode') == 'HOSTED_CHECKED_SCALAR': st.caption('Independently checked calculation · model prose cannot override the result.')
                 elif turn.get('routing_mode') == 'HOSTED_LLM_CHECKED_FOCUSED_ANALYSIS': st.caption('AEGIS AI · focused, independently calculated answer.')
                 elif turn.get('routing_mode') == 'HOSTED_PLAN_RECOVERY_STANDARD': st.caption('Standard analytics fallback · hosted AI plan invalid after retry.')
+                elif turn.get('routing_mode') == 'HOSTED_SERVICE_FALLBACK_STANDARD': st.caption('Standard analytics fallback · hosted AI service unavailable.')
+                elif turn.get('routing_mode') == 'HOSTED_SERVICE_UNAVAILABLE': st.caption('Hosted AI unavailable · no calculation performed.')
                 elif turn.get('routing_mode') == 'HOSTED_PLAN_RECOVERY_NO_DATA': st.caption('Hosted AI response unavailable · no calculation performed.')
                 elif turn.get('routing_mode') == 'OFFLINE_RECOMPUTED_FOCUSED_ANALYSIS': st.caption('Standard analytics · focused calculations from the active dataset.')
                 if s and s['dataset_revision']==w.store.revision:
@@ -152,9 +165,19 @@ elif page=='Decision Copilot':
         q=st.chat_input('Ask AEGIS about your dataset or a general question',max_chars=1500)
         if q:
             try: w.ask(q,focus or None,hosted_client=active_client()); st.rerun()
-            except Exception as e: st.error(str(e))
+            except Exception as e:
+                with st.chat_message('user'): st.text(q)
+                st.error(str(e))
 else:
     st.header('Research evidence')
+    with st.expander('AEGIS reliability self-check'):
+        st.caption('Uses an independent fictional dataset, never your active upload. Offline checks do not contact an AI provider.')
+        from cloud_selfcheck import run_selfcheck
+        if st.button('Run offline self-check'):
+            st.dataframe(run_selfcheck(),use_container_width=True,hide_index=True)
+        if client is not None and st.button('Run live AI check (fictional data only)'):
+            st.dataframe(run_selfcheck(client),use_container_width=True,hide_index=True)
+        st.caption('A live check validates one analytical question, not all possible AI answers. A fallback is not counted as a live AI pass.')
     st.info('Historical Olist delivery-risk research and fictional sourcing optimization are separate evidence sources. No realized savings or prospective model accuracy is certified.')
     st.write('Frozen research archive status: '+('verified' if STORE.ready else 'not available'))
     with st.expander('Model benchmark and historical limitations'):

@@ -10,6 +10,7 @@ from chart_recommendations import recommend_for_question, is_recommendation_ques
 from chart_copilot import answer_for_charts, is_chart_question, MAX_CHARTS
 from app import block_execution, block_cross_source
 from hosted_copilot import ask_hosted, HostedUnavailable, PlanFormatError
+from cohort_analysis import requested_cohort, checked_cohort
 
 MAX_CLOUD_BYTES = 5 * 1024 * 1024
 MAX_CLOUD_ROWS = 25000
@@ -21,6 +22,7 @@ class CloudWorkspace:
         self.store = IntakeStore()
         self.history = []
         self.charts = []
+        self.chart_revision = 0
 
     def upload(self, filename, raw):
         if len(raw) > MAX_CLOUD_BYTES:
@@ -31,23 +33,34 @@ class CloudWorkspace:
         with self.store.lock:
             self.store.dataset = ds
             self.store.revision += 1
-        self.history.clear(); self.charts.clear()
+        self.history.clear(); self.charts.clear(); self.chart_revision += 1
         return self.store.status()
 
     def clear(self):
-        self.store.clear(); self.history.clear(); self.charts.clear()
+        self.store.clear(); self.history.clear(); self.charts.clear(); self.chart_revision += 1
 
     def map(self, fields):
         result = self.store.mapping(fields)
-        self.history.clear(); self.charts.clear()
+        self.history.clear(); self.charts.clear(); self.chart_revision += 1
         return result
 
     def add_chart(self, options):
         result = self.store.chart(options)
         opts = {k: result[k] for k in ('chart_type','x','y','aggregation','date_grain','sort','limit')}
         if len(self.charts) >= 8: raise ValueError('Maximum eight custom charts per online session. Remove one first.')
-        self.charts.append(opts)
+        self.charts.append(opts); self.chart_revision += 1
         return result
+
+    def edit_chart(self,index,options):
+        if not 0<=index<len(self.charts): raise ValueError('Chart no longer exists.')
+        result=self.store.chart(options)
+        self.charts[index]={k:result[k] for k in ('chart_type','x','y','aggregation','date_grain','sort','limit')}
+        self.chart_revision += 1
+        return result
+
+    def remove_chart(self,index):
+        if not 0<=index<len(self.charts): raise ValueError('Chart no longer exists.')
+        self.charts.pop(index); self.chart_revision += 1
 
     def catalog(self):
         if self.store.dataset is None: return []
@@ -61,11 +74,19 @@ class CloudWorkspace:
         ds=self.store.dataset
         if ds is None and hosted_client is None: raise ValueError('Upload data or load the fictional example first.')
         h=self.history[-6:]
+        revision=self.store.revision
+        chart_revision=self.chart_revision
         plan_failure=False
+        outage=None
+        def current():
+            if self.store.dataset is not ds or self.store.revision!=revision or (focus and self.chart_revision!=chart_revision):
+                raise ValueError('Dataset or selected chart changed during analysis. Ask again.')
+        if focus and not any(c['key']==focus for c in self.catalog()): raise ValueError('Select a chart from the current dataset.')
         if hosted_client is not None and not (block_execution(q) or block_cross_source(q)):
             try:
                 result=ask_hosted(ds,q,h,self.store.revision,hosted_client,focus,self.catalog())
-                self.history.append({'question':q,'answer':result['answer'],'chart_suggestion':result.get('chart_suggestion'),'routing_mode':result['routing_mode']})
+                current()
+                self.history.append({'question':q,'answer':result['answer'],'chart_suggestion':result.get('chart_suggestion'),'routing_mode':result['routing_mode'],'cohort_dimension':result.get('cohort_dimension')})
                 self.history=self.history[-12:]
                 return result
             except PlanFormatError:
@@ -78,12 +99,21 @@ class CloudWorkspace:
                     self.history.append({'question':q,'answer':result['answer'],'routing_mode':result['routing_mode']})
                     self.history=self.history[-12:]
                     return result
-            except (HostedUnavailable,ValueError) as exc:
-                # Never silently substitute a rules-based response as AI.
-                raise ValueError(str(exc)) from None
+            except HostedUnavailable as exc:
+                # Keep the user's question; any standard answer is explicitly labeled.
+                outage=str(exc)
+                current()
+                if ds is None:
+                    result={'answer':'Hosted AI unavailable: '+outage+' No calculation was performed.','routing_mode':'HOSTED_SERVICE_UNAVAILABLE','context':'general','evidence_source':'NO_DATASET_CALCULATION','permitted_action':'NONE','operational_approval':'NOT_GRANTED','human_review':'REQUIRED','safety_gate':False}
+                    self.history.append({'question':q,'answer':result['answer'],'routing_mode':result['routing_mode']}); self.history=self.history[-12:]
+                    return result
         if ds is None: raise ValueError('No business actions are available. Load a dataset for analytical research.')
         operational = block_execution(q) or block_cross_source(q) or any(x in q.lower() for x in ('switch supplier','switching suppliers','recommend supplier','reallocate suppliers','who caused','whose fault','responsible for the delay','why did the supplier','field mapping','map the fields','mapping based','which field maps','what should the mapping'))
-        if operational:
+        requested=requested_cohort(ds,q,h) if not focus and not operational else None
+        cohort=checked_cohort(ds,*requested) if requested else None
+        if cohort is not None:
+            result={'answer':cohort['answer'],'context':'local_dataset','routing_mode':'OFFLINE_CHECKED_COHORT','evidence_source':'CURRENT_UPLOADED_DATASET_COHORT','permitted_action':'NONE','operational_approval':'NOT_GRANTED','human_review':'REQUIRED','safety_gate':False,'cohort_dimension':cohort['dimension'],'cohort_analysis':cohort}
+        elif operational:
             result, _ = self.store.explain(q, history=h)
         elif not focus and __import__('focused_analysis').focused_analysis(ds,q) is not None:
             result,_ = self.store.query_analysis(q,history=h,use_local_llm=False)
@@ -97,15 +127,20 @@ class CloudWorkspace:
             response = answer_for_charts(ds,q,catalog[:MAX_CHARTS],focus, dataset_revision=self.store.revision,current_revision=self.store.revision,history=h) if catalog and is_chart_question(q,focus,h) else None
             if response is None: response=self.store.query_analysis(q,history=h,use_local_llm=False)
             result,_= response if response is not None else self.store.explain(q,history=h)
+        current()
+        if outage:
+            result=dict(result)
+            result['answer']='Hosted AI unavailable: '+outage+'\n\nStandard analytics (not a hosted AI answer):\n\n'+result['answer']
+            result['routing_mode']='HOSTED_SERVICE_FALLBACK_STANDARD'
         if plan_failure:
             result=dict(result)
             result['answer']='Hosted AI could not complete a valid plan after retrying. Standard analytics (not a hosted AI answer):\n\n'+result['answer']
             result['routing_mode']='HOSTED_PLAN_RECOVERY_STANDARD'
-        self.history.append({'question':q,'answer':result['answer'],'chart_suggestion':result.get('chart_suggestion'),'routing_mode':result.get('routing_mode')})
+        self.history.append({'question':q,'answer':result['answer'],'chart_suggestion':result.get('chart_suggestion'),'routing_mode':result.get('routing_mode'),'cohort_dimension':result.get('cohort_dimension')})
         self.history=self.history[-12:]
         return result
 
     def use_suggestion(self, suggestion):
-        if suggestion.get('dataset_revision') != self.store.revision: raise ValueError('This recommendation belongs to an older dataset.')
+        if self.store.dataset is None or suggestion.get('dataset_revision') != self.store.revision: raise ValueError('This recommendation belongs to an older dataset.')
         if suggestion['kind']=='custom': return self.add_chart(suggestion['options'])
         return next(c for c in recommend(self.store.dataset)['charts'] if c['id']==suggestion['chart_id'])
