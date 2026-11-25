@@ -1,0 +1,442 @@
+{
+  "cohorts": {
+    "april_july_inspected": {
+      "excluded_or_unresolved": 475,
+      "late": 1025,
+      "mature_comparable": 25796,
+      "purchased": 26271
+    },
+    "calibration": {
+      "excluded_or_unresolved": 6218,
+      "late": 14,
+      "mature_comparable": 510,
+      "purchased": 6728
+    },
+    "march_inspected": {
+      "excluded_or_unresolved": 208,
+      "late": 1328,
+      "mature_comparable": 7003,
+      "purchased": 7211
+    },
+    "selection": {
+      "excluded_or_unresolved": 6268,
+      "late": 10,
+      "mature_comparable": 1001,
+      "purchased": 7269
+    },
+    "train": {
+      "excluded_or_unresolved": 6670,
+      "late": 1762,
+      "mature_comparable": 38431,
+      "purchased": 45101
+    }
+  },
+  "diagnostics": {
+    "calendar": {
+      "april_july_inspected": {
+        "calibrated": {
+          "average_precision": 0.033468231734870714,
+          "brier": 0.03877238994498927,
+          "log_loss": 0.18411113859980197,
+          "roc_auc": 0.445644267342516,
+          "signed_calibration_gap": -0.02092268237142644
+        },
+        "cohort_prevalence_reference": {
+          "average_precision": 0.03973484261125756,
+          "brier": 0.03815598489391616,
+          "log_loss": 0.1671005458596955,
+          "roc_auc": 0.5,
+          "signed_calibration_gap": -6.938893903907228e-18
+        },
+        "counts": {
+          "excluded_or_unresolved": 475,
+          "late": 1025,
+          "mature_comparable": 25796,
+          "purchased": 26271
+        },
+        "mean_calibrated_probability": 0.018812160239831118,
+        "mean_raw_probability": 0.0386394102875007,
+        "prevalence": 0.03973484261125756,
+        "raw": {
+          "average_precision": 0.04580381351259238,
+          "brier": 0.03830736729232396,
+          "log_loss": 0.1682648583320254,
+          "roc_auc": 0.5543557326574841,
+          "signed_calibration_gap": -0.001095432323756855
+        },
+        "reliability_bins": [
+          {
+            "lower": 0.0,
+            "n": 25796,
+            "observed": 0.03973484261125756,
+            "predicted": 0.018812160239831118,
+            "upper": 0.1
+          }
+        ],
+        "training_prior_baseline": {
+          "average_precision": 0.03973484261125756,
+          "brier": 0.038193360522276405,
+          "log_loss": 0.1675471209409645,
+          "roc_auc": 0.5,
+          "signed_calibration_gap": 0.006113561021226649
+        },
+        "uncertainty": {
+          "interval_95": {
+            "average_precision": [
+              0.020639186909711168,
+              0.052916991213928906
+            ],
+            "brier": [
+              0.026336986434056808,
+              0.05412173767135497
+            ],
+            "log_loss": [
+              0.13200289416812683,
+              0.24474794483042964
+            ],
+            "roc_auc": [
+              0.37087943681380714,
+              0.5142826035090321
+            ],
+            "signed_calibration_gap": [
+              -0.03741493384331434,
+              -0.0064712184511773385
+            ]
+          },
+          "method": "calendar-week cluster percentile bootstrap; fitted model fixed; descriptive only",
+          "replicates": 500,
+          "valid_replicates": 500,
+          "weeks": 19
+        }
+      },
+      "march_inspected": {
+        "calibrated": {
+          "average_precision": 0.21753150559019496,
+          "brier": 0.1844492330546043,
+          "log_loss": 0.8364020440131686,
+          "roc_auc": 0.536519956477894,
+          "signed_calibration_gap": -0.17619022294435333
+        },
+        "cohort_prevalence_reference": {
+          "average_precision": 0.18963301442239042,
+          "brier": 0.15367233426346788,
+          "log_loss": 0.48569039407243764,
+          "roc_auc": 0.5,
+          "signed_calibration_gap": 0.0
+        },
+        "counts": {
+          "excluded_or_unresolved": 208,
+          "late": 1328,
+          "mature_comparable": 7003,
+          "purchased": 7211
+        },
+        "mean_calibrated_probability": 0.013442791478037088,
+        "mean_raw_probability": 0.04517944967811489,
+        "prevalence": 0.18963301442239042,
+        "raw": {
+          "average_precision": 0.19051012697303138,
+          "brier": 0.1750555584191595,
+          "log_loss": 0.6371439213710507,
+          "roc_auc": 0.46348004352210603,
+          "signed_calibration_gap": -0.14445356474427554
+        },
+        "reliability_bins": [
+          {
+            "lower": 0.0,
+            "n": 7003,
+            "observed": 0.18963301442239042,
+            "predicted": 0.013442791478037088,
+            "upper": 0.1
+          }
+        ],
+        "training_prior_baseline": {
+          "average_precision": 0.18963301442239042,
+          "brier": 0.17434634856347267,
+          "log_loss": 0.6225603508802215,
+          "roc_auc": 0.5,
+          "signed_calibration_gap": -0.1437846107899062
+        },
+        "uncertainty": {
+          "interval_95": {
+            "average_precision": [
+              0.13281922087753437,
+              0.2560822098261891
+            ],
+            "brier": [
+              0.13444722830873526,
+              0.24145313466626112
+            ],
+            "log_loss": [
+              0.6341803510966019,
+              1.0537329253594436
+            ],
+            "roc_auc": [
+              0.47161081394882287,
+              0.5786890290305912
+            ],
+            "signed_calibration_gap": [
+              -0.23232644725550558,
+              -0.12668608583734334
+            ]
+          },
+          "method": "calendar-week cluster percentile bootstrap; fitted model fixed; descriptive only",
+          "replicates": 500,
+          "valid_replicates": 500,
+          "weeks": 5
+        }
+      }
+    },
+    "calendar_plus_promise": {
+      "april_july_inspected": {
+        "calibrated": {
+          "average_precision": 0.04304920948417765,
+          "brier": 0.045019394345105296,
+          "log_loss": 0.19375704047372325,
+          "roc_auc": 0.5471888941730643,
+          "signed_calibration_gap": 0.024384366853202465
+        },
+        "cohort_prevalence_reference": {
+          "average_precision": 0.03973484261125756,
+          "brier": 0.03815598489391616,
+          "log_loss": 0.1671005458596955,
+          "roc_auc": 0.5,
+          "signed_calibration_gap": -6.938893903907228e-18
+        },
+        "counts": {
+          "excluded_or_unresolved": 475,
+          "late": 1025,
+          "mature_comparable": 25796,
+          "purchased": 26271
+        },
+        "mean_calibrated_probability": 0.06411920946446002,
+        "mean_raw_probability": 0.041935947058934143,
+        "prevalence": 0.03973484261125756,
+        "raw": {
+          "average_precision": 0.04304920948417765,
+          "brier": 0.038479556982133054,
+          "log_loss": 0.16922766327704825,
+          "roc_auc": 0.5471888941730643,
+          "signed_calibration_gap": 0.0022011044476765856
+        },
+        "reliability_bins": [
+          {
+            "lower": 0.0,
+            "n": 20847,
+            "observed": 0.03904638557106538,
+            "predicted": 0.03080255183906448,
+            "upper": 0.1
+          },
+          {
+            "lower": 0.1,
+            "n": 2994,
+            "observed": 0.04676018704074816,
+            "predicted": 0.14459974538124953,
+            "upper": 0.2
+          },
+          {
+            "lower": 0.2,
+            "n": 1146,
+            "observed": 0.03664921465968586,
+            "predicted": 0.24960796025774143,
+            "upper": 0.3
+          },
+          {
+            "lower": 0.3,
+            "n": 636,
+            "observed": 0.03930817610062893,
+            "predicted": 0.34080158993772997,
+            "upper": 0.4
+          },
+          {
+            "lower": 0.4,
+            "n": 154,
+            "observed": 0.025974025974025976,
+            "predicted": 0.4296838318632602,
+            "upper": 0.5
+          },
+          {
+            "lower": 0.5,
+            "n": 19,
+            "observed": 0.0,
+            "predicted": 0.5249919853717001,
+            "upper": 0.6
+          }
+        ],
+        "training_prior_baseline": {
+          "average_precision": 0.03973484261125756,
+          "brier": 0.038193360522276405,
+          "log_loss": 0.1675471209409645,
+          "roc_auc": 0.5,
+          "signed_calibration_gap": 0.006113561021226649
+        },
+        "uncertainty": {
+          "interval_95": {
+            "average_precision": [
+              0.033220559473202106,
+              0.05695383875857701
+            ],
+            "brier": [
+              0.030764031782012403,
+              0.06039919718890557
+            ],
+            "log_loss": [
+              0.14152362182291145,
+              0.2504430311298386
+            ],
+            "roc_auc": [
+              0.4944961864008846,
+              0.6129482063144217
+            ],
+            "signed_calibration_gap": [
+              0.0016163907893206395,
+              0.04719920978595496
+            ]
+          },
+          "method": "calendar-week cluster percentile bootstrap; fitted model fixed; descriptive only",
+          "replicates": 500,
+          "valid_replicates": 500,
+          "weeks": 19
+        }
+      },
+      "march_inspected": {
+        "calibrated": {
+          "average_precision": 0.16457974584668472,
+          "brier": 0.1750498791752953,
+          "log_loss": 0.6486000607725854,
+          "roc_auc": 0.41892966137678467,
+          "signed_calibration_gap": -0.12820400732000745
+        },
+        "cohort_prevalence_reference": {
+          "average_precision": 0.18963301442239042,
+          "brier": 0.15367233426346788,
+          "log_loss": 0.48569039407243764,
+          "roc_auc": 0.5,
+          "signed_calibration_gap": 0.0
+        },
+        "counts": {
+          "excluded_or_unresolved": 208,
+          "late": 1328,
+          "mature_comparable": 7003,
+          "purchased": 7211
+        },
+        "mean_calibrated_probability": 0.061429007102382964,
+        "mean_raw_probability": 0.04439537451267666,
+        "prevalence": 0.18963301442239042,
+        "raw": {
+          "average_precision": 0.16457974584668472,
+          "brier": 0.1758225378690296,
+          "log_loss": 0.6458531125367685,
+          "roc_auc": 0.41892966137678467,
+          "signed_calibration_gap": -0.14523763990971375
+        },
+        "reliability_bins": [
+          {
+            "lower": 0.0,
+            "n": 6187,
+            "observed": 0.19476321318894457,
+            "predicted": 0.047074620798492846,
+            "upper": 0.1
+          },
+          {
+            "lower": 0.1,
+            "n": 590,
+            "observed": 0.14745762711864407,
+            "predicted": 0.1359211888664663,
+            "upper": 0.2
+          },
+          {
+            "lower": 0.2,
+            "n": 199,
+            "observed": 0.1407035175879397,
+            "predicted": 0.2510085149241244,
+            "upper": 0.3
+          },
+          {
+            "lower": 0.3,
+            "n": 27,
+            "observed": 0.2962962962962963,
+            "predicted": 0.32564673913321435,
+            "upper": 0.4
+          }
+        ],
+        "training_prior_baseline": {
+          "average_precision": 0.18963301442239042,
+          "brier": 0.17434634856347267,
+          "log_loss": 0.6225603508802215,
+          "roc_auc": 0.5,
+          "signed_calibration_gap": -0.1437846107899062
+        },
+        "uncertainty": {
+          "interval_95": {
+            "average_precision": [
+              0.12631580320560434,
+              0.22386254472685585
+            ],
+            "brier": [
+              0.12529932626534443,
+              0.23208070435720524
+            ],
+            "log_loss": [
+              0.45186257410938246,
+              0.8721842020840492
+            ],
+            "roc_auc": [
+              0.39082046900455636,
+              0.4714510265264362
+            ],
+            "signed_calibration_gap": [
+              -0.19936669396221893,
+              -0.06646000535676198
+            ]
+          },
+          "method": "calendar-week cluster percentile bootstrap; fitted model fixed; descriptive only",
+          "replicates": 500,
+          "valid_replicates": 500,
+          "weeks": 5
+        }
+      }
+    }
+  },
+  "feature_availability_attested": false,
+  "jd_used": false,
+  "operational_approval": false,
+  "protocol_sha256": "022e859e1446f5c13d25f6f3bfe4280b3303d3150bb91f61f5cabeee32308424",
+  "selected": {
+    "calendar": "calendar_hgb",
+    "calendar_plus_promise": "calendar_plus_promise_hgb"
+  },
+  "selection": {
+    "calendar_hgb": {
+      "average_precision": 0.02065423059327604,
+      "brier": 0.010143944521062365,
+      "log_loss": 0.062300443493500036,
+      "roc_auc": 0.6212411705348133,
+      "signed_calibration_gap": 0.016503216141651504
+    },
+    "calendar_logistic": {
+      "average_precision": 0.00931722846500469,
+      "brier": 0.010044423930112914,
+      "log_loss": 0.060270505310021004,
+      "roc_auc": 0.4336024217961655,
+      "signed_calibration_gap": 0.011358410545202527
+    },
+    "calendar_plus_promise_hgb": {
+      "average_precision": 0.01249758140247169,
+      "brier": 0.010306499184747844,
+      "log_loss": 0.06507329024321994,
+      "roc_auc": 0.5330978809283552,
+      "signed_calibration_gap": 0.019863572539549082
+    },
+    "calendar_plus_promise_logistic": {
+      "average_precision": 0.009670253659513142,
+      "brier": 0.010087884365657322,
+      "log_loss": 0.061171871626738275,
+      "roc_auc": 0.4468213925327952,
+      "signed_calibration_gap": 0.012889965980259469
+    }
+  },
+  "source_sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+  "status": "RETROSPECTIVE_CHALLENGER_ONLY",
+  "training_prior": 0.04584840363248419,
+  "untouched_holdout": false
+}

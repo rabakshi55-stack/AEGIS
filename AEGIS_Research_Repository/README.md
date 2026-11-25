@@ -1,3 +1,5 @@
+> **V4 release:** see [V4_FINAL_REVIEW.md](V4_FINAL_REVIEW.md) for JD.com external validation, Olist challenger experiments, pinned historical benchmark target and updated reproduction command. The original negative findings remain visible; no operational model is certified.
+
 # V3 professor-review update
 
 See [V3_REVIEW_README.md](V3_REVIEW_README.md) for the new evidence and reproduction instructions. Older instructions below remain for the original application workflow.

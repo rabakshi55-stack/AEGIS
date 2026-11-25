@@ -11,6 +11,7 @@ from app import STORE, research_answer, get_joint_evidence
 from model_registry import collect_report
 from chat_presentation import renderable_answer
 from review_v3.read_only import get_review_evidence
+from review_v4 import get_final_evidence
 
 st.set_page_config(page_title='AEGIS | Decision Intelligence', page_icon='🛡️', layout='wide')
 # Do not reuse objects instantiated from older backend code after a deployment.
@@ -216,6 +217,21 @@ else:
             st.json(e['uncertainty_95pct'])
             for item in e['limitations']: st.write(item)
             st.caption('See V3_REVIEW_README.md for reproduction instructions and the separate sensitivity analysis.')
+    st.subheader('V4 external validation and Olist challengers')
+    v4=get_final_evidence()
+    if not v4['available']:
+        st.error('External evidence unavailable: '+v4.get('error','unknown error'))
+    else:
+        j=v4['external']; c4=v4['challenger']; cal=j['calibrated']
+        st.warning('Frozen model failed external baseline comparison. No operational probability approval; no supplier-switch evidence.')
+        a,b,d=st.columns(3); a.metric('JD.com comparable orders',f"{j['counts']['eligible_orders']:,}"); b.metric('Average precision',f"{cal['average_precision']:.5f}"); d.metric('ROC-AUC',f"{cal['roc_auc']:.5f}")
+        st.write(f"Observed late rate {100*j['prevalence']:.2f}%; raw {100*j['raw_mean']:.2f}%; calibrated {100*j['calibrated_mean']:.2f}%.")
+        st.dataframe([dict(variant=k,**j[k]) for k in ('raw','calibrated','training_prior_baseline')],hide_index=True,use_container_width=True)
+        st.dataframe([dict(feature_set=k,selected=c4['selected'][k],**v['april_july_inspected']['calibrated']) for k,v in c4['diagnostics'].items()],hide_index=True,use_container_width=True)
+        with st.expander('External and challenger uncertainty / limitations'):
+            st.json(j['uncertainty']); st.json({k:v['april_july_inspected']['uncertainty'] for k,v in c4['diagnostics'].items()})
+            for limitation in v4['limitations']:st.write(limitation)
+            st.caption('See V4_FINAL_REVIEW.md for data access and reproduction.')
     with st.expander('Model benchmark and historical limitations'):
         try: st.json(collect_report())
         except Exception as e: st.error(str(e))

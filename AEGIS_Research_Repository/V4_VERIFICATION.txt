@@ -1,0 +1,12 @@
+AEGIS V4 RELEASE VERIFICATION
+Windows offline suite: 360 passed, zero errors/failures/skips.
+Streamlit shared suite: 357 passed. Streamlit cloud backend: 91 passed.
+Windows original protected research sources: 418/418 unchanged.
+JD external evaluation rerun: byte-for-byte identical to archived result.
+V4 Olist challenger: fitted and evaluated on historical Olist, no JD use.
+Historical broad benchmark: 17/17 AP/AUC pairs match archive within 1e-6.
+Historical champion diagnostics: identical JSON content.
+Historical expanded benchmark: executable pinned target supplied, not rerun.
+V4 research code and evidence identical across editions.
+Python app and Streamlit syntax checked; Windows JavaScript syntax checked.
+No native Windows GUI, live Qwen/Groq, live Streamlit deployment, fresh environment installation, or publisher/license/team-attestation verification in this environment. Final manuscript not revised. No operational approval.

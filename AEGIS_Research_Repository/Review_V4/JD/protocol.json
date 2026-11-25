@@ -1,0 +1,15 @@
+{
+  "id": "AEGIS-JD-EXTERNAL-01",
+  "status": "Pre-outcome protocol, conditional external historical validation; no team non-exposure or original license independently established",
+  "source": "Shen et al., JD.com: Transaction-Level Data for the 2020 MSOM Data Driven Research Challenge, doi:10.1287/msom.2020.0900; Tables 4/5, footnotes 13/17; user-provided files match public mirror SHA256",
+  "order_sha256": "ed7749ce2b6bd38afc872c020711baf315531860221e7a7c572e5bbfb9dfdccc",
+  "delivery_sha256": "a21d711b4a718429dd5b9f5fc654958cba751107208f025c9bc733ecbbb1fe65",
+  "model": "Use exactly archived Review_V3/evidence/fitted_model.json, January calibration, not the distinct AEGIS_App/review_v3 February diagnostic. Raw and calibrated scores both reported; no fit, tuning, or selection using JD records.",
+  "time_window": "2018-03-01 inclusive through 2018-03-25 exclusive; cutoff 2018-04-01 exclusive; reserve final 7 days for observation; historical local calendar timestamps as recorded",
+  "population": "Unique nonmissing order ID; all rows first-party type 1, consistent valid purchase timestamp and order date and positive integral promise; exactly one matching delivery row, package ID equals order ID and delivery type 1 (paper: package contains all SKUs); valid arrival >= purchase and arrival before cutoff; deadline day before cutoff. No matching delivery or malformed or ambiguous records excluded, never coded negative.",
+  "deadline": "Promise 1 before 11:00 same day; 11:00 to before 23:00 next day; >=23:00 ambiguous excluded. Promise integer >1: purchase calendar day + promise days. No intraday SLA claim.",
+  "label": "Actual customer arrival calendar date strictly later than promised calendar date, as in Olist; conditional on observed comparable delivered orders only.",
+  "metrics": "Prevalence, AP, ROC AUC, Brier, log loss, signed mean probability minus prevalence; raw and January calibrated score; frozen Olist training prevalence constant baseline, test prevalence as descriptive ranking reference; reliability bins [0,.02,.04,.06,.08,.10,.15,.20,.30,.50,1].",
+  "uncertainty": "500 purchase-calendar-day cluster bootstrap replicates, seed 20261125, percentile 95% intervals for both score variants; fixed model, temporal dependence between days and sampling bias not captured. No causal or prospective claims.",
+  "outputs": "Aggregate-only report, counts and metrics, no raw JD rows or individual predictions published. Record source, protocol, model, script hashes and runtime versions."
+}

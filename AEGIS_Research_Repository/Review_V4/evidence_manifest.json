@@ -1,0 +1,12 @@
+{
+  "JD/result.json": "767fb7cd2af38c9c93ac2bb3c0f6a578b31933c95f8245b0307bca04330335f2",
+  "JD/protocol.json": "63c69f3835d8bd296c41430bc847d76cbc79c2835b69f41e75f4f1c78fdeaac3",
+  "JD/freeze_manifest.json": "f77ad6c6a45f7c8de67455ec97d85ce30a6730e55c4977fed3f2acafce613782",
+  "JD/feature_contract.json": "7edebe5c8a2125029bd7c8f2a0d29cf25bce590a7615f74b31a32d6151dc8c10",
+  "JD/fitted_model.json": "ac87bf7bcf09dc4eea3c827a7f068b54f22483ac855a182b7faec67046e60e8d",
+  "JD/prediction_report.json": "487a2557ce036aed50403c6e06aaa50757838f9bc3949922d58d59a7668e39d6",
+  "JD/evaluate_jd.py": "efb4648715ac1a1fdcded1c3252fafd8c1cc00c7739579b466437778b968b371",
+  "challenger_protocol.json": "022e859e1446f5c13d25f6f3bfe4280b3303d3150bb91f61f5cabeee32308424",
+  "challenger.py": "f7199966208272d2e04615e00739906dbe232e64a8d8c37b651ba5025e816bce",
+  "evidence/challenger.json": "aa1c5483c0815d9d40d0b8e8ecc4e55ffd006c4a849974421bfdaa86446cc5c5"
+}

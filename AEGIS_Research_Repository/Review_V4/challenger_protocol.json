@@ -1,0 +1,10 @@
+{
+ "version":"AEGIS_V4_CHALLENGER_1", "scope":"Historical Olist only, no JD access or operational approval",
+ "features":{"calendar":["hour","weekday","month","day_of_month","iso_week"],"calendar_plus_promise":["hour","weekday","month","day_of_month","iso_week","promise_days"]},
+ "promise_days":"Recorded estimated delivery calendar date minus purchase calendar date; conditional on estimate known at purchase, not independently attested. No actual delivery/status inputs.",
+ "maturity":"Delivered comparable orders only; actual arrival and estimated calendar day before cutoff; unresolved excluded; same cohorts for all candidates.",
+ "cohorts":{"train":{"start":"2017-01-01","end_exclusive":"2018-01-01","label_cutoff_exclusive":"2018-01-01"},"selection":{"start":"2018-01-01","end_exclusive":"2018-02-01","label_cutoff_exclusive":"2018-02-01"},"calibration":{"start":"2018-02-01","end_exclusive":"2018-03-01","label_cutoff_exclusive":"2018-03-01"},"march_inspected":{"start":"2018-03-01","end_exclusive":"2018-04-01","label_cutoff_exclusive":"2018-10-01"},"april_july_inspected":{"start":"2018-04-01","end_exclusive":"2018-08-01","label_cutoff_exclusive":"2018-10-01"}},
+ "models":"StandardScaler + LogisticRegression C=.1 max_iter=700 or HistGradientBoostingClassifier max_iter=100 max_leaf_nodes=15 min_samples_leaf=100 learning_rate=.05 l2_regularization=10 early_stopping=False. Seed 20261125. Select within each feature set by January AP then AUC. Sigmoid calibrate on February log odds only; no later selection or tuning.",
+ "metrics":"AP, AUC, Brier, log loss, signed calibration gap, constant training prior and descriptive cohort prevalence. 500 purchase-week cluster bootstrap replicates conditional on fit. All Olist cohorts previously inspected.",
+ "gate":"Neither challenger may be deployed. New untouched cohort needed; JD now inspected."
+}

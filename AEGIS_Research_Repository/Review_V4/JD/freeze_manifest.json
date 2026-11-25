@@ -1,0 +1,7 @@
+{
+  "protocol.json": "63c69f3835d8bd296c41430bc847d76cbc79c2835b69f41e75f4f1c78fdeaac3",
+  "feature_contract.json": "7edebe5c8a2125029bd7c8f2a0d29cf25bce590a7615f74b31a32d6151dc8c10",
+  "fitted_model.json": "ac87bf7bcf09dc4eea3c827a7f068b54f22483ac855a182b7faec67046e60e8d",
+  "prediction_report.json": "487a2557ce036aed50403c6e06aaa50757838f9bc3949922d58d59a7668e39d6",
+  "evaluate_jd.py": "efb4648715ac1a1fdcded1c3252fafd8c1cc00c7739579b466437778b968b371"
+}

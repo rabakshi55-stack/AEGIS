@@ -1,0 +1,14 @@
+{
+  "contract_version": "AEGIS_V3_TIMESTAMP_ONLY_1",
+  "decision_time": "recorded order_purchase_timestamp; original ingestion time not independently attested",
+  "features": ["hour", "weekday", "month", "day_of_month", "iso_week"],
+  "source": "olist_orders_dataset.csv order_purchase_timestamp only; deterministic calendar transforms; no joins, delivery estimates, status, seller, item, payment, freight or customer fields in model inputs",
+  "label": "Among comparable delivered orders only: actual delivery calendar date later than estimated delivery calendar date. Not contractual SLA. Undelivered, cancelled, malformed or unresolved excluded, never coded negative.",
+  "maturity": "Purchase valid; delivered status; actual delivery >= purchase; estimated date >= purchase calendar date; actual delivery strictly before cutoff and estimated calendar day strictly before cutoff. Archived final status is not an independent historical status log.",
+  "training": {"start":"2017-01-01","end_exclusive":"2018-01-01","label_cutoff_exclusive":"2018-01-01"},
+  "calibration": {"start":"2018-01-01","end_exclusive":"2018-02-01","label_cutoff_exclusive":"2018-03-01"},
+  "diagnostics": [{"name":"March_inspected","start":"2018-03-01","end_exclusive":"2018-04-01","label_cutoff_exclusive":"2018-10-01"},{"name":"April_July_inspected","start":"2018-04-01","end_exclusive":"2018-08-01","label_cutoff_exclusive":"2018-10-01"}],
+  "model": "StandardScaler then fixed unweighted LogisticRegression C=0.1 max_iter=700 random_state=20261125; sigmoid recalibration fit on January only; no later selection or tuning",
+  "uncertainty": "500 calendar-week cluster bootstrap replicates conditional on fitted model; percentile 95% intervals; small number of weeks makes March intervals descriptive",
+  "holdout": "No independently established untouched Olist cohort. All new Olist results are retrospective diagnostics; no deployment or probability certification."
+}

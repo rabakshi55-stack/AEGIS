@@ -1,0 +1,155 @@
+{
+  "status": "CONDITIONAL_EXTERNAL_HISTORICAL_VALIDATION",
+  "counts": {
+    "order_lines": 549989,
+    "delivery_rows": 293229,
+    "missing_order_id_lines": 0,
+    "missing_delivery_order_id_rows": 0,
+    "unique_orders": 486928,
+    "excluded_inconsistent_or_non_1p_order": 241290,
+    "excluded_outside_purchase_window": 62286,
+    "excluded_ambiguous_late_evening_promise": 6307,
+    "excluded_deadline_not_mature": 28,
+    "excluded_no_delivery_match": 1963,
+    "excluded_not_single_full_order_package": 0,
+    "excluded_invalid_or_unmature_arrival": 52,
+    "eligible_orders": 175002,
+    "late_orders": 19951
+  },
+  "prevalence": 0.11400441137815567,
+  "raw_mean": 0.026709717166085167,
+  "calibrated_mean": 0.04152685447723614,
+  "training_prior": 0.04584840363248419,
+  "raw": {
+    "average_precision": 0.08951167805138616,
+    "roc_auc": 0.3942501157231998,
+    "brier": 0.10901243150367973,
+    "log_loss": 0.4459824344447339,
+    "signed_calibration_gap": -0.0872946942120705
+  },
+  "calibrated": {
+    "average_precision": 0.08951167805138616,
+    "roc_auc": 0.3942501157231998,
+    "brier": 0.10694322456382527,
+    "log_loss": 0.4104221895929075,
+    "signed_calibration_gap": -0.07247755690091953
+  },
+  "training_prior_baseline": {
+    "average_precision": 0.11400441137815567,
+    "roc_auc": 0.5,
+    "brier": 0.10565264695630394,
+    "log_loss": 0.3929910737424772,
+    "signed_calibration_gap": -0.06815600774567145
+  },
+  "uncertainty": {
+    "clusters": 24,
+    "replicates": 500,
+    "valid": 500,
+    "intervals_95": {
+      "raw": {
+        "average_precision": [
+          0.07694418111340884,
+          0.10508650850524216
+        ],
+        "roc_auc": [
+          0.3698465330636938,
+          0.4267792597761219
+        ],
+        "brier": [
+          0.08827136786625735,
+          0.12815615477149017
+        ],
+        "log_loss": [
+          0.3604496722993569,
+          0.5243363329140933
+        ],
+        "signed_calibration_gap": [
+          -0.1089407120019396,
+          -0.06352123107079907
+        ]
+      },
+      "calibrated": {
+        "average_precision": [
+          0.07694418111340884,
+          0.10508650850524216
+        ],
+        "roc_auc": [
+          0.3698465330636938,
+          0.4267792597761219
+        ],
+        "brier": [
+          0.0867153215129203,
+          0.12564254144723375
+        ],
+        "log_loss": [
+          0.3356578524875598,
+          0.4794045761832504
+        ],
+        "signed_calibration_gap": [
+          -0.0952857630554996,
+          -0.04685172223090588
+        ]
+      }
+    }
+  },
+  "reliability": {
+    "raw": [
+      {
+        "lo": 0,
+        "hi": 0.02,
+        "n": 8276,
+        "mean_prediction": 0.01953397968609102,
+        "observed": 0.1974383760270662
+      },
+      {
+        "lo": 0.02,
+        "hi": 0.04,
+        "n": 166726,
+        "mean_prediction": 0.027065908782176434,
+        "observed": 0.10986288881158307
+      }
+    ],
+    "calibrated": [
+      {
+        "lo": 0.02,
+        "hi": 0.04,
+        "n": 91006,
+        "mean_prediction": 0.03464032354365221,
+        "observed": 0.1444739907258862
+      },
+      {
+        "lo": 0.04,
+        "hi": 0.06,
+        "n": 83039,
+        "mean_prediction": 0.04885527968630933,
+        "observed": 0.08090174496321005
+      },
+      {
+        "lo": 0.06,
+        "hi": 0.08,
+        "n": 957,
+        "mean_prediction": 0.0605138275237474,
+        "observed": 0.08881922675026123
+      }
+    ]
+  },
+  "model_unchanged": true,
+  "untouched_team_attestation": false,
+  "original_license_verified": false,
+  "operational_approval": false,
+  "supplier_causal_effect_established": false,
+  "freeze_manifest": {
+    "protocol.json": "63c69f3835d8bd296c41430bc847d76cbc79c2835b69f41e75f4f1c78fdeaac3",
+    "feature_contract.json": "7edebe5c8a2125029bd7c8f2a0d29cf25bce590a7615f74b31a32d6151dc8c10",
+    "fitted_model.json": "ac87bf7bcf09dc4eea3c827a7f068b54f22483ac855a182b7faec67046e60e8d",
+    "prediction_report.json": "487a2557ce036aed50403c6e06aaa50757838f9bc3949922d58d59a7668e39d6",
+    "evaluate_jd.py": "efb4648715ac1a1fdcded1c3252fafd8c1cc00c7739579b466437778b968b371"
+  },
+  "runtime": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "sklearn": "1.8.0",
+    "scipy": "1.17.0"
+  }
+}

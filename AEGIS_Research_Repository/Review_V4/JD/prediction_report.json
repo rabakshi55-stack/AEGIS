@@ -1,0 +1,171 @@
+{
+  "calibration": {
+    "excluded_or_unresolved": 956,
+    "late": 259,
+    "mature_comparable": 6313,
+    "purchased": 7269
+  },
+  "contract_sha256": "7edebe5c8a2125029bd7c8f2a0d29cf25bce590a7615f74b31a32d6151dc8c10",
+  "diagnostics": {
+    "April_July_inspected": {
+      "calibrated": {
+        "average_precision": 0.03746443269549557,
+        "brier": 0.03904115393614494,
+        "log_loss": 0.17460297311259398,
+        "roc_auc": 0.45726911189421937,
+        "signed_calibration_gap": 0.021153453683281614
+      },
+      "counts": {
+        "excluded_or_unresolved": 475,
+        "late": 1025,
+        "mature_comparable": 25796,
+        "purchased": 26271
+      },
+      "mean_calibrated_probability": 0.06088829629453917,
+      "mean_raw_probability": 0.03798106543400996,
+      "prevalence": 0.03973484261125756,
+      "raw": {
+        "average_precision": 0.03746443269549557,
+        "brier": 0.03834690143531324,
+        "log_loss": 0.16976543285134307,
+        "roc_auc": 0.45726911189421937,
+        "signed_calibration_gap": -0.0017537771772475966
+      },
+      "reliability_bins": [
+        {
+          "lower": 0.0,
+          "n": 25223,
+          "observed": 0.038853427427348056,
+          "predicted": 0.05984612377195459,
+          "upper": 0.1
+        },
+        {
+          "lower": 0.1,
+          "n": 573,
+          "observed": 0.07853403141361257,
+          "predicted": 0.1067638940906139,
+          "upper": 0.2
+        }
+      ],
+      "training_prior_baseline": {
+        "average_precision": 0.03973484261125756,
+        "brier": 0.038193360522276405,
+        "log_loss": 0.1675471209409645,
+        "roc_auc": 0.5,
+        "signed_calibration_gap": 0.006113561021226649
+      },
+      "uncertainty": {
+        "interval_95": {
+          "average_precision": [
+            0.024041133066586996,
+            0.05400836190176076
+          ],
+          "brier": [
+            0.02794577654521776,
+            0.05293563286122262
+          ],
+          "log_loss": [
+            0.13983683632122568,
+            0.21751865699793563
+          ],
+          "roc_auc": [
+            0.39935461792148963,
+            0.5385617574022051
+          ],
+          "signed_calibration_gap": [
+            0.002768616041572721,
+            0.0385813366787364
+          ]
+        },
+        "method": "calendar-week cluster percentile bootstrap; fitted model fixed; descriptive only",
+        "replicates": 500,
+        "valid_replicates": 500,
+        "weeks": 19
+      }
+    },
+    "March_inspected": {
+      "calibrated": {
+        "average_precision": 0.15176122348299004,
+        "brier": 0.1750609055270963,
+        "log_loss": 0.6346630225345402,
+        "roc_auc": 0.3925975266705589,
+        "signed_calibration_gap": -0.14100321296813748
+      },
+      "counts": {
+        "excluded_or_unresolved": 208,
+        "late": 1328,
+        "mature_comparable": 7003,
+        "purchased": 7211
+      },
+      "mean_calibrated_probability": 0.04862980145425294,
+      "mean_raw_probability": 0.030866288023168893,
+      "prevalence": 0.18963301442239042,
+      "raw": {
+        "average_precision": 0.15176122348299004,
+        "brier": 0.17972680853708653,
+        "log_loss": 0.7034825527108778,
+        "roc_auc": 0.3925975266705589,
+        "signed_calibration_gap": -0.1587667263992215
+      },
+      "reliability_bins": [
+        {
+          "lower": 0.0,
+          "n": 7003,
+          "observed": 0.18963301442239042,
+          "predicted": 0.04862980145425294,
+          "upper": 0.1
+        }
+      ],
+      "training_prior_baseline": {
+        "average_precision": 0.18963301442239042,
+        "brier": 0.17434634856347267,
+        "log_loss": 0.6225603508802215,
+        "roc_auc": 0.5,
+        "signed_calibration_gap": -0.1437846107899062
+      },
+      "uncertainty": {
+        "interval_95": {
+          "average_precision": [
+            0.125909455922799,
+            0.23974929553410354
+          ],
+          "brier": [
+            0.12509147341963697,
+            0.23210613558959237
+          ],
+          "log_loss": [
+            0.4476444471408158,
+            0.8470728788034261
+          ],
+          "roc_auc": [
+            0.38403827462275936,
+            0.49312200509024884
+          ],
+          "signed_calibration_gap": [
+            -0.21141330712468343,
+            -0.07933798111752322
+          ]
+        },
+        "method": "calendar-week cluster percentile bootstrap; fitted model fixed; descriptive only",
+        "replicates": 500,
+        "valid_replicates": 500,
+        "weeks": 5
+      }
+    }
+  },
+  "feature_ingestion_independently_attested": false,
+  "historical_negative_findings_retained": true,
+  "holdout_independence_established": false,
+  "invalid_purchase_timestamp": 0,
+  "operational_probability_certified": false,
+  "source_rows": 99441,
+  "source_sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+  "status": "RETROSPECTIVE_DIAGNOSTICS_ONLY",
+  "supplier_causal_effect_established": false,
+  "training": {
+    "excluded_or_unresolved": 6670,
+    "late": 1762,
+    "mature_comparable": 38431,
+    "purchased": 45101
+  }
+}

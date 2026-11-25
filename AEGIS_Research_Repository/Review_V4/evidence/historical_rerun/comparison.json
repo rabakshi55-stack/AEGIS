@@ -1,0 +1,9 @@
+{
+  "broad_configurations": 17,
+  "broad_ap_auc_matches_1e-6": 17,
+  "broad_reference_count": 17,
+  "winner": "logistic_l2",
+  "champion_json_content_matches": true,
+  "expanded_benchmark_rerun": false,
+  "environment": "Current pinned historical target; original versions and clean install not independently established. Timings excluded."
+}
