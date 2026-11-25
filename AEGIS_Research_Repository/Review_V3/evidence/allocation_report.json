@@ -1,0 +1,120 @@
+{
+  "capacity": {
+    "SUP-014": 9425,
+    "SUP-038": 20229,
+    "SUP-042": 15215,
+    "SUP-045": 18523,
+    "SUP-048": 15405
+  },
+  "cost_policy": {
+    "assignment": {
+      "PO2-0007181": "SUP-014",
+      "PO2-0007207": "SUP-045",
+      "PO2-0007234": "SUP-014",
+      "PO2-0007260": "SUP-014",
+      "PO2-0007283": "SUP-014",
+      "PO2-0007309": "SUP-045",
+      "PO2-0007334": "SUP-014",
+      "PO2-0007357": "SUP-045",
+      "PO2-0007383": "SUP-014",
+      "PO2-0007409": "SUP-045",
+      "PO2-0007435": "SUP-014",
+      "PO2-0007461": "SUP-014",
+      "PO2-0007485": "SUP-014",
+      "PO2-0007513": "SUP-014",
+      "PO2-0007539": "SUP-014",
+      "PO2-0007566": "SUP-014"
+    },
+    "capacity_usage": {
+      "SUP-014": 9225,
+      "SUP-038": 0,
+      "SUP-042": 0,
+      "SUP-045": 4675,
+      "SUP-048": 0
+    },
+    "cost_cents": 169802400,
+    "feasible_exact": true,
+    "mean_assumed_stress_proxy": 1.10675
+  },
+  "daily_original_archived_sum_usd": 1659449.5,
+  "daily_original_orders": 16,
+  "daily_original_reoptimized": true,
+  "daily_original_source_sha256": "ee55d4bf0713c055a5e707ac80394dcf00b9ac2d0341417a4fe2931c5ddd716f",
+  "daily_replay_matches_archived_cost": true,
+  "daily_replayed_cost_usd": 1659449.5,
+  "eligible_pairs": 80,
+  "interpretation": "Synthetic static monthly comparison, no daily timing or causal benefit. Both policies see same menu, capacity and source-derived assumed stress proxy; proxy has no fitted probability meaning. Same exogenous shocks applied to both fixed plans. Scenario quantiles are not confidence intervals for real-world effects. Original daily formulation remains separate.",
+  "monthly_original_reproduced_usd": 1698024.0,
+  "old_input_lock_sensitivity": [
+    {
+      "Advantage_Removed_Pct": 92.72246963849416,
+      "Improvement_After_Lock_PP": 0.958857663891794,
+      "Original_Improvement_PP": 13.175591392426549,
+      "Policy": "AI_Plus_10pct"
+    },
+    {
+      "Advantage_Removed_Pct": 108.44948409279534,
+      "Improvement_After_Lock_PP": -0.1938487584853408,
+      "Original_Improvement_PP": 2.294208218589705,
+      "Policy": "AI_Plus_1pct"
+    },
+    {
+      "Advantage_Removed_Pct": 88.24726017134786,
+      "Improvement_After_Lock_PP": 2.017971652282549,
+      "Original_Improvement_PP": 17.170223128422478,
+      "Policy": "AI_Plus_20pct"
+    },
+    {
+      "Advantage_Removed_Pct": 90.94387154828992,
+      "Improvement_After_Lock_PP": 0.5303147685077156,
+      "Original_Improvement_PP": 5.855866238376693,
+      "Policy": "AI_Plus_3pct"
+    },
+    {
+      "Advantage_Removed_Pct": 94.65661469699958,
+      "Improvement_After_Lock_PP": 0.5504356651586918,
+      "Original_Improvement_PP": 10.30125349279249,
+      "Policy": "AI_Plus_5pct"
+    }
+  ],
+  "operational_approval": false,
+  "paired_mean_index_difference_proxy_minus_cost": -0.011484583239419439,
+  "paired_scenario_quantiles_2_5_97_5": [
+    -0.06501067773135061,
+    0.041257315807425025
+  ],
+  "proxy_cost_ceiling_cents": 178292520,
+  "proxy_policy": {
+    "assignment": {
+      "PO2-0007181": "SUP-014",
+      "PO2-0007207": "SUP-045",
+      "PO2-0007234": "SUP-014",
+      "PO2-0007260": "SUP-014",
+      "PO2-0007283": "SUP-014",
+      "PO2-0007309": "SUP-045",
+      "PO2-0007334": "SUP-014",
+      "PO2-0007357": "SUP-014",
+      "PO2-0007383": "SUP-014",
+      "PO2-0007409": "SUP-014",
+      "PO2-0007435": "SUP-014",
+      "PO2-0007461": "SUP-038",
+      "PO2-0007485": "SUP-014",
+      "PO2-0007513": "SUP-038",
+      "PO2-0007539": "SUP-014",
+      "PO2-0007566": "SUP-038"
+    },
+    "capacity_usage": {
+      "SUP-014": 9425,
+      "SUP-038": 1750,
+      "SUP-042": 0,
+      "SUP-045": 2725,
+      "SUP-048": 0
+    },
+    "cost_cents": 178250525,
+    "feasible_exact": true,
+    "mean_assumed_stress_proxy": 1.085125
+  },
+  "same_menu_sha256": "80b26fb86adb3100e4d3331d009fe4ea154707176f542175b43eb5541c8dc84a",
+  "scenario_count": 500,
+  "status": "SYNTHETIC_CONTROLLED_COMPARISON_ONLY"
+}

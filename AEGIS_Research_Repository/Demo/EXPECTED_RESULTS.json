@@ -1,0 +1,64 @@
+{
+  "suppliers": {
+    "Alpha": {
+      "orders": 30,
+      "quantity": 1050,
+      "purchase_value_INR": "111458",
+      "comparable": 30,
+      "late": 6,
+      "missing": 0,
+      "on_or_before": 24,
+      "late_rate_pct": 20.0,
+      "mean_signed_delay_days": -0.4,
+      "mean_late_only_days": 1.0
+    },
+    "Beta": {
+      "orders": 30,
+      "quantity": 1410,
+      "purchase_value_INR": "128396",
+      "comparable": 30,
+      "late": 18,
+      "missing": 0,
+      "on_or_before": 12,
+      "late_rate_pct": 60.0,
+      "mean_signed_delay_days": 1.0,
+      "mean_late_only_days": 2.0
+    },
+    "Delta": {
+      "orders": 30,
+      "quantity": 1230,
+      "purchase_value_INR": "124352",
+      "comparable": 30,
+      "late": 12,
+      "missing": 0,
+      "on_or_before": 18,
+      "late_rate_pct": 40.0,
+      "mean_signed_delay_days": 0.0,
+      "mean_late_only_days": 1.5
+    },
+    "Gamma": {
+      "orders": 30,
+      "quantity": 930,
+      "purchase_value_INR": "108062",
+      "comparable": 24,
+      "late": 18,
+      "missing": 6,
+      "on_or_before": 6,
+      "late_rate_pct": 75.0,
+      "mean_signed_delay_days": 2.25,
+      "mean_late_only_days": 3.0
+    }
+  },
+  "overall": {
+    "orders": 120,
+    "quantity": 4620,
+    "purchase_value_INR": "472268",
+    "comparable": 114,
+    "late": 54,
+    "missing": 6,
+    "on_or_before": 60,
+    "late_rate_pct": 47.368421,
+    "mean_signed_delay_days": 0.631579,
+    "mean_late_only_days": 2.111111
+  }
+}

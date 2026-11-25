@@ -1,0 +1,16 @@
+{
+  "protocol_version": "AEGIS_V3_REVIEW_2026-11-25",
+  "status": "POST_HOC_HISTORICAL_DIAGNOSTIC_NOT_UNTOUCHED",
+  "decision_time": "recorded order_purchase_timestamp; original source-system event availability not independently attested",
+  "features": ["hour", "weekday", "month", "day_of_month", "week_of_year"],
+  "feature_source": "All five deterministic calendar transforms of order_purchase_timestamp only; no promise, item, customer, seller, payment, shipment, delivery, review or status inputs",
+  "label_rule": "Comparable delivered orders only: recorded delivered status, actual delivery >= purchase, promised calendar day >= purchase calendar day; actual delivery and end of promised day both strictly before phase cutoff. Late means actual delivery calendar date > estimated date. Unknown/cancelled/non-delivered/invalid or not yet mature excluded and counted, not negatives. Historical status and promise values are retrospective, not witnessed as-of snapshots.",
+  "train": {"start": "2017-01-01", "end": "2018-01-01", "label_cutoff": "2018-01-01"},
+  "calibration": {"start": "2018-02-01", "end": "2018-03-01", "label_cutoff": "2018-04-01"},
+  "diagnostic": {"start": "2018-04-01", "end": "2018-08-01", "label_cutoff": "2018-10-01"},
+  "model": {"family": "StandardScaler plus logistic regression", "C": 0.1, "max_iter": 700, "seed": 20261125},
+  "calibrator": {"family": "logistic regression on raw log odds", "C": 1.0, "max_iter": 700},
+  "uncertainty": {"method": "purchase-calendar-week cluster bootstrap of fixed-model diagnostic predictions; conditional on fitted model, not prospective significance", "replicates": 300, "seed": 20261125},
+  "holdout": {"untouched_certified": false, "reason": "All archived Olist opportunities were included in previous source-wide outcome reconciliation; later periods repeatedly inspected. No independently documented unseen cohort or external holdout supplied."},
+  "operational_approval": false
+}

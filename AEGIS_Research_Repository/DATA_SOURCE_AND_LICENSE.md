@@ -7,3 +7,5 @@
 - `Research/Integrated_v02/` is generated **synthetic data** and must never be presented as Olist or real supplier data.
 - Historical features and model outputs may be derived from Olist; review the CC BY-NC-SA conditions before redistribution.
 - The user must authorize publication of code, notebook outputs, images and research data.
+
+- Cleaned_Data/ contains a newly regenerated, attributed Olist-derived historical feature export (CC BY-NC-SA 4.0), not raw CSVs. See its README and manifest.

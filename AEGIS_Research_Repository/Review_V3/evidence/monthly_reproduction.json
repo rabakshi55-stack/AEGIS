@@ -1,0 +1,192 @@
+{
+  "assignment": {
+    "PO2-0007181": "SUP-014",
+    "PO2-0007207": "SUP-045",
+    "PO2-0007234": "SUP-014",
+    "PO2-0007260": "SUP-014",
+    "PO2-0007283": "SUP-014",
+    "PO2-0007309": "SUP-045",
+    "PO2-0007334": "SUP-014",
+    "PO2-0007357": "SUP-045",
+    "PO2-0007383": "SUP-014",
+    "PO2-0007409": "SUP-045",
+    "PO2-0007435": "SUP-014",
+    "PO2-0007461": "SUP-014",
+    "PO2-0007485": "SUP-014",
+    "PO2-0007513": "SUP-014",
+    "PO2-0007539": "SUP-014",
+    "PO2-0007566": "SUP-014"
+  },
+  "assignment_details": [
+    {
+      "order_id": "PO2-0007181",
+      "quantity_units": 850,
+      "supplier_id": "SUP-014",
+      "synthetic_landed_cost_usd": 102476.0
+    },
+    {
+      "order_id": "PO2-0007207",
+      "quantity_units": 1325,
+      "supplier_id": "SUP-045",
+      "synthetic_landed_cost_usd": 166274.25
+    },
+    {
+      "order_id": "PO2-0007234",
+      "quantity_units": 675,
+      "supplier_id": "SUP-014",
+      "synthetic_landed_cost_usd": 80743.5
+    },
+    {
+      "order_id": "PO2-0007260",
+      "quantity_units": 750,
+      "supplier_id": "SUP-014",
+      "synthetic_landed_cost_usd": 89962.5
+    },
+    {
+      "order_id": "PO2-0007283",
+      "quantity_units": 1250,
+      "supplier_id": "SUP-014",
+      "synthetic_landed_cost_usd": 150700.0
+    },
+    {
+      "order_id": "PO2-0007309",
+      "quantity_units": 1400,
+      "supplier_id": "SUP-045",
+      "synthetic_landed_cost_usd": 175686.0
+    },
+    {
+      "order_id": "PO2-0007334",
+      "quantity_units": 650,
+      "supplier_id": "SUP-014",
+      "synthetic_landed_cost_usd": 77753.0
+    },
+    {
+      "order_id": "PO2-0007357",
+      "quantity_units": 625,
+      "supplier_id": "SUP-045",
+      "synthetic_landed_cost_usd": 80900.0
+    },
+    {
+      "order_id": "PO2-0007383",
+      "quantity_units": 1025,
+      "supplier_id": "SUP-014",
+      "synthetic_landed_cost_usd": 123574.0
+    },
+    {
+      "order_id": "PO2-0007409",
+      "quantity_units": 1325,
+      "supplier_id": "SUP-045",
+      "synthetic_landed_cost_usd": 166274.25
+    },
+    {
+      "order_id": "PO2-0007435",
+      "quantity_units": 700,
+      "supplier_id": "SUP-014",
+      "synthetic_landed_cost_usd": 83734.0
+    },
+    {
+      "order_id": "PO2-0007461",
+      "quantity_units": 825,
+      "supplier_id": "SUP-014",
+      "synthetic_landed_cost_usd": 98958.75
+    },
+    {
+      "order_id": "PO2-0007485",
+      "quantity_units": 875,
+      "supplier_id": "SUP-014",
+      "synthetic_landed_cost_usd": 105490.0
+    },
+    {
+      "order_id": "PO2-0007513",
+      "quantity_units": 225,
+      "supplier_id": "SUP-014",
+      "synthetic_landed_cost_usd": 27798.75
+    },
+    {
+      "order_id": "PO2-0007539",
+      "quantity_units": 700,
+      "supplier_id": "SUP-014",
+      "synthetic_landed_cost_usd": 83734.0
+    },
+    {
+      "order_id": "PO2-0007566",
+      "quantity_units": 700,
+      "supplier_id": "SUP-014",
+      "synthetic_landed_cost_usd": 83965.0
+    }
+  ],
+  "automatic_procurement": "DISABLED",
+  "baseline_landed_cost_usd": 1928061.0,
+  "capacity_by_supplier": {
+    "SUP-014": {
+      "assigned_units": 9225,
+      "monthly_capacity_units": 9425,
+      "remaining_units": 200
+    },
+    "SUP-038": {
+      "assigned_units": 0,
+      "monthly_capacity_units": 20229,
+      "remaining_units": 20229
+    },
+    "SUP-042": {
+      "assigned_units": 0,
+      "monthly_capacity_units": 15215,
+      "remaining_units": 15215
+    },
+    "SUP-045": {
+      "assigned_units": 4675,
+      "monthly_capacity_units": 18523,
+      "remaining_units": 13848
+    },
+    "SUP-048": {
+      "assigned_units": 0,
+      "monthly_capacity_units": 15405,
+      "remaining_units": 15405
+    }
+  },
+  "checks": {
+    "all_monthly_capacities_respected": true,
+    "all_order_assignments": true,
+    "baseline_joint_capacity_feasible": true,
+    "candidate_cost_reconciles": true,
+    "only_eligible_source_candidates": true
+  },
+  "contractual_supplier_eligibility_certified": false,
+  "daily_or_concurrent_other_component_capacity_proven": false,
+  "delivery_risk_model_used": false,
+  "exact_cost_optimum_certified_for_synthetic_problem": true,
+  "experiment": "SYNTHETIC_COMPONENT_MONTH_JOINT_CAPACITY",
+  "hypothetical_cost_difference_usd": 230037.0,
+  "independent_exact_reference": {
+    "all_other_supplier_options_dominated": true,
+    "dominating_supplier": "SUP-014",
+    "matches_solver": true,
+    "method": "INDEPENDENT_EXACT_0_1_KNAPSACK",
+    "reference_optimal_cents": 169802400,
+    "unconstrained_backup_supplier": "SUP-045"
+  },
+  "interpretation": "Illustrative whole-order supplier assignment within synthetic component-month capacities only. Costs are source-derived synthetic quoted plus freight. No measured intervention effect or operational approval.",
+  "monthly_component_capacity_modeled": true,
+  "operational_approval": "NOT_GRANTED",
+  "product": "AEGIS",
+  "quotes_certified_real_asof": false,
+  "real_causal_supplier_benefits": false,
+  "result_landed_cost_usd": 1698024.0,
+  "scope": {
+    "component": "CMP-007",
+    "eligible_pairs": 176,
+    "month": "2025-07",
+    "orders": 16,
+    "suppliers": 5,
+    "total_order_units": 13900
+  },
+  "solver_nodes": 351,
+  "source_sha256": {
+    "purchase_orders.csv": "e899a6d377e5dedd2d39ca6e609cb284fbcd511c6c17dc1dbbb2e324f4263113",
+    "supplier_component_options.csv": "3ec00307b6da87eea82cbaf9ae543cf0a7a30b1992b0beae9e9153937ebb0921",
+    "suppliers.csv": "87447e263df56a9545ca713aca6ca14561d0a60df8cea7fafca4d693caef5fb7",
+    "transport_lanes.csv": "7ebc1b81974de27c74fe9e68586d6b523dfbf0000bd053aae5fabf2a46c3a2fd"
+  },
+  "status": "EXACT_MIN_COST_MONTHLY_SYNTHETIC",
+  "synthetic_baseline_joint_feasible": true
+}

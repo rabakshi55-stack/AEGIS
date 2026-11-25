@@ -1,0 +1,36 @@
+{
+  "python": "3.13.5",
+  "packages": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3",
+    "threadpoolctl": "3.6.0",
+    "python-dateutil": "2.9.0.post0",
+    "pytz": "2026.2",
+    "tzdata": "2026.2",
+    "six": "1.17.0",
+    "cryptography": "46.0.4",
+    "cffi": "2.0.0",
+    "pycparser": "3.0"
+  },
+  "holdout_certified": false,
+  "operational_approval": false,
+  "outputs": {
+    "allocation_review.json": "d96cb7bfc2d763626a37629e7cb700978081f43a009e4077b78d981434c8f28b",
+    "paired_stress/audit_report.json": "c0a3cc32ee0e282142bfbd180fb1bfdd638401309f8840de6805f433e58dc34f",
+    "paired_stress/candidate_menu.csv": "bcb6fb9f66dbcd1e008e7c2392f1871155ac75c338da7236a22d76fc3852dded",
+    "paired_stress/pair_summary.csv": "cf978c329f5e7606aab580ece37bf032c4c08b36f12d957020411cb4cd26b204",
+    "paired_stress/paired_exposures.csv": "1568e6cfc05b5374ddf5ba1a4f994c8db137563b15f01e6cd33d5d83e1aee11c",
+    "paired_stress/synthetic_shared_shocks.json": "cc65b3bba6ad434332a2531735d9ab38fc0761345afc9b145d89f39fda6484d5",
+    "predictive_review.json": "373b37c89bf0e11a4b1dd36abae5423e4b354da2768cb71ecfce565dd8e96f6b",
+    "sensitivity/allocation_report.json": "ebb1134625248f4b8333cfcbd8235c1eb551b7c405ff290f3059b21d40bccbb6",
+    "sensitivity/daily_cost_reproduction.json": "7ce47b2a0df5c24069dbe56a06b1a29a8fd7db16e7a028d26b1f75cb2781793e",
+    "sensitivity/fitted_model.json": "ac87bf7bcf09dc4eea3c827a7f068b54f22483ac855a182b7faec67046e60e8d",
+    "sensitivity/monthly_reproduction.json": "8949239a97706fb4dcd5c20cc7d041aa2595edc9107205b336bbb8ef72a99632",
+    "sensitivity/prediction_report.json": "487a2557ce036aed50403c6e06aaa50757838f9bc3949922d58d59a7668e39d6",
+    "sensitivity/run_manifest.json": "b3a1e6248c5ba05149c64c8522702d8581c2b43481b7fe8e02b7d8eb4461c2a7",
+    "sensitivity/shared_shocks.json": "a9595474f07b5acc978e9a1f70cd6fd6d1c9740f6010361f68ea0266712133de"
+  }
+}

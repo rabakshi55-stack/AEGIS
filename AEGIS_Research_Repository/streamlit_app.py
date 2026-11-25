@@ -10,6 +10,7 @@ from custom_charts import CHART_TYPES, AGGREGATIONS, DATE_GRAINS, SORTS
 from app import STORE, research_answer, get_joint_evidence
 from model_registry import collect_report
 from chat_presentation import renderable_answer
+from review_v3.read_only import get_review_evidence
 
 st.set_page_config(page_title='AEGIS | Decision Intelligence', page_icon='🛡️', layout='wide')
 # Do not reuse objects instantiated from older backend code after a deployment.
@@ -192,6 +193,29 @@ else:
         st.caption('A live check validates one analytical question, not all possible AI answers. A fallback is not counted as a live AI pass.')
     st.info('Historical Olist delivery-risk research and fictional sourcing optimization are separate evidence sources. No realized savings or prospective model accuracy is certified.')
     st.write('Frozen research archive status: '+('verified' if STORE.ready else 'not available'))
+    st.subheader('V3 final-review research evidence')
+    e=get_review_evidence()
+    if not e['available']:
+        st.error('V3 evidence unavailable: '+e.get('error','unknown error'))
+    else:
+        st.warning('Retrospective diagnostics only. No untouched holdout, operational probability validation, supplier-switch effect or autonomous action.')
+        c=e['calibrated']; r=e['raw']; p=e['population']; ci=e['uncertainty_95pct']
+        st.caption(f"{e['period']} · {p['mature_comparable']:,} mature comparable orders / {p['all_purchases']:,} purchases")
+        a,b,d=st.columns(3)
+        a.metric('Average precision',f"{c['average_precision']:.4f}")
+        b.metric('ROC-AUC',f"{c['roc_auc']:.4f}")
+        d.metric('Observed late rate',f"{100*c['late_rate']:.2f}%")
+        st.write(f"Historical week-bootstrap ROC-AUC interval: {ci['roc_auc'][0]:.4f}–{ci['roc_auc'][1]:.4f}.")
+        st.write(f"Raw mean {100*r['mean_score']:.2f}%; calibrated mean {100*c['mean_score']:.2f}%; calibrated gap {100*c['signed_calibration_gap']:+.2f} percentage points. Raw Brier {r['brier']:.4f}; calibrated Brier {c['brier']:.4f}. Recalibration worsened Brier score.")
+        st.dataframe(e['calibration_bins'],hide_index=True,use_container_width=True)
+        a,b=st.columns(2)
+        a.metric('Monthly common-cost optimum',f"${e['monthly_common_cost_usd']:,.2f}")
+        b.metric('Daily sequential common-cost',f"${e['sequential_common_cost_usd']:,.2f}")
+        st.caption(f"Archived daily quoted cost ${e['archived_daily_quoted_cost_usd']:,.2f} uses a different formulation. Fixed order-level risk does not change the common-cost assignment. Fictional scenarios, not actual savings.")
+        with st.expander('V3 uncertainty and limitations'):
+            st.json(e['uncertainty_95pct'])
+            for item in e['limitations']: st.write(item)
+            st.caption('See V3_REVIEW_README.md for reproduction instructions and the separate sensitivity analysis.')
     with st.expander('Model benchmark and historical limitations'):
         try: st.json(collect_report())
         except Exception as e: st.error(str(e))

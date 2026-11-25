@@ -1,46 +1,23 @@
+# V3 professor-review update
+
+See [V3_REVIEW_README.md](V3_REVIEW_README.md) for the new evidence and reproduction instructions. Older instructions below remain for the original application workflow.
+
 # AEGIS: Evidence-Grounded Supply-Chain Decision Intelligence
 
-Academic research project for Advanced Machine Learning for Business Transformation (GIM, Big Data Analytics). **Research-only**; not authorized for production procurement.
+AMLBT research prototype, GIM PGDM-BDA. Research only; no business execution.
 
-## What this repository contains
+Existing repository: https://github.com/rabakshi55-stack/AEGIS. Online demo: https://aegis-decision-intelligence.streamlit.app. This is the 15 November 2026 source snapshot; deployment is not changed by downloading it. See STREAMLIT_DEPLOYMENT.md for configuration.
 
-- Local Python/JavaScript manager-facing AEGIS application (source code and tests)
-- Original research Jupyter notebooks and synthetic planning inputs
-- Reproducible historical classification study and selected archived JSON reports
-- Synthetic exact supplier assignment and shared-shock experiments
-- Read-only data visualizations and a source-grounded Decision Copilot, optionally with local Ollama/Qwen
+- `AEGIS_App/`: shared application code, tests and preserved research artifacts.
+- `streamlit_app.py`, `cloud_engine.py`, `cloud_tests/`: hosted demo and offline verification.
+- `Research/`: original notebooks, synthetic inputs and archived results; raw Olist CSVs omitted.
+- `Cleaned_Data/`: regenerated 89,852-row historical feature dataset with attribution, manifest and export code.
+- `Paper/`: updated IEEE report and editable source.
+- `Evidence/`: claim-to-source traceability and release verification.
+- `Demo/`: fictional sample and independent answer key.
 
-The repository deliberately **does not redistribute Olist raw CSV files**; obtain them from the official Kaggle source and observe CC BY-NC-SA 4.0 conditions. The full, independently verified Windows distribution is supplied separately to course reviewers where authorized.
+Full Windows application is supplied separately, with the portable runtime repair integrated. Full research test dependencies differ from the lightweight runtime. See REPRODUCE_AEGIS.md. Optional hosted GPT-OSS uses Groq with consent, and local Qwen uses Ollama. Do not commit keys or upload sensitive data.
 
-## Academic paper
+Latest verification: 349 shared online and 91 cloud tests passed; 352 full Windows source tests and 350 portable tests passed (two explicitly deferred research-only tests). Actual user Windows check confirmed 559 file matches and 34 software controls. Live AI, second-device portability and prospective/business validation remain unverified.
 
-See `Paper/AEGIS_IEEE_Paper.pdf` in the submission materials. The paper reports the fixed 38-configuration historical benchmarking results, separately from fictional procurement experiments. Reported benefits are simulated, not realized.
-
-## Data and reproduction
-
-Read `REPRODUCE_AEGIS.md` before running anything. After downloading Olist, place the relevant original CSV files under `Research/Public_Data/Olist_Raw/archive/`.
-
-The `AEGIS_App/data/aegis_bundle.json` is a preserved, frozen research artifact, not a live ERP connection. No real company system or private dataset is included. The source-only repository omits the original full-release package verification manifests; it must not be confused with an untouched verified installer.
-
-## GitHub publication
-
-This folder is a **local repository starter, not a published GitHub repository**. Before committing:
-
-1. Review the entire source tree for credentials, secrets, sensitive data and external licenses.
-2. Check license terms for **derived** research files and do not invent a blanket project license.
-3. Keep the author's original notebooks and source data attribution intact.
-4. Publish the approved repository using a GitHub account you control.
-5. Paste the **actual** repository URL into the paper; do not leave a placeholder in a submitted reproducibility statement.
-6. Document the actual Python and ML package versions used to rerun the benchmarks.
-
-## Research boundaries
-
-A test passing does not imply calibrated predictive accuracy, historical feature timestamp certification, real-world capacity feasibility, business value, or AI response faithfulness. Supplier actions are disabled.
-
-
-## Hosted AEGIS AI
-See [HOSTED_AI_GUIDE.md](HOSTED_AI_GUIDE.md) for the new independent GPT-OSS reasoning agent, configuration, safety boundaries and live acceptance procedure.
-
-
-## Latest reliability release
-See `FINAL_RELIABILITY_REVIEW.md` for the cumulative corrections, installation and remaining verification limits.
+Historical Olist results and fictional optimization are separate; no realized savings or certified future forecasts. Review data rights (CC BY-NC-SA 4.0) and author AI-use compliance before submitting/publishing. See DATA_SOURCE_AND_LICENSE.md.

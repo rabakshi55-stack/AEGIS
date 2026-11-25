@@ -1,0 +1,7 @@
+V3 local verification on Linux Python 3.13.5
+Windows offline full tests: 356 passed.
+Streamlit shared application tests: 353 passed; cloud backend tests: 91 passed.
+Raw Olist + synthetic source end-to-end reproduction executed; all 9 compared archived V3 JSON outputs matched parsed content exactly.
+Windows original protected sources: 418/418 verified. Online protected shipped files match; raw CSV intentionally absent.
+Windows JavaScript syntax and Streamlit Python syntax checked.
+Live AI, native Windows launch, Streamlit UI runtime and signed-out hosted repository not verified. No independent holdout or operational certification.

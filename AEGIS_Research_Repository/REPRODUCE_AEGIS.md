@@ -88,3 +88,14 @@ Detailed result-to-source mapping is in the submission package: `Evidence/RESULT
 ## Critical limitations
 
 No prospective validated probability forecast, authenticated historical as-of feature availability, causal supplier switch impact, validated actual savings, or autonomous procurement. The Qwen-enabled Copilot is an optional conversational layer, not a source of independently verified numeric results.
+
+## Submission refresh: exact application verification
+
+Online source: extract `Applications/AEGIS_Online_Submission.zip`, then enter `AEGIS_Research_Repository`. Run `AEGIS_OFFLINE_TEST_MODE=1 PYTHONUTF8=1 python -B -m unittest discover -s AEGIS_App/tests -q` and `AEGIS_OFFLINE_TEST_MODE=1 PYTHONUTF8=1 python -B -m unittest discover -s cloud_tests -q` (use PowerShell `$env:` assignments on Windows). Install research test dependencies for the full suite. Results: 349 and 91 passing. Run `python -m streamlit run streamlit_app.py` after installing `requirements.txt` for the online interface.
+
+Windows complete distribution: extract `Applications/AEGIS_Windows_Submission.zip` to a fresh writable folder; run `CHECK_AEGIS.bat` then `START_AEGIS.bat`. No patch is required. `python -B check_aegis.py` in a full research environment passed 352 tests; `python -S -B check_aegis.py --portable` passed 350 with two expected research-only deferrals. Actual Windows screenshot confirms the repaired lightweight check. `python -B VERIFY_RELEASE.py` matched 559 files. No live hosted or UI test was run during this refresh.
+
+The included demonstration is independently reproducible with `python Demo/verify_sample.py` from the kit root. It is not the Olist ML training dataset. The online source includes processed research outputs (e.g. `Research/Integrated_v02/outputs/AEGIS_step116_training_features.csv`) and original notebooks; the newer historical benchmark reconstructs its own features from official Olist inputs. Do not conflate these datasets.
+
+## Cleaned historical benchmark export
+`Cleaned_Data/` includes 89,852 mature records, 65 model features and partition/label, derived from the original data using the existing feature function. Four raw source hashes, all feature names and all five partition row/late counts match the archived benchmark and diagnostics. See `Cleaned_Data/README.md`, manifest and exporter for provenance. This does not rerun model fitting. The same folder is included at the online repository root, ready for author-reviewed publication under CC BY-NC-SA 4.0.

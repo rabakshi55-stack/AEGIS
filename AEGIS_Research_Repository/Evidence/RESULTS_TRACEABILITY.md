@@ -1,6 +1,6 @@
 # AEGIS Research Results — claim-to-source traceability
 
-All paths below refer to the preserved **AEGIS/Research/** tree in the final Windows release archive `AEGIS_Dataset_Insights_Qwen_Windows_Corrected_Complete.zip`. These are evidence artifacts, not third-party experimental endorsements. They have been inspected and source values transcribed without recomputing the full Olist model training.
+All paths below refer to the preserved **AEGIS/Research/** tree in the final Windows release archive `AEGIS_Windows_Submission.zip (Precision Edition + runtime repair)`. These are evidence artifacts, not third-party experimental endorsements. They have been inspected and source values transcribed without recomputing the full Olist model training.
 
 | Paper claim | Exact value | Primary evidence file / JSON key | Required caveat |
 |---|---|---|---|
@@ -45,3 +45,18 @@ All paths below refer to the preserved **AEGIS/Research/** tree in the final Win
 3. T. Saito and M. Rehmsmeier, *The precision-recall plot is more informative than the ROC plot when evaluating binary classifiers on imbalanced datasets*, PLOS ONE, 10(3):e0118432, 2015. https://doi.org/10.1371/journal.pone.0118432
 4. D. Sculley et al., *Hidden Technical Debt in Machine Learning Systems*, NeurIPS 2015, pp. 2503--2511. https://research.google/pubs/hidden-technical-debt-in-machine-learning-systems/
 5. Olist, *Brazilian E-Commerce Public Dataset by Olist*, Kaggle. https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce (CC BY-NC-SA 4.0).
+
+### Current application and demo evidence (15 November 2026)
+
+| Claim | Evidence | Boundary |
+|---|---|---|
+| 349 online app and 91 cloud tests passed | `Evidence/online_tests.log`, `cloud_tests.log` | Fresh source execution on Linux |
+| 352 full Windows source tests passed | `Evidence/windows_tests.log` | Linux with research dependencies |
+| 350 portable tests passed; two research-only deferred | `Evidence/portable_tests.log`; `Windows_runtime_check.png` | Linux no-site simulation and actual user Windows screenshot, separately |
+| 559/559 release files matched | `Evidence/windows_integrity.log`; Windows screenshot | Integrity, not correctness |
+| 34/34 foundation controls | Windows screenshot and logs | Software gates; no operational approval |
+| 120 sample orders, 4 suppliers, INR 472268, 54/114 late | `Demo/verify_sample.py`, `EXPECTED_RESULTS.json` | Independent fictional data calculation, not live AI result |
+
+The screenshot is cropped to show the verification results without local paths. A Windows runtime pass is not a second-device or interactive browser acceptance test. No live Groq calls or full benchmark retraining were performed in this submission refresh.
+
+Cleaned historical export: `Reproducibility/Cleaned_Data/FEATURE_EXPORT_MANIFEST.json` records matching source hashes, 65 features and 89,852 rows across five partitions. The feature export was regenerated without retraining. `SAMPLE_STANDARD_ENGINE_CHECK.md` records actual source-level standard analytics output; numeric metrics match, but the full ranking is not explicitly sorted.

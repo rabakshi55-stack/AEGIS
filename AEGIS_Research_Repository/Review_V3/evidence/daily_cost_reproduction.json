@@ -1,0 +1,121 @@
+{
+  "candidate_options": 80,
+  "capacity_limit": {
+    "SUP-014": 9425,
+    "SUP-038": 20229,
+    "SUP-042": 15215,
+    "SUP-045": 18523,
+    "SUP-048": 15405
+  },
+  "capacity_usage_at_end": {
+    "SUP-014": 9375,
+    "SUP-038": 0,
+    "SUP-042": 0,
+    "SUP-045": 4525,
+    "SUP-048": 0
+  },
+  "cost_cents": 165944950,
+  "days": [
+    {
+      "assignment": {
+        "PO2-0007181": "SUP-014",
+        "PO2-0007207": "SUP-014",
+        "PO2-0007234": "SUP-014",
+        "PO2-0007260": "SUP-014"
+      },
+      "capacity_remaining_at_decision": {
+        "SUP-014": 9425,
+        "SUP-038": 20229,
+        "SUP-042": 15215,
+        "SUP-045": 18523,
+        "SUP-048": 15405
+      },
+      "cost_cents": 42249600,
+      "date": "2025-07-07",
+      "external_booked_units": {
+        "SUP-014": 0,
+        "SUP-038": 0,
+        "SUP-042": 0,
+        "SUP-045": 0,
+        "SUP-048": 0
+      }
+    },
+    {
+      "assignment": {
+        "PO2-0007283": "SUP-014",
+        "PO2-0007309": "SUP-014",
+        "PO2-0007334": "SUP-014",
+        "PO2-0007357": "SUP-014"
+      },
+      "capacity_remaining_at_decision": {
+        "SUP-014": 5825,
+        "SUP-038": 20229,
+        "SUP-042": 15215,
+        "SUP-045": 18523,
+        "SUP-048": 15405
+      },
+      "cost_cents": 46063800,
+      "date": "2025-07-14",
+      "external_booked_units": {
+        "SUP-014": 0,
+        "SUP-038": 0,
+        "SUP-042": 0,
+        "SUP-045": 0,
+        "SUP-048": 0
+      }
+    },
+    {
+      "assignment": {
+        "PO2-0007383": "SUP-014",
+        "PO2-0007409": "SUP-045",
+        "PO2-0007435": "SUP-045",
+        "PO2-0007461": "SUP-014"
+      },
+      "capacity_remaining_at_decision": {
+        "SUP-014": 1900,
+        "SUP-038": 20229,
+        "SUP-042": 15215,
+        "SUP-045": 18523,
+        "SUP-048": 15405
+      },
+      "cost_cents": 46736550,
+      "date": "2025-07-21",
+      "external_booked_units": {
+        "SUP-014": 0,
+        "SUP-038": 0,
+        "SUP-042": 0,
+        "SUP-045": 0,
+        "SUP-048": 0
+      }
+    },
+    {
+      "assignment": {
+        "PO2-0007485": "SUP-045",
+        "PO2-0007513": "SUP-045",
+        "PO2-0007539": "SUP-045",
+        "PO2-0007566": "SUP-045"
+      },
+      "capacity_remaining_at_decision": {
+        "SUP-014": 50,
+        "SUP-038": 20229,
+        "SUP-042": 15215,
+        "SUP-045": 16498,
+        "SUP-048": 15405
+      },
+      "cost_cents": 30895000,
+      "date": "2025-07-28",
+      "external_booked_units": {
+        "SUP-014": 0,
+        "SUP-038": 0,
+        "SUP-042": 0,
+        "SUP-045": 0,
+        "SUP-048": 0
+      }
+    }
+  ],
+  "full_period_capacity_pass": true,
+  "interpretation": "Exact daily cost-only replay from archived quote candidates and source commitments, not a replay of upstream ML candidate generation. No real delivery effects.",
+  "orders": 16,
+  "quote_table_sha256": "42a9da1835d3af63ecb85b6063c7fc3087693471632a6154c912de0c4a722bf6",
+  "same_day_visibility_assumed_not_attested": true
+}

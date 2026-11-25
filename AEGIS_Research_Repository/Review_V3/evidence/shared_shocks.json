@@ -1,0 +1,6002 @@
+[
+  {
+    "cost_policy_index": 0.8689837112614809,
+    "global": 0.9725912476670713,
+    "paired_difference": -0.06234008564257487,
+    "proxy_policy_index": 0.806643625618906,
+    "regional": {
+      "Gulf": 0.7932497759237781,
+      "Northeast": 0.100991530141321,
+      "West": 0.399167958277443
+    },
+    "scenario": 1
+  },
+  {
+    "cost_policy_index": 0.7227409264564857,
+    "global": 0.5911657691495741,
+    "paired_difference": -0.04641332776389395,
+    "proxy_policy_index": 0.6763275986925917,
+    "regional": {
+      "Gulf": 0.6873580355675402,
+      "Northeast": 0.2911043835454825,
+      "West": 0.7670253027480909
+    },
+    "scenario": 2
+  },
+  {
+    "cost_policy_index": 0.4067136685998841,
+    "global": 0.12843431298214592,
+    "paired_difference": -0.012343041947451172,
+    "proxy_policy_index": 0.39437062665243294,
+    "regional": {
+      "Gulf": 0.5659785852572062,
+      "Northeast": 0.5675923795047852,
+      "West": 0.7841015257642082
+    },
+    "scenario": 3
+  },
+  {
+    "cost_policy_index": 0.7306713953136759,
+    "global": 0.60452097918197,
+    "paired_difference": -0.028925376246768053,
+    "proxy_policy_index": 0.7017460190669078,
+    "regional": {
+      "Gulf": 0.9807865961272527,
+      "Northeast": 0.7047547642033144,
+      "West": 0.6577487782828513
+    },
+    "scenario": 4
+  },
+  {
+    "cost_policy_index": 0.20167014155618163,
+    "global": 0.26130839185628274,
+    "paired_difference": 0.060973902544797065,
+    "proxy_policy_index": 0.2626440441009787,
+    "regional": {
+      "Gulf": 0.10853171609071177,
+      "Northeast": 0.9316155101530705,
+      "West": 0.047286142777873796
+    },
+    "scenario": 5
+  },
+  {
+    "cost_policy_index": 0.39123347138123754,
+    "global": 0.14731219211953617,
+    "paired_difference": -0.01147108050038853,
+    "proxy_policy_index": 0.379762390880849,
+    "regional": {
+      "Gulf": 0.1337634815222848,
+      "Northeast": 0.2774879223291681,
+      "West": 0.8545813237332545
+    },
+    "scenario": 6
+  },
+  {
+    "cost_policy_index": 0.8997199364611568,
+    "global": 0.8809735798393994,
+    "paired_difference": -0.014221977274833875,
+    "proxy_policy_index": 0.8854979591863229,
+    "regional": {
+      "Gulf": 0.3201185520829545,
+      "Northeast": 0.5062648098164149,
+      "West": 0.852568375910839
+    },
+    "scenario": 7
+  },
+  {
+    "cost_policy_index": 0.1318822441075015,
+    "global": 0.09251512811442131,
+    "paired_difference": 0.013528531963302642,
+    "proxy_policy_index": 0.14541077607080413,
+    "regional": {
+      "Gulf": 0.37929979969802274,
+      "Northeast": 0.5071690314821665,
+      "West": 0.07930457641949196
+    },
+    "scenario": 8
+  },
+  {
+    "cost_policy_index": 0.5874622569947,
+    "global": 0.4338837417325013,
+    "paired_difference": -0.01793346069862156,
+    "proxy_policy_index": 0.5695287962960784,
+    "regional": {
+      "Gulf": 0.5091094548883945,
+      "Northeast": 0.48664877403900075,
+      "West": 0.7367456586992294
+    },
+    "scenario": 9
+  },
+  {
+    "cost_policy_index": 0.29720451369714584,
+    "global": 0.029225851104109357,
+    "paired_difference": 0.00365902678433494,
+    "proxy_policy_index": 0.3008635404814808,
+    "regional": {
+      "Gulf": 0.5580076841226626,
+      "Northeast": 0.7058114017120811,
+      "West": 0.6527047771062245
+    },
+    "scenario": 10
+  },
+  {
+    "cost_policy_index": 0.5176668948377969,
+    "global": 0.34174481752489216,
+    "paired_difference": -0.018542905072912563,
+    "proxy_policy_index": 0.49912398976488437,
+    "regional": {
+      "Gulf": 0.7852812616740599,
+      "Northeast": 0.6293315218235677,
+      "West": 0.6101111607731241
+    },
+    "scenario": 11
+  },
+  {
+    "cost_policy_index": 0.7033990432571607,
+    "global": 0.6892527413595485,
+    "paired_difference": -0.05826152381819827,
+    "proxy_policy_index": 0.6451375194389625,
+    "regional": {
+      "Gulf": 0.7493448348825836,
+      "Northeast": 0.1026438561423596,
+      "West": 0.48454274794762775
+    },
+    "scenario": 12
+  },
+  {
+    "cost_policy_index": 0.8542105179986621,
+    "global": 0.9568372288250475,
+    "paired_difference": 0.0049471576507686965,
+    "proxy_policy_index": 0.8591576756494308,
+    "regional": {
+      "Gulf": 0.7670860531370838,
+      "Northeast": 0.947280838271815,
+      "West": 0.39538325373296657
+    },
+    "scenario": 13
+  },
+  {
+    "cost_policy_index": 0.9940907426364726,
+    "global": 0.9993071796239962,
+    "paired_difference": -0.030850341430341044,
+    "proxy_policy_index": 0.9632404012061315,
+    "regional": {
+      "Gulf": 0.48231294012515324,
+      "Northeast": 0.4310498571443435,
+      "West": 0.8423648681453214
+    },
+    "scenario": 14
+  },
+  {
+    "cost_policy_index": 0.42951192530591364,
+    "global": 0.5754261264295679,
+    "paired_difference": 0.03847064891914209,
+    "proxy_policy_index": 0.46798257422505574,
+    "regional": {
+      "Gulf": 0.2944106518483951,
+      "Northeast": 0.8320397832782122,
+      "West": 0.0391462950526873
+    },
+    "scenario": 15
+  },
+  {
+    "cost_policy_index": 0.6408325075496811,
+    "global": 0.35397980996328704,
+    "paired_difference": -0.08281253625358143,
+    "proxy_policy_index": 0.5580199712960997,
+    "regional": {
+      "Gulf": 0.9146630638255563,
+      "Northeast": 0.006329325040542955,
+      "West": 0.9172819508307474
+    },
+    "scenario": 16
+  },
+  {
+    "cost_policy_index": 0.6131835243460109,
+    "global": 0.7286293638577325,
+    "paired_difference": -0.052147047993645224,
+    "proxy_policy_index": 0.5610364763523656,
+    "regional": {
+      "Gulf": 0.87816255543965,
+      "Northeast": 0.1446901136535661,
+      "West": 0.07968496843795903
+    },
+    "scenario": 17
+  },
+  {
+    "cost_policy_index": 0.6069872068970308,
+    "global": 0.6249704907786185,
+    "paired_difference": 0.0004867192321188485,
+    "proxy_policy_index": 0.6074739261291496,
+    "regional": {
+      "Gulf": 0.7491695398445031,
+      "Northeast": 0.7936037802172199,
+      "West": 0.319247093572812
+    },
+    "scenario": 18
+  },
+  {
+    "cost_policy_index": 0.5008375631866339,
+    "global": 0.3729281714394186,
+    "paired_difference": -0.00631668601919444,
+    "proxy_policy_index": 0.4945208771674394,
+    "regional": {
+      "Gulf": 0.6430485066551421,
+      "Northeast": 0.6619407968799986,
+      "West": 0.5461480358827708
+    },
+    "scenario": 19
+  },
+  {
+    "cost_policy_index": 0.35966891507224696,
+    "global": 0.37441687905052945,
+    "paired_difference": 0.027647311733767443,
+    "proxy_policy_index": 0.3873162268060144,
+    "regional": {
+      "Gulf": 0.5475652189639009,
+      "Northeast": 0.887614774632888,
+      "West": 0.14322623497936382
+    },
+    "scenario": 20
+  },
+  {
+    "cost_policy_index": 0.3453514298187263,
+    "global": 0.1665304033513506,
+    "paired_difference": -0.00299670393881718,
+    "proxy_policy_index": 0.3423547258799091,
+    "regional": {
+      "Gulf": 0.4470290329582479,
+      "Northeast": 0.5259568406311772,
+      "West": 0.5605013708549718
+    },
+    "scenario": 21
+  },
+  {
+    "cost_policy_index": 0.15531235531902376,
+    "global": 0.21123327961053495,
+    "paired_difference": 0.003358501218416299,
+    "proxy_policy_index": 0.15867085653744006,
+    "regional": {
+      "Gulf": 0.12163621125205315,
+      "Northeast": 0.17230052880424984,
+      "West": 0.002198061890292924
+    },
+    "scenario": 22
+  },
+  {
+    "cost_policy_index": 0.39257677142245617,
+    "global": 0.033355832432507615,
+    "paired_difference": -0.05907029316991175,
+    "proxy_policy_index": 0.3335064782525444,
+    "regional": {
+      "Gulf": 0.969708467550811,
+      "Northeast": 0.256423217322856,
+      "West": 0.7885354675843764
+    },
+    "scenario": 23
+  },
+  {
+    "cost_policy_index": 0.8815609193812566,
+    "global": 0.9164493044250865,
+    "paired_difference": -0.041335117289239665,
+    "proxy_policy_index": 0.8402258020920169,
+    "regional": {
+      "Gulf": 0.5905040850145911,
+      "Northeast": 0.2882524130611942,
+      "West": 0.6261353572270204
+    },
+    "scenario": 24
+  },
+  {
+    "cost_policy_index": 0.29058187802663094,
+    "global": 0.22614327733099437,
+    "paired_difference": 0.007619620245763348,
+    "proxy_policy_index": 0.2982014982723943,
+    "regional": {
+      "Gulf": 0.7584310929161459,
+      "Northeast": 0.769235154297004,
+      "West": 0.15718144650496213
+    },
+    "scenario": 25
+  },
+  {
+    "cost_policy_index": 0.7088332163361546,
+    "global": 0.612939939400781,
+    "paired_difference": -0.002527502830683148,
+    "proxy_policy_index": 0.7063057135054714,
+    "regional": {
+      "Gulf": 0.9081766328752469,
+      "Northeast": 0.9719055942850412,
+      "West": 0.5996529462122562
+    },
+    "scenario": 26
+  },
+  {
+    "cost_policy_index": 0.7058374355428982,
+    "global": 0.8409912762319768,
+    "paired_difference": 0.03137976464373893,
+    "proxy_policy_index": 0.7372172001866372,
+    "regional": {
+      "Gulf": 0.4301284520597093,
+      "Northeast": 0.9787933551658671,
+      "West": 0.2976548073512477
+    },
+    "scenario": 27
+  },
+  {
+    "cost_policy_index": 0.3346012131285321,
+    "global": 0.2226053984682902,
+    "paired_difference": 0.035735187025831894,
+    "proxy_policy_index": 0.370336400154364,
+    "regional": {
+      "Gulf": 0.005866804893990274,
+      "Northeast": 0.7045129337317806,
+      "West": 0.5727577367163803
+    },
+    "scenario": 28
+  },
+  {
+    "cost_policy_index": 1.0003466952288387,
+    "global": 0.9828584805218766,
+    "paired_difference": -0.054598192725780925,
+    "proxy_policy_index": 0.9457485025030578,
+    "regional": {
+      "Gulf": 0.8646796978709045,
+      "Northeast": 0.38239962926191884,
+      "West": 0.7566028095693879
+    },
+    "scenario": 29
+  },
+  {
+    "cost_policy_index": 0.283526235473797,
+    "global": 0.03802669233355338,
+    "paired_difference": 0.01425504632010427,
+    "proxy_policy_index": 0.2977812817939013,
+    "regional": {
+      "Gulf": 0.46557033448594487,
+      "Northeast": 0.764604859661071,
+      "West": 0.626132425445542
+    },
+    "scenario": 30
+  },
+  {
+    "cost_policy_index": 0.640702821258657,
+    "global": 0.8523389452618493,
+    "paired_difference": 0.017428924830468873,
+    "proxy_policy_index": 0.6581317460891258,
+    "regional": {
+      "Gulf": 0.2594040907330739,
+      "Northeast": 0.6135924408257378,
+      "West": 0.13588594265672505
+    },
+    "scenario": 31
+  },
+  {
+    "cost_policy_index": 0.7147679691770108,
+    "global": 0.8080410598103026,
+    "paired_difference": -0.05012266524667908,
+    "proxy_policy_index": 0.6646453039303317,
+    "regional": {
+      "Gulf": 0.9368414743279414,
+      "Northeast": 0.27408981769743546,
+      "West": 0.20876693670097857
+    },
+    "scenario": 32
+  },
+  {
+    "cost_policy_index": 0.5612732175000565,
+    "global": 0.7090351697228864,
+    "paired_difference": 0.017390860391485186,
+    "proxy_policy_index": 0.5786640778915417,
+    "regional": {
+      "Gulf": 0.15298023633059477,
+      "Northeast": 0.5384533601336026,
+      "West": 0.22289117022416072
+    },
+    "scenario": 33
+  },
+  {
+    "cost_policy_index": 0.7221868024875809,
+    "global": 0.6630010141580517,
+    "paired_difference": -0.038982494047804295,
+    "proxy_policy_index": 0.6832043084397766,
+    "regional": {
+      "Gulf": 0.7624824784328066,
+      "Northeast": 0.39493748050825117,
+      "West": 0.5912605203956358
+    },
+    "scenario": 34
+  },
+  {
+    "cost_policy_index": 0.6584638512042044,
+    "global": 0.7329654192608497,
+    "paired_difference": 0.0014263609888800488,
+    "proxy_policy_index": 0.6598902121930844,
+    "regional": {
+      "Gulf": 0.38148574835914695,
+      "Northeast": 0.5686736911014655,
+      "West": 0.3902712938975982
+    },
+    "scenario": 35
+  },
+  {
+    "cost_policy_index": 0.43839597653101725,
+    "global": 0.31068681873436244,
+    "paired_difference": 0.02468266663566715,
+    "proxy_policy_index": 0.4630786431666844,
+    "regional": {
+      "Gulf": 0.4740681418010535,
+      "Northeast": 0.9223800704561163,
+      "West": 0.5424412663782696
+    },
+    "scenario": 36
+  },
+  {
+    "cost_policy_index": 0.8351735422801929,
+    "global": 0.9710801038457697,
+    "paired_difference": -0.04077973748786756,
+    "proxy_policy_index": 0.7943938047923254,
+    "regional": {
+      "Gulf": 0.5900010933663986,
+      "Northeast": 0.21519427268950553,
+      "West": 0.37188572029192957
+    },
+    "scenario": 37
+  },
+  {
+    "cost_policy_index": 0.7818254941369981,
+    "global": 0.6736070460969178,
+    "paired_difference": -0.038695287230508524,
+    "proxy_policy_index": 0.7431302069064896,
+    "regional": {
+      "Gulf": 0.3425355306750367,
+      "Northeast": 0.1905456763176243,
+      "West": 0.9054048927756864
+    },
+    "scenario": 38
+  },
+  {
+    "cost_policy_index": 0.35403886071442714,
+    "global": 0.3781332951201676,
+    "paired_difference": -0.03310960759426229,
+    "proxy_policy_index": 0.32092925312016485,
+    "regional": {
+      "Gulf": 0.7268174639202207,
+      "Northeast": 0.2075600767948621,
+      "West": 0.05330978405687259
+    },
+    "scenario": 39
+  },
+  {
+    "cost_policy_index": 0.947398767340585,
+    "global": 0.9672081169859723,
+    "paired_difference": -0.0511917039966403,
+    "proxy_policy_index": 0.8962070633439447,
+    "regional": {
+      "Gulf": 0.9562947419667798,
+      "Northeast": 0.4361199225450084,
+      "West": 0.5924059607644309
+    },
+    "scenario": 40
+  },
+  {
+    "cost_policy_index": 0.6473286691180407,
+    "global": 0.44750267378551756,
+    "paired_difference": -0.0373779918839503,
+    "proxy_policy_index": 0.6099506772340904,
+    "regional": {
+      "Gulf": 0.27067495817321197,
+      "Northeast": 0.14089054063562034,
+      "West": 0.9796214481931774
+    },
+    "scenario": 41
+  },
+  {
+    "cost_policy_index": 0.5841084195683812,
+    "global": 0.3722718996243015,
+    "paired_difference": -0.02198959970563008,
+    "proxy_policy_index": 0.5621188198627511,
+    "regional": {
+      "Gulf": 0.23279829997950585,
+      "Northeast": 0.2889395426390089,
+      "West": 0.9525319325493319
+    },
+    "scenario": 42
+  },
+  {
+    "cost_policy_index": 0.2128150771461692,
+    "global": 0.03979628586916795,
+    "paired_difference": -0.009099476301370535,
+    "proxy_policy_index": 0.20371560084479867,
+    "regional": {
+      "Gulf": 0.3525827922224838,
+      "Northeast": 0.3136783966237462,
+      "West": 0.44584210708199334
+    },
+    "scenario": 43
+  },
+  {
+    "cost_policy_index": 0.3691746916405958,
+    "global": 0.19756217036212198,
+    "paired_difference": 0.0012406744514165124,
+    "proxy_policy_index": 0.3704153660920123,
+    "regional": {
+      "Gulf": 0.16688591052994017,
+      "Northeast": 0.4116045447312683,
+      "West": 0.6719740601760595
+    },
+    "scenario": 44
+  },
+  {
+    "cost_policy_index": 0.9110712195352135,
+    "global": 0.8973384875055501,
+    "paired_difference": -0.011523454628680208,
+    "proxy_policy_index": 0.8995477649065333,
+    "regional": {
+      "Gulf": 0.5034416243087892,
+      "Northeast": 0.6607984271855611,
+      "West": 0.7875905619069793
+    },
+    "scenario": 45
+  },
+  {
+    "cost_policy_index": 0.7091665336965045,
+    "global": 0.9132536958537816,
+    "paired_difference": -0.025701730116178823,
+    "proxy_policy_index": 0.6834648035803257,
+    "regional": {
+      "Gulf": 0.6325040108891954,
+      "Northeast": 0.33305110295163876,
+      "West": 0.08683116184073147
+    },
+    "scenario": 46
+  },
+  {
+    "cost_policy_index": 0.49283452265597194,
+    "global": 0.6129882822076933,
+    "paired_difference": 0.008484850585465109,
+    "proxy_policy_index": 0.501319373241437,
+    "regional": {
+      "Gulf": 0.6291279113072866,
+      "Northeast": 0.7043824508904671,
+      "West": 0.03591377625101544
+    },
+    "scenario": 47
+  },
+  {
+    "cost_policy_index": 0.5960035477815953,
+    "global": 0.6083763323769639,
+    "paired_difference": 0.034152186621251523,
+    "proxy_policy_index": 0.6301557344028468,
+    "regional": {
+      "Gulf": 0.08253186210677133,
+      "Northeast": 0.8030746259873607,
+      "West": 0.5610618372129729
+    },
+    "scenario": 48
+  },
+  {
+    "cost_policy_index": 0.848236251490347,
+    "global": 0.9970307620685237,
+    "paired_difference": 0.009656008798952564,
+    "proxy_policy_index": 0.8578922602892995,
+    "regional": {
+      "Gulf": 0.6397157380321522,
+      "Northeast": 0.8988687777574955,
+      "West": 0.34102634656373176
+    },
+    "scenario": 49
+  },
+  {
+    "cost_policy_index": 0.484136077300123,
+    "global": 0.1500363704761305,
+    "paired_difference": -0.005104386370451686,
+    "proxy_policy_index": 0.4790316909296713,
+    "regional": {
+      "Gulf": 0.8233913904212992,
+      "Northeast": 0.8962064671638175,
+      "West": 0.8849151113998754
+    },
+    "scenario": 50
+  },
+  {
+    "cost_policy_index": 0.5133707355603808,
+    "global": 0.5938113239866587,
+    "paired_difference": 0.031971877028323714,
+    "proxy_policy_index": 0.5453426125887045,
+    "regional": {
+      "Gulf": 0.3821829466246537,
+      "Northeast": 0.8840123169668808,
+      "West": 0.22785218453264333
+    },
+    "scenario": 51
+  },
+  {
+    "cost_policy_index": 0.418901515995135,
+    "global": 0.21655538129198926,
+    "paired_difference": -0.0388030303095554,
+    "proxy_policy_index": 0.3800984856855796,
+    "regional": {
+      "Gulf": 0.46620429276236,
+      "Northeast": 0.12692483310455616,
+      "West": 0.6776825157303277
+    },
+    "scenario": 52
+  },
+  {
+    "cost_policy_index": 0.48380420276367736,
+    "global": 0.6223684711871951,
+    "paired_difference": 0.022713956919137857,
+    "proxy_policy_index": 0.5065181596828152,
+    "regional": {
+      "Gulf": 0.5390037085188395,
+      "Northeast": 0.8163205709482889,
+      "West": 0.02162444631671645
+    },
+    "scenario": 53
+  },
+  {
+    "cost_policy_index": 0.5202814005145515,
+    "global": 0.5452770073455852,
+    "paired_difference": -0.02984929521662666,
+    "proxy_policy_index": 0.49043210529792486,
+    "regional": {
+      "Gulf": 0.3177352378369944,
+      "Northeast": 0.07764236050963735,
+      "West": 0.37168665056792216
+    },
+    "scenario": 54
+  },
+  {
+    "cost_policy_index": 0.5063948929151931,
+    "global": 0.5829636258755417,
+    "paired_difference": -0.014290686044054257,
+    "proxy_policy_index": 0.49210420687113887,
+    "regional": {
+      "Gulf": 0.5897152970524093,
+      "Northeast": 0.4158846978516866,
+      "West": 0.15330697186754627
+    },
+    "scenario": 55
+  },
+  {
+    "cost_policy_index": 0.6706079700563521,
+    "global": 0.6031706625081434,
+    "paired_difference": -0.019096260901331097,
+    "proxy_policy_index": 0.651511709155021,
+    "regional": {
+      "Gulf": 0.09320796801114639,
+      "Northeast": 0.2044730316983835,
+      "West": 0.7974533486799211
+    },
+    "scenario": 56
+  },
+  {
+    "cost_policy_index": 0.12386274898033497,
+    "global": 0.015704982728224737,
+    "paired_difference": -0.0006828833468394829,
+    "proxy_policy_index": 0.12317986563349549,
+    "regional": {
+      "Gulf": 0.14963922951903363,
+      "Northeast": 0.211037856487853,
+      "West": 0.294879513580533
+    },
+    "scenario": 57
+  },
+  {
+    "cost_policy_index": 0.8027186900375607,
+    "global": 0.7494084504425808,
+    "paired_difference": -0.0006761931974434976,
+    "proxy_policy_index": 0.8020424968401172,
+    "regional": {
+      "Gulf": 0.7048837587341845,
+      "Northeast": 0.8932203036751665,
+      "West": 0.6834062842175379
+    },
+    "scenario": 58
+  },
+  {
+    "cost_policy_index": 0.5439867143876631,
+    "global": 0.3156669497701685,
+    "paired_difference": 0.0006758405437468085,
+    "proxy_policy_index": 0.5446625549314099,
+    "regional": {
+      "Gulf": 0.8670156312289456,
+      "Northeast": 0.9724105116831645,
+      "West": 0.7147849647091814
+    },
+    "scenario": 59
+  },
+  {
+    "cost_policy_index": 0.38010304963154795,
+    "global": 0.21118017206660944,
+    "paired_difference": -0.011735591528930556,
+    "proxy_policy_index": 0.3683674581026174,
+    "regional": {
+      "Gulf": 0.12923790536377178,
+      "Northeast": 0.22420911420797762,
+      "West": 0.6914269963646156
+    },
+    "scenario": 60
+  },
+  {
+    "cost_policy_index": 0.9729383851103308,
+    "global": 0.9285210640438167,
+    "paired_difference": -0.05593358127317216,
+    "proxy_policy_index": 0.9170048038371587,
+    "regional": {
+      "Gulf": 0.5353329194723059,
+      "Northeast": 0.1563022055122082,
+      "West": 0.9027139261871246
+    },
+    "scenario": 61
+  },
+  {
+    "cost_policy_index": 0.27299511726217063,
+    "global": 0.34344242956090276,
+    "paired_difference": -0.014473085258568275,
+    "proxy_policy_index": 0.25852203200360235,
+    "regional": {
+      "Gulf": 0.1430583188325516,
+      "Northeast": 0.009689066585234607,
+      "West": 0.08642629102424937
+    },
+    "scenario": 62
+  },
+  {
+    "cost_policy_index": 0.5433440089614354,
+    "global": 0.5897206311633745,
+    "paired_difference": 0.014040364405282113,
+    "proxy_policy_index": 0.5573843733667175,
+    "regional": {
+      "Gulf": 0.3669180716233015,
+      "Northeast": 0.6769680387531448,
+      "West": 0.33400146198883274
+    },
+    "scenario": 63
+  },
+  {
+    "cost_policy_index": 0.7006781358692669,
+    "global": 0.7516827077186691,
+    "paired_difference": -0.010986693326116348,
+    "proxy_policy_index": 0.6896914425431505,
+    "regional": {
+      "Gulf": 0.716374453177076,
+      "Northeast": 0.6559591167241978,
+      "West": 0.3605242327621577
+    },
+    "scenario": 64
+  },
+  {
+    "cost_policy_index": 0.3892632131350293,
+    "global": 0.10879256959171879,
+    "paired_difference": -0.02924250738935863,
+    "proxy_policy_index": 0.3600207057456707,
+    "regional": {
+      "Gulf": 0.1376612187467432,
+      "Northeast": 0.06911399887122205,
+      "West": 0.9258326122784922
+    },
+    "scenario": 65
+  },
+  {
+    "cost_policy_index": 0.585650222178091,
+    "global": 0.562097412051807,
+    "paired_difference": -0.03269186293025195,
+    "proxy_policy_index": 0.5529583592478391,
+    "regional": {
+      "Gulf": 0.9615415754517243,
+      "Northeast": 0.5107809414156673,
+      "West": 0.3050779874326732
+    },
+    "scenario": 66
+  },
+  {
+    "cost_policy_index": 0.3953528301045876,
+    "global": 0.5568826448401178,
+    "paired_difference": 0.04254114696894373,
+    "proxy_policy_index": 0.43789397707353134,
+    "regional": {
+      "Gulf": 0.10053358188235717,
+      "Northeast": 0.7349602122600997,
+      "West": 0.042203920753356994
+    },
+    "scenario": 67
+  },
+  {
+    "cost_policy_index": 0.44373160620216545,
+    "global": 0.2861613762144464,
+    "paired_difference": -0.004113574197883552,
+    "proxy_policy_index": 0.4396180320042819,
+    "regional": {
+      "Gulf": 0.7297284995568093,
+      "Northeast": 0.7314459170901066,
+      "West": 0.5162946355160669
+    },
+    "scenario": 68
+  },
+  {
+    "cost_policy_index": 0.35725899688280305,
+    "global": 0.29182535268178356,
+    "paired_difference": 0.03634228612288526,
+    "proxy_policy_index": 0.3936012830056883,
+    "regional": {
+      "Gulf": 0.19611484579929173,
+      "Northeast": 0.8196235116902945,
+      "West": 0.43204075900064065
+    },
+    "scenario": 69
+  },
+  {
+    "cost_policy_index": 0.7057774404509058,
+    "global": 0.47646324231289794,
+    "paired_difference": -0.06939497602097533,
+    "proxy_policy_index": 0.6363824644299305,
+    "regional": {
+      "Gulf": 0.8868767964893706,
+      "Northeast": 0.1651019205751474,
+      "West": 0.8769096268592742
+    },
+    "scenario": 70
+  },
+  {
+    "cost_policy_index": 0.6310110342167135,
+    "global": 0.45455133821229754,
+    "paired_difference": -0.015980638312390383,
+    "proxy_policy_index": 0.6150303959043231,
+    "regional": {
+      "Gulf": 0.2388059660278239,
+      "Northeast": 0.37593373820260345,
+      "West": 0.9265462458564474
+    },
+    "scenario": 71
+  },
+  {
+    "cost_policy_index": 0.6788342288938694,
+    "global": 0.6072608988875008,
+    "paired_difference": -0.012312424522481713,
+    "proxy_policy_index": 0.6665218043713876,
+    "regional": {
+      "Gulf": 0.8140720817190169,
+      "Northeast": 0.7564096484611802,
+      "West": 0.5530468998495669
+    },
+    "scenario": 72
+  },
+  {
+    "cost_policy_index": 0.33393186640584466,
+    "global": 0.274380784286936,
+    "paired_difference": -0.0035440255250164254,
+    "proxy_policy_index": 0.33038784088082823,
+    "regional": {
+      "Gulf": 0.8808389911687559,
+      "Northeast": 0.7228540297572804,
+      "West": 0.14763457507056132
+    },
+    "scenario": 73
+  },
+  {
+    "cost_policy_index": 0.5046998980678027,
+    "global": 0.3449500790171818,
+    "paired_difference": -0.003751794477833581,
+    "proxy_policy_index": 0.5009481035899691,
+    "regional": {
+      "Gulf": 0.042181571916480864,
+      "Northeast": 0.33319100929434575,
+      "West": 0.8330772820088695
+    },
+    "scenario": 74
+  },
+  {
+    "cost_policy_index": 0.6449246499318257,
+    "global": 0.47723779452474857,
+    "paired_difference": -0.01804913736219671,
+    "proxy_policy_index": 0.626875512569629,
+    "regional": {
+      "Gulf": 0.8032721064131235,
+      "Northeast": 0.7100532809743941,
+      "West": 0.7183423771689764
+    },
+    "scenario": 75
+  },
+  {
+    "cost_policy_index": 0.5735430520242498,
+    "global": 0.5021389225885188,
+    "paired_difference": -0.0440878967990076,
+    "proxy_policy_index": 0.5294551552252422,
+    "regional": {
+      "Gulf": 0.9308313160292201,
+      "Northeast": 0.3637090357576205,
+      "West": 0.4014951414315231
+    },
+    "scenario": 76
+  },
+  {
+    "cost_policy_index": 0.6986203579204777,
+    "global": 0.5959994787393014,
+    "paired_difference": -0.051276934965226895,
+    "proxy_policy_index": 0.6473434229552508,
+    "regional": {
+      "Gulf": 0.8141355581913733,
+      "Northeast": 0.2800373392556851,
+      "West": 0.6369397824213631
+    },
+    "scenario": 77
+  },
+  {
+    "cost_policy_index": 0.8853866952249799,
+    "global": 0.9237119254305795,
+    "paired_difference": -0.04345069918389621,
+    "proxy_policy_index": 0.8419359960410837,
+    "regional": {
+      "Gulf": 0.7352179985394548,
+      "Northeast": 0.3528965932377729,
+      "West": 0.5705974481836128
+    },
+    "scenario": 78
+  },
+  {
+    "cost_policy_index": 0.14866898920075017,
+    "global": 0.03182486477779256,
+    "paired_difference": -0.004877954748925356,
+    "proxy_policy_index": 0.1437910344518248,
+    "regional": {
+      "Gulf": 0.9156701186930172,
+      "Northeast": 0.6609387456773812,
+      "West": 0.06054092878737949
+    },
+    "scenario": 79
+  },
+  {
+    "cost_policy_index": 0.3698934160667562,
+    "global": 0.20674411359167,
+    "paired_difference": -0.016719030212398178,
+    "proxy_policy_index": 0.353174385854358,
+    "regional": {
+      "Gulf": 0.18677459272115704,
+      "Northeast": 0.18771087238540118,
+      "West": 0.648208496194692
+    },
+    "scenario": 80
+  },
+  {
+    "cost_policy_index": 0.5293899044553873,
+    "global": 0.4005853977286209,
+    "paired_difference": -0.03177966258188414,
+    "proxy_policy_index": 0.4976102418735031,
+    "regional": {
+      "Gulf": 0.14542841396879636,
+      "Northeast": 0.03238894532282999,
+      "West": 0.7579246042726142
+    },
+    "scenario": 81
+  },
+  {
+    "cost_policy_index": 0.5539205751072809,
+    "global": 0.3255608002987147,
+    "paired_difference": -0.010263953043521568,
+    "proxy_policy_index": 0.5436566220637593,
+    "regional": {
+      "Gulf": 0.796732203658866,
+      "Northeast": 0.7916042393665725,
+      "West": 0.750621336035411
+    },
+    "scenario": 82
+  },
+  {
+    "cost_policy_index": 0.28734273274833344,
+    "global": 0.07251655465094842,
+    "paired_difference": 0.021857070236362963,
+    "proxy_policy_index": 0.3091998029846964,
+    "regional": {
+      "Gulf": 0.5857747255212493,
+      "Northeast": 0.9244370065307619,
+      "West": 0.5238037918312343
+    },
+    "scenario": 83
+  },
+  {
+    "cost_policy_index": 0.5455994384925422,
+    "global": 0.3560329226183221,
+    "paired_difference": 0.0048047975024235745,
+    "proxy_policy_index": 0.5504042359949658,
+    "regional": {
+      "Gulf": 0.07923217445003683,
+      "Northeast": 0.5053728020903907,
+      "West": 0.9228754265239488
+    },
+    "scenario": 84
+  },
+  {
+    "cost_policy_index": 0.6386800170638756,
+    "global": 0.5778509014071949,
+    "paired_difference": 0.01878157316236384,
+    "proxy_policy_index": 0.6574615902262394,
+    "regional": {
+      "Gulf": 0.5875659431999863,
+      "Northeast": 0.9875899664044463,
+      "West": 0.5716923911217899
+    },
+    "scenario": 85
+  },
+  {
+    "cost_policy_index": 0.5921193640865977,
+    "global": 0.6919589873666799,
+    "paired_difference": 0.0065561908745140896,
+    "proxy_policy_index": 0.5986755549611118,
+    "regional": {
+      "Gulf": 0.83469146281041,
+      "Northeast": 0.8736604967650042,
+      "West": 0.10556277071926001
+    },
+    "scenario": 86
+  },
+  {
+    "cost_policy_index": 0.7032547380549798,
+    "global": 0.9199162607446232,
+    "paired_difference": 0.03335229273013263,
+    "proxy_policy_index": 0.7366070307851125,
+    "regional": {
+      "Gulf": 0.010435352878695459,
+      "Northeast": 0.6918733080209016,
+      "West": 0.2805634365601799
+    },
+    "scenario": 87
+  },
+  {
+    "cost_policy_index": 0.4129356992049793,
+    "global": 0.43703169194824776,
+    "paired_difference": 0.027404613274085166,
+    "proxy_policy_index": 0.44034031247906447,
+    "regional": {
+      "Gulf": 0.12417351180417502,
+      "Northeast": 0.6388233606474492,
+      "West": 0.3327090319366377
+    },
+    "scenario": 88
+  },
+  {
+    "cost_policy_index": 0.1356438533741456,
+    "global": 0.10792075650300204,
+    "paired_difference": -2.117000548620962e-05,
+    "proxy_policy_index": 0.1356226833686594,
+    "regional": {
+      "Gulf": 0.32130480442244014,
+      "Northeast": 0.29073911687124376,
+      "West": 0.0804228041162317
+    },
+    "scenario": 89
+  },
+  {
+    "cost_policy_index": 0.795117872439147,
+    "global": 0.6360201257733579,
+    "paired_difference": -0.0010971552804863727,
+    "proxy_policy_index": 0.7940207171586606,
+    "regional": {
+      "Gulf": 0.4193273850284548,
+      "Northeast": 0.7604429441946163,
+      "West": 0.9952968358356317
+    },
+    "scenario": 90
+  },
+  {
+    "cost_policy_index": 0.6548506666987001,
+    "global": 0.3964434917635862,
+    "paired_difference": -0.06482425013603432,
+    "proxy_policy_index": 0.5900264165626657,
+    "regional": {
+      "Gulf": 0.8189807709850093,
+      "Northeast": 0.17006928563254597,
+      "West": 0.9083300436166714
+    },
+    "scenario": 91
+  },
+  {
+    "cost_policy_index": 0.6133414200215053,
+    "global": 0.378997806623249,
+    "paired_difference": -0.0662945055346984,
+    "proxy_policy_index": 0.5470469144868069,
+    "regional": {
+      "Gulf": 0.7532598099129071,
+      "Northeast": 0.07416084346039109,
+      "West": 0.8400551582813061
+    },
+    "scenario": 92
+  },
+  {
+    "cost_policy_index": 0.7441641359628797,
+    "global": 0.7157330295636779,
+    "paired_difference": 0.012105835178483293,
+    "proxy_policy_index": 0.756269971141363,
+    "regional": {
+      "Gulf": 0.27003291826141884,
+      "Northeast": 0.7378388418816242,
+      "West": 0.7296760231145716
+    },
+    "scenario": 93
+  },
+  {
+    "cost_policy_index": 0.30725531613894075,
+    "global": 0.14924937614483824,
+    "paired_difference": 0.004277886787043106,
+    "proxy_policy_index": 0.31153320292598385,
+    "regional": {
+      "Gulf": 0.13405074978346043,
+      "Northeast": 0.3897779166318438,
+      "West": 0.5920439814880556
+    },
+    "scenario": 94
+  },
+  {
+    "cost_policy_index": 0.4972028229119154,
+    "global": 0.52174453711204,
+    "paired_difference": -0.033491983653195,
+    "proxy_policy_index": 0.4637108392587204,
+    "regional": {
+      "Gulf": 0.565306269019011,
+      "Northeast": 0.1757038216239537,
+      "West": 0.2589882565473246
+    },
+    "scenario": 95
+  },
+  {
+    "cost_policy_index": 0.7503853294576793,
+    "global": 0.5440206440695046,
+    "paired_difference": -0.05814222733822294,
+    "proxy_policy_index": 0.6922431021194564,
+    "regional": {
+      "Gulf": 0.9220394319676987,
+      "Northeast": 0.34401005756573555,
+      "West": 0.8633800420976607
+    },
+    "scenario": 96
+  },
+  {
+    "cost_policy_index": 0.4953804343928346,
+    "global": 0.2923415097130897,
+    "paired_difference": 0.018761562700895296,
+    "proxy_policy_index": 0.5141419970937299,
+    "regional": {
+      "Gulf": 0.08928184251058591,
+      "Northeast": 0.6730190597905633,
+      "West": 0.8948404241923987
+    },
+    "scenario": 97
+  },
+  {
+    "cost_policy_index": 0.6376699368138677,
+    "global": 0.4959271582608662,
+    "paired_difference": -0.012804264163974177,
+    "proxy_policy_index": 0.6248656726498936,
+    "regional": {
+      "Gulf": 0.8378133311946602,
+      "Northeast": 0.7817504558874033,
+      "West": 0.6452911571437631
+    },
+    "scenario": 98
+  },
+  {
+    "cost_policy_index": 0.8287350496400252,
+    "global": 0.8307452390585162,
+    "paired_difference": -0.04137902593469556,
+    "proxy_policy_index": 0.7873560237053296,
+    "regional": {
+      "Gulf": 0.37233091021887543,
+      "Northeast": 0.1392179138562334,
+      "West": 0.7178149966741584
+    },
+    "scenario": 99
+  },
+  {
+    "cost_policy_index": 0.7135063537109145,
+    "global": 0.7586748664267491,
+    "paired_difference": -0.013742317194878062,
+    "proxy_policy_index": 0.6997640365160365,
+    "regional": {
+      "Gulf": 0.9680901545729245,
+      "Northeast": 0.7900972950401883,
+      "West": 0.2944514880010507
+    },
+    "scenario": 100
+  },
+  {
+    "cost_policy_index": 0.5206656821861139,
+    "global": 0.6581903274446812,
+    "paired_difference": -0.01905483585416423,
+    "proxy_policy_index": 0.5016108463319496,
+    "regional": {
+      "Gulf": 0.1876802690899162,
+      "Northeast": 0.07324094996616004,
+      "West": 0.18924487395408185
+    },
+    "scenario": 101
+  },
+  {
+    "cost_policy_index": 0.7289886217483119,
+    "global": 0.6047355082397148,
+    "paired_difference": -0.0008613515776263458,
+    "proxy_policy_index": 0.7281272701706856,
+    "regional": {
+      "Gulf": 0.28390070719216987,
+      "Northeast": 0.6233997453813181,
+      "West": 0.9048030292228124
+    },
+    "scenario": 102
+  },
+  {
+    "cost_policy_index": 0.4479702428967609,
+    "global": 0.10840124705471654,
+    "paired_difference": -0.07190097159480019,
+    "proxy_policy_index": 0.3760692713019607,
+    "regional": {
+      "Gulf": 0.8450743969662737,
+      "Northeast": 0.029961881271719393,
+      "West": 0.8508360444058153
+    },
+    "scenario": 103
+  },
+  {
+    "cost_policy_index": 0.7279954031380433,
+    "global": 0.5957414185217101,
+    "paired_difference": -0.004392448278979111,
+    "proxy_policy_index": 0.7236029548590642,
+    "regional": {
+      "Gulf": 0.24931556673856536,
+      "Northeast": 0.5596376144991889,
+      "West": 0.9326683299689096
+    },
+    "scenario": 104
+  },
+  {
+    "cost_policy_index": 0.46661758963123484,
+    "global": 0.23876908165285127,
+    "paired_difference": -0.02111608725178815,
+    "proxy_policy_index": 0.4455015023794467,
+    "regional": {
+      "Gulf": 0.06462154046639557,
+      "Northeast": 0.14000255122993577,
+      "West": 0.9247478100729996
+    },
+    "scenario": 105
+  },
+  {
+    "cost_policy_index": 0.3996291896364692,
+    "global": 0.5602160243894361,
+    "paired_difference": 0.01891678908520633,
+    "proxy_policy_index": 0.41854597872167554,
+    "regional": {
+      "Gulf": 0.15704139991534494,
+      "Northeast": 0.46809163402383136,
+      "West": 0.028064825271272964
+    },
+    "scenario": 106
+  },
+  {
+    "cost_policy_index": 0.4979834007671323,
+    "global": 0.7131918834356824,
+    "paired_difference": -0.008555850016736644,
+    "proxy_policy_index": 0.4894275507503957,
+    "regional": {
+      "Gulf": 0.05253883671396853,
+      "Northeast": 0.0686577017418808,
+      "West": 0.05601494492693737
+    },
+    "scenario": 107
+  },
+  {
+    "cost_policy_index": 0.9021693730706318,
+    "global": 0.860331032673379,
+    "paired_difference": 0.015964432488090097,
+    "proxy_policy_index": 0.9181338055587219,
+    "regional": {
+      "Gulf": 0.2437738825005542,
+      "Northeast": 0.8621361130089735,
+      "West": 0.9299784163290531
+    },
+    "scenario": 108
+  },
+  {
+    "cost_policy_index": 0.6955827543436857,
+    "global": 0.8772249917620376,
+    "paired_difference": 0.008276235277419386,
+    "proxy_policy_index": 0.703858989621105,
+    "regional": {
+      "Gulf": 0.48303996408817074,
+      "Northeast": 0.6826929539372971,
+      "West": 0.17285131054022218
+    },
+    "scenario": 109
+  },
+  {
+    "cost_policy_index": 0.5145286912012901,
+    "global": 0.1946991424099913,
+    "paired_difference": -0.020453758793335997,
+    "proxy_policy_index": 0.4940749324079541,
+    "regional": {
+      "Gulf": 0.5336070147884018,
+      "Northeast": 0.5220420393873348,
+      "West": 0.9922432112707342
+    },
+    "scenario": 110
+  },
+  {
+    "cost_policy_index": 0.5275882204062508,
+    "global": 0.34249667816778395,
+    "paired_difference": -0.04703001888882141,
+    "proxy_policy_index": 0.48055820151742934,
+    "regional": {
+      "Gulf": 0.6315312247142976,
+      "Northeast": 0.17360890047475208,
+      "West": 0.6948566420362865
+    },
+    "scenario": 111
+  },
+  {
+    "cost_policy_index": 0.7213627720973992,
+    "global": 0.6685833120029732,
+    "paired_difference": -0.024942976108365045,
+    "proxy_policy_index": 0.6964197959890341,
+    "regional": {
+      "Gulf": 0.5299028722155289,
+      "Northeast": 0.42492243116203765,
+      "West": 0.6616419372571113
+    },
+    "scenario": 112
+  },
+  {
+    "cost_policy_index": 0.32332325378792653,
+    "global": 0.15482529006750867,
+    "paired_difference": -0.005683995145665477,
+    "proxy_policy_index": 0.31763925864226106,
+    "regional": {
+      "Gulf": 0.9577240835834581,
+      "Northeast": 0.7980486701851273,
+      "West": 0.33146082755452777
+    },
+    "scenario": 113
+  },
+  {
+    "cost_policy_index": 0.7997416108070556,
+    "global": 0.9978423574602138,
+    "paired_difference": 0.029782752439207028,
+    "proxy_policy_index": 0.8295243632462627,
+    "regional": {
+      "Gulf": 0.15182031733536028,
+      "Northeast": 0.796749266702411,
+      "West": 0.3670051091212536
+    },
+    "scenario": 114
+  },
+  {
+    "cost_policy_index": 0.8757435960672248,
+    "global": 0.9697702710282834,
+    "paired_difference": 0.01824406184778793,
+    "proxy_policy_index": 0.8939876579150128,
+    "regional": {
+      "Gulf": 0.2610014430320685,
+      "Northeast": 0.8141173304336013,
+      "West": 0.6187186137325814
+    },
+    "scenario": 115
+  },
+  {
+    "cost_policy_index": 0.3477508755375319,
+    "global": 0.0780929101529464,
+    "paired_difference": -0.010015983107295567,
+    "proxy_policy_index": 0.33773489243023636,
+    "regional": {
+      "Gulf": 0.17132626655680472,
+      "Northeast": 0.31120995621908965,
+      "West": 0.8486027834720721
+    },
+    "scenario": 116
+  },
+  {
+    "cost_policy_index": 0.40769579555795377,
+    "global": 0.487103674246384,
+    "paired_difference": 0.011452779017865955,
+    "proxy_policy_index": 0.4191485745758197,
+    "regional": {
+      "Gulf": 0.4834419326303292,
+      "Northeast": 0.627500042341264,
+      "West": 0.08398012007014388
+    },
+    "scenario": 117
+  },
+  {
+    "cost_policy_index": 0.7399193073588255,
+    "global": 0.6432991413885841,
+    "paired_difference": 0.018648192657717555,
+    "proxy_policy_index": 0.758567500016543,
+    "regional": {
+      "Gulf": 0.3212820039091344,
+      "Northeast": 0.890086863917479,
+      "West": 0.8460741534602653
+    },
+    "scenario": 118
+  },
+  {
+    "cost_policy_index": 0.9323687778105048,
+    "global": 0.9274928559958934,
+    "paired_difference": -0.01965422122977456,
+    "proxy_policy_index": 0.9127145565807302,
+    "regional": {
+      "Gulf": 0.25084282132894575,
+      "Northeast": 0.4017389281931727,
+      "West": 0.8830959139239213
+    },
+    "scenario": 119
+  },
+  {
+    "cost_policy_index": 0.5831638370713266,
+    "global": 0.6683220165121498,
+    "paired_difference": -0.0028926094428065596,
+    "proxy_policy_index": 0.58027122762852,
+    "regional": {
+      "Gulf": 0.34934753533374685,
+      "Northeast": 0.4466825358069556,
+      "West": 0.30228212478952954
+    },
+    "scenario": 120
+  },
+  {
+    "cost_policy_index": 0.9279373141716002,
+    "global": 0.8270464648750401,
+    "paired_difference": -0.00669029636302898,
+    "proxy_policy_index": 0.9212470178085712,
+    "regional": {
+      "Gulf": 0.6125387578001634,
+      "Northeast": 0.849240236814659,
+      "West": 0.9436135534086507
+    },
+    "scenario": 121
+  },
+  {
+    "cost_policy_index": 0.28137508127714217,
+    "global": 0.17868890195173026,
+    "paired_difference": -0.02370215635246886,
+    "proxy_policy_index": 0.2576729249246733,
+    "regional": {
+      "Gulf": 0.8146188522987965,
+      "Northeast": 0.4159103413561216,
+      "West": 0.2054620348885734
+    },
+    "scenario": 122
+  },
+  {
+    "cost_policy_index": 0.5903233606996023,
+    "global": 0.48744404130254326,
+    "paired_difference": 0.011174360448150678,
+    "proxy_policy_index": 0.601497721147753,
+    "regional": {
+      "Gulf": 0.46720206885584437,
+      "Northeast": 0.8102225738089824,
+      "West": 0.651276520041336
+    },
+    "scenario": 123
+  },
+  {
+    "cost_policy_index": 0.5222214323022167,
+    "global": 0.20669072308753045,
+    "paired_difference": -0.03574338843832037,
+    "proxy_policy_index": 0.48647804386389637,
+    "regional": {
+      "Gulf": 0.8638492473488164,
+      "Northeast": 0.5356576663964638,
+      "West": 0.8716744115058529
+    },
+    "scenario": 124
+  },
+  {
+    "cost_policy_index": 0.1530310696665284,
+    "global": 0.023614475326733553,
+    "paired_difference": 0.010669831073321229,
+    "proxy_policy_index": 0.16370090073984964,
+    "regional": {
+      "Gulf": 0.4795751677416865,
+      "Northeast": 0.5943899103501361,
+      "West": 0.24886402759569193
+    },
+    "scenario": 125
+  },
+  {
+    "cost_policy_index": 0.4988788528114132,
+    "global": 0.605146612054438,
+    "paired_difference": -0.03386147264063,
+    "proxy_policy_index": 0.4650173801707832,
+    "regional": {
+      "Gulf": 0.8234354079457836,
+      "Northeast": 0.29089164367501485,
+      "West": 9.404130701873292e-05
+    },
+    "scenario": 126
+  },
+  {
+    "cost_policy_index": 0.2892333959256741,
+    "global": 0.04711285494020223,
+    "paired_difference": 0.02737171995543758,
+    "proxy_policy_index": 0.3166051158811117,
+    "regional": {
+      "Gulf": 0.30711046321168,
+      "Northeast": 0.8348230180124504,
+      "West": 0.6825807695792456
+    },
+    "scenario": 127
+  },
+  {
+    "cost_policy_index": 0.90324949324709,
+    "global": 0.9195569116146887,
+    "paired_difference": 0.009193776729314096,
+    "proxy_policy_index": 0.9124432699764041,
+    "regional": {
+      "Gulf": 0.38103160476096865,
+      "Northeast": 0.8304188739990757,
+      "West": 0.7624875440089687
+    },
+    "scenario": 128
+  },
+  {
+    "cost_policy_index": 0.7347142724598856,
+    "global": 0.8493128808310875,
+    "paired_difference": -0.052796381078199284,
+    "proxy_policy_index": 0.6819178913816863,
+    "regional": {
+      "Gulf": 0.7143977304666772,
+      "Northeast": 0.09719771505106634,
+      "West": 0.26645737548484927
+    },
+    "scenario": 129
+  },
+  {
+    "cost_policy_index": 0.28772697705245354,
+    "global": 0.12246925589003166,
+    "paired_difference": -0.010675269963782985,
+    "proxy_policy_index": 0.27705170708867055,
+    "regional": {
+      "Gulf": 0.43392848377797877,
+      "Northeast": 0.3803754372244744,
+      "West": 0.4779454979674733
+    },
+    "scenario": 130
+  },
+  {
+    "cost_policy_index": 0.47949232747502374,
+    "global": 0.5255446463279102,
+    "paired_difference": -0.021032326409208435,
+    "proxy_policy_index": 0.4584600010658153,
+    "regional": {
+      "Gulf": 0.8772863310168447,
+      "Northeast": 0.513703457886249,
+      "West": 0.08359518401720734
+    },
+    "scenario": 131
+  },
+  {
+    "cost_policy_index": 0.7226728008541939,
+    "global": 0.63279953798228,
+    "paired_difference": 0.017605397480457197,
+    "proxy_policy_index": 0.7402781983346511,
+    "regional": {
+      "Gulf": 0.2002703714494185,
+      "Northeast": 0.7869524455976895,
+      "West": 0.8583269249009524
+    },
+    "scenario": 132
+  },
+  {
+    "cost_policy_index": 0.512273075647864,
+    "global": 0.14780776526055417,
+    "paired_difference": -0.005487080027117841,
+    "proxy_policy_index": 0.5067859956207461,
+    "regional": {
+      "Gulf": 0.8055120336079351,
+      "Northeast": 0.9114523393116937,
+      "West": 0.9825546677980243
+    },
+    "scenario": 133
+  },
+  {
+    "cost_policy_index": 0.46578734036124103,
+    "global": 0.20773559591271362,
+    "paired_difference": -0.03215004082519557,
+    "proxy_policy_index": 0.43363729953604546,
+    "regional": {
+      "Gulf": 0.8638469978915102,
+      "Northeast": 0.520735361606602,
+      "West": 0.6958428487035507
+    },
+    "scenario": 134
+  },
+  {
+    "cost_policy_index": 0.48579027421695736,
+    "global": 0.5366475806924295,
+    "paired_difference": -0.03785483414091462,
+    "proxy_policy_index": 0.44793544007604275,
+    "regional": {
+      "Gulf": 0.5973830711095736,
+      "Northeast": 0.11917889402362736,
+      "West": 0.18177199901951946
+    },
+    "scenario": 135
+  },
+  {
+    "cost_policy_index": 0.26307475297509597,
+    "global": 0.13051990745200626,
+    "paired_difference": -0.006250986302514361,
+    "proxy_policy_index": 0.2568237666725816,
+    "regional": {
+      "Gulf": 0.9475317186760762,
+      "Northeast": 0.7326320774780738,
+      "West": 0.19939603561572627
+    },
+    "scenario": 136
+  },
+  {
+    "cost_policy_index": 0.7354769591777665,
+    "global": 0.6049297876519083,
+    "paired_difference": 0.01989929757024189,
+    "proxy_policy_index": 0.7553762567480083,
+    "regional": {
+      "Gulf": 0.2171884367640442,
+      "Northeast": 0.8564246812391892,
+      "West": 0.9485642838926202
+    },
+    "scenario": 137
+  },
+  {
+    "cost_policy_index": 0.32230143086844487,
+    "global": 0.27344659754397127,
+    "paired_difference": -0.03480500756340538,
+    "proxy_policy_index": 0.2874964233050395,
+    "regional": {
+      "Gulf": 0.42895316567580577,
+      "Northeast": 0.01970921093776501,
+      "West": 0.2775885960380451
+    },
+    "scenario": 138
+  },
+  {
+    "cost_policy_index": 0.3794424881929779,
+    "global": 0.2177518271154154,
+    "paired_difference": 0.03702010248708676,
+    "proxy_policy_index": 0.41646259068006464,
+    "regional": {
+      "Gulf": 0.24673577235517952,
+      "Northeast": 0.9250101806672039,
+      "West": 0.6333607676624997
+    },
+    "scenario": 139
+  },
+  {
+    "cost_policy_index": 0.5190644905449363,
+    "global": 0.5582198169506322,
+    "paired_difference": -0.03537055494892988,
+    "proxy_policy_index": 0.48369393559600643,
+    "regional": {
+      "Gulf": 0.7386447068990741,
+      "Northeast": 0.26501618663054016,
+      "West": 0.18887742267207797
+    },
+    "scenario": 140
+  },
+  {
+    "cost_policy_index": 0.43318198797590673,
+    "global": 0.33849128121494887,
+    "paired_difference": -0.00026580444701179706,
+    "proxy_policy_index": 0.43291618352889494,
+    "regional": {
+      "Gulf": 0.19692646949614245,
+      "Northeast": 0.40296366239828996,
+      "West": 0.5700489830054613
+    },
+    "scenario": 141
+  },
+  {
+    "cost_policy_index": 0.3727606990843205,
+    "global": 0.005978812651473153,
+    "paired_difference": -0.0432509768095265,
+    "proxy_policy_index": 0.329509722274794,
+    "regional": {
+      "Gulf": 0.8728384038317577,
+      "Northeast": 0.3931581720180314,
+      "West": 0.81862143604718
+    },
+    "scenario": 142
+  },
+  {
+    "cost_policy_index": 0.4613105554174104,
+    "global": 0.5187267883804657,
+    "paired_difference": -0.056242149859380086,
+    "proxy_policy_index": 0.4050684055580303,
+    "regional": {
+      "Gulf": 0.8483987157737855,
+      "Northeast": 0.02415867854553211,
+      "West": 0.05204266812930192
+    },
+    "scenario": 143
+  },
+  {
+    "cost_policy_index": 0.47516160739025615,
+    "global": 0.48218869174878587,
+    "paired_difference": -0.00027854504818392023,
+    "proxy_policy_index": 0.4748830623420722,
+    "regional": {
+      "Gulf": 0.15195013921547285,
+      "Northeast": 0.3407663297332333,
+      "West": 0.4218666673896344
+    },
+    "scenario": 144
+  },
+  {
+    "cost_policy_index": 0.6890718607987797,
+    "global": 0.6246862146979127,
+    "paired_difference": -0.01766285403070733,
+    "proxy_policy_index": 0.6714090067680724,
+    "regional": {
+      "Gulf": 0.3189644993557281,
+      "Northeast": 0.3744244695647505,
+      "West": 0.7284547919499107
+    },
+    "scenario": 145
+  },
+  {
+    "cost_policy_index": 0.22000079243705806,
+    "global": 0.07208007875653011,
+    "paired_difference": -0.023669161735186406,
+    "proxy_policy_index": 0.19633163070187165,
+    "regional": {
+      "Gulf": 0.45229823810080183,
+      "Northeast": 0.17861041687715407,
+      "West": 0.36582112554789104
+    },
+    "scenario": 146
+  },
+  {
+    "cost_policy_index": 0.7245986392923035,
+    "global": 0.762735485487961,
+    "paired_difference": -0.06680711626020319,
+    "proxy_policy_index": 0.6577915230321003,
+    "regional": {
+      "Gulf": 0.889270760422816,
+      "Northeast": 0.06353824551255305,
+      "West": 0.34887055886800644
+    },
+    "scenario": 147
+  },
+  {
+    "cost_policy_index": 0.49831787340796907,
+    "global": 0.24932148939762055,
+    "paired_difference": -0.0011027185173390075,
+    "proxy_policy_index": 0.49721515489063006,
+    "regional": {
+      "Gulf": 0.09877249871117855,
+      "Northeast": 0.44888422653896265,
+      "West": 0.9883673069415275
+    },
+    "scenario": 148
+  },
+  {
+    "cost_policy_index": 0.23146528473921135,
+    "global": 0.029537416967418184,
+    "paired_difference": -0.017175974231100566,
+    "proxy_policy_index": 0.2142893105081108,
+    "regional": {
+      "Gulf": 0.3812522656723155,
+      "Northeast": 0.25314778805001736,
+      "West": 0.5138179319969177
+    },
+    "scenario": 149
+  },
+  {
+    "cost_policy_index": 0.4410025175954445,
+    "global": 0.3652630835953654,
+    "paired_difference": 0.011846880571962204,
+    "proxy_policy_index": 0.4528493981674067,
+    "regional": {
+      "Gulf": 0.5710074063372547,
+      "Northeast": 0.7908254749929197,
+      "West": 0.4037700660739103
+    },
+    "scenario": 150
+  },
+  {
+    "cost_policy_index": 0.8777122257760457,
+    "global": 0.9634688457313254,
+    "paired_difference": 0.015098245198184812,
+    "proxy_policy_index": 0.8928104709742305,
+    "regional": {
+      "Gulf": 0.2522516148884072,
+      "Northeast": 0.7734540161612398,
+      "West": 0.6408294814844716
+    },
+    "scenario": 151
+  },
+  {
+    "cost_policy_index": 0.9031174468414844,
+    "global": 0.9640285548784381,
+    "paired_difference": 0.012944662630327342,
+    "proxy_policy_index": 0.9160621094718118,
+    "regional": {
+      "Gulf": 0.5599541849153316,
+      "Northeast": 0.9679949320488075,
+      "West": 0.6063148106846157
+    },
+    "scenario": 152
+  },
+  {
+    "cost_policy_index": 0.8109143276585695,
+    "global": 0.6513874315234716,
+    "paired_difference": -0.01747026867145729,
+    "proxy_policy_index": 0.7934440589871122,
+    "regional": {
+      "Gulf": 0.5012184377780307,
+      "Northeast": 0.6092854430837213,
+      "West": 0.9828161643125767
+    },
+    "scenario": 153
+  },
+  {
+    "cost_policy_index": 0.3690834705835376,
+    "global": 0.47205090928503823,
+    "paired_difference": -0.007888153289477118,
+    "proxy_policy_index": 0.36119531729406046,
+    "regional": {
+      "Gulf": 0.18626860566289427,
+      "Northeast": 0.1553731653305397,
+      "West": 0.10364919213825485
+    },
+    "scenario": 154
+  },
+  {
+    "cost_policy_index": 0.5948455422572922,
+    "global": 0.6305766498946604,
+    "paired_difference": -0.0072694030055500125,
+    "proxy_policy_index": 0.5875761392517422,
+    "regional": {
+      "Gulf": 0.6553488154644964,
+      "Northeast": 0.617587583279803,
+      "West": 0.30443529526939184
+    },
+    "scenario": 155
+  },
+  {
+    "cost_policy_index": 0.8474409086157435,
+    "global": 0.9776625733737871,
+    "paired_difference": -0.0013728227061121645,
+    "proxy_policy_index": 0.8460680859096313,
+    "regional": {
+      "Gulf": 0.5591600439110397,
+      "Northeast": 0.7148588563761544,
+      "West": 0.4073715715425048
+    },
+    "scenario": 156
+  },
+  {
+    "cost_policy_index": 0.5276588763047227,
+    "global": 0.41196234617353045,
+    "paired_difference": -0.04777871488613661,
+    "proxy_policy_index": 0.47988016141858614,
+    "regional": {
+      "Gulf": 0.5874624068516593,
+      "Northeast": 0.09797240718762501,
+      "West": 0.5690742037582776
+    },
+    "scenario": 157
+  },
+  {
+    "cost_policy_index": 0.14167015457301596,
+    "global": 0.013106495974071208,
+    "paired_difference": -0.015200841389712644,
+    "proxy_policy_index": 0.12646931318330332,
+    "regional": {
+      "Gulf": 0.7135186386874515,
+      "Northeast": 0.40183193108627424,
+      "West": 0.15055183220699353
+    },
+    "scenario": 158
+  },
+  {
+    "cost_policy_index": 0.5479425572365584,
+    "global": 0.6835439541198347,
+    "paired_difference": -0.0026518134094424273,
+    "proxy_policy_index": 0.545290743827116,
+    "regional": {
+      "Gulf": 0.15892384879001265,
+      "Northeast": 0.2826246084532261,
+      "West": 0.23180660238786932
+    },
+    "scenario": 159
+  },
+  {
+    "cost_policy_index": 0.574421913057566,
+    "global": 0.3757678492428551,
+    "paired_difference": -0.04772961447389801,
+    "proxy_policy_index": 0.526692298583668,
+    "regional": {
+      "Gulf": 0.867632037616839,
+      "Northeast": 0.3466755290058229,
+      "West": 0.6853992574225435
+    },
+    "scenario": 160
+  },
+  {
+    "cost_policy_index": 0.48081745862143466,
+    "global": 0.3047976558074058,
+    "paired_difference": 0.02788215898546509,
+    "proxy_policy_index": 0.5086996176068997,
+    "regional": {
+      "Gulf": 0.07204662189020217,
+      "Northeast": 0.7575115189251537,
+      "West": 0.8308078892701168
+    },
+    "scenario": 161
+  },
+  {
+    "cost_policy_index": 1.0019032690764966,
+    "global": 0.9873632098937635,
+    "paired_difference": 0.0009801221433294316,
+    "proxy_policy_index": 1.002883391219826,
+    "regional": {
+      "Gulf": 0.6994310484316996,
+      "Northeast": 0.9954774593956491,
+      "West": 0.8121014221030749
+    },
+    "scenario": 162
+  },
+  {
+    "cost_policy_index": 0.6822994798252997,
+    "global": 0.7432597565305906,
+    "paired_difference": 0.005479263586868788,
+    "proxy_policy_index": 0.6877787434121685,
+    "regional": {
+      "Gulf": 0.4254280252840459,
+      "Northeast": 0.6690286157211998,
+      "West": 0.4266617947759328
+    },
+    "scenario": 163
+  },
+  {
+    "cost_policy_index": 0.3654475310007749,
+    "global": 0.1303479657675105,
+    "paired_difference": -0.010112369125759635,
+    "proxy_policy_index": 0.35533516187501524,
+    "regional": {
+      "Gulf": 0.8446694457230023,
+      "Northeast": 0.7278230591923625,
+      "West": 0.5521326673643887
+    },
+    "scenario": 164
+  },
+  {
+    "cost_policy_index": 0.20114337657520637,
+    "global": 0.14881513306837912,
+    "paired_difference": 0.03097691166738828,
+    "proxy_policy_index": 0.23212028824259465,
+    "regional": {
+      "Gulf": 0.39580815189578855,
+      "Northeast": 0.7870968263338449,
+      "West": 0.17142655330201695
+    },
+    "scenario": 165
+  },
+  {
+    "cost_policy_index": 0.5395351184092565,
+    "global": 0.6396474526522786,
+    "paired_difference": -0.03763903897224519,
+    "proxy_policy_index": 0.5018960794370113,
+    "regional": {
+      "Gulf": 0.5060213986790727,
+      "Northeast": 0.0654687703507939,
+      "West": 0.1697996513115304
+    },
+    "scenario": 166
+  },
+  {
+    "cost_policy_index": 0.23561289256618334,
+    "global": 0.11208387413923449,
+    "paired_difference": 0.026518165163046392,
+    "proxy_policy_index": 0.26213105772922973,
+    "regional": {
+      "Gulf": 0.70795052502554,
+      "Northeast": 0.9848430825995294,
+      "West": 0.23941835671288414
+    },
+    "scenario": 167
+  },
+  {
+    "cost_policy_index": 0.35651802599034765,
+    "global": 0.1976135352930427,
+    "paired_difference": 0.02407059299268416,
+    "proxy_policy_index": 0.3805886189830318,
+    "regional": {
+      "Gulf": 0.1728220401634264,
+      "Northeast": 0.6969506227962035,
+      "West": 0.6307612236003418
+    },
+    "scenario": 168
+  },
+  {
+    "cost_policy_index": 0.33116215074587296,
+    "global": 0.4137599628721269,
+    "paired_difference": 0.021648407696587935,
+    "proxy_policy_index": 0.3528105584424609,
+    "regional": {
+      "Gulf": 0.2733026439234302,
+      "Northeast": 0.5836657217909066,
+      "West": 0.07451460740676219
+    },
+    "scenario": 169
+  },
+  {
+    "cost_policy_index": 0.3326021457530425,
+    "global": 0.20737734346370285,
+    "paired_difference": -0.02678127707722805,
+    "proxy_policy_index": 0.30582086867581443,
+    "regional": {
+      "Gulf": 0.9531467275460871,
+      "Northeast": 0.5035132781562431,
+      "West": 0.25427065657445846
+    },
+    "scenario": 170
+  },
+  {
+    "cost_policy_index": 0.5433938625483592,
+    "global": 0.5284825490199638,
+    "paired_difference": 0.006574504497962708,
+    "proxy_policy_index": 0.5499683670463219,
+    "regional": {
+      "Gulf": 0.4862835377294107,
+      "Northeast": 0.6897885725317772,
+      "West": 0.4160382429274475
+    },
+    "scenario": 171
+  },
+  {
+    "cost_policy_index": 0.6093089749506112,
+    "global": 0.6821482206864338,
+    "paired_difference": 0.010766021747181886,
+    "proxy_policy_index": 0.6200749966977931,
+    "regional": {
+      "Gulf": 0.11745480378598949,
+      "Northeast": 0.49672601289017515,
+      "West": 0.4385727088882587
+    },
+    "scenario": 172
+  },
+  {
+    "cost_policy_index": 0.6749611943666629,
+    "global": 0.7165752490557228,
+    "paired_difference": -0.045789476650943906,
+    "proxy_policy_index": 0.629171717715719,
+    "regional": {
+      "Gulf": 0.5338091634016594,
+      "Northeast": 0.08150667522517085,
+      "West": 0.41931880819481293
+    },
+    "scenario": 173
+  },
+  {
+    "cost_policy_index": 0.6959558102874328,
+    "global": 0.687201023563588,
+    "paired_difference": -0.02909202213624429,
+    "proxy_policy_index": 0.6668637881511885,
+    "regional": {
+      "Gulf": 0.05570336319481162,
+      "Northeast": 0.03267828995117472,
+      "West": 0.7173226051267569
+    },
+    "scenario": 174
+  },
+  {
+    "cost_policy_index": 0.7532707042696273,
+    "global": 0.8937155916391111,
+    "paired_difference": 0.011064133631026318,
+    "proxy_policy_index": 0.7643348379006536,
+    "regional": {
+      "Gulf": 0.1854366773006456,
+      "Northeast": 0.5829746629618272,
+      "West": 0.42460580195647757
+    },
+    "scenario": 175
+  },
+  {
+    "cost_policy_index": 0.6625141726555516,
+    "global": 0.9550499408778232,
+    "paired_difference": 0.01032744162024224,
+    "proxy_policy_index": 0.6728416142757938,
+    "regional": {
+      "Gulf": 0.16381890687332634,
+      "Northeast": 0.4283146576156974,
+      "West": 0.02774820617406948
+    },
+    "scenario": 176
+  },
+  {
+    "cost_policy_index": 0.34823214393050994,
+    "global": 0.3726862566081607,
+    "paired_difference": -0.04577702438451092,
+    "proxy_policy_index": 0.302455119545999,
+    "regional": {
+      "Gulf": 0.7123703484831218,
+      "Northeast": 0.03129532064465912,
+      "West": 0.05180858165142843
+    },
+    "scenario": 177
+  },
+  {
+    "cost_policy_index": 0.8740582555064431,
+    "global": 0.8673125279355,
+    "paired_difference": 0.011791885952123993,
+    "proxy_policy_index": 0.8858501414585671,
+    "regional": {
+      "Gulf": 0.4894184943421903,
+      "Northeast": 0.9299817399757176,
+      "West": 0.7401227229835784
+    },
+    "scenario": 178
+  },
+  {
+    "cost_policy_index": 0.20639959878790948,
+    "global": 0.23198054746061836,
+    "paired_difference": 0.04753452443425332,
+    "proxy_policy_index": 0.2539341232221628,
+    "regional": {
+      "Gulf": 0.24886684666766856,
+      "Northeast": 0.8680559902840831,
+      "West": 0.07090305235221461
+    },
+    "scenario": 179
+  },
+  {
+    "cost_policy_index": 0.37279449619580984,
+    "global": 0.4386726679461963,
+    "paired_difference": 0.05129890973430368,
+    "proxy_policy_index": 0.4240934059301135,
+    "regional": {
+      "Gulf": 0.25657903541601945,
+      "Northeast": 0.9877219680106053,
+      "West": 0.1577990171564515
+    },
+    "scenario": 180
+  },
+  {
+    "cost_policy_index": 0.43940313778681117,
+    "global": 0.12204034522485108,
+    "paired_difference": -0.03890801709382996,
+    "proxy_policy_index": 0.4004951206929812,
+    "regional": {
+      "Gulf": 0.6204953147236968,
+      "Northeast": 0.29738060517087594,
+      "West": 0.8780175391375727
+    },
+    "scenario": 181
+  },
+  {
+    "cost_policy_index": 0.7615032894957391,
+    "global": 0.6883890218631296,
+    "paired_difference": -0.016831032974535476,
+    "proxy_policy_index": 0.7446722565212036,
+    "regional": {
+      "Gulf": 0.7535527363924557,
+      "Northeast": 0.7042040050354003,
+      "West": 0.6636197204693648
+    },
+    "scenario": 182
+  },
+  {
+    "cost_policy_index": 0.8927281873757817,
+    "global": 0.9822752919886113,
+    "paired_difference": -0.01243017407063074,
+    "proxy_policy_index": 0.880298013305151,
+    "regional": {
+      "Gulf": 0.1407622767274439,
+      "Northeast": 0.35255462316873143,
+      "West": 0.6890319591635935
+    },
+    "scenario": 183
+  },
+  {
+    "cost_policy_index": 0.7182954007163262,
+    "global": 0.7256684972631787,
+    "paired_difference": -0.032394036200642184,
+    "proxy_policy_index": 0.6859013645156841,
+    "regional": {
+      "Gulf": 0.5011074604731915,
+      "Northeast": 0.27570393355274514,
+      "West": 0.5459673015234549
+    },
+    "scenario": 184
+  },
+  {
+    "cost_policy_index": 0.44246848130063476,
+    "global": 0.23215562510075416,
+    "paired_difference": -0.008410367265891727,
+    "proxy_policy_index": 0.43405811403474304,
+    "regional": {
+      "Gulf": 0.544518874308387,
+      "Northeast": 0.5865388285996398,
+      "West": 0.6899391045212401
+    },
+    "scenario": 185
+  },
+  {
+    "cost_policy_index": 0.6383352112322115,
+    "global": 0.8051673793073801,
+    "paired_difference": 0.008512477091306314,
+    "proxy_policy_index": 0.6468476883235178,
+    "regional": {
+      "Gulf": 0.5174611466812394,
+      "Northeast": 0.6853785046365234,
+      "West": 0.13144626015418837
+    },
+    "scenario": 186
+  },
+  {
+    "cost_policy_index": 0.7896591608194381,
+    "global": 0.9536630159361852,
+    "paired_difference": -0.03206854849709029,
+    "proxy_policy_index": 0.7575906123223478,
+    "regional": {
+      "Gulf": 0.1561711085544838,
+      "Northeast": 0.01296127561352145,
+      "West": 0.42469153123821546
+    },
+    "scenario": 187
+  },
+  {
+    "cost_policy_index": 0.518400777286835,
+    "global": 0.6021714301789832,
+    "paired_difference": -0.05705479177847922,
+    "proxy_policy_index": 0.46134598550835576,
+    "regional": {
+      "Gulf": 0.9626635768840904,
+      "Northeast": 0.10199189158134225,
+      "West": 0.015780454661543097
+    },
+    "scenario": 188
+  },
+  {
+    "cost_policy_index": 0.3075539361978109,
+    "global": 0.3577474332296916,
+    "paired_difference": -0.01231930669107506,
+    "proxy_policy_index": 0.29523462950673585,
+    "regional": {
+      "Gulf": 0.14275747117186854,
+      "Northeast": 0.06675880886175989,
+      "West": 0.1636655064868825
+    },
+    "scenario": 189
+  },
+  {
+    "cost_policy_index": 0.3355648369158303,
+    "global": 0.3275258180759869,
+    "paired_difference": -0.010889226212803638,
+    "proxy_policy_index": 0.32467561070302664,
+    "regional": {
+      "Gulf": 0.39345849141757605,
+      "Northeast": 0.29113420000884893,
+      "West": 0.2207507144767027
+    },
+    "scenario": 190
+  },
+  {
+    "cost_policy_index": 0.8448617889916004,
+    "global": 0.9595487515169074,
+    "paired_difference": -0.03365035252944204,
+    "proxy_policy_index": 0.8112114364621583,
+    "regional": {
+      "Gulf": 0.680572421027014,
+      "Northeast": 0.38164468885611147,
+      "West": 0.39243462403759866
+    },
+    "scenario": 191
+  },
+  {
+    "cost_policy_index": 0.5201106159073328,
+    "global": 0.2512203117114332,
+    "paired_difference": -0.024400918043108066,
+    "proxy_policy_index": 0.4957096978642247,
+    "regional": {
+      "Gulf": 0.8808420840724835,
+      "Northeast": 0.6664594691779514,
+      "West": 0.7680042179489598
+    },
+    "scenario": 192
+  },
+  {
+    "cost_policy_index": 0.732251326732102,
+    "global": 0.917774607874029,
+    "paired_difference": -0.016775211204898666,
+    "proxy_policy_index": 0.7154761155272034,
+    "regional": {
+      "Gulf": 0.061633705184554244,
+      "Northeast": 0.10852497328834831,
+      "West": 0.3556252628581492
+    },
+    "scenario": 193
+  },
+  {
+    "cost_policy_index": 0.6568376955375801,
+    "global": 0.9596152430571596,
+    "paired_difference": 0.03695579784436065,
+    "proxy_policy_index": 0.6937934933819407,
+    "regional": {
+      "Gulf": 0.05180002701462849,
+      "Northeast": 0.6929594533607253,
+      "West": 0.04156094245352471
+    },
+    "scenario": 194
+  },
+  {
+    "cost_policy_index": 0.13330788036148516,
+    "global": 0.029728884452109305,
+    "paired_difference": -0.01463797477931772,
+    "proxy_policy_index": 0.11866990558216745,
+    "regional": {
+      "Gulf": 0.7182945802437962,
+      "Northeast": 0.3940241538549828,
+      "West": 0.08910838131222776
+    },
+    "scenario": 195
+  },
+  {
+    "cost_policy_index": 0.5268305833998699,
+    "global": 0.3361461265516519,
+    "paired_difference": -0.0022476685945458375,
+    "proxy_policy_index": 0.524582914805324,
+    "regional": {
+      "Gulf": 0.6276273644230489,
+      "Northeast": 0.7529380261644177,
+      "West": 0.7069198046605429
+    },
+    "scenario": 196
+  },
+  {
+    "cost_policy_index": 0.6937974114984021,
+    "global": 0.7869951598117377,
+    "paired_difference": -0.04320173376793324,
+    "proxy_policy_index": 0.6505956777304689,
+    "regional": {
+      "Gulf": 0.5708631129771595,
+      "Northeast": 0.12021337464861925,
+      "West": 0.31993105853095805
+    },
+    "scenario": 197
+  },
+  {
+    "cost_policy_index": 0.4718962342491342,
+    "global": 0.5269162613297087,
+    "paired_difference": -0.030732068302531446,
+    "proxy_policy_index": 0.44116416594660274,
+    "regional": {
+      "Gulf": 0.9342490476345596,
+      "Northeast": 0.41548251129276315,
+      "West": 0.036758858423484364
+    },
+    "scenario": 198
+  },
+  {
+    "cost_policy_index": 0.3544447684118628,
+    "global": 0.09921407216199152,
+    "paired_difference": -0.018592454069939923,
+    "proxy_policy_index": 0.33585231434192286,
+    "regional": {
+      "Gulf": 0.30519523515375413,
+      "Northeast": 0.28091371860609615,
+      "West": 0.777499738662912
+    },
+    "scenario": 199
+  },
+  {
+    "cost_policy_index": 0.7749565606362994,
+    "global": 0.5680649002336644,
+    "paired_difference": -0.024200804995735736,
+    "proxy_policy_index": 0.7507557556405636,
+    "regional": {
+      "Gulf": 0.9817913685822959,
+      "Northeast": 0.834191426607026,
+      "West": 0.8681995703820868
+    },
+    "scenario": 200
+  },
+  {
+    "cost_policy_index": 0.594039673822304,
+    "global": 0.4028641187637739,
+    "paired_difference": -0.06944779061428907,
+    "proxy_policy_index": 0.524591883208015,
+    "regional": {
+      "Gulf": 0.8354551350139051,
+      "Northeast": 0.05167936868246692,
+      "West": 0.7020656843723667
+    },
+    "scenario": 201
+  },
+  {
+    "cost_policy_index": 0.5044306922929669,
+    "global": 0.17499584390716083,
+    "paired_difference": 0.007917468068551203,
+    "proxy_policy_index": 0.5123481603615181,
+    "regional": {
+      "Gulf": 0.5677470967486047,
+      "Northeast": 0.9105336909691809,
+      "West": 0.9890553836547585
+    },
+    "scenario": 202
+  },
+  {
+    "cost_policy_index": 0.47097598107625127,
+    "global": 0.35776152824283636,
+    "paired_difference": 0.007307148571784605,
+    "proxy_policy_index": 0.4782831296480359,
+    "regional": {
+      "Gulf": 0.6084830821631225,
+      "Northeast": 0.7923162263708359,
+      "West": 0.4977689478848263
+    },
+    "scenario": 203
+  },
+  {
+    "cost_policy_index": 0.8382257492323775,
+    "global": 0.7423990151094947,
+    "paired_difference": -0.013739747332585983,
+    "proxy_policy_index": 0.8244860018997915,
+    "regional": {
+      "Gulf": 0.9307511668289298,
+      "Northeast": 0.9097560935151134,
+      "West": 0.7251252563757141
+    },
+    "scenario": 204
+  },
+  {
+    "cost_policy_index": 0.44435372738573964,
+    "global": 0.2873719290949973,
+    "paired_difference": -0.05574747068370567,
+    "proxy_policy_index": 0.38860625670203397,
+    "regional": {
+      "Gulf": 0.6943180651982099,
+      "Northeast": 0.0412241614695279,
+      "West": 0.528574114465551
+    },
+    "scenario": 205
+  },
+  {
+    "cost_policy_index": 0.5362801448593983,
+    "global": 0.5094932900740675,
+    "paired_difference": -0.04036038514594925,
+    "proxy_policy_index": 0.4959197597134491,
+    "regional": {
+      "Gulf": 0.3965330287179435,
+      "Northeast": 0.028572651162543372,
+      "West": 0.46549564420664835
+    },
+    "scenario": 206
+  },
+  {
+    "cost_policy_index": 0.9058683415259217,
+    "global": 0.8033412240567803,
+    "paired_difference": -0.04023240152046503,
+    "proxy_policy_index": 0.8656359400054566,
+    "regional": {
+      "Gulf": 0.5493508842464846,
+      "Northeast": 0.36455295058977866,
+      "West": 0.9470485303994487
+    },
+    "scenario": 207
+  },
+  {
+    "cost_policy_index": 0.4629223632537043,
+    "global": 0.5891927016365235,
+    "paired_difference": -0.014768441623008055,
+    "proxy_policy_index": 0.44815392163069623,
+    "regional": {
+      "Gulf": 0.36560493344971934,
+      "Northeast": 0.21718532137360158,
+      "West": 0.08802920459093255
+    },
+    "scenario": 208
+  },
+  {
+    "cost_policy_index": 0.7707104302906647,
+    "global": 0.8952225177882547,
+    "paired_difference": -0.0011411667564985573,
+    "proxy_policy_index": 0.7695692635341661,
+    "regional": {
+      "Gulf": 0.17937860126066096,
+      "Northeast": 0.43925429295996554,
+      "West": 0.47739956332677236
+    },
+    "scenario": 209
+  },
+  {
+    "cost_policy_index": 0.320396214175646,
+    "global": 0.22032859875829647,
+    "paired_difference": -0.04848433077173203,
+    "proxy_policy_index": 0.271911883403914,
+    "regional": {
+      "Gulf": 0.6953071011032036,
+      "Northeast": 0.03892238849646368,
+      "West": 0.28371754896965795
+    },
+    "scenario": 210
+  },
+  {
+    "cost_policy_index": 0.4564987616029639,
+    "global": 0.1287433403897118,
+    "paired_difference": -0.02822068936758526,
+    "proxy_policy_index": 0.4282780722353786,
+    "regional": {
+      "Gulf": 0.8817122717845234,
+      "Northeast": 0.6161572800796575,
+      "West": 0.8222254256723882
+    },
+    "scenario": 211
+  },
+  {
+    "cost_policy_index": 0.6221037259617617,
+    "global": 0.5075177080585997,
+    "paired_difference": 0.0042860379315572406,
+    "proxy_policy_index": 0.6263897638933189,
+    "regional": {
+      "Gulf": 0.47361764154952724,
+      "Northeast": 0.7484646461057564,
+      "West": 0.7057384849212505
+    },
+    "scenario": 212
+  },
+  {
+    "cost_policy_index": 0.8063157896433906,
+    "global": 0.6054198840588939,
+    "paired_difference": -0.06868697736352536,
+    "proxy_policy_index": 0.7376288122798652,
+    "regional": {
+      "Gulf": 0.9038808103517402,
+      "Northeast": 0.2227531636134532,
+      "West": 0.9166191325781686
+    },
+    "scenario": 213
+  },
+  {
+    "cost_policy_index": 0.6421203739018274,
+    "global": 0.779635671937223,
+    "paired_difference": -0.00941068801074818,
+    "proxy_policy_index": 0.6327096858910792,
+    "regional": {
+      "Gulf": 0.8461087329361753,
+      "Northeast": 0.6802698217943395,
+      "West": 0.0761209517144753
+    },
+    "scenario": 214
+  },
+  {
+    "cost_policy_index": 0.6864064306638473,
+    "global": 0.5131732277330444,
+    "paired_difference": -0.06107928278133301,
+    "proxy_policy_index": 0.6253271478825143,
+    "regional": {
+      "Gulf": 0.8590469899907898,
+      "Northeast": 0.2139908439210405,
+      "West": 0.7523484560381781
+    },
+    "scenario": 215
+  },
+  {
+    "cost_policy_index": 0.28893692514423186,
+    "global": 0.04594332319579075,
+    "paired_difference": 0.02825940412795075,
+    "proxy_policy_index": 0.3171963292721826,
+    "regional": {
+      "Gulf": 0.5264293580832525,
+      "Northeast": 0.9858404766074969,
+      "West": 0.6045394982882728
+    },
+    "scenario": 216
+  },
+  {
+    "cost_policy_index": 0.5113390891044568,
+    "global": 0.23268251770061033,
+    "paired_difference": -0.05283513869653189,
+    "proxy_policy_index": 0.4585039504079249,
+    "regional": {
+      "Gulf": 0.9275904010164661,
+      "Northeast": 0.3291130650626862,
+      "West": 0.7619455647449271
+    },
+    "scenario": 217
+  },
+  {
+    "cost_policy_index": 0.6059511848546497,
+    "global": 0.7586304743074174,
+    "paired_difference": 0.015760070910401325,
+    "proxy_policy_index": 0.621711255765051,
+    "regional": {
+      "Gulf": 0.5138118982310743,
+      "Northeast": 0.767385970711705,
+      "West": 0.1282104548451486
+    },
+    "scenario": 218
+  },
+  {
+    "cost_policy_index": 0.47990248063499397,
+    "global": 0.49749305590135695,
+    "paired_difference": -0.011117181588925384,
+    "proxy_policy_index": 0.4687852990460686,
+    "regional": {
+      "Gulf": 0.7411131273274003,
+      "Northeast": 0.5713022293310409,
+      "West": 0.19156383645592534
+    },
+    "scenario": 219
+  },
+  {
+    "cost_policy_index": 0.6061577866721244,
+    "global": 0.43819092109632707,
+    "paired_difference": -0.027606151167742787,
+    "proxy_policy_index": 0.5785516355043816,
+    "regional": {
+      "Gulf": 0.33171615408024147,
+      "Northeast": 0.2667425721232398,
+      "West": 0.8498028395428007
+    },
+    "scenario": 220
+  },
+  {
+    "cost_policy_index": 0.5507892337110945,
+    "global": 0.5333499507426421,
+    "paired_difference": -0.030405338185152786,
+    "proxy_policy_index": 0.5203838955259417,
+    "regional": {
+      "Gulf": 0.5453163708288565,
+      "Northeast": 0.2543248954062235,
+      "West": 0.4074482315691095
+    },
+    "scenario": 221
+  },
+  {
+    "cost_policy_index": 0.2646417869687124,
+    "global": 0.009460355251367458,
+    "paired_difference": -0.025424517617926634,
+    "proxy_policy_index": 0.23921726935078574,
+    "regional": {
+      "Gulf": 0.7183871564997563,
+      "Northeast": 0.4072297005495382,
+      "West": 0.5347295507182842
+    },
+    "scenario": 222
+  },
+  {
+    "cost_policy_index": 0.7193635139515426,
+    "global": 0.634830283218728,
+    "paired_difference": -0.03673073339782662,
+    "proxy_policy_index": 0.682632780553716,
+    "regional": {
+      "Gulf": 0.21252195879809332,
+      "Northeast": 0.08735227118812405,
+      "West": 0.8395487154008342
+    },
+    "scenario": 223
+  },
+  {
+    "cost_policy_index": 0.44875870247603783,
+    "global": 0.3033884414935104,
+    "paired_difference": 0.01280041835545953,
+    "proxy_policy_index": 0.46155912083149736,
+    "regional": {
+      "Gulf": 0.48483412150549277,
+      "Northeast": 0.7907139843464391,
+      "West": 0.5853497949797636
+    },
+    "scenario": 224
+  },
+  {
+    "cost_policy_index": 0.641258485897298,
+    "global": 0.7192082748520805,
+    "paired_difference": -0.01767333661521009,
+    "proxy_policy_index": 0.6235851492820879,
+    "regional": {
+      "Gulf": 0.01980407042235255,
+      "Northeast": 0.08107933772226117,
+      "West": 0.49656913353653676
+    },
+    "scenario": 225
+  },
+  {
+    "cost_policy_index": 0.22354396743291172,
+    "global": 0.1449097753232177,
+    "paired_difference": 0.006046414692578661,
+    "proxy_policy_index": 0.22959038212549038,
+    "regional": {
+      "Gulf": 0.23574132063316677,
+      "Northeast": 0.3893605963048097,
+      "West": 0.30639059267141255
+    },
+    "scenario": 226
+  },
+  {
+    "cost_policy_index": 0.7586617608166799,
+    "global": 0.6845301727256414,
+    "paired_difference": -0.011534986811295722,
+    "proxy_policy_index": 0.7471267740053842,
+    "regional": {
+      "Gulf": 0.7544086980247379,
+      "Northeast": 0.7722898253180531,
+      "West": 0.6624504616525196
+    },
+    "scenario": 227
+  },
+  {
+    "cost_policy_index": 0.6564999557122706,
+    "global": 0.4867254195795393,
+    "paired_difference": 0.024502951584173704,
+    "proxy_policy_index": 0.6810029072964443,
+    "regional": {
+      "Gulf": 0.07576542342276582,
+      "Northeast": 0.805835049116397,
+      "West": 0.9983526437712398
+    },
+    "scenario": 228
+  },
+  {
+    "cost_policy_index": 0.7536232976305597,
+    "global": 0.8514329972620612,
+    "paired_difference": -0.007510930433646479,
+    "proxy_policy_index": 0.7461123671969132,
+    "regional": {
+      "Gulf": 0.3734691822190995,
+      "Northeast": 0.48565526090708233,
+      "West": 0.44393519893283506
+    },
+    "scenario": 229
+  },
+  {
+    "cost_policy_index": 0.7205298755764868,
+    "global": 0.9355275957182723,
+    "paired_difference": -0.007893108094936041,
+    "proxy_policy_index": 0.7126367674815508,
+    "regional": {
+      "Gulf": 0.21237489476153326,
+      "Northeast": 0.29671940744521275,
+      "West": 0.2286088428342865
+    },
+    "scenario": 230
+  },
+  {
+    "cost_policy_index": 0.5499529829368619,
+    "global": 0.7299673402386893,
+    "paired_difference": 0.020678107623351538,
+    "proxy_policy_index": 0.5706310905602134,
+    "regional": {
+      "Gulf": 0.35464456742052075,
+      "Northeast": 0.6853077133499615,
+      "West": 0.07214847832940308
+    },
+    "scenario": 231
+  },
+  {
+    "cost_policy_index": 0.8100575294011956,
+    "global": 0.6591542258295041,
+    "paired_difference": 0.002388921791210419,
+    "proxy_policy_index": 0.812446451192406,
+    "regional": {
+      "Gulf": 0.6990869172243418,
+      "Northeast": 0.986534900787185,
+      "West": 0.8925630252080209
+    },
+    "scenario": 232
+  },
+  {
+    "cost_policy_index": 0.531971461537699,
+    "global": 0.48080485224707326,
+    "paired_difference": 0.013397559795719993,
+    "proxy_policy_index": 0.545369021333419,
+    "regional": {
+      "Gulf": 0.12463169011467123,
+      "Northeast": 0.5622729797651472,
+      "West": 0.6094533281241051
+    },
+    "scenario": 233
+  },
+  {
+    "cost_policy_index": 0.2960888687443348,
+    "global": 0.08094491916643909,
+    "paired_difference": -0.003093451432197858,
+    "proxy_policy_index": 0.29299541731213696,
+    "regional": {
+      "Gulf": 0.8589134033620657,
+      "Northeast": 0.7799537627761158,
+      "West": 0.4344641312890416
+    },
+    "scenario": 234
+  },
+  {
+    "cost_policy_index": 0.9739725325377931,
+    "global": 0.9877948970061137,
+    "paired_difference": -0.06264414016200592,
+    "proxy_policy_index": 0.9113283923757872,
+    "regional": {
+      "Gulf": 0.9022700648832367,
+      "Northeast": 0.27107919271138003,
+      "West": 0.6517079641047652
+    },
+    "scenario": 235
+  },
+  {
+    "cost_policy_index": 0.6872178235816714,
+    "global": 0.8822162095075626,
+    "paired_difference": 0.03166915974479434,
+    "proxy_policy_index": 0.7188869833264657,
+    "regional": {
+      "Gulf": 0.40000296018753567,
+      "Northeast": 0.9207617997267936,
+      "West": 0.1670107754634741
+    },
+    "scenario": 236
+  },
+  {
+    "cost_policy_index": 0.8164562668259231,
+    "global": 0.6555279899988337,
+    "paired_difference": -0.03945670621555908,
+    "proxy_policy_index": 0.776999560610364,
+    "regional": {
+      "Gulf": 0.9619283391297809,
+      "Northeast": 0.6210948704286542,
+      "West": 0.8243697959917187
+    },
+    "scenario": 237
+  },
+  {
+    "cost_policy_index": 0.9623037553848679,
+    "global": 0.986348065689163,
+    "paired_difference": -0.06210000854046882,
+    "proxy_policy_index": 0.9002037468443991,
+    "regional": {
+      "Gulf": 0.5817171579489522,
+      "Northeast": 0.06285701017145129,
+      "West": 0.7349739647817565
+    },
+    "scenario": 238
+  },
+  {
+    "cost_policy_index": 0.34268707328799763,
+    "global": 0.011494116539098487,
+    "paired_difference": 0.03106928220517402,
+    "proxy_policy_index": 0.37375635549317165,
+    "regional": {
+      "Gulf": 0.14305651655745089,
+      "Northeast": 0.8556263755359133,
+      "West": 0.9793854956901863
+    },
+    "scenario": 239
+  },
+  {
+    "cost_policy_index": 0.42726871977724745,
+    "global": 0.23568741538740923,
+    "paired_difference": 0.004299684249250868,
+    "proxy_policy_index": 0.4315684040264983,
+    "regional": {
+      "Gulf": 0.6263214606583866,
+      "Northeast": 0.7845205016530417,
+      "West": 0.6062783118611278
+    },
+    "scenario": 240
+  },
+  {
+    "cost_policy_index": 0.26756940882278174,
+    "global": 0.012873244662669925,
+    "paired_difference": 0.008011446011983392,
+    "proxy_policy_index": 0.27558085483476513,
+    "regional": {
+      "Gulf": 0.2267821567774302,
+      "Northeast": 0.5288687761442191,
+      "West": 0.7150076720103247
+    },
+    "scenario": 241
+  },
+  {
+    "cost_policy_index": 0.5511629442140747,
+    "global": 0.3803353996917682,
+    "paired_difference": -0.05027118153193544,
+    "proxy_policy_index": 0.5008917626821393,
+    "regional": {
+      "Gulf": 0.626814814450855,
+      "Northeast": 0.13337556968325492,
+      "West": 0.6917895872774557
+    },
+    "scenario": 242
+  },
+  {
+    "cost_policy_index": 0.15348505905525714,
+    "global": 0.058682960739501744,
+    "paired_difference": -0.020204503789867684,
+    "proxy_policy_index": 0.13328055526538946,
+    "regional": {
+      "Gulf": 0.42308175634936396,
+      "Northeast": 0.14052665694007405,
+      "West": 0.19906927694132326
+    },
+    "scenario": 243
+  },
+  {
+    "cost_policy_index": 0.5732908450121227,
+    "global": 0.5882653904467273,
+    "paired_difference": -0.05377518919247315,
+    "proxy_policy_index": 0.5195156558196495,
+    "regional": {
+      "Gulf": 0.9742567102682728,
+      "Northeast": 0.2185376288574884,
+      "West": 0.2089435888469401
+    },
+    "scenario": 244
+  },
+  {
+    "cost_policy_index": 0.30040932011087407,
+    "global": 0.2516960699294446,
+    "paired_difference": 0.004401246859121466,
+    "proxy_policy_index": 0.30481056696999553,
+    "regional": {
+      "Gulf": 0.24204073166741757,
+      "Northeast": 0.3964183384241914,
+      "West": 0.32243196886366454
+    },
+    "scenario": 245
+  },
+  {
+    "cost_policy_index": 0.6390361821484374,
+    "global": 0.3981376425224702,
+    "paired_difference": -0.04543992430541677,
+    "proxy_policy_index": 0.5935962578430206,
+    "regional": {
+      "Gulf": 0.5279515271076652,
+      "Northeast": 0.21804857136927835,
+      "West": 0.9617118828504406
+    },
+    "scenario": 246
+  },
+  {
+    "cost_policy_index": 0.6924506694303496,
+    "global": 0.49758910526532063,
+    "paired_difference": 0.0009274465387300035,
+    "proxy_policy_index": 0.6933781159690796,
+    "regional": {
+      "Gulf": 0.7626983494182248,
+      "Northeast": 0.9697811553408964,
+      "West": 0.8377370222143632
+    },
+    "scenario": 247
+  },
+  {
+    "cost_policy_index": 0.5741210183816421,
+    "global": 0.6893225633818523,
+    "paired_difference": 0.037153645191619455,
+    "proxy_policy_index": 0.6112746635732615,
+    "regional": {
+      "Gulf": 0.3363039550593919,
+      "Northeast": 0.9350475968486823,
+      "West": 0.23625658437035024
+    },
+    "scenario": 248
+  },
+  {
+    "cost_policy_index": 0.5454902337183587,
+    "global": 0.4103381059387824,
+    "paired_difference": 0.00806247207936961,
+    "proxy_policy_index": 0.5535527057977283,
+    "regional": {
+      "Gulf": 0.12164895453362712,
+      "Northeast": 0.5445584187273625,
+      "West": 0.7961679520641706
+    },
+    "scenario": 249
+  },
+  {
+    "cost_policy_index": 0.6051846844889114,
+    "global": 0.4587786370253928,
+    "paired_difference": -0.00910727065653838,
+    "proxy_policy_index": 0.596077413832373,
+    "regional": {
+      "Gulf": 0.46944597272157473,
+      "Northeast": 0.5810766186136432,
+      "West": 0.7547922283336345
+    },
+    "scenario": 250
+  },
+  {
+    "cost_policy_index": 0.33028741388972327,
+    "global": 0.06797273675442994,
+    "paired_difference": -0.023192816529169824,
+    "proxy_policy_index": 0.30709459736055345,
+    "regional": {
+      "Gulf": 0.6816422315315133,
+      "Northeast": 0.45145699879581014,
+      "West": 0.6305098897307843
+    },
+    "scenario": 251
+  },
+  {
+    "cost_policy_index": 0.4326057843146828,
+    "global": 0.3101273181125992,
+    "paired_difference": -0.0200432879727499,
+    "proxy_policy_index": 0.41256249634193287,
+    "regional": {
+      "Gulf": 0.45606069269747607,
+      "Northeast": 0.3266007699945662,
+      "West": 0.5322923641805127
+    },
+    "scenario": 252
+  },
+  {
+    "cost_policy_index": 0.5374714064147041,
+    "global": 0.5532825449550517,
+    "paired_difference": -0.025853366257950094,
+    "proxy_policy_index": 0.511618040156754,
+    "regional": {
+      "Gulf": 0.25990427594845855,
+      "Northeast": 0.10675013269214828,
+      "West": 0.42920101179000825
+    },
+    "scenario": 253
+  },
+  {
+    "cost_policy_index": 0.976968692530334,
+    "global": 0.8819007135948255,
+    "paired_difference": -0.016546916936213796,
+    "proxy_policy_index": 0.9604217755941202,
+    "regional": {
+      "Gulf": 0.7906813642953178,
+      "Northeast": 0.8576385225884045,
+      "West": 0.9178216649852319
+    },
+    "scenario": 254
+  },
+  {
+    "cost_policy_index": 0.5828871065748423,
+    "global": 0.8393355396324308,
+    "paired_difference": 0.008448438607774222,
+    "proxy_policy_index": 0.5913355451826166,
+    "regional": {
+      "Gulf": 0.1280262078531368,
+      "Northeast": 0.35887443121185936,
+      "West": 0.032147904576261044
+    },
+    "scenario": 255
+  },
+  {
+    "cost_policy_index": 0.623710175208575,
+    "global": 0.44686033348608356,
+    "paired_difference": -0.04910532151725666,
+    "proxy_policy_index": 0.5746048536913183,
+    "regional": {
+      "Gulf": 0.7945245163575203,
+      "Northeast": 0.29664813730835604,
+      "West": 0.7183058871351967
+    },
+    "scenario": 256
+  },
+  {
+    "cost_policy_index": 0.8209402343408774,
+    "global": 0.8433254046617586,
+    "paired_difference": -0.03694788933362636,
+    "proxy_policy_index": 0.783992345007251,
+    "regional": {
+      "Gulf": 0.5769048142969265,
+      "Northeast": 0.31108743237250314,
+      "West": 0.5939384803048894
+    },
+    "scenario": 257
+  },
+  {
+    "cost_policy_index": 0.40040274496471623,
+    "global": 0.3850004609564148,
+    "paired_difference": 0.012849301878556652,
+    "proxy_policy_index": 0.4132520468432729,
+    "regional": {
+      "Gulf": 0.35696911288055955,
+      "Northeast": 0.6133572482668945,
+      "West": 0.31607333754779643
+    },
+    "scenario": 258
+  },
+  {
+    "cost_policy_index": 0.8190675134487433,
+    "global": 0.9616602578765201,
+    "paired_difference": -0.058520585935949,
+    "proxy_policy_index": 0.7605469275127943,
+    "regional": {
+      "Gulf": 0.7408070452421978,
+      "Northeast": 0.06929177688703603,
+      "West": 0.28688811719393437
+    },
+    "scenario": 259
+  },
+  {
+    "cost_policy_index": 0.6689508025459708,
+    "global": 0.5344619751304864,
+    "paired_difference": -0.06620194286041248,
+    "proxy_policy_index": 0.6027488596855584,
+    "regional": {
+      "Gulf": 0.7525441874602449,
+      "Northeast": 0.04966296969233919,
+      "West": 0.6937261393590476
+    },
+    "scenario": 260
+  },
+  {
+    "cost_policy_index": 0.6778880986168745,
+    "global": 0.6681383802359977,
+    "paired_difference": -0.006280133255921472,
+    "proxy_policy_index": 0.671607965360953,
+    "regional": {
+      "Gulf": 0.8939201315987162,
+      "Northeast": 0.8507353286609458,
+      "West": 0.3967590511506043
+    },
+    "scenario": 261
+  },
+  {
+    "cost_policy_index": 0.8875848403653386,
+    "global": 0.7940064310393579,
+    "paired_difference": 0.002179148751672688,
+    "proxy_policy_index": 0.8897639891170113,
+    "regional": {
+      "Gulf": 0.3970911476998117,
+      "Northeast": 0.8017977607088496,
+      "West": 0.9650585799772706
+    },
+    "scenario": 262
+  },
+  {
+    "cost_policy_index": 0.41714270302285306,
+    "global": 0.20897568261366983,
+    "paired_difference": -0.008516985662417098,
+    "proxy_policy_index": 0.40862571736043596,
+    "regional": {
+      "Gulf": 0.002882853644064931,
+      "Northeast": 0.22675297727507604,
+      "West": 0.8557488483347945
+    },
+    "scenario": 263
+  },
+  {
+    "cost_policy_index": 0.6362397768939559,
+    "global": 0.7851342976829664,
+    "paired_difference": 0.01715429096738863,
+    "proxy_policy_index": 0.6533940678613446,
+    "regional": {
+      "Gulf": 0.5686968148650329,
+      "Northeast": 0.8383777047429533,
+      "West": 0.14736491759458703
+    },
+    "scenario": 264
+  },
+  {
+    "cost_policy_index": 0.16539990692881146,
+    "global": 0.09604657022492302,
+    "paired_difference": 0.03366017642172167,
+    "proxy_policy_index": 0.19906008335053313,
+    "regional": {
+      "Gulf": 0.5570609343298607,
+      "Northeast": 0.9145442831511149,
+      "West": 0.11079841153245229
+    },
+    "scenario": 265
+  },
+  {
+    "cost_policy_index": 0.2574471170008855,
+    "global": 0.2931634338351007,
+    "paired_difference": 0.007624592399420371,
+    "proxy_policy_index": 0.2650717094003059,
+    "regional": {
+      "Gulf": 0.4289183174919532,
+      "Northeast": 0.48770932558100755,
+      "West": 0.037689630539042285
+    },
+    "scenario": 266
+  },
+  {
+    "cost_policy_index": 1.0633577655240798,
+    "global": 0.9985883522917687,
+    "paired_difference": -0.08006936096018746,
+    "proxy_policy_index": 0.9832884045638923,
+    "regional": {
+      "Gulf": 0.8881555035319063,
+      "Northeast": 0.12718680536114146,
+      "West": 0.9098813538586403
+    },
+    "scenario": 267
+  },
+  {
+    "cost_policy_index": 0.637595003373123,
+    "global": 0.4425906795455873,
+    "paired_difference": -0.030578996361679267,
+    "proxy_policy_index": 0.6070160070114438,
+    "regional": {
+      "Gulf": 0.7190322357091543,
+      "Northeast": 0.5056213621281006,
+      "West": 0.797139628360534
+    },
+    "scenario": 268
+  },
+  {
+    "cost_policy_index": 0.6047050189782809,
+    "global": 0.7132519282804362,
+    "paired_difference": -0.014921600839588933,
+    "proxy_policy_index": 0.589783418138692,
+    "regional": {
+      "Gulf": 0.9443124170284206,
+      "Northeast": 0.6673824817238861,
+      "West": 0.061034389897535624
+    },
+    "scenario": 269
+  },
+  {
+    "cost_policy_index": 0.38978979209388753,
+    "global": 0.35120325109429806,
+    "paired_difference": 0.021000097918823235,
+    "proxy_policy_index": 0.41078989001271077,
+    "regional": {
+      "Gulf": 0.7808344902340353,
+      "Northeast": 0.9949006457310346,
+      "West": 0.19880261697491375
+    },
+    "scenario": 270
+  },
+  {
+    "cost_policy_index": 0.10505214626789589,
+    "global": 0.0638870063051491,
+    "paired_difference": 0.05464599878501314,
+    "proxy_policy_index": 0.15969814505290902,
+    "regional": {
+      "Gulf": 0.1488657020587002,
+      "Northeast": 0.8794148836570806,
+      "West": 0.13878608811464066
+    },
+    "scenario": 271
+  },
+  {
+    "cost_policy_index": 0.26716359865278444,
+    "global": 0.21464592405342653,
+    "paired_difference": 0.005674492945454024,
+    "proxy_policy_index": 0.27283809159823846,
+    "regional": {
+      "Gulf": 0.42537957371121593,
+      "Northeast": 0.5137308195081145,
+      "West": 0.22935752232048423
+    },
+    "scenario": 272
+  },
+  {
+    "cost_policy_index": 0.7010639291187091,
+    "global": 0.4562770138594259,
+    "paired_difference": -0.03371363951234785,
+    "proxy_policy_index": 0.6673502896063612,
+    "regional": {
+      "Gulf": 0.7557277668554716,
+      "Northeast": 0.5492784671332777,
+      "West": 0.9512109791621508
+    },
+    "scenario": 273
+  },
+  {
+    "cost_policy_index": 0.2809937190374731,
+    "global": 0.06217104784614402,
+    "paired_difference": 0.008896101777216947,
+    "proxy_policy_index": 0.28988982081469006,
+    "regional": {
+      "Gulf": 0.8907716044137767,
+      "Northeast": 0.9492475085582537,
+      "West": 0.4148234524939928
+    },
+    "scenario": 274
+  },
+  {
+    "cost_policy_index": 0.8179391814439773,
+    "global": 0.8578093206838606,
+    "paired_difference": -0.035336281319954255,
+    "proxy_policy_index": 0.782602900124023,
+    "regional": {
+      "Gulf": 0.6811898104102645,
+      "Northeast": 0.38695682268189646,
+      "West": 0.5172876035011714
+    },
+    "scenario": 275
+  },
+  {
+    "cost_policy_index": 0.5660568306634272,
+    "global": 0.5461608035881642,
+    "paired_difference": 0.027391647958572407,
+    "proxy_policy_index": 0.5934484786219996,
+    "regional": {
+      "Gulf": 0.31962925185314217,
+      "Northeast": 0.8679570977516468,
+      "West": 0.510084404962778
+    },
+    "scenario": 276
+  },
+  {
+    "cost_policy_index": 0.8083898036065849,
+    "global": 0.850962275717728,
+    "paired_difference": -0.0012096238376690938,
+    "proxy_policy_index": 0.8071801797689158,
+    "regional": {
+      "Gulf": 0.3642689705459511,
+      "Northeast": 0.6205863437277872,
+      "West": 0.6167972289501832
+    },
+    "scenario": 277
+  },
+  {
+    "cost_policy_index": 0.23818468578200777,
+    "global": 0.028437897262099776,
+    "paired_difference": -0.01763911973410462,
+    "proxy_policy_index": 0.22054556604790315,
+    "regional": {
+      "Gulf": 0.8565312131020157,
+      "Northeast": 0.5566933165391218,
+      "West": 0.36442327855245604
+    },
+    "scenario": 278
+  },
+  {
+    "cost_policy_index": 0.20993732640571913,
+    "global": 0.10298564439395119,
+    "paired_difference": -0.04360155192191573,
+    "proxy_policy_index": 0.1663357744838034,
+    "regional": {
+      "Gulf": 0.8461841464208582,
+      "Northeast": 0.1430848294610958,
+      "West": 0.12886801107275703
+    },
+    "scenario": 279
+  },
+  {
+    "cost_policy_index": 0.7766673440984675,
+    "global": 0.5506266493090118,
+    "paired_difference": -0.03521988364290518,
+    "proxy_policy_index": 0.7414474604555623,
+    "regional": {
+      "Gulf": 0.8747510436211348,
+      "Northeast": 0.6351396140750272,
+      "West": 0.947916419471371
+    },
+    "scenario": 280
+  },
+  {
+    "cost_policy_index": 0.5484868590911706,
+    "global": 0.23066091672457378,
+    "paired_difference": -0.01865386710065431,
+    "proxy_policy_index": 0.5298329919905163,
+    "regional": {
+      "Gulf": 0.8570061327542106,
+      "Northeast": 0.7674971322972425,
+      "West": 0.9060054013597149
+    },
+    "scenario": 281
+  },
+  {
+    "cost_policy_index": 0.6331350213124101,
+    "global": 0.810787964467534,
+    "paired_difference": 0.022828151668020102,
+    "proxy_policy_index": 0.6559631729804302,
+    "regional": {
+      "Gulf": 0.010204869479302436,
+      "Northeast": 0.5398420602596063,
+      "West": 0.2878705444231533
+    },
+    "scenario": 282
+  },
+  {
+    "cost_policy_index": 0.8627923734365494,
+    "global": 0.7307053253807074,
+    "paired_difference": -0.025036873591644415,
+    "proxy_policy_index": 0.8377554998449049,
+    "regional": {
+      "Gulf": 0.5184020620779665,
+      "Northeast": 0.534793245762966,
+      "West": 0.9741450883493572
+    },
+    "scenario": 283
+  },
+  {
+    "cost_policy_index": 0.9288959607312993,
+    "global": 0.9385230029563131,
+    "paired_difference": 0.02239493280970628,
+    "proxy_policy_index": 0.9512908935410056,
+    "regional": {
+      "Gulf": 0.10258218182688439,
+      "Northeast": 0.841640145480081,
+      "West": 0.9036182813141052
+    },
+    "scenario": 284
+  },
+  {
+    "cost_policy_index": 0.2100163875308101,
+    "global": 0.14237536206653456,
+    "paired_difference": -0.012518700468993782,
+    "proxy_policy_index": 0.1974976870618163,
+    "regional": {
+      "Gulf": 0.5113609606471234,
+      "Northeast": 0.3110325168849204,
+      "West": 0.17000217662756756
+    },
+    "scenario": 285
+  },
+  {
+    "cost_policy_index": 0.8769831291505312,
+    "global": 0.9561795511496799,
+    "paired_difference": 0.016452740437325697,
+    "proxy_policy_index": 0.8934358695878569,
+    "regional": {
+      "Gulf": 0.14870649997731478,
+      "Northeast": 0.7284516306262936,
+      "West": 0.6910263850792816
+    },
+    "scenario": 286
+  },
+  {
+    "cost_policy_index": 0.5417153743168006,
+    "global": 0.4833183565553195,
+    "paired_difference": 0.020224464738257897,
+    "proxy_policy_index": 0.5619398390550585,
+    "regional": {
+      "Gulf": 0.26790692239792036,
+      "Northeast": 0.7506317942810351,
+      "West": 0.582358830987275
+    },
+    "scenario": 287
+  },
+  {
+    "cost_policy_index": 0.4953004163724997,
+    "global": 0.337787414577965,
+    "paired_difference": -0.05382412281709098,
+    "proxy_policy_index": 0.44147629355540874,
+    "regional": {
+      "Gulf": 0.9834078273730111,
+      "Northeast": 0.2768875101728667,
+      "West": 0.47752305834860376
+    },
+    "scenario": 288
+  },
+  {
+    "cost_policy_index": 0.5972042055751695,
+    "global": 0.5269956849137237,
+    "paired_difference": 0.013314445744104009,
+    "proxy_policy_index": 0.6105186513192735,
+    "regional": {
+      "Gulf": 0.1115807266721387,
+      "Northeast": 0.5979096304433831,
+      "West": 0.7205555906624603
+    },
+    "scenario": 289
+  },
+  {
+    "cost_policy_index": 0.8171017515163272,
+    "global": 0.8014523731667093,
+    "paired_difference": -0.01645397458253528,
+    "proxy_policy_index": 0.800647776933792,
+    "regional": {
+      "Gulf": 0.4689756009870256,
+      "Northeast": 0.5264170402068813,
+      "West": 0.7068389575829562
+    },
+    "scenario": 290
+  },
+  {
+    "cost_policy_index": 0.455573687074672,
+    "global": 0.23582455462132357,
+    "paired_difference": 0.04292788416614485,
+    "proxy_policy_index": 0.49850157124081684,
+    "regional": {
+      "Gulf": 0.0017132209597565673,
+      "Northeast": 0.9180256190020014,
+      "West": 0.9195831768215535
+    },
+    "scenario": 291
+  },
+  {
+    "cost_policy_index": 0.42305714408756745,
+    "global": 0.2786939131044872,
+    "paired_difference": -0.04750560572321938,
+    "proxy_policy_index": 0.37555153836434807,
+    "regional": {
+      "Gulf": 0.5779937059160145,
+      "Northeast": 0.05577553342687869,
+      "West": 0.5229387274042051
+    },
+    "scenario": 292
+  },
+  {
+    "cost_policy_index": 0.5735219068295273,
+    "global": 0.66212986769681,
+    "paired_difference": -0.006447061884363392,
+    "proxy_policy_index": 0.5670748449451639,
+    "regional": {
+      "Gulf": 0.23634850207675617,
+      "Northeast": 0.32198805226500904,
+      "West": 0.32623180868211354
+    },
+    "scenario": 293
+  },
+  {
+    "cost_policy_index": 0.9521184982202862,
+    "global": 0.896456760714455,
+    "paired_difference": -0.03536596152747795,
+    "proxy_policy_index": 0.9167525366928082,
+    "regional": {
+      "Gulf": 0.2816245203207003,
+      "Northeast": 0.25637461800867534,
+      "West": 0.9961557949340527
+    },
+    "scenario": 294
+  },
+  {
+    "cost_policy_index": 0.362141248023276,
+    "global": 0.4521071907381624,
+    "paired_difference": -0.012060544461118705,
+    "proxy_policy_index": 0.3500807035621573,
+    "regional": {
+      "Gulf": 0.27472027416309763,
+      "Northeast": 0.16100470477440598,
+      "West": 0.09097389879097073
+    },
+    "scenario": 295
+  },
+  {
+    "cost_policy_index": 0.3758525102246888,
+    "global": 0.22844560206978437,
+    "paired_difference": 0.018233577620850205,
+    "proxy_policy_index": 0.394086087845539,
+    "regional": {
+      "Gulf": 0.4520683018427599,
+      "Northeast": 0.8026655346999696,
+      "West": 0.5260066550113001
+    },
+    "scenario": 296
+  },
+  {
+    "cost_policy_index": 0.7731140180168536,
+    "global": 0.9754552250400585,
+    "paired_difference": -0.029358043397777478,
+    "proxy_policy_index": 0.7437559746190762,
+    "regional": {
+      "Gulf": 0.3955060282399645,
+      "Northeast": 0.17016691909445958,
+      "West": 0.2424511101949367
+    },
+    "scenario": 297
+  },
+  {
+    "cost_policy_index": 0.5987512529568169,
+    "global": 0.7830283682708746,
+    "paired_difference": 0.0140917160748264,
+    "proxy_policy_index": 0.6128429690316433,
+    "regional": {
+      "Gulf": 0.19409778989153925,
+      "Northeast": 0.5217404602762703,
+      "West": 0.17210386382677534
+    },
+    "scenario": 298
+  },
+  {
+    "cost_policy_index": 0.6285237881911905,
+    "global": 0.6002230363778366,
+    "paired_difference": 0.013157240184550667,
+    "proxy_policy_index": 0.6416810283757411,
+    "regional": {
+      "Gulf": 0.5334586990931471,
+      "Northeast": 0.8573062438075106,
+      "West": 0.5143251650702225
+    },
+    "scenario": 299
+  },
+  {
+    "cost_policy_index": 0.39551592553015374,
+    "global": 0.5437643783437957,
+    "paired_difference": 0.05015256654041916,
+    "proxy_policy_index": 0.4456684920705729,
+    "regional": {
+      "Gulf": 0.04968008562768911,
+      "Northeast": 0.8084768538838493,
+      "West": 0.0879559126008449
+    },
+    "scenario": 300
+  },
+  {
+    "cost_policy_index": 0.5968323629940284,
+    "global": 0.6264277475257011,
+    "paired_difference": -0.02910801248689765,
+    "proxy_policy_index": 0.5677243505071308,
+    "regional": {
+      "Gulf": 0.4308739890268034,
+      "Northeast": 0.19708637486081826,
+      "West": 0.40041877913890167
+    },
+    "scenario": 301
+  },
+  {
+    "cost_policy_index": 0.8977183662619239,
+    "global": 0.9187596254431215,
+    "paired_difference": -0.05807997870683568,
+    "proxy_policy_index": 0.8396383875550882,
+    "regional": {
+      "Gulf": 0.5592060828521456,
+      "Northeast": 0.06798097746071685,
+      "West": 0.6824917218419093
+    },
+    "scenario": 302
+  },
+  {
+    "cost_policy_index": 0.757665702390061,
+    "global": 0.975536888932928,
+    "paired_difference": 0.015997285486038293,
+    "proxy_policy_index": 0.7736629878760993,
+    "regional": {
+      "Gulf": 0.535310490062097,
+      "Northeast": 0.8287712354564507,
+      "West": 0.14404695464707684
+    },
+    "scenario": 303
+  },
+  {
+    "cost_policy_index": 0.26847737863711796,
+    "global": 0.1892055851668658,
+    "paired_difference": -0.061049203618877584,
+    "proxy_policy_index": 0.20742817501824037,
+    "regional": {
+      "Gulf": 0.9798776685973913,
+      "Northeast": 0.018161679916881224,
+      "West": 0.0843515556980241
+    },
+    "scenario": 304
+  },
+  {
+    "cost_policy_index": 0.45518383174118116,
+    "global": 0.4468569372727643,
+    "paired_difference": 0.014662859295517916,
+    "proxy_policy_index": 0.46984669103669907,
+    "regional": {
+      "Gulf": 0.7627747696636796,
+      "Northeast": 0.9195524933254592,
+      "West": 0.2111222366230241
+    },
+    "scenario": 305
+  },
+  {
+    "cost_policy_index": 0.762688583397935,
+    "global": 0.9471536150690376,
+    "paired_difference": 0.02674955224696518,
+    "proxy_policy_index": 0.7894381356449002,
+    "regional": {
+      "Gulf": 0.3500573760969583,
+      "Northeast": 0.8711945949588104,
+      "West": 0.2846859538538594
+    },
+    "scenario": 306
+  },
+  {
+    "cost_policy_index": 0.7749554319649798,
+    "global": 0.7549936894953552,
+    "paired_difference": 0.00028506086512769535,
+    "proxy_policy_index": 0.7752404928301075,
+    "regional": {
+      "Gulf": 0.8562330037163137,
+      "Northeast": 0.9687427087837658,
+      "West": 0.5316639723539781
+    },
+    "scenario": 307
+  },
+  {
+    "cost_policy_index": 0.501362420188215,
+    "global": 0.386527929823141,
+    "paired_difference": 0.014693206173293838,
+    "proxy_policy_index": 0.5160556263615088,
+    "regional": {
+      "Gulf": 0.07022759531006406,
+      "Northeast": 0.5631571018210746,
+      "West": 0.7276569333999157
+    },
+    "scenario": 308
+  },
+  {
+    "cost_policy_index": 0.493632017348805,
+    "global": 0.29205767044500275,
+    "paired_difference": -0.04435555522640683,
+    "proxy_policy_index": 0.4492764621223982,
+    "regional": {
+      "Gulf": 0.5792171482745245,
+      "Northeast": 0.1660273070319006,
+      "West": 0.7124017889290919
+    },
+    "scenario": 309
+  },
+  {
+    "cost_policy_index": 0.5154597423179881,
+    "global": 0.3896550696629054,
+    "paired_difference": -0.033999903604855275,
+    "proxy_policy_index": 0.4814598387131328,
+    "regional": {
+      "Gulf": 0.9816096488652135,
+      "Northeast": 0.5254314339672347,
+      "West": 0.4342126090243571
+    },
+    "scenario": 310
+  },
+  {
+    "cost_policy_index": 0.38578254733094447,
+    "global": 0.44302008428816175,
+    "paired_difference": 0.020338059271997333,
+    "proxy_policy_index": 0.4061206066029418,
+    "regional": {
+      "Gulf": 0.15700485475515813,
+      "Northeast": 0.5357321459185401,
+      "West": 0.22499196204750105
+    },
+    "scenario": 311
+  },
+  {
+    "cost_policy_index": 0.6366728317488897,
+    "global": 0.561318706589365,
+    "paired_difference": -0.05706328670533334,
+    "proxy_policy_index": 0.5796095450435563,
+    "regional": {
+      "Gulf": 0.8248311171361324,
+      "Northeast": 0.1642338126774091,
+      "West": 0.5132780518300568
+    },
+    "scenario": 312
+  },
+  {
+    "cost_policy_index": 0.6944699374465688,
+    "global": 0.5218036249553332,
+    "paired_difference": -0.02531181505958413,
+    "proxy_policy_index": 0.6691581223869847,
+    "regional": {
+      "Gulf": 0.6877184629010339,
+      "Northeast": 0.571759304487794,
+      "West": 0.8216466770244324
+    },
+    "scenario": 313
+  },
+  {
+    "cost_policy_index": 0.6590065981491491,
+    "global": 0.5820317831518964,
+    "paired_difference": -0.04115391307477034,
+    "proxy_policy_index": 0.6178526850743787,
+    "regional": {
+      "Gulf": 0.7983677443409752,
+      "Northeast": 0.3659040690844617,
+      "West": 0.5492787696637902
+    },
+    "scenario": 314
+  },
+  {
+    "cost_policy_index": 0.7421963433399716,
+    "global": 0.6232699741700333,
+    "paired_difference": 0.006810826425087901,
+    "proxy_policy_index": 0.7490071697650595,
+    "regional": {
+      "Gulf": 0.6369652970131972,
+      "Northeast": 0.9508131576812839,
+      "West": 0.7795611111240577
+    },
+    "scenario": 315
+  },
+  {
+    "cost_policy_index": 0.8377769161612074,
+    "global": 0.8801378626537941,
+    "paired_difference": -0.0004318192962881051,
+    "proxy_policy_index": 0.8373450968649193,
+    "regional": {
+      "Gulf": 0.813898247277468,
+      "Northeast": 0.9317416421727794,
+      "West": 0.48459265908485616
+    },
+    "scenario": 316
+  },
+  {
+    "cost_policy_index": 0.840899589159608,
+    "global": 0.6746172359008934,
+    "paired_difference": -0.02695075750235898,
+    "proxy_policy_index": 0.8139488316572491,
+    "regional": {
+      "Gulf": 0.842014754614577,
+      "Northeast": 0.7225945874868693,
+      "West": 0.9040648678547942
+    },
+    "scenario": 317
+  },
+  {
+    "cost_policy_index": 0.5137984506313744,
+    "global": 0.49413817773787416,
+    "paired_difference": -0.03364402219932794,
+    "proxy_policy_index": 0.4801544284320465,
+    "regional": {
+      "Gulf": 0.5291667296320606,
+      "Northeast": 0.18380670906312668,
+      "West": 0.37959419191715094
+    },
+    "scenario": 318
+  },
+  {
+    "cost_policy_index": 0.7809601229009214,
+    "global": 0.9431539408363059,
+    "paired_difference": 0.01560588823581266,
+    "proxy_policy_index": 0.7965660111367341,
+    "regional": {
+      "Gulf": 0.006324520756158303,
+      "Northeast": 0.5307723015755084,
+      "West": 0.47372643873036957
+    },
+    "scenario": 319
+  },
+  {
+    "cost_policy_index": 0.46970666037773834,
+    "global": 0.4824899982552978,
+    "paired_difference": -0.011771580562222272,
+    "proxy_policy_index": 0.45793507981551607,
+    "regional": {
+      "Gulf": 0.0054662874182880294,
+      "Northeast": 0.09310652689660726,
+      "West": 0.4575723249567053
+    },
+    "scenario": 320
+  },
+  {
+    "cost_policy_index": 0.808039459470224,
+    "global": 0.7404535037310147,
+    "paired_difference": 0.0006511675945115591,
+    "proxy_policy_index": 0.8086906270647356,
+    "regional": {
+      "Gulf": 0.1869885280909852,
+      "Northeast": 0.592283839883923,
+      "West": 0.9058604546276571
+    },
+    "scenario": 321
+  },
+  {
+    "cost_policy_index": 0.6595174940048902,
+    "global": 0.7566661225208854,
+    "paired_difference": -0.014528548218563087,
+    "proxy_policy_index": 0.6449889457863272,
+    "regional": {
+      "Gulf": 0.8823392230115386,
+      "Northeast": 0.6684141549223372,
+      "West": 0.16347736187792283
+    },
+    "scenario": 322
+  },
+  {
+    "cost_policy_index": 0.20671209301869248,
+    "global": 0.1324642158573538,
+    "paired_difference": -0.007626185228878424,
+    "proxy_policy_index": 0.19908590778981405,
+    "regional": {
+      "Gulf": 0.952985397690364,
+      "Northeast": 0.656501870223828,
+      "West": 0.019967838198497456
+    },
+    "scenario": 323
+  },
+  {
+    "cost_policy_index": 0.5049278130147813,
+    "global": 0.5981688940608163,
+    "paired_difference": 0.018231450797486892,
+    "proxy_policy_index": 0.5231592638122682,
+    "regional": {
+      "Gulf": 0.04631000540681263,
+      "Northeast": 0.4816280401696541,
+      "West": 0.31473819721998686
+    },
+    "scenario": 324
+  },
+  {
+    "cost_policy_index": 0.7998987725996488,
+    "global": 0.7830081175237289,
+    "paired_difference": -0.008941919005197585,
+    "proxy_policy_index": 0.7909568535944512,
+    "regional": {
+      "Gulf": 0.986178552257073,
+      "Northeast": 0.943434352056801,
+      "West": 0.5040640157037042
+    },
+    "scenario": 325
+  },
+  {
+    "cost_policy_index": 0.8375915675596979,
+    "global": 0.7442599064959523,
+    "paired_difference": -0.023989399489655838,
+    "proxy_policy_index": 0.813602168070042,
+    "regional": {
+      "Gulf": 0.2836952474317448,
+      "Northeast": 0.36477071985548903,
+      "West": 0.9539749969332143
+    },
+    "scenario": 326
+  },
+  {
+    "cost_policy_index": 0.47596712244541406,
+    "global": 0.23811525462960925,
+    "paired_difference": -0.008269625947453119,
+    "proxy_policy_index": 0.46769749649796094,
+    "regional": {
+      "Gulf": 0.864042247961565,
+      "Northeast": 0.8240183267963966,
+      "West": 0.6650123447176044
+    },
+    "scenario": 327
+  },
+  {
+    "cost_policy_index": 0.7310416852325072,
+    "global": 0.9490266807230152,
+    "paired_difference": 0.027455087504171916,
+    "proxy_policy_index": 0.7584967727366791,
+    "regional": {
+      "Gulf": 0.08063874120404535,
+      "Northeast": 0.6741688120554022,
+      "West": 0.28113657797646197
+    },
+    "scenario": 328
+  },
+  {
+    "cost_policy_index": 0.949139522632169,
+    "global": 0.9014943047629275,
+    "paired_difference": 0.019380452668916415,
+    "proxy_policy_index": 0.9685199753010855,
+    "regional": {
+      "Gulf": 0.29502834583081905,
+      "Northeast": 0.9669167157315282,
+      "West": 0.97183099543083
+    },
+    "scenario": 329
+  },
+  {
+    "cost_policy_index": 0.15238362456020915,
+    "global": 0.011396151332487614,
+    "paired_difference": -0.022428064109268675,
+    "proxy_policy_index": 0.12995556045094048,
+    "regional": {
+      "Gulf": 0.5577699318586862,
+      "Northeast": 0.22198524796193686,
+      "West": 0.24349249706038023
+    },
+    "scenario": 330
+  },
+  {
+    "cost_policy_index": 0.34779279715279166,
+    "global": 0.1860799791291271,
+    "paired_difference": -0.0171382167935602,
+    "proxy_policy_index": 0.33065458035923145,
+    "regional": {
+      "Gulf": 0.11899803474060822,
+      "Northeast": 0.12677042860437093,
+      "West": 0.6469942090478644
+    },
+    "scenario": 331
+  },
+  {
+    "cost_policy_index": 0.30195551528734266,
+    "global": 0.4176497433511984,
+    "paired_difference": 0.03170739902973041,
+    "proxy_policy_index": 0.33366291431707307,
+    "regional": {
+      "Gulf": 0.012797256334818097,
+      "Northeast": 0.514785688751733,
+      "West": 0.07112245742917145
+    },
+    "scenario": 332
+  },
+  {
+    "cost_policy_index": 0.7846303654287616,
+    "global": 0.9847318479900536,
+    "paired_difference": -0.04087225189506394,
+    "proxy_policy_index": 0.7437581135336977,
+    "regional": {
+      "Gulf": 0.7559168724403236,
+      "Northeast": 0.25736603688932047,
+      "West": 0.12826153954292574
+    },
+    "scenario": 333
+  },
+  {
+    "cost_policy_index": 0.3478204827495205,
+    "global": 0.17069965035922796,
+    "paired_difference": 0.017724432798024103,
+    "proxy_policy_index": 0.3655449155475446,
+    "regional": {
+      "Gulf": 0.09773743857093942,
+      "Northeast": 0.5725895682551778,
+      "West": 0.6862231753303126
+    },
+    "scenario": 334
+  },
+  {
+    "cost_policy_index": 0.7530375414207682,
+    "global": 0.6697790302089609,
+    "paired_difference": -0.03712929800121212,
+    "proxy_policy_index": 0.7159082434195561,
+    "regional": {
+      "Gulf": 0.5279393356745008,
+      "Northeast": 0.2995582111345816,
+      "West": 0.7574008084581458
+    },
+    "scenario": 335
+  },
+  {
+    "cost_policy_index": 0.2939276867715465,
+    "global": 0.16770462943607978,
+    "paired_difference": -0.034578551564604265,
+    "proxy_policy_index": 0.25934913520694225,
+    "regional": {
+      "Gulf": 0.8737886097076437,
+      "Northeast": 0.33235683881912503,
+      "West": 0.2450942732254766
+    },
+    "scenario": 336
+  },
+  {
+    "cost_policy_index": 0.47547467781515407,
+    "global": 0.26615237676203396,
+    "paired_difference": -0.037742781254767266,
+    "proxy_policy_index": 0.4377318965603868,
+    "regional": {
+      "Gulf": 0.6881617378006324,
+      "Northeast": 0.3153249332854178,
+      "West": 0.669962263199172
+    },
+    "scenario": 337
+  },
+  {
+    "cost_policy_index": 0.5272291518827361,
+    "global": 0.4014678126726894,
+    "paired_difference": -0.029627476093942118,
+    "proxy_policy_index": 0.497601675788794,
+    "regional": {
+      "Gulf": 0.6393940159234237,
+      "Northeast": 0.3709627670677498,
+      "West": 0.5703719169026084
+    },
+    "scenario": 338
+  },
+  {
+    "cost_policy_index": 0.7409061661378337,
+    "global": 0.9153137851415646,
+    "paired_difference": -0.004412461818625868,
+    "proxy_policy_index": 0.7364937043192078,
+    "regional": {
+      "Gulf": 0.45667145848667456,
+      "Northeast": 0.5298376448822726,
+      "West": 0.24406324809125113
+    },
+    "scenario": 339
+  },
+  {
+    "cost_policy_index": 0.8738992948922395,
+    "global": 0.9396023751087581,
+    "paired_difference": 0.007280427885798413,
+    "proxy_policy_index": 0.8811797227780379,
+    "regional": {
+      "Gulf": 0.3422881874708221,
+      "Northeast": 0.7384689131971094,
+      "West": 0.6452286525614218
+    },
+    "scenario": 340
+  },
+  {
+    "cost_policy_index": 0.3956206740330802,
+    "global": 0.1615920196661722,
+    "paired_difference": -0.04034010183347697,
+    "proxy_policy_index": 0.35528057219960324,
+    "regional": {
+      "Gulf": 0.8525022064629388,
+      "Northeast": 0.35727766832711394,
+      "West": 0.5783032731684343
+    },
+    "scenario": 341
+  },
+  {
+    "cost_policy_index": 0.6758399285155848,
+    "global": 0.6194897451099927,
+    "paired_difference": -0.03945592281618304,
+    "proxy_policy_index": 0.6363840056994018,
+    "regional": {
+      "Gulf": 0.8565244528588076,
+      "Northeast": 0.4223991222422252,
+      "West": 0.5034446990721043
+    },
+    "scenario": 342
+  },
+  {
+    "cost_policy_index": 0.7315514614588808,
+    "global": 0.6752074775906705,
+    "paired_difference": -0.04464258855964276,
+    "proxy_policy_index": 0.6869088728992381,
+    "regional": {
+      "Gulf": 0.6196214743058048,
+      "Northeast": 0.23446031455552196,
+      "West": 0.6469329833535622
+    },
+    "scenario": 343
+  },
+  {
+    "cost_policy_index": 0.3629007842104922,
+    "global": 0.39360948183656863,
+    "paired_difference": 0.001238610554533559,
+    "proxy_policy_index": 0.36413939476502577,
+    "regional": {
+      "Gulf": 0.6862273654399745,
+      "Northeast": 0.6270725821935765,
+      "West": 0.06367135779652155
+    },
+    "scenario": 344
+  },
+  {
+    "cost_policy_index": 0.7453526938847581,
+    "global": 0.6283345837389057,
+    "paired_difference": -0.02677110053415932,
+    "proxy_policy_index": 0.7185815933505988,
+    "regional": {
+      "Gulf": 0.17627963883723408,
+      "Northeast": 0.22471635855836147,
+      "West": 0.9459568239394021
+    },
+    "scenario": 345
+  },
+  {
+    "cost_policy_index": 0.6208052295332239,
+    "global": 0.4997254073812921,
+    "paired_difference": -0.02402213835935385,
+    "proxy_policy_index": 0.5967830911738701,
+    "regional": {
+      "Gulf": 0.7354470156830364,
+      "Northeast": 0.5514413736566505,
+      "West": 0.6227359628015243
+    },
+    "scenario": 346
+  },
+  {
+    "cost_policy_index": 0.5127216410861587,
+    "global": 0.548683163098663,
+    "paired_difference": 0.00604030473787176,
+    "proxy_policy_index": 0.5187619458240305,
+    "regional": {
+      "Gulf": 0.7018195738160252,
+      "Northeast": 0.775572735162252,
+      "West": 0.20219834052004848
+    },
+    "scenario": 347
+  },
+  {
+    "cost_policy_index": 0.8433090764072364,
+    "global": 0.8306490662575233,
+    "paired_difference": -0.034082584321885157,
+    "proxy_policy_index": 0.8092264920853512,
+    "regional": {
+      "Gulf": 0.9462469533789547,
+      "Northeast": 0.6136405509783462,
+      "West": 0.554782003234494
+    },
+    "scenario": 348
+  },
+  {
+    "cost_policy_index": 0.752574898618983,
+    "global": 0.8399312843568396,
+    "paired_difference": 0.0015361914136976518,
+    "proxy_policy_index": 0.7541110900326806,
+    "regional": {
+      "Gulf": 0.4332333622247069,
+      "Northeast": 0.6457641745133175,
+      "West": 0.44254736587181664
+    },
+    "scenario": 349
+  },
+  {
+    "cost_policy_index": 0.5845834317333645,
+    "global": 0.7125246879391065,
+    "paired_difference": 0.040396809910161036,
+    "proxy_policy_index": 0.6249802416435255,
+    "regional": {
+      "Gulf": 0.021462300559536462,
+      "Northeast": 0.7757026840942103,
+      "West": 0.33518976208521867
+    },
+    "scenario": 350
+  },
+  {
+    "cost_policy_index": 0.5783477614067116,
+    "global": 0.5614406695377365,
+    "paired_difference": -0.035264257783377495,
+    "proxy_policy_index": 0.5430835036233341,
+    "regional": {
+      "Gulf": 0.6599746028270732,
+      "Northeast": 0.27857888211210313,
+      "West": 0.3932843231368066
+    },
+    "scenario": 351
+  },
+  {
+    "cost_policy_index": 0.4698202243946446,
+    "global": 0.3134603190504709,
+    "paired_difference": 0.006006495143453694,
+    "proxy_policy_index": 0.4758267195380983,
+    "regional": {
+      "Gulf": 0.06298985575643778,
+      "Northeast": 0.4522595516406118,
+      "West": 0.7825383026194862
+    },
+    "scenario": 352
+  },
+  {
+    "cost_policy_index": 0.8016978025952959,
+    "global": 0.9137693618195747,
+    "paired_difference": -0.05685129942664224,
+    "proxy_policy_index": 0.7448465031686536,
+    "regional": {
+      "Gulf": 0.9752621367279356,
+      "Northeast": 0.24722163264076236,
+      "West": 0.24630156408881632
+    },
+    "scenario": 353
+  },
+  {
+    "cost_policy_index": 0.4890052964342326,
+    "global": 0.2227113298363529,
+    "paired_difference": -0.03727400291688637,
+    "proxy_policy_index": 0.4517312935173462,
+    "regional": {
+      "Gulf": 0.3998280316097712,
+      "Northeast": 0.1767439029285931,
+      "West": 0.9049371983157014
+    },
+    "scenario": 354
+  },
+  {
+    "cost_policy_index": 0.6100281203435605,
+    "global": 0.6229990998459028,
+    "paired_difference": 0.04675497902255088,
+    "proxy_policy_index": 0.6567830993661113,
+    "regional": {
+      "Gulf": 0.04904156415070504,
+      "Northeast": 0.9519040386811837,
+      "West": 0.5864834467034031
+    },
+    "scenario": 355
+  },
+  {
+    "cost_policy_index": 0.18022689878438405,
+    "global": 0.08864889580487356,
+    "paired_difference": 0.028582808449141933,
+    "proxy_policy_index": 0.208809707233526,
+    "regional": {
+      "Gulf": 0.24249719274477843,
+      "Northeast": 0.6692389056130555,
+      "West": 0.28560612563811283
+    },
+    "scenario": 356
+  },
+  {
+    "cost_policy_index": 0.6141148843484916,
+    "global": 0.43722747955731833,
+    "paired_difference": -0.05332818321434807,
+    "proxy_policy_index": 0.5607867011341435,
+    "regional": {
+      "Gulf": 0.49589979488961566,
+      "Northeast": 0.0474157514099961,
+      "West": 0.8167343204384663
+    },
+    "scenario": 357
+  },
+  {
+    "cost_policy_index": 1.0396894080742218,
+    "global": 0.9719409663385598,
+    "paired_difference": -0.0862554480342056,
+    "proxy_policy_index": 0.9534339600400162,
+    "regional": {
+      "Gulf": 0.9006052032428762,
+      "Northeast": 0.044179659592199716,
+      "West": 0.8869828145124358
+    },
+    "scenario": 358
+  },
+  {
+    "cost_policy_index": 0.20751201876200745,
+    "global": 0.11926548383909785,
+    "paired_difference": 0.040564654256979193,
+    "proxy_policy_index": 0.24807667301898664,
+    "regional": {
+      "Gulf": 0.21391360268214987,
+      "Northeast": 0.8186812944454559,
+      "West": 0.31737381293535627
+    },
+    "scenario": 359
+  },
+  {
+    "cost_policy_index": 0.169624310820952,
+    "global": 0.1374848637599514,
+    "paired_difference": 0.030420227964362112,
+    "proxy_policy_index": 0.2000445387853141,
+    "regional": {
+      "Gulf": 0.4976866379220264,
+      "Northeast": 0.8168057394514489,
+      "West": 0.06063404461046962
+    },
+    "scenario": 360
+  },
+  {
+    "cost_policy_index": 0.6964452658715757,
+    "global": 0.7267537383705512,
+    "paired_difference": -0.0076553078854363354,
+    "proxy_policy_index": 0.6887899579861394,
+    "regional": {
+      "Gulf": 0.6220377617465385,
+      "Northeast": 0.6482557926655693,
+      "West": 0.4326512698457031
+    },
+    "scenario": 361
+  },
+  {
+    "cost_policy_index": 0.5083875059066201,
+    "global": 0.27356023199049884,
+    "paired_difference": 0.035536888405980016,
+    "proxy_policy_index": 0.5439243943126001,
+    "regional": {
+      "Gulf": 0.18236924450359482,
+      "Northeast": 0.9733606076717619,
+      "West": 0.9395098087128526
+    },
+    "scenario": 362
+  },
+  {
+    "cost_policy_index": 0.39411301660080583,
+    "global": 0.13201541113435655,
+    "paired_difference": -0.00019487290063818774,
+    "proxy_policy_index": 0.39391814370016764,
+    "regional": {
+      "Gulf": 0.05134351365897771,
+      "Northeast": 0.3824828506176694,
+      "West": 0.9245919265251117
+    },
+    "scenario": 363
+  },
+  {
+    "cost_policy_index": 0.7916121561226734,
+    "global": 0.8796741712045995,
+    "paired_difference": -0.05863867903269426,
+    "proxy_policy_index": 0.7329734770899792,
+    "regional": {
+      "Gulf": 0.8482929959607853,
+      "Northeast": 0.15132041967818377,
+      "West": 0.33098063345669004
+    },
+    "scenario": 364
+  },
+  {
+    "cost_policy_index": 0.4985696581778629,
+    "global": 0.6110099217219713,
+    "paired_difference": 0.006167898301542074,
+    "proxy_policy_index": 0.504737556479405,
+    "regional": {
+      "Gulf": 0.5544769355057204,
+      "Northeast": 0.6342972939992157,
+      "West": 0.08467570531183144
+    },
+    "scenario": 365
+  },
+  {
+    "cost_policy_index": 0.5767977261679811,
+    "global": 0.7200668367613372,
+    "paired_difference": -0.011255504675061867,
+    "proxy_policy_index": 0.5655422214929192,
+    "regional": {
+      "Gulf": 0.25623876884313235,
+      "Northeast": 0.24421848092274756,
+      "West": 0.21068764618927116
+    },
+    "scenario": 366
+  },
+  {
+    "cost_policy_index": 0.6049618006473351,
+    "global": 0.4763982845761927,
+    "paired_difference": 0.02257290428820835,
+    "proxy_policy_index": 0.6275347049355434,
+    "regional": {
+      "Gulf": 0.019010776674574736,
+      "Northeast": 0.6949638232598914,
+      "West": 0.88140981927439
+    },
+    "scenario": 367
+  },
+  {
+    "cost_policy_index": 0.8848504191305501,
+    "global": 0.8331403723980846,
+    "paired_difference": -0.018143234860450552,
+    "proxy_policy_index": 0.8667071842700995,
+    "regional": {
+      "Gulf": 0.542097050163421,
+      "Northeast": 0.6066384901851846,
+      "West": 0.8240828634359834
+    },
+    "scenario": 368
+  },
+  {
+    "cost_policy_index": 0.682384616933581,
+    "global": 0.4330151176938877,
+    "paired_difference": -0.010661340278755427,
+    "proxy_policy_index": 0.6717232766548256,
+    "regional": {
+      "Gulf": 0.713444290325808,
+      "Northeast": 0.813173817772097,
+      "West": 0.9565933845139264
+    },
+    "scenario": 369
+  },
+  {
+    "cost_policy_index": 0.46229673575895514,
+    "global": 0.6100402541868427,
+    "paired_difference": 0.02120214730237685,
+    "proxy_policy_index": 0.483498883061332,
+    "regional": {
+      "Gulf": 0.13435556031727425,
+      "Northeast": 0.5234874072620647,
+      "West": 0.12733893493631077
+    },
+    "scenario": 370
+  },
+  {
+    "cost_policy_index": 0.2750907032785078,
+    "global": 0.25235529546953805,
+    "paired_difference": -0.002915992560403202,
+    "proxy_policy_index": 0.2721747107181046,
+    "regional": {
+      "Gulf": 0.26226324199776563,
+      "Northeast": 0.286978152428509,
+      "West": 0.23582505206101656
+    },
+    "scenario": 371
+  },
+  {
+    "cost_policy_index": 0.8029286000098439,
+    "global": 0.8694215049073526,
+    "paired_difference": -0.043463757193635155,
+    "proxy_policy_index": 0.7594648428162087,
+    "regional": {
+      "Gulf": 0.9413145014295132,
+      "Northeast": 0.4244286377934625,
+      "West": 0.3530390932832248
+    },
+    "scenario": 372
+  },
+  {
+    "cost_policy_index": 0.7159236832505139,
+    "global": 0.6712782813081403,
+    "paired_difference": -0.008366012421289759,
+    "proxy_policy_index": 0.7075576708292242,
+    "regional": {
+      "Gulf": 0.20091226127458117,
+      "Northeast": 0.4231323868765733,
+      "West": 0.7586761347174446
+    },
+    "scenario": 373
+  },
+  {
+    "cost_policy_index": 0.769335501801848,
+    "global": 0.831036456258993,
+    "paired_difference": -0.05475428715674535,
+    "proxy_policy_index": 0.7145812146451026,
+    "regional": {
+      "Gulf": 0.5504620873858749,
+      "Northeast": 0.015140470796340288,
+      "West": 0.46981012351187357
+    },
+    "scenario": 374
+  },
+  {
+    "cost_policy_index": 0.46984606532147655,
+    "global": 0.5558156221494571,
+    "paired_difference": 0.023071069472554995,
+    "proxy_policy_index": 0.49291713479403154,
+    "regional": {
+      "Gulf": 0.542130164942404,
+      "Northeast": 0.8443417336173469,
+      "West": 0.11355422592463627
+    },
+    "scenario": 375
+  },
+  {
+    "cost_policy_index": 0.30749761888946225,
+    "global": 0.08546464434529655,
+    "paired_difference": 0.03399448725235499,
+    "proxy_policy_index": 0.34149210614181724,
+    "regional": {
+      "Gulf": 0.16907205478903653,
+      "Northeast": 0.8315216663816498,
+      "West": 0.7104590143361635
+    },
+    "scenario": 376
+  },
+  {
+    "cost_policy_index": 0.7747959497085171,
+    "global": 0.6995156428955854,
+    "paired_difference": -0.03562077454031176,
+    "proxy_policy_index": 0.7391751751682053,
+    "regional": {
+      "Gulf": 0.9357189091059865,
+      "Northeast": 0.5850698519476575,
+      "West": 0.6157429964635835
+    },
+    "scenario": 377
+  },
+  {
+    "cost_policy_index": 0.4851514421966268,
+    "global": 0.3323267180439332,
+    "paired_difference": 0.017073663899788538,
+    "proxy_policy_index": 0.5022251060964154,
+    "regional": {
+      "Gulf": 0.20577260471442171,
+      "Northeast": 0.692205179494827,
+      "West": 0.7393963442419024
+    },
+    "scenario": 378
+  },
+  {
+    "cost_policy_index": 0.8989716010001031,
+    "global": 0.8207732721769024,
+    "paired_difference": -0.055174694794685286,
+    "proxy_policy_index": 0.8437969062054178,
+    "regional": {
+      "Gulf": 0.38796508432449595,
+      "Northeast": 0.05188770904179296,
+      "West": 0.9487067487768712
+    },
+    "scenario": 379
+  },
+  {
+    "cost_policy_index": 0.6969295544019246,
+    "global": 0.4378705032038631,
+    "paired_difference": -0.031956565495873224,
+    "proxy_policy_index": 0.6649729889060514,
+    "regional": {
+      "Gulf": 0.9631219601445468,
+      "Northeast": 0.7092770047126848,
+      "West": 0.9009106797302912
+    },
+    "scenario": 380
+  },
+  {
+    "cost_policy_index": 0.5466369608127197,
+    "global": 0.5474542239485657,
+    "paired_difference": 0.03394268101844333,
+    "proxy_policy_index": 0.5805796418311631,
+    "regional": {
+      "Gulf": 0.2366732627304634,
+      "Northeast": 0.8783827244724971,
+      "West": 0.47774660834110805
+    },
+    "scenario": 381
+  },
+  {
+    "cost_policy_index": 0.47691619603796176,
+    "global": 0.3318669947679249,
+    "paired_difference": -0.040772231546917226,
+    "proxy_policy_index": 0.43614396449104453,
+    "regional": {
+      "Gulf": 0.5101163686717943,
+      "Northeast": 0.12868129306214815,
+      "West": 0.6046420742775741
+    },
+    "scenario": 382
+  },
+  {
+    "cost_policy_index": 0.9182381970038684,
+    "global": 0.9287006951665235,
+    "paired_difference": -0.04098043392949502,
+    "proxy_policy_index": 0.8772577630743734,
+    "regional": {
+      "Gulf": 0.5267863803017733,
+      "Northeast": 0.28520871802971304,
+      "West": 0.7370854563834707
+    },
+    "scenario": 383
+  },
+  {
+    "cost_policy_index": 0.31276456573019695,
+    "global": 0.36215644664034496,
+    "paired_difference": 0.005599448554886477,
+    "proxy_policy_index": 0.31836401428508343,
+    "regional": {
+      "Gulf": 0.2711997188009786,
+      "Northeast": 0.38322271054315304,
+      "West": 0.12412203897790264
+    },
+    "scenario": 384
+  },
+  {
+    "cost_policy_index": 0.7988087143485851,
+    "global": 0.8723267869628558,
+    "paired_difference": -0.02074650826193203,
+    "proxy_policy_index": 0.7780622060866531,
+    "regional": {
+      "Gulf": 0.5380941705676331,
+      "Northeast": 0.45623532656231114,
+      "West": 0.4806174766790813
+    },
+    "scenario": 385
+  },
+  {
+    "cost_policy_index": 0.660403088922801,
+    "global": 0.7968943560302119,
+    "paired_difference": -0.005765402695868227,
+    "proxy_policy_index": 0.6546376862269327,
+    "regional": {
+      "Gulf": 0.9917664291662557,
+      "Northeast": 0.8301190187125206,
+      "West": 0.04430688348770062
+    },
+    "scenario": 386
+  },
+  {
+    "cost_policy_index": 0.8561902399052856,
+    "global": 0.9239540928176548,
+    "paired_difference": -0.03438228617593442,
+    "proxy_policy_index": 0.8218079537293512,
+    "regional": {
+      "Gulf": 0.5000396173327181,
+      "Northeast": 0.28929203289060046,
+      "West": 0.5655089493626586
+    },
+    "scenario": 387
+  },
+  {
+    "cost_policy_index": 0.7640871688618136,
+    "global": 0.6647160017896401,
+    "paired_difference": 0.019846418450180536,
+    "proxy_policy_index": 0.7839335873119941,
+    "regional": {
+      "Gulf": 0.3772736089677381,
+      "Northeast": 0.9554369721265388,
+      "West": 0.856385585524788
+    },
+    "scenario": 388
+  },
+  {
+    "cost_policy_index": 0.2912786141329165,
+    "global": 0.08543138124514471,
+    "paired_difference": 0.041884009591161786,
+    "proxy_policy_index": 0.3331626237240783,
+    "regional": {
+      "Gulf": 0.04758561352242907,
+      "Northeast": 0.8389757656381069,
+      "West": 0.7046547249742567
+    },
+    "scenario": 389
+  },
+  {
+    "cost_policy_index": 0.4135976844511061,
+    "global": 0.3811358189612526,
+    "paired_difference": 0.013360880980516854,
+    "proxy_policy_index": 0.42695856543162297,
+    "regional": {
+      "Gulf": 0.5221635403741621,
+      "Northeast": 0.7411705872709741,
+      "West": 0.3046893776971684
+    },
+    "scenario": 390
+  },
+  {
+    "cost_policy_index": 0.6455797425172993,
+    "global": 0.7726145899128946,
+    "paired_difference": -0.01556118701855258,
+    "proxy_policy_index": 0.6300185554987467,
+    "regional": {
+      "Gulf": 0.5642918203601005,
+      "Northeast": 0.4294156198992851,
+      "West": 0.2032977766919728
+    },
+    "scenario": 391
+  },
+  {
+    "cost_policy_index": 0.8298793722755002,
+    "global": 0.7884116475727679,
+    "paired_difference": -0.05194462170717529,
+    "proxy_policy_index": 0.777934750568325,
+    "regional": {
+      "Gulf": 0.9847133419474535,
+      "Northeast": 0.41572476468674535,
+      "West": 0.5858275962554442
+    },
+    "scenario": 392
+  },
+  {
+    "cost_policy_index": 0.36292937640699663,
+    "global": 0.4618331234878822,
+    "paired_difference": 0.0443276895523636,
+    "proxy_policy_index": 0.40725706595936023,
+    "regional": {
+      "Gulf": 0.029776801489477256,
+      "Northeast": 0.7302805461661788,
+      "West": 0.1623311281606895
+    },
+    "scenario": 393
+  },
+  {
+    "cost_policy_index": 0.4053376638640571,
+    "global": 0.3153871552004206,
+    "paired_difference": 0.0012733120315204793,
+    "proxy_policy_index": 0.4066109758955776,
+    "regional": {
+      "Gulf": 0.1822789223914183,
+      "Northeast": 0.39622010258078866,
+      "West": 0.5368801674223109
+    },
+    "scenario": 394
+  },
+  {
+    "cost_policy_index": 0.4579558434402222,
+    "global": 0.463972172043419,
+    "paired_difference": -0.011964913598951132,
+    "proxy_policy_index": 0.4459909298412711,
+    "regional": {
+      "Gulf": 0.1097838277167077,
+      "Northeast": 0.15430466765780493,
+      "West": 0.42142994056559446
+    },
+    "scenario": 395
+  },
+  {
+    "cost_policy_index": 0.4117644906109319,
+    "global": 0.40390990497631685,
+    "paired_difference": -0.027804119876785882,
+    "proxy_policy_index": 0.383960370734146,
+    "regional": {
+      "Gulf": 0.47905068533538564,
+      "Northeast": 0.16698815126342514,
+      "West": 0.2681315711877509
+    },
+    "scenario": 396
+  },
+  {
+    "cost_policy_index": 0.5785838081829973,
+    "global": 0.38148546592212895,
+    "paired_difference": -0.03873825986291446,
+    "proxy_policy_index": 0.5398455483200828,
+    "regional": {
+      "Gulf": 0.5227789785241459,
+      "Northeast": 0.24540723308247692,
+      "West": 0.8115574665043493
+    },
+    "scenario": 397
+  },
+  {
+    "cost_policy_index": 0.371119623999332,
+    "global": 0.2703200044315822,
+    "paired_difference": -0.010111811646468516,
+    "proxy_policy_index": 0.3610078123528635,
+    "regional": {
+      "Gulf": 0.4361043377626683,
+      "Northeast": 0.39791590142378086,
+      "West": 0.4316421485629349
+    },
+    "scenario": 398
+  },
+  {
+    "cost_policy_index": 0.08949234672632939,
+    "global": 0.04983735178462001,
+    "paired_difference": 0.03578951500036534,
+    "proxy_policy_index": 0.12528186172669473,
+    "regional": {
+      "Gulf": 0.14075602076135363,
+      "Northeast": 0.6213352787794364,
+      "West": 0.12255092036954451
+    },
+    "scenario": 399
+  },
+  {
+    "cost_policy_index": 0.25101829275484466,
+    "global": 0.09106891104429093,
+    "paired_difference": 0.006767290566098594,
+    "proxy_policy_index": 0.25778558332094326,
+    "regional": {
+      "Gulf": 0.2257862266404319,
+      "Northeast": 0.45146997102045094,
+      "West": 0.5046056167363508
+    },
+    "scenario": 400
+  },
+  {
+    "cost_policy_index": 0.8292098144972719,
+    "global": 0.955774417947987,
+    "paired_difference": -0.021434761440048744,
+    "proxy_policy_index": 0.8077750530572232,
+    "regional": {
+      "Gulf": 0.16348358108067174,
+      "Northeast": 0.19659077606352304,
+      "West": 0.5394565909744787
+    },
+    "scenario": 401
+  },
+  {
+    "cost_policy_index": 0.33870192166643315,
+    "global": 0.03940775829948662,
+    "paired_difference": -0.01602682199563027,
+    "proxy_policy_index": 0.3226750996708029,
+    "regional": {
+      "Gulf": 0.21276672931138219,
+      "Northeast": 0.2712218206183098,
+      "West": 0.884793102661675
+    },
+    "scenario": 402
+  },
+  {
+    "cost_policy_index": 0.7660626681638623,
+    "global": 0.6911568154195283,
+    "paired_difference": 0.002204264138654599,
+    "proxy_policy_index": 0.7682669323025169,
+    "regional": {
+      "Gulf": 0.6226601701689581,
+      "Northeast": 0.8706876936509496,
+      "West": 0.7194540376688866
+    },
+    "scenario": 403
+  },
+  {
+    "cost_policy_index": 0.17343153253774787,
+    "global": 0.019612617882856287,
+    "paired_difference": -0.04928215244463638,
+    "proxy_policy_index": 0.1241493800931115,
+    "regional": {
+      "Gulf": 0.8937983014104742,
+      "Northeast": 0.1061782826081803,
+      "West": 0.1696470721036728
+    },
+    "scenario": 404
+  },
+  {
+    "cost_policy_index": 0.4884350992369234,
+    "global": 0.5511884512713819,
+    "paired_difference": -0.034056815430427934,
+    "proxy_policy_index": 0.4543782838064955,
+    "regional": {
+      "Gulf": 0.5965222468492022,
+      "Northeast": 0.16263419362233045,
+      "West": 0.16050503998561494
+    },
+    "scenario": 405
+  },
+  {
+    "cost_policy_index": 0.6617116882378127,
+    "global": 0.50866062535717,
+    "paired_difference": 0.0005813393175295722,
+    "proxy_policy_index": 0.6622930275553423,
+    "regional": {
+      "Gulf": 0.4772851155020452,
+      "Northeast": 0.7449413343879238,
+      "West": 0.82398095833562
+    },
+    "scenario": 406
+  },
+  {
+    "cost_policy_index": 0.555674506992599,
+    "global": 0.5981870072789085,
+    "paired_difference": 0.01594464199645529,
+    "proxy_policy_index": 0.5716191489890543,
+    "regional": {
+      "Gulf": 0.705641157651326,
+      "Northeast": 0.9252554021515899,
+      "West": 0.23183716970672075
+    },
+    "scenario": 407
+  },
+  {
+    "cost_policy_index": 0.23306116016096953,
+    "global": 0.2201221587337202,
+    "paired_difference": 0.02534172726340675,
+    "proxy_policy_index": 0.2584028874243763,
+    "regional": {
+      "Gulf": 0.02177563175890096,
+      "Northeast": 0.4721291464980668,
+      "West": 0.2595379231537215
+    },
+    "scenario": 408
+  },
+  {
+    "cost_policy_index": 0.8987459192486655,
+    "global": 0.8406401634993724,
+    "paired_difference": -0.01092469607726021,
+    "proxy_policy_index": 0.8878212231714053,
+    "regional": {
+      "Gulf": 0.600488034443016,
+      "Northeast": 0.7479228273451594,
+      "West": 0.8303518874100337
+    },
+    "scenario": 409
+  },
+  {
+    "cost_policy_index": 0.714167269227901,
+    "global": 0.6969920960254125,
+    "paired_difference": -0.026867730585613758,
+    "proxy_policy_index": 0.6872995386422872,
+    "regional": {
+      "Gulf": 0.5167561877008053,
+      "Northeast": 0.3683672429591457,
+      "West": 0.5861981808281655
+    },
+    "scenario": 410
+  },
+  {
+    "cost_policy_index": 0.6530390492028663,
+    "global": 0.6276803617303784,
+    "paired_difference": -0.011142303499312889,
+    "proxy_policy_index": 0.6418967457035534,
+    "regional": {
+      "Gulf": 0.27738861174816987,
+      "Northeast": 0.39188704348005754,
+      "West": 0.62650516014735
+    },
+    "scenario": 411
+  },
+  {
+    "cost_policy_index": 0.5903842406176063,
+    "global": 0.778650669867209,
+    "paired_difference": 0.03567717210932342,
+    "proxy_policy_index": 0.6260614127269297,
+    "regional": {
+      "Gulf": 0.06976867191298752,
+      "Northeast": 0.7153540097631655,
+      "West": 0.20037708138176757
+    },
+    "scenario": 412
+  },
+  {
+    "cost_policy_index": 0.19860950262209004,
+    "global": 0.2235305804936104,
+    "paired_difference": 0.017763741290949264,
+    "proxy_policy_index": 0.2163732439130393,
+    "regional": {
+      "Gulf": 0.3990075735393983,
+      "Northeast": 0.5745857186488413,
+      "West": 0.009759706009131897
+    },
+    "scenario": 413
+  },
+  {
+    "cost_policy_index": 0.7669971628138752,
+    "global": 0.6310242529636441,
+    "paired_difference": -0.06337753249775013,
+    "proxy_policy_index": 0.7036196303161251,
+    "regional": {
+      "Gulf": 0.7430449585644469,
+      "Northeast": 0.1329228089678447,
+      "West": 0.8015845229746865
+    },
+    "scenario": 414
+  },
+  {
+    "cost_policy_index": 0.3537485105142487,
+    "global": 0.4180236517557404,
+    "paired_difference": -0.0034466639444999947,
+    "proxy_policy_index": 0.3503018465697487,
+    "regional": {
+      "Gulf": 0.43475381803651436,
+      "Northeast": 0.3836148492657878,
+      "West": 0.07678025485117879
+    },
+    "scenario": 415
+  },
+  {
+    "cost_policy_index": 0.9001889289008075,
+    "global": 0.7415263979049203,
+    "paired_difference": -0.0706983738642849,
+    "proxy_policy_index": 0.8294905550365226,
+    "regional": {
+      "Gulf": 0.7052407496939223,
+      "Northeast": 0.09725218204994368,
+      "West": 0.9993873932228414
+    },
+    "scenario": 416
+  },
+  {
+    "cost_policy_index": 0.7185491415554731,
+    "global": 0.7586754901046503,
+    "paired_difference": -0.04025971388576022,
+    "proxy_policy_index": 0.6782894276697129,
+    "regional": {
+      "Gulf": 0.26079273252837043,
+      "Northeast": 0.0036284179231174107,
+      "West": 0.5664182778074427
+    },
+    "scenario": 417
+  },
+  {
+    "cost_policy_index": 0.16524397020600584,
+    "global": 0.04299112252152382,
+    "paired_difference": 0.011329703196620411,
+    "proxy_policy_index": 0.17657367340262625,
+    "regional": {
+      "Gulf": 0.011627772015960547,
+      "Northeast": 0.30843262113270253,
+      "West": 0.4165157394647824
+    },
+    "scenario": 418
+  },
+  {
+    "cost_policy_index": 0.6130293561838531,
+    "global": 0.7251291240720867,
+    "paired_difference": -0.018683068360816568,
+    "proxy_policy_index": 0.5943462878230366,
+    "regional": {
+      "Gulf": 0.08155707840119919,
+      "Northeast": 0.07355346999710655,
+      "West": 0.3751921745402358
+    },
+    "scenario": 419
+  },
+  {
+    "cost_policy_index": 0.7050698324022813,
+    "global": 0.6100167751390004,
+    "paired_difference": -0.05976750310822476,
+    "proxy_policy_index": 0.6453023292940565,
+    "regional": {
+      "Gulf": 0.7993790837677771,
+      "Northeast": 0.1601379974144771,
+      "West": 0.6334913413462109
+    },
+    "scenario": 420
+  },
+  {
+    "cost_policy_index": 0.2366344146694636,
+    "global": 0.27975469772433237,
+    "paired_difference": 0.007747111103996007,
+    "proxy_policy_index": 0.24438152577345962,
+    "regional": {
+      "Gulf": 0.34397729413508116,
+      "Northeast": 0.42029213662551357,
+      "West": 0.03183374083258905
+    },
+    "scenario": 421
+  },
+  {
+    "cost_policy_index": 0.4080109501460278,
+    "global": 0.394235572728599,
+    "paired_difference": -0.0540990859439881,
+    "proxy_policy_index": 0.3539118642020397,
+    "regional": {
+      "Gulf": 0.9982560145166097,
+      "Northeast": 0.15775951931444065,
+      "West": 0.088101753048769
+    },
+    "scenario": 422
+  },
+  {
+    "cost_policy_index": 0.8073893213396239,
+    "global": 0.8597540724512182,
+    "paired_difference": 0.0015201390296550876,
+    "proxy_policy_index": 0.808909460369279,
+    "regional": {
+      "Gulf": 0.2562543049754592,
+      "Northeast": 0.581429887482975,
+      "West": 0.6349118879725558
+    },
+    "scenario": 423
+  },
+  {
+    "cost_policy_index": 0.5480933744617197,
+    "global": 0.6038054089232326,
+    "paired_difference": -0.01499526725320377,
+    "proxy_policy_index": 0.5330981072085159,
+    "regional": {
+      "Gulf": 0.10504085872548419,
+      "Northeast": 0.1326379497644774,
+      "West": 0.4147817159383963
+    },
+    "scenario": 424
+  },
+  {
+    "cost_policy_index": 0.549887900905401,
+    "global": 0.21500708166723081,
+    "paired_difference": -0.051151252392759194,
+    "proxy_policy_index": 0.49873664851264177,
+    "regional": {
+      "Gulf": 0.9421169944440153,
+      "Northeast": 0.41133843297152584,
+      "West": 0.9114529589989886
+    },
+    "scenario": 425
+  },
+  {
+    "cost_policy_index": 0.20285638583703075,
+    "global": 0.27489470242130554,
+    "paired_difference": 0.015977218087403378,
+    "proxy_policy_index": 0.21883360392443413,
+    "regional": {
+      "Gulf": 0.05148804039708266,
+      "Northeast": 0.30732485904071816,
+      "West": 0.043851238951635785
+    },
+    "scenario": 426
+  },
+  {
+    "cost_policy_index": 0.3751527208778208,
+    "global": 0.3430111384272124,
+    "paired_difference": -0.031956051284057874,
+    "proxy_policy_index": 0.34319666959376294,
+    "regional": {
+      "Gulf": 0.33779404705272187,
+      "Northeast": 0.017535388472579627,
+      "West": 0.33112968809609034
+    },
+    "scenario": 427
+  },
+  {
+    "cost_policy_index": 0.8465662028371934,
+    "global": 0.7831022372669122,
+    "paired_difference": 0.01051535998995401,
+    "proxy_policy_index": 0.8570815628271474,
+    "regional": {
+      "Gulf": 0.22798022276639973,
+      "Northeast": 0.7640272137206766,
+      "West": 0.922410255273064
+    },
+    "scenario": 428
+  },
+  {
+    "cost_policy_index": 0.5779831178856853,
+    "global": 0.31931368410221217,
+    "paired_difference": -0.029945261094420084,
+    "proxy_policy_index": 0.5480378567912653,
+    "regional": {
+      "Gulf": 0.6232298013935522,
+      "Northeast": 0.4562983365234262,
+      "West": 0.9003582497797812
+    },
+    "scenario": 429
+  },
+  {
+    "cost_policy_index": 0.7935011394103828,
+    "global": 0.7320360873079852,
+    "paired_difference": -0.0491375802554338,
+    "proxy_policy_index": 0.744363559154949,
+    "regional": {
+      "Gulf": 0.6902510404155929,
+      "Northeast": 0.25679221270282016,
+      "West": 0.69584796267331
+    },
+    "scenario": 430
+  },
+  {
+    "cost_policy_index": 0.6905313024940736,
+    "global": 0.6530832785001788,
+    "paired_difference": -0.05666416105217931,
+    "proxy_policy_index": 0.6338671414418943,
+    "regional": {
+      "Gulf": 0.9037025285931544,
+      "Northeast": 0.2272306009092826,
+      "West": 0.46289687146123804
+    },
+    "scenario": 431
+  },
+  {
+    "cost_policy_index": 0.8389561775581604,
+    "global": 0.8756088170460665,
+    "paired_difference": -0.03496740946898247,
+    "proxy_policy_index": 0.803988768089178,
+    "regional": {
+      "Gulf": 0.8475892733077308,
+      "Northeast": 0.5102506776196317,
+      "West": 0.4852635463313919
+    },
+    "scenario": 432
+  },
+  {
+    "cost_policy_index": 0.689857297762259,
+    "global": 0.8509800527428133,
+    "paired_difference": -0.012167426200756726,
+    "proxy_policy_index": 0.6776898715615023,
+    "regional": {
+      "Gulf": 0.8989243603822767,
+      "Northeast": 0.690504280425186,
+      "West": 0.058081576132230195
+    },
+    "scenario": 433
+  },
+  {
+    "cost_policy_index": 0.7073539957131314,
+    "global": 0.8737494128789715,
+    "paired_difference": -0.017547955212257826,
+    "proxy_policy_index": 0.6898060405008736,
+    "regional": {
+      "Gulf": 0.308984675615823,
+      "Northeast": 0.2528289611668615,
+      "West": 0.27929302340199025
+    },
+    "scenario": 434
+  },
+  {
+    "cost_policy_index": 0.5265076569749837,
+    "global": 0.5610299816906236,
+    "paired_difference": 0.006074456928120031,
+    "proxy_policy_index": 0.5325821139031037,
+    "regional": {
+      "Gulf": 0.3554948249386308,
+      "Northeast": 0.5642720129419654,
+      "West": 0.3449627801032763
+    },
+    "scenario": 435
+  },
+  {
+    "cost_policy_index": 0.3860829417051259,
+    "global": 0.32750541651731546,
+    "paired_difference": 0.042160613644152356,
+    "proxy_policy_index": 0.42824355534927827,
+    "regional": {
+      "Gulf": 0.2834492058458994,
+      "Northeast": 0.9618218657092492,
+      "West": 0.41616698497431703
+    },
+    "scenario": 436
+  },
+  {
+    "cost_policy_index": 0.3811630035237186,
+    "global": 0.002140957305897806,
+    "paired_difference": -0.04106838031242527,
+    "proxy_policy_index": 0.34009462321129336,
+    "regional": {
+      "Gulf": 0.7482215608608332,
+      "Northeast": 0.3534395769750981,
+      "West": 0.8975093904442321
+    },
+    "scenario": 437
+  },
+  {
+    "cost_policy_index": 0.7926117712314563,
+    "global": 0.9427341240747036,
+    "paired_difference": -0.015500293828037526,
+    "proxy_policy_index": 0.7771114774034188,
+    "regional": {
+      "Gulf": 0.025353108331973018,
+      "Northeast": 0.1533595582812397,
+      "West": 0.5035474914685844
+    },
+    "scenario": 438
+  },
+  {
+    "cost_policy_index": 0.390399964187538,
+    "global": 0.09088204340105221,
+    "paired_difference": -0.060675605336831584,
+    "proxy_policy_index": 0.3297243588507064,
+    "regional": {
+      "Gulf": 0.966319109239925,
+      "Northeast": 0.19964949749428873,
+      "West": 0.6654889264346139
+    },
+    "scenario": 439
+  },
+  {
+    "cost_policy_index": 0.2622120376764623,
+    "global": 0.17036867382225773,
+    "paired_difference": 0.016645301327443685,
+    "proxy_policy_index": 0.27885733900390597,
+    "regional": {
+      "Gulf": 0.7508246188444885,
+      "Northeast": 0.8811126616743673,
+      "West": 0.18661612719270937
+    },
+    "scenario": 440
+  },
+  {
+    "cost_policy_index": 0.4687465495095341,
+    "global": 0.4468003352839568,
+    "paired_difference": 0.03637873127720492,
+    "proxy_policy_index": 0.505125280786739,
+    "regional": {
+      "Gulf": 0.2532692653949279,
+      "Northeast": 0.8916219115335777,
+      "West": 0.43771519667805503
+    },
+    "scenario": 441
+  },
+  {
+    "cost_policy_index": 0.8114370992181101,
+    "global": 0.8801081089784842,
+    "paired_difference": -0.014624519213744747,
+    "proxy_policy_index": 0.7968125800043654,
+    "regional": {
+      "Gulf": 0.03900298688906256,
+      "Northeast": 0.22794769989397312,
+      "West": 0.6845391123281509
+    },
+    "scenario": 442
+  },
+  {
+    "cost_policy_index": 0.38238555966888843,
+    "global": 0.0025771797263852703,
+    "paired_difference": 0.004190879042273554,
+    "proxy_policy_index": 0.386576438711162,
+    "regional": {
+      "Gulf": 0.8102815477822528,
+      "Northeast": 0.9792238716521283,
+      "West": 0.8778794002549488
+    },
+    "scenario": 443
+  },
+  {
+    "cost_policy_index": 0.7803599107964387,
+    "global": 0.8152004084558976,
+    "paired_difference": -0.009418916676085298,
+    "proxy_policy_index": 0.7709409941203534,
+    "regional": {
+      "Gulf": 0.29085926052767885,
+      "Northeast": 0.45720647429212546,
+      "West": 0.6302334831367784
+    },
+    "scenario": 444
+  },
+  {
+    "cost_policy_index": 0.7893184857463931,
+    "global": 0.8853013320869524,
+    "paired_difference": -0.0055985934782661895,
+    "proxy_policy_index": 0.7837198922681269,
+    "regional": {
+      "Gulf": 0.8278297392220332,
+      "Northeast": 0.8187133831690632,
+      "West": 0.31983931330777693
+    },
+    "scenario": 445
+  },
+  {
+    "cost_policy_index": 0.75259140412493,
+    "global": 0.973958230771237,
+    "paired_difference": 0.0071838841939954046,
+    "proxy_policy_index": 0.7597752883189254,
+    "regional": {
+      "Gulf": 0.07757035428014436,
+      "Northeast": 0.4196306568717747,
+      "West": 0.29761973914154893
+    },
+    "scenario": 446
+  },
+  {
+    "cost_policy_index": 0.39468929824447224,
+    "global": 0.4040616988436886,
+    "paired_difference": 0.055123786255238394,
+    "proxy_policy_index": 0.44981308449971064,
+    "regional": {
+      "Gulf": 0.09545016659526517,
+      "Northeast": 0.9774653700018913,
+      "West": 0.3543493305706328
+    },
+    "scenario": 447
+  },
+  {
+    "cost_policy_index": 0.12802729949117586,
+    "global": 0.051500513855935015,
+    "paired_difference": 0.018406359598434396,
+    "proxy_policy_index": 0.14643365908961026,
+    "regional": {
+      "Gulf": 0.2698898903218645,
+      "Northeast": 0.5191167947551483,
+      "West": 0.19093676265074355
+    },
+    "scenario": 448
+  },
+  {
+    "cost_policy_index": 0.5791854724609868,
+    "global": 0.7518913485610441,
+    "paired_difference": 0.02571027177871832,
+    "proxy_policy_index": 0.6048957442397052,
+    "regional": {
+      "Gulf": 0.3323706098646304,
+      "Northeast": 0.7557399029797033,
+      "West": 0.1253886260602406
+    },
+    "scenario": 449
+  },
+  {
+    "cost_policy_index": 0.6125840563929467,
+    "global": 0.3903919286364176,
+    "paired_difference": -0.004156544854054256,
+    "proxy_policy_index": 0.6084275115388924,
+    "regional": {
+      "Gulf": 0.4447538245471391,
+      "Northeast": 0.6748677485507467,
+      "West": 0.926292076485936
+    },
+    "scenario": 450
+  },
+  {
+    "cost_policy_index": 0.47188734023213813,
+    "global": 0.6623611396339398,
+    "paired_difference": -0.003872441006714411,
+    "proxy_policy_index": 0.4680148992254237,
+    "regional": {
+      "Gulf": 0.02698155642665423,
+      "Northeast": 0.1127264786657518,
+      "West": 0.08885194863391987
+    },
+    "scenario": 451
+  },
+  {
+    "cost_policy_index": 0.675152012145182,
+    "global": 0.7409019507769192,
+    "paired_difference": -0.02086297226911693,
+    "proxy_policy_index": 0.654289039876065,
+    "regional": {
+      "Gulf": 0.1023270184015781,
+      "Northeast": 0.11685467407787675,
+      "West": 0.5266295751433143
+    },
+    "scenario": 452
+  },
+  {
+    "cost_policy_index": 0.8755921440911701,
+    "global": 0.8980619569171715,
+    "paired_difference": -0.04056495393750492,
+    "proxy_policy_index": 0.8350271901536652,
+    "regional": {
+      "Gulf": 0.5882581912932807,
+      "Northeast": 0.30042782165536064,
+      "West": 0.6461597004185102
+    },
+    "scenario": 453
+  },
+  {
+    "cost_policy_index": 0.1874081526061206,
+    "global": 0.035196552448589324,
+    "paired_difference": -0.002593336324857004,
+    "proxy_policy_index": 0.1848148162812636,
+    "regional": {
+      "Gulf": 0.2929074665618261,
+      "Northeast": 0.3350775375315357,
+      "West": 0.3986807706729816
+    },
+    "scenario": 454
+  },
+  {
+    "cost_policy_index": 0.826748234513433,
+    "global": 0.7688436109722785,
+    "paired_difference": -0.07383744037491302,
+    "proxy_policy_index": 0.75291079413852,
+    "regional": {
+      "Gulf": 0.9451482734044888,
+      "Northeast": 0.11482878910654404,
+      "West": 0.6305299108656287
+    },
+    "scenario": 455
+  },
+  {
+    "cost_policy_index": 0.5747402582538956,
+    "global": 0.7647367094440887,
+    "paired_difference": 0.0526514791936481,
+    "proxy_policy_index": 0.6273917374475437,
+    "regional": {
+      "Gulf": 0.03300199649062718,
+      "Northeast": 0.9022979612724963,
+      "West": 0.19399572533380338
+    },
+    "scenario": 456
+  },
+  {
+    "cost_policy_index": 0.8341991746964361,
+    "global": 0.6851918932549647,
+    "paired_difference": -0.0395720229652512,
+    "proxy_policy_index": 0.7946271517311849,
+    "regional": {
+      "Gulf": 0.645927095804637,
+      "Northeast": 0.4218866899517112,
+      "West": 0.9329248571704851
+    },
+    "scenario": 457
+  },
+  {
+    "cost_policy_index": 0.3575954737432294,
+    "global": 0.005130381052056876,
+    "paired_difference": -0.037613757390725366,
+    "proxy_policy_index": 0.31998171635250405,
+    "regional": {
+      "Gulf": 0.7156850414572996,
+      "Northeast": 0.3504266033678862,
+      "West": 0.8306584989902774
+    },
+    "scenario": 458
+  },
+  {
+    "cost_policy_index": 0.3063830339034357,
+    "global": 0.2601888532789185,
+    "paired_difference": -0.006590082231263172,
+    "proxy_policy_index": 0.2997929516721725,
+    "regional": {
+      "Gulf": 0.9809665849906551,
+      "Northeast": 0.7251043885369491,
+      "West": 0.055545589940506956
+    },
+    "scenario": 459
+  },
+  {
+    "cost_policy_index": 0.7917815250639496,
+    "global": 0.9073975345441632,
+    "paired_difference": -0.01201311986090603,
+    "proxy_policy_index": 0.7797684052030436,
+    "regional": {
+      "Gulf": 0.8498094723038891,
+      "Northeast": 0.7402590033781029,
+      "West": 0.2742894318636503
+    },
+    "scenario": 460
+  },
+  {
+    "cost_policy_index": 0.31843973297726336,
+    "global": 0.06427096704123358,
+    "paired_difference": -0.06066993161987211,
+    "proxy_policy_index": 0.25776980135739125,
+    "regional": {
+      "Gulf": 0.930040102658326,
+      "Northeast": 0.11372133625298098,
+      "West": 0.5115477784560832
+    },
+    "scenario": 461
+  },
+  {
+    "cost_policy_index": 0.6206357670050393,
+    "global": 0.29448805564286284,
+    "paired_difference": -0.06517935031758915,
+    "proxy_policy_index": 0.5554564166874502,
+    "regional": {
+      "Gulf": 0.863191086205528,
+      "Northeast": 0.2125230195958362,
+      "West": 0.995374157280348
+    },
+    "scenario": 462
+  },
+  {
+    "cost_policy_index": 0.5198401602601987,
+    "global": 0.409308577953335,
+    "paired_difference": -0.028038481604318766,
+    "proxy_policy_index": 0.49180167865588,
+    "regional": {
+      "Gulf": 0.5971055536312581,
+      "Northeast": 0.35241032061063327,
+      "West": 0.5469367954833008
+    },
+    "scenario": 463
+  },
+  {
+    "cost_policy_index": 0.3376259265493725,
+    "global": 0.14684386682598127,
+    "paired_difference": -0.010408024763117363,
+    "proxy_policy_index": 0.32721790178625515,
+    "regional": {
+      "Gulf": 0.9253450770317919,
+      "Northeast": 0.7361890290577667,
+      "West": 0.40353526226295633
+    },
+    "scenario": 464
+  },
+  {
+    "cost_policy_index": 0.3612688541783146,
+    "global": 0.2849967684229715,
+    "paired_difference": 0.02004995020597422,
+    "proxy_policy_index": 0.38131880438428883,
+    "regional": {
+      "Gulf": 0.674714800376668,
+      "Northeast": 0.9207858248130674,
+      "West": 0.28481177784754985
+    },
+    "scenario": 465
+  },
+  {
+    "cost_policy_index": 0.7456792250569749,
+    "global": 0.6890921207989584,
+    "paired_difference": -0.05470908708666511,
+    "proxy_policy_index": 0.6909701379703098,
+    "regional": {
+      "Gulf": 0.9219383110594463,
+      "Northeast": 0.3037955228180367,
+      "West": 0.5524261902050598
+    },
+    "scenario": 466
+  },
+  {
+    "cost_policy_index": 0.6953929257227065,
+    "global": 0.5184583563320663,
+    "paired_difference": -0.03898923759579753,
+    "proxy_policy_index": 0.656403688126909,
+    "regional": {
+      "Gulf": 0.2974510869639764,
+      "Northeast": 0.1499757078925662,
+      "West": 0.972825226703729
+    },
+    "scenario": 467
+  },
+  {
+    "cost_policy_index": 0.9219822476166717,
+    "global": 0.8650045409604977,
+    "paired_difference": 0.0010233075775580858,
+    "proxy_policy_index": 0.9230055551942298,
+    "regional": {
+      "Gulf": 0.40576722609221894,
+      "Northeast": 0.7905310661907695,
+      "West": 0.9226734470858415
+    },
+    "scenario": 468
+  },
+  {
+    "cost_policy_index": 0.639651237855474,
+    "global": 0.9051189526861466,
+    "paired_difference": 0.0176622418549226,
+    "proxy_policy_index": 0.6573134797103966,
+    "regional": {
+      "Gulf": 0.17146994611347466,
+      "Northeast": 0.5307433115393663,
+      "West": 0.05665693343204403
+    },
+    "scenario": 469
+  },
+  {
+    "cost_policy_index": 0.7312246228876873,
+    "global": 0.9856052223397687,
+    "paired_difference": -0.020138317006680673,
+    "proxy_policy_index": 0.7110863058810066,
+    "regional": {
+      "Gulf": 0.03737230938964642,
+      "Northeast": 0.011364041665695379,
+      "West": 0.22262547536738597
+    },
+    "scenario": 470
+  },
+  {
+    "cost_policy_index": 0.5184119918655652,
+    "global": 0.6009397395977567,
+    "paired_difference": 0.03485187404231893,
+    "proxy_policy_index": 0.5532638659078841,
+    "regional": {
+      "Gulf": 0.3599641351441537,
+      "Northeast": 0.9086815813652127,
+      "West": 0.23685497896489227
+    },
+    "scenario": 471
+  },
+  {
+    "cost_policy_index": 0.4624646948053882,
+    "global": 0.268188270750898,
+    "paired_difference": -0.03426033324235689,
+    "proxy_policy_index": 0.4282043615630313,
+    "regional": {
+      "Gulf": 0.67535597145841,
+      "Northeast": 0.3370965143333231,
+      "West": 0.6304011701306668
+    },
+    "scenario": 472
+  },
+  {
+    "cost_policy_index": 0.36450899466822795,
+    "global": 0.28095957677248995,
+    "paired_difference": 0.016277389702946343,
+    "proxy_policy_index": 0.3807863843711743,
+    "regional": {
+      "Gulf": 0.6310075928698177,
+      "Northeast": 0.8499572609673577,
+      "West": 0.3188830202289673
+    },
+    "scenario": 473
+  },
+  {
+    "cost_policy_index": 0.4733957632687231,
+    "global": 0.5770947772265692,
+    "paired_difference": 0.03763245244745783,
+    "proxy_policy_index": 0.511028215716181,
+    "regional": {
+      "Gulf": 0.07107614928994666,
+      "Northeast": 0.7258141120453375,
+      "West": 0.2517796431673256
+    },
+    "scenario": 474
+  },
+  {
+    "cost_policy_index": 0.7033854333058254,
+    "global": 0.4920876532820847,
+    "paired_difference": -0.054478776015689734,
+    "proxy_policy_index": 0.6489066572901356,
+    "regional": {
+      "Gulf": 0.7277437070191207,
+      "Northeast": 0.24585451665682057,
+      "West": 0.8953106139027536
+    },
+    "scenario": 475
+  },
+  {
+    "cost_policy_index": 0.8959077630457315,
+    "global": 0.7168923092183211,
+    "paired_difference": -0.02267831489849348,
+    "proxy_policy_index": 0.873229448147238,
+    "regional": {
+      "Gulf": 0.8950901161241483,
+      "Northeast": 0.8476601544021978,
+      "West": 0.9677248674357668
+    },
+    "scenario": 476
+  },
+  {
+    "cost_policy_index": 0.3050308523586861,
+    "global": 0.407642484363267,
+    "paired_difference": 0.04011795679456054,
+    "proxy_policy_index": 0.34514880915324664,
+    "regional": {
+      "Gulf": 0.24407941420919033,
+      "Northeast": 0.7791616035527087,
+      "West": 0.017184689514977092
+    },
+    "scenario": 477
+  },
+  {
+    "cost_policy_index": 1.058125379661707,
+    "global": 0.9952468739998999,
+    "paired_difference": -0.02714586326745927,
+    "proxy_policy_index": 1.0309795163942477,
+    "regional": {
+      "Gulf": 0.7534429460978957,
+      "Northeast": 0.7222967639896631,
+      "West": 0.9494494119167167
+    },
+    "scenario": 478
+  },
+  {
+    "cost_policy_index": 0.7963022732410568,
+    "global": 0.8586617918908646,
+    "paired_difference": -0.03658389914178806,
+    "proxy_policy_index": 0.7597183740992688,
+    "regional": {
+      "Gulf": 0.6436604998666328,
+      "Northeast": 0.32321456628227774,
+      "West": 0.46255679732729726
+    },
+    "scenario": 479
+  },
+  {
+    "cost_policy_index": 0.9508816761557893,
+    "global": 0.9516134903720005,
+    "paired_difference": -0.05179111392853275,
+    "proxy_policy_index": 0.8990905622272566,
+    "regional": {
+      "Gulf": 0.6585804744130135,
+      "Northeast": 0.2516860551913511,
+      "West": 0.7429423145226516
+    },
+    "scenario": 480
+  },
+  {
+    "cost_policy_index": 0.04271472239878176,
+    "global": 0.004434049964654796,
+    "paired_difference": 0.005935136024456535,
+    "proxy_policy_index": 0.048649858423238296,
+    "regional": {
+      "Gulf": 0.19182046624375182,
+      "Northeast": 0.24212152172680002,
+      "West": 0.052858850711722916
+    },
+    "scenario": 481
+  },
+  {
+    "cost_policy_index": 0.49564738416624976,
+    "global": 0.4362611358596592,
+    "paired_difference": 0.010372502485208157,
+    "proxy_policy_index": 0.5060198866514579,
+    "regional": {
+      "Gulf": 0.6113271585526578,
+      "Northeast": 0.8173464403082281,
+      "West": 0.4122309560515234
+    },
+    "scenario": 482
+  },
+  {
+    "cost_policy_index": 0.34899168988211593,
+    "global": 0.09678989831464013,
+    "paired_difference": -0.02076906979445947,
+    "proxy_policy_index": 0.32822262008765646,
+    "regional": {
+      "Gulf": 0.29965578609486543,
+      "Northeast": 0.24469982277209923,
+      "West": 0.7676789975509509
+    },
+    "scenario": 483
+  },
+  {
+    "cost_policy_index": 0.38269817029884834,
+    "global": 0.15265591355133812,
+    "paired_difference": -0.01907768152077044,
+    "proxy_policy_index": 0.3636204887780779,
+    "regional": {
+      "Gulf": 0.7674046036265584,
+      "Northeast": 0.5692042999588574,
+      "West": 0.5876477334499035
+    },
+    "scenario": 484
+  },
+  {
+    "cost_policy_index": 0.37960906995457266,
+    "global": 0.3160756836190387,
+    "paired_difference": -0.028673724719860183,
+    "proxy_policy_index": 0.3509353452347125,
+    "regional": {
+      "Gulf": 0.7458057619419644,
+      "Northeast": 0.3385352875658256,
+      "West": 0.25196396888453865
+    },
+    "scenario": 485
+  },
+  {
+    "cost_policy_index": 0.5809597625109837,
+    "global": 0.3627919524445563,
+    "paired_difference": 0.01109062279925177,
+    "proxy_policy_index": 0.5920503853102355,
+    "regional": {
+      "Gulf": 0.17898517117635215,
+      "Northeast": 0.6843886333653266,
+      "West": 0.9817276495093931
+    },
+    "scenario": 486
+  },
+  {
+    "cost_policy_index": 0.3084349269954931,
+    "global": 0.23640187919073052,
+    "paired_difference": 0.018811691014829046,
+    "proxy_policy_index": 0.3272466180103221,
+    "regional": {
+      "Gulf": 0.14683649139185617,
+      "Northeast": 0.539376029008122,
+      "West": 0.412911420230618
+    },
+    "scenario": 487
+  },
+  {
+    "cost_policy_index": 0.17406986054142368,
+    "global": 0.03940935951810298,
+    "paired_difference": 0.019406733219625133,
+    "proxy_policy_index": 0.1934765937610488,
+    "regional": {
+      "Gulf": 0.47820180470783447,
+      "Northeast": 0.720527830842561,
+      "West": 0.2818341112922268
+    },
+    "scenario": 488
+  },
+  {
+    "cost_policy_index": 0.6553621534212515,
+    "global": 0.4727923098861948,
+    "paired_difference": -0.04064337282701014,
+    "proxy_policy_index": 0.6147187805942413,
+    "regional": {
+      "Gulf": 0.9944617980428595,
+      "Northeast": 0.552899782103381,
+      "West": 0.6902333648257155
+    },
+    "scenario": 489
+  },
+  {
+    "cost_policy_index": 0.804232265462359,
+    "global": 0.8744974611619959,
+    "paired_difference": -0.052281361185475106,
+    "proxy_policy_index": 0.7519509042768839,
+    "regional": {
+      "Gulf": 0.7123775070849645,
+      "Northeast": 0.16369813398857813,
+      "West": 0.429683459658747
+    },
+    "scenario": 490
+  },
+  {
+    "cost_policy_index": 0.4032416976680461,
+    "global": 0.13123811090164172,
+    "paired_difference": -0.04078130248317008,
+    "proxy_policy_index": 0.362460395184876,
+    "regional": {
+      "Gulf": 0.42229181698376017,
+      "Northeast": 0.10333123655198906,
+      "West": 0.8197816376827453
+    },
+    "scenario": 491
+  },
+  {
+    "cost_policy_index": 0.8649463180165455,
+    "global": 0.888958854629497,
+    "paired_difference": 0.021526496526843464,
+    "proxy_policy_index": 0.886472814543389,
+    "regional": {
+      "Gulf": 0.3242427867744633,
+      "Northeast": 0.9293469597994626,
+      "West": 0.7277235774632086
+    },
+    "scenario": 492
+  },
+  {
+    "cost_policy_index": 0.15209047179853086,
+    "global": 0.10646755893067428,
+    "paired_difference": -0.00035241585999115643,
+    "proxy_policy_index": 0.1517380559385397,
+    "regional": {
+      "Gulf": 0.14190425353109126,
+      "Northeast": 0.1910985054704617,
+      "West": 0.19905930509281033
+    },
+    "scenario": 493
+  },
+  {
+    "cost_policy_index": 0.27886544949352465,
+    "global": 0.042851021725949456,
+    "paired_difference": 0.013771380788722976,
+    "proxy_policy_index": 0.29263683028224763,
+    "regional": {
+      "Gulf": 0.17426474528275782,
+      "Northeast": 0.5657728602601129,
+      "West": 0.7075464497448416
+    },
+    "scenario": 494
+  },
+  {
+    "cost_policy_index": 0.23379679415256355,
+    "global": 0.006146141559873031,
+    "paired_difference": -0.007288065684365852,
+    "proxy_policy_index": 0.2265087284681977,
+    "regional": {
+      "Gulf": 0.1270350621400218,
+      "Northeast": 0.2349814273937758,
+      "West": 0.6609748184968768
+    },
+    "scenario": 495
+  },
+  {
+    "cost_policy_index": 0.5803522972295366,
+    "global": 0.3671823845312886,
+    "paired_difference": -0.055019159999014966,
+    "proxy_policy_index": 0.5253331372305217,
+    "regional": {
+      "Gulf": 0.5036950087089083,
+      "Northeast": 0.03248364284343486,
+      "West": 0.8531534710853342
+    },
+    "scenario": 496
+  },
+  {
+    "cost_policy_index": 0.49311334441782717,
+    "global": 0.09174162961904064,
+    "paired_difference": -0.06354059110556542,
+    "proxy_policy_index": 0.42957275331226175,
+    "regional": {
+      "Gulf": 0.9749414014973983,
+      "Northeast": 0.278294944731297,
+      "West": 0.9767442849273921
+    },
+    "scenario": 497
+  },
+  {
+    "cost_policy_index": 0.3337279950268055,
+    "global": 0.10320516256436829,
+    "paired_difference": 0.005816150029844036,
+    "proxy_policy_index": 0.33954414505664954,
+    "regional": {
+      "Gulf": 0.35249424668537876,
+      "Northeast": 0.6020870377120647,
+      "West": 0.6884296231652791
+    },
+    "scenario": 498
+  },
+  {
+    "cost_policy_index": 0.7315251373903917,
+    "global": 0.8099051801959982,
+    "paired_difference": -0.040330884097527386,
+    "proxy_policy_index": 0.6911942532928643,
+    "regional": {
+      "Gulf": 0.8827971899445157,
+      "Northeast": 0.38345379323714546,
+      "West": 0.2761283271953685
+    },
+    "scenario": 499
+  },
+  {
+    "cost_policy_index": 0.5355878944259991,
+    "global": 0.5070532127488709,
+    "paired_difference": -0.01643565434947869,
+    "proxy_policy_index": 0.5191522400765204,
+    "regional": {
+      "Gulf": 0.8938466876563026,
+      "Northeast": 0.6542464064672139,
+      "West": 0.2880396081692794
+    },
+    "scenario": 500
+  }
+]
